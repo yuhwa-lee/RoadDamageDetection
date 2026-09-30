@@ -1,0 +1,4 @@
+# label:color_rgb:parts:actions
+background:0,0,0::
+crak:255,96,55::
+pothole:42,125,209::

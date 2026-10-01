@@ -394,7 +394,7 @@ def run_axis(axis, arms, items, detector, overlay_names=(), do_boot=True):
 # 실행
 # ---------------------------------------------------------------------------
 def default_detector():
-    from baseline_v2 import detect_baseline_mad            # 동결된 기본 설정 그대로 사용
+    from src.baseline_v2 import detect_baseline_mad            # 동결된 기본 설정 그대로 사용
     return lambda img: detect_baseline_mad(img)
 
 
@@ -406,7 +406,7 @@ def main(argv=None):
     ap.add_argument("--no-boot", action="store_true", help="bootstrap 범위 계산 생략")
     args = ap.parse_args(argv)
 
-    import candidates
+    import src.candidates as candidates
     items = load_items(args.limit)
     detector = default_detector()
     overlay = tuple(s for s in args.overlay.split(",") if s)

@@ -26,7 +26,7 @@ import cv2
 import numpy as np
 from PIL import Image
 
-from baseline_v2 import detect_baseline_mad
+from src.baseline_v2 import detect_baseline_mad
 
 IMG_DIR = r"C:\Users\kelly\Downloads\dataset\dataset"
 GT_DIR = r"C:\Users\kelly\OneDrive\문서\카카오톡 받은 파일\road_ground_truth_all"

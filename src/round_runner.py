@@ -18,7 +18,6 @@ round_runner.py - 전처리 후보를 같은 조건에서 채점하는 실험 �
             lift = macro - chance (순위 기준). 영상을 복원 추출(bootstrap)해서 baseline 대비 향상폭의 범위도 낸다.
 
 나중에 바뀌는 곳
-    - prepare_input(): ROI 크롭 + 리사이즈가 준비되면 이 함수만 바꾼다 (지금은 원본 그대로 = A0).
     - DATASETS: 직접 촬영분 라벨이 오면 항목을 하나 더 추가한다 (source 별 집계도 자동으로 나온다).
     - 박스 단위 정밀도, CNR 같은 열은 summarize() / run_arm() 에 추가하면 된다.
 """
@@ -29,16 +28,24 @@ import glob
 import time
 import argparse
 import datetime
+from pathlib import Path
 import numpy as np
+import cv2 as cv
 from PIL import Image
+
+from image_ROI_Resize import define_roi, resize_image_with_info
+
+BASE_DIR = Path.cwd()   
+IMG_DIR = BASE_DIR / "dataset"
+GT_DIR = BASE_DIR / "road_ground_truth_all"
 
 # ---------------------------------------------------------------------------
 # 설정
 # ---------------------------------------------------------------------------
 DATASETS = [
     {"source": "provided",
-     "img_dir": r"C:\Users\kelly\Downloads\dataset\dataset",
-     "gt_dir": r"C:\Users\kelly\OneDrive\문서\카카오톡 받은 파일\road_ground_truth_all"},
+     "img_dir": str(IMG_DIR),
+     "gt_dir": str(GT_DIR)},
     # 직접 촬영분 라벨이 오면 아래처럼 추가:
     # {"source": "captured", "img_dir": r"...", "gt_dir": r"..."},
 ]
@@ -54,10 +61,14 @@ FAMILY_LIFT = 0.10     # 같은 계열이면 이 안에서 다른 계열을 우�
 # ---------------------------------------------------------------------------
 # 데이터
 # ---------------------------------------------------------------------------
-def imread_gray(path):
-    import cv2                                           # 필요할 때만 불러온다
+def imread_bgr(path):
     data = np.fromfile(path, dtype=np.uint8)
-    return cv2.imdecode(data, cv2.IMREAD_GRAYSCALE)
+    return cv.imdecode(data, cv.IMREAD_COLOR)
+
+
+def imread_gray(path):
+    data = np.fromfile(path, dtype=np.uint8)
+    return cv.imdecode(data, cv.IMREAD_GRAYSCALE)
 
 
 def find_image(img_dir, name):
@@ -87,12 +98,15 @@ def load_gt_instances(gt_dir, name):
     return out, cls.shape[:2]
 
 
-def prepare_input(gray, name):
-    """입력 준비(ROI 크롭 + 리사이즈)가 들어갈 자리. 지금은 원본 그대로(A0).
-    ROI/리사이즈를 붙일 때는 (처리된 영상, meta)를 돌려주면 된다.
-      meta = {"x1": ROI 좌상단 x, "y1": ROI 좌상단 y, "scale": 리사이즈 배율}
-      원본 좌표 = 처리본 좌표 / scale + (x1, y1)"""
-    return gray, {"x1": 0, "y1": 0, "scale": 1.0}
+def prepare_input(bgr, name):
+    """원본 BGR에서 ROI를 찾고, ROI crop을 고정 크기로 resize한 뒤 그레이로 변환한다.
+
+    meta에는 원본 좌표 복원을 위한 ROI 좌표와 resize 정보가 함께 들어간다.
+    """
+    roi_bgr, _, roi_coords_original = define_roi(bgr)
+    resized_roi_bgr, resize_info = resize_image_with_info(roi_bgr)
+    resized_roi_gray = cv.cvtColor(resized_roi_bgr, cv.COLOR_BGR2GRAY)
+    return resized_roi_gray, {"roi_coords_original": roi_coords_original, "resize_info": resize_info}
 
 
 def load_items(limit=0):
@@ -101,11 +115,11 @@ def load_items(limit=0):
         names = sorted(os.path.splitext(os.path.basename(p))[0]
                        for p in glob.glob(os.path.join(ds["gt_dir"], "SegmentationClass", "*.png")))
         for nm in names:
-            gray = imread_gray(find_image(ds["img_dir"], nm))
+            bgr = imread_bgr(find_image(ds["img_dir"], nm))
             inst, shape = load_gt_instances(ds["gt_dir"], nm)
-            if gray.shape != tuple(shape):
-                raise ValueError("영상과 라벨 크기가 다름: %s %s vs %s" % (nm, gray.shape, shape))
-            img, meta = prepare_input(gray, nm)
+            if bgr.shape[:2] != tuple(shape):
+                raise ValueError("영상과 라벨 크기가 다름: %s %s vs %s" % (nm, bgr.shape[:2], shape))
+            img, meta = prepare_input(bgr, nm)
             items.append({"name": nm, "source": ds["source"], "img": img, "meta": meta,
                           "inst": inst, "shape": tuple(shape)})
     if limit:
@@ -119,16 +133,29 @@ def load_items(limit=0):
 # 좌표 변환 / 채점
 # ---------------------------------------------------------------------------
 def to_original(boxes, meta):
-    s = meta["scale"]
-    return [(int(round(x / s + meta["x1"])), int(round(y / s + meta["y1"])),
-             max(1, int(round(w / s))), max(1, int(round(h / s)))) for x, y, w, h in boxes]
+    roi_x1, roi_y1, roi_x2, roi_y2 = meta["roi_coords_original"]
+    resize_info = meta["resize_info"]
+    scale_x = resize_info["scale_x"]
+    scale_y = resize_info["scale_y"]
+
+    out = []
+    for x, y, w, h in boxes:
+        ox = int(round(x / scale_x)) + roi_x1
+        oy = int(round(y / scale_y)) + roi_y1
+        ow = max(1, int(round(w / scale_x)))
+        oh = max(1, int(round(h / scale_y)))
+        out.append((max(roi_x1, min(roi_x2 - 1, ox)), max(roi_y1, min(roi_y2 - 1, oy)), ow, oh))
+    return out
 
 
 def to_processed(box, meta):
-    s = meta["scale"]
+    roi_x1, roi_y1, _, _ = meta["roi_coords_original"]
+    resize_info = meta["resize_info"]
+    scale_x = resize_info["scale_x"]
+    scale_y = resize_info["scale_y"]
     x, y, w, h = box
-    return (int(round((x - meta["x1"]) * s)), int(round((y - meta["y1"]) * s)),
-            max(1, int(round(w * s))), max(1, int(round(h * s))))
+    return (int(round((x - roi_x1) * scale_x)), int(round((y - roi_y1) * scale_y)),
+            max(1, int(round(w * scale_x))), max(1, int(round(h * scale_y))))
 
 
 def covered_fraction(boxes, inst):
@@ -210,18 +237,17 @@ def run_arm(arm, items, detector, overlay_names=(), overlay_dir=None):
 
 
 def save_overlay(out_dir, arm_name, item, img, boxes):
-    import cv2
     os.makedirs(out_dir, exist_ok=True)
-    vis = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+    vis = cv.cvtColor(img, cv.COLOR_GRAY2BGR)
     t = max(1, round(max(img.shape) / 400))
     for inst in item["inst"]:                                  # 정답 박스: 초록
         h, w = inst["crop"].shape
         x, y, bw, bh = to_processed((inst["x0"], inst["y0"], w, h), item["meta"])
-        cv2.rectangle(vis, (x, y), (x + bw, y + bh), (0, 200, 0), t)
+        cv.rectangle(vis, (x, y), (x + bw, y + bh), (0, 200, 0), t)
     for x, y, w, h in boxes:                                   # 후보 박스: 빨강
-        cv2.rectangle(vis, (x, y), (x + w, y + h), (0, 0, 255), t)
+        cv.rectangle(vis, (x, y), (x + w, y + h), (0, 0, 255), t)
     safe = "".join(c if c.isalnum() or c in "-_." else "_" for c in arm_name)
-    ok = cv2.imwrite(os.path.join(out_dir, "%s__%s.png" % (item["name"], safe)), vis)
+    ok = cv.imwrite(os.path.join(out_dir, "%s__%s.png" % (item["name"], safe)), vis)
     if not ok:
         print("  오버레이 저장 실패:", item["name"], arm_name)
 

@@ -51,7 +51,11 @@ def nlm(h):
 # 조도 보정
 # ---------------------------------------------------------------------------
 def auto_gamma():
-    """평균 밝기가 중간(128)이 되도록 감마를 영상마다 자동으로 정한다."""
+    """전역 감마 보정.
+
+    원리: 영상의 평균 밝기를 기준으로 감마를 자동 추정한다.
+    기능: 전체가 너무 어둡거나 밝은 경우를 빠르게 중간 톤으로 끌어온다.
+    """
     def f(g):
         m = float(np.clip(g.mean() / 255.0, 0.02, 0.98))
         gamma = np.log(0.5) / np.log(m)
@@ -61,15 +65,75 @@ def auto_gamma():
 
 
 def hist_eq():
+    """히스토그램 평활화.
+
+    원리: 밝기 분포를 전체적으로 펼쳐 대비를 강하게 만든다.
+    기능: 균일한 조명에서는 효과적이지만, 조도 기울기가 크면 과도하게 튈 수 있다.
+    """
     return lambda g: cv2.equalizeHist(g)
 
 
 def clahe(clip, tiles=8):
+    """CLAHE 기반 로컬 대비 강화.
+
+    원리: 영상 전체가 아니라 타일 단위로 대비를 늘리고, clipLimit으로 과증폭을 막는다.
+    기능: 조명 변화가 있어도 국소 구조를 더 잘 보이게 만든다.
+    """
     return lambda g: cv2.createCLAHE(clipLimit=clip, tileGridSize=(tiles, tiles)).apply(g)
 
 
+def illumination_divide(clip=2.0, tiles=8, sigma640=45.0):
+    """CLAHE 후 큰 블러로 조명 맵을 추정해 나누는 보정.
+
+    원리: 저주파 조명 성분은 큰 Gaussian blur로 근사하고, divide로 제거한다.
+    기능: 밝기 기울기와 그림자를 줄여 같은 표면을 비슷한 밝기로 맞춘다.
+    """
+    def f(g):
+        clahe_img = cv2.createCLAHE(clipLimit=clip, tileGridSize=(tiles, tiles)).apply(g)
+        sigma = max(1.0, sigma640 * _scale(g))
+        illumination_map = cv2.GaussianBlur(clahe_img, (0, 0), sigmaX=sigma, sigmaY=sigma)
+        corrected = cv2.divide(clahe_img, illumination_map, scale=255.0)
+        return cv2.normalize(corrected, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
+    return f
+
+
+def retinex_single(sigma640=45.0):
+    """Single-Scale Retinex.
+
+    원리: 로그 공간에서 원본과 큰 블러 배경의 차이를 취해 조명 성분을 분리한다.
+    기능: 그림자와 넓은 조도 편차를 줄이면서 물체의 반사 성분을 상대적으로 드러낸다.
+    """
+    def f(g):
+        gf = g.astype(np.float32) + 1.0
+        sigma = max(1.0, sigma640 * _scale(g))
+        bg = cv2.GaussianBlur(gf, (0, 0), sigmaX=sigma, sigmaY=sigma) + 1.0
+        retinex = np.log(gf) - np.log(bg)
+        return cv2.normalize(retinex, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
+    return f
+
+
+def homomorphic_filter(sigma640=45.0):
+    """Homomorphic filtering.
+
+    원리: 조명이 곱셈 성분이라고 보고 로그 변환 후 저주파 성분을 제거한다.
+    기능: 넓게 퍼진 밝기 편차를 누르고 국소 대비를 올려, 조도 불균일에 강하게 만든다.
+    """
+    def f(g):
+        gf = g.astype(np.float32) + 1.0
+        sigma = max(1.0, sigma640 * _scale(g))
+        log_image = np.log(gf)
+        low_freq = cv2.GaussianBlur(log_image, (0, 0), sigmaX=sigma, sigmaY=sigma)
+        high_freq = log_image - low_freq
+        return cv2.normalize(high_freq, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
+    return f
+
+
 def bg_flatten(k640):
-    """Black-hat 기반 배경 조도 제거: 255 - blackhat = 국소 배경을 일정하게 맞추고 어두운 구조만 남긴다."""
+    """Black-hat 기반 배경 조도 제거.
+
+    원리: 큰 구조 요소로 배경을 추정한 뒤, 원본과의 차이(black-hat)를 이용해 어두운 구조를 강조한다.
+    기능: 도로처럼 밝은 배경 위의 어두운 결함이나 굴곡을 상대적으로 도드라지게 만든다.
+    """
     def f(g):
         k = _odd(k640 * _scale(g), hi=101)
         kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (k, k))
@@ -119,6 +183,11 @@ LIGHT = [
     arm("histeq", "global", hist_eq()),
     arm("clahe_c2", "local", clahe(2.0)),
     arm("clahe_c4", "local", clahe(4.0)),
+    arm("divide_c2", "local", illumination_divide(2.0)),
+    arm("divide_c4", "local", illumination_divide(4.0)),
+    arm("retinex_s45", "retinex", retinex_single(45.0)),
+    arm("retinex_s75", "retinex", retinex_single(75.0)),
+    arm("homo_s45", "homomorphic", homomorphic_filter(45.0)),
     arm("bgflat_k31", "morph", bg_flatten(31)),
     arm("bgflat_k61", "morph", bg_flatten(61)),
 ]

@@ -22,14 +22,19 @@ import os
 import sys
 import glob
 import time
+from pathlib import Path
 import cv2
 import numpy as np
 from PIL import Image
 
-from src.baseline_v2 import detect_baseline_mad
+try:
+    from baseline_v2 import detect_baseline_mad
+except ModuleNotFoundError:
+    from src.baseline_v2 import detect_baseline_mad
 
-IMG_DIR = r"C:\Users\kelly\Downloads\dataset\dataset"
-GT_DIR = r"C:\Users\kelly\OneDrive\문서\카카오톡 받은 파일\road_ground_truth_all"
+BASE_DIR = Path(__file__).resolve().parents[1]
+IMG_DIR = BASE_DIR / "dataset"
+GT_DIR = BASE_DIR / "road_ground_truth_all"
 COL = {"crack": (255, 96, 55), "pothole": (42, 125, 209)}   # labelmap.txt (crak = crack 오타)
 Z = 6.0
 COVER_MIN = 0.3
@@ -42,8 +47,8 @@ DETAIL = len(sys.argv) > 1 and sys.argv[1] == "detail"
 # ---------------------------------------------------------------------------
 def load_gt(name):
     """{'crack': [bool mask, ...], 'pothole': [bool mask, ...]}  인스턴스별 마스크."""
-    cls = np.array(Image.open(os.path.join(GT_DIR, "SegmentationClass", name + ".png")).convert("RGB"))
-    obj = np.array(Image.open(os.path.join(GT_DIR, "SegmentationObject", name + ".png")).convert("RGB"))
+    cls = np.array(Image.open(os.path.join(str(GT_DIR), "SegmentationClass", name + ".png")).convert("RGB"))
+    obj = np.array(Image.open(os.path.join(str(GT_DIR), "SegmentationObject", name + ".png")).convert("RGB"))
     inst = {"crack": [], "pothole": []}
     for typ, col in COL.items():
         cm = (cls == np.array(col)).all(-1)
@@ -63,7 +68,7 @@ def imread_gray(path):
 
 def find_image(name):
     for ext in (".jpg", ".jpeg", ".png"):
-        p = os.path.join(IMG_DIR, name + ext)
+        p = os.path.join(str(IMG_DIR), name + ext)
         if os.path.exists(p):
             return p
     raise FileNotFoundError(name)
@@ -118,7 +123,7 @@ def random_like(boxes, shape, rng):
 
 def main():
     names = sorted(os.path.splitext(os.path.basename(p))[0]
-                   for p in glob.glob(os.path.join(GT_DIR, "SegmentationClass", "*.png")))
+                   for p in glob.glob(os.path.join(str(GT_DIR), "SegmentationClass", "*.png")))
     data = []
     n_cr = n_po = 0
     for nm in names:

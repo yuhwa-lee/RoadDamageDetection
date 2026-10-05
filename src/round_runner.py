@@ -34,6 +34,7 @@ import cv2 as cv
 from PIL import Image
 
 from image_ROI_Resize import define_roi, resize_image_with_info
+from resize_long_side import resize_long_side_with_info
 
 BASE_DIR = Path.cwd()   
 IMG_DIR = BASE_DIR / "dataset"
@@ -98,13 +99,20 @@ def load_gt_instances(gt_dir, name):
     return out, cls.shape[:2]
 
 
+RESIZERS = {
+    "fixed": resize_image_with_info,      # 640x480 강제 리사이즈 (비율 변경, 작은 ROI는 확대)
+    "long": resize_long_side_with_info,   # 긴 변이 640을 넘을 때만 비율 유지 축소
+}
+RESIZE_MODE = "long"    # main()의 --resize 옵션으로 바뀐다
+
+
 def prepare_input(bgr, name):
     """원본 BGR에서 ROI를 찾고, ROI crop을 고정 크기로 resize한 뒤 그레이로 변환한다.
 
     meta에는 원본 좌표 복원을 위한 ROI 좌표와 resize 정보가 함께 들어간다.
     """
     roi_bgr, _, roi_coords_original = define_roi(bgr)
-    resized_roi_bgr, resize_info = resize_image_with_info(roi_bgr)
+    resized_roi_bgr, resize_info = RESIZERS[RESIZE_MODE](roi_bgr)
     resized_roi_gray = cv.cvtColor(resized_roi_bgr, cv.COLOR_BGR2GRAY)
     return resized_roi_gray, {"roi_coords_original": roi_coords_original, "resize_info": resize_info}
 
@@ -430,7 +438,12 @@ def main(argv=None):
     ap.add_argument("--overlay", default="", help="오버레이를 저장할 영상 이름(콤마로 구분)")
     ap.add_argument("--limit", type=int, default=0, help="앞의 N장만 사용(빠른 확인용)")
     ap.add_argument("--no-boot", action="store_true", help="bootstrap 범위 계산 생략")
+    ap.add_argument("--resize", choices=sorted(RESIZERS), default="long",
+                    help="long = 긴 변 640 이하로 비율 유지 축소(기본), fixed = 640x480 강제 리사이즈")
     args = ap.parse_args(argv)
+
+    global RESIZE_MODE
+    RESIZE_MODE = args.resize
 
     import src.candidates as candidates
     items = load_items(args.limit)
@@ -448,6 +461,8 @@ def main(argv=None):
         raise SystemExit("알 수 없는 축: %s (noise | light | blur | all | combo:...)" % args.axis)
 
     for axis, arms in runs.items():
+        if RESIZE_MODE != "long":
+            axis = "%s_%s" % (axis, RESIZE_MODE)   # 표 제목/결과 파일 이름에 리사이즈 방식을 남긴다
         print("\n== %s 실행 ==" % axis)
         rows, all_recs = run_axis(axis, arms, items, detector, overlay, not args.no_boot)
         if not axis.startswith("combo:"):

@@ -1,6 +1,6 @@
 ## 저품질 도로 영상의 품질 개선 및 균열·포트홀 후보 영역 추출
 
-https://docs.google.com/document/d/1w7huS31gQw7nimCrA5Cx006HOKKp_j_PKCoZPoF7iqI/edit?tab=t.0
+1차과제수행계획서 https://docs.google.com/document/d/1w7huS31gQw7nimCrA5Cx006HOKKp_j_PKCoZPoF7iqI/edit?tab=t.0
 
 road_ground_truth_all 폴더 : 예시 사진 데이터 라벨 처리한 것. png파일, Segmentation 1.1
 <img width="1100" height="333" alt="image" src="https://github.com/user-attachments/assets/b5e88c5b-782a-419b-aaf5-bd0da2c2bef4" />

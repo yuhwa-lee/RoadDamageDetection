@@ -2,7 +2,6 @@
 
 1차과제수행계획서 https://docs.google.com/document/d/1w7huS31gQw7nimCrA5Cx006HOKKp_j_PKCoZPoF7iqI/edit?tab=t.0
 
-
 2차과제수행계획서 https://docs.google.com/document/d/1gPKncIodOa8m3Pw-KXM9q3F3sMBTCdc97xOjchROhuQ/edit?tab=t.0
 
 road_ground_truth_all 폴더 : 예시 사진 데이터 라벨 처리한 것. png파일, Segmentation 1.1

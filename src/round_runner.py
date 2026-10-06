@@ -54,6 +54,7 @@ OUT_DIR = "out_round"
 COL = {"crack": (255, 96, 55), "pothole": (42, 125, 209)}   # labelmap.txt (crak = crack 오타)
 COVER_MIN = 0.3        # 정답 픽셀의 30% 이상이 박스에 덮이면 hit
 N_RANDOM = 5           # chance: 같은 크기 무작위 박스를 뿌리는 횟수
+BOX_GT_MIN = 0.1       # 박스 정밀도: 박스 면적의 10% 이상이 정답 픽셀이면 맞는 박스
 N_BOOT = 300           # 영상 복원 추출 횟수
 TIE_LIFT = 0.02        # lift 차이가 이 안이면 동점으로 보고 더 빠른 쪽
 FAMILY_LIFT = 0.10     # 같은 계열이면 이 안에서 다른 계열을 우선 고려
@@ -111,10 +112,15 @@ def prepare_input(bgr, name):
 
     meta에는 원본 좌표 복원을 위한 ROI 좌표와 resize 정보가 함께 들어간다.
     """
-    roi_bgr, _, roi_coords_original = define_roi(bgr)
+    roi_bgr, road_mask, roi_coords_original = define_roi(bgr)
     resized_roi_bgr, resize_info = RESIZERS[RESIZE_MODE](roi_bgr)
     resized_roi_gray = cv.cvtColor(resized_roi_bgr, cv.COLOR_BGR2GRAY)
-    return resized_roi_gray, {"roi_coords_original": roi_coords_original, "resize_info": resize_info}
+    # 도로 마스크(자유 모양)를 ROI 박스로 잘라 처리 영상과 같은 크기로 맞춘다 (정식 추출기가 사용)
+    x1, y1, x2, y2 = roi_coords_original
+    h, w = resized_roi_gray.shape
+    road = cv.resize(road_mask[y1:y2, x1:x2], (w, h), interpolation=cv.INTER_NEAREST) > 0
+    return resized_roi_gray, {"roi_coords_original": roi_coords_original, "resize_info": resize_info,
+                              "road_mask": road}
 
 
 def load_items(limit=0):
@@ -197,6 +203,22 @@ def box_cover_ratio(boxes, shape):
     return float(m.mean())
 
 
+def box_gt_fraction(box, insts):
+    """박스(원본 좌표) 면적 중 정답 픽셀(균열/포트홀 전체)이 차지하는 비율."""
+    bx, by, bw, bh = box
+    if bw <= 0 or bh <= 0:
+        return 0.0
+    n = 0
+    for inst in insts:
+        crop, x0, y0 = inst["crop"], inst["x0"], inst["y0"]
+        h, w = crop.shape
+        ix0, iy0 = max(bx, x0), max(by, y0)
+        ix1, iy1 = min(bx + bw, x0 + w), min(by + bh, y0 + h)
+        if ix0 < ix1 and iy0 < iy1:
+            n += int(crop[iy0 - y0:iy1 - y0, ix0 - x0:ix1 - x0].sum())
+    return n / float(bw * bh)
+
+
 def score_image(item, img_shape, boxes_proc, rng):
     """한 영상의 채점 결과(원본 좌표 기준 재현율 + chance)."""
     boxes = to_original(boxes_proc, item["meta"])
@@ -209,6 +231,11 @@ def score_image(item, img_shape, boxes_proc, rng):
             rec["hit_" + k] += 1
         if rand_sets:
             rec["ch_" + k] += sum(covered_fraction(rb, inst) >= COVER_MIN for rb in rand_sets) / N_RANDOM
+    # 박스 정밀도: 박스 면적의 BOX_GT_MIN 이상이 정답 픽셀이면 '맞는 박스'
+    rec["n_box"] = len(boxes)
+    rec["tp_box"] = sum(box_gt_fraction(b, item["inst"]) >= BOX_GT_MIN for b in boxes)
+    rec["ch_tp_box"] = (sum(box_gt_fraction(b, item["inst"]) >= BOX_GT_MIN for rb in rand_sets for b in rb)
+                        / N_RANDOM) if rand_sets else 0.0
     rec["n_det"] = len(boxes_proc)
     rec["cov"] = box_cover_ratio(boxes_proc, img_shape)
     return rec
@@ -234,7 +261,7 @@ def run_arm(arm, items, detector, overlay_names=(), overlay_dir=None):
         t0 = time.perf_counter()
         img = apply_stages(arm["stages"], it["img"])
         t1 = time.perf_counter()
-        boxes = detector(img)
+        boxes = detector(img, it["meta"])
         t2 = time.perf_counter()
         rec = score_image(it, img.shape, boxes, rng)
         rec.update({"name": it["name"], "source": it["source"], "t_pre": t1 - t0, "t_det": t2 - t1})
@@ -263,7 +290,7 @@ def save_overlay(out_dir, arm_name, item, img, boxes):
 # ---------------------------------------------------------------------------
 # 집계
 # ---------------------------------------------------------------------------
-KEYS = ["n_crack", "hit_crack", "n_pot", "hit_pot", "ch_crack", "ch_pot"]
+KEYS = ["n_crack", "hit_crack", "n_pot", "hit_pot", "ch_crack", "ch_pot", "n_box", "tp_box", "ch_tp_box"]
 
 
 def summarize(s):
@@ -281,7 +308,10 @@ def summarize(s):
         chs.append(s["ch_pot"] / s["n_pot"])
     macro = float(np.mean(parts)) if parts else nan
     chance = float(np.mean(chs)) if chs else nan
-    return {"crack": crack, "pothole": pothole, "macro": macro, "chance": chance, "lift": macro - chance}
+    prec = s["tp_box"] / s["n_box"] if s["n_box"] > 0 else nan
+    ch_prec = s["ch_tp_box"] / s["n_box"] if s["n_box"] > 0 else nan
+    return {"crack": crack, "pothole": pothole, "macro": macro, "chance": chance, "lift": macro - chance,
+            "prec": prec, "ch_prec": ch_prec}
 
 
 def sum_recs(recs):
@@ -366,9 +396,9 @@ def print_table(title, rows, items):
     n_cr = sum(1 for it in items for i in it["inst"] if i["type"] == "crack")
     n_po = sum(1 for it in items for i in it["inst"] if i["type"] == "pothole")
     print("\n[%s]  영상 %d장 (%s), 정답: 균열 %d개 / 포트홀 %d개" % (title, len(items), ", ".join(srcs), n_cr, n_po))
-    print("%-20s %-16s %5s %7s %5s %6s %5s  %-24s %5s %5s %7s" %
+    print("%-20s %-16s %5s %7s %5s %6s %5s  %-24s %5s %5s %5s %7s" %
           ("arm", "family", "crack", "pothole", "macro", "chance", "lift",
-           "baseline 대비 [95% 범위]", "n_det", "cov", "sec"))
+           "baseline 대비 [95% 범위]", "prec", "n_det", "cov", "sec"))
     for r in rows:
         if r["d_lift"] is None:
             delta = "(기준)" if r["baseline"] else ""
@@ -377,10 +407,13 @@ def print_table(title, rows, items):
         else:
             mark = "*" if r["d_lo"] > 0 else " "
             delta = "%+.2f [%+.2f,%+.2f]%s" % (r["d_lift"], r["d_lo"], r["d_hi"], mark)
-        print("%-20s %-16s %s %7s %s %6s %s  %-24s %5.0f %5.2f %7.1f" %
+        print("%-20s %-16s %s %7s %s %6s %s  %-24s %s %5.0f %5.2f %7.1f" %
               (r["name"], r["family"], f2(r["crack"]), f2(r["pothole"]).strip().rjust(7), f2(r["macro"]),
-               f2(r["chance"]).strip().rjust(6), f2(r["lift"]), delta, r["n_det"], r["cov"], r["t_total"]))
+               f2(r["chance"]).strip().rjust(6), f2(r["lift"]), delta, f2(r["prec"]), r["n_det"], r["cov"],
+               r["t_total"]))
     print("  lift = macro - chance (순위 기준).  * = baseline보다 확실히 나음(95% 범위의 하한이 0 초과)")
+    print("  prec = 박스 정밀도(박스 면적의 %d%% 이상이 정답인 박스 비율). 무작위 박스 기준 약 %s"
+          % (int(BOX_GT_MIN * 100), f2(float(np.nanmean([r["ch_prec"] for r in rows]))).strip()))
     if len(srcs) > 1:
         print("\n  출처별 lift")
         print("  %-20s %s" % ("arm", "  ".join("%-10s" % s for s in srcs)))
@@ -397,10 +430,11 @@ def write_csv(axis, rows, all_recs):
     with open(p1, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
         w.writerow(["arm", "family", "baseline", "crack", "pothole", "macro", "chance", "lift",
-                    "d_lift", "d_lo", "d_hi", "n_det", "cov", "sec"])
+                    "d_lift", "d_lo", "d_hi", "prec", "ch_prec", "n_det", "cov", "sec"])
         for r in rows:
             w.writerow([r["name"], r["family"], int(r["baseline"]), r["crack"], r["pothole"], r["macro"],
-                        r["chance"], r["lift"], r["d_lift"], r["d_lo"], r["d_hi"], r["n_det"], r["cov"],
+                        r["chance"], r["lift"], r["d_lift"], r["d_lo"], r["d_hi"], r["prec"], r["ch_prec"],
+                        r["n_det"], r["cov"],
                         r["t_total"]])
     with open(p2, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
@@ -427,9 +461,13 @@ def run_axis(axis, arms, items, detector, overlay_names=(), do_boot=True):
 # ---------------------------------------------------------------------------
 # 실행
 # ---------------------------------------------------------------------------
-def default_detector():
+def get_detector(name="baseline"):
+    """baseline = 테스트 추출기(줄자, 전처리 비교용, 동결) / crack = 정식 균열 추출기(src/crack_extractor.py)."""
+    if name == "crack":
+        from src.crack_extractor import detect
+        return lambda img, meta: detect(img, meta)
     from src.baseline_v2 import detect_baseline_mad            # 동결된 기본 설정 그대로 사용
-    return lambda img: detect_baseline_mad(img)
+    return lambda img, meta: detect_baseline_mad(img)
 
 
 def main(argv=None):
@@ -440,6 +478,8 @@ def main(argv=None):
     ap.add_argument("--no-boot", action="store_true", help="bootstrap 범위 계산 생략")
     ap.add_argument("--resize", choices=sorted(RESIZERS), default="long",
                     help="long = 긴 변 640 이하로 비율 유지 축소(기본), fixed = 640x480 강제 리사이즈")
+    ap.add_argument("--detector", choices=["baseline", "crack"], default="baseline",
+                    help="baseline = 테스트 추출기(기본, 전처리 비교용), crack = 정식 균열 추출기")
     args = ap.parse_args(argv)
 
     global RESIZE_MODE
@@ -447,7 +487,7 @@ def main(argv=None):
 
     import src.candidates as candidates
     items = load_items(args.limit)
-    detector = default_detector()
+    detector = get_detector(args.detector)
     overlay = tuple(s for s in args.overlay.split(",") if s)
 
     if args.axis.startswith("combo:"):
@@ -463,6 +503,8 @@ def main(argv=None):
     for axis, arms in runs.items():
         if RESIZE_MODE != "long":
             axis = "%s_%s" % (axis, RESIZE_MODE)   # 표 제목/결과 파일 이름에 리사이즈 방식을 남긴다
+        if args.detector != "baseline":
+            axis = "%s_%s" % (axis, args.detector)  # 정식 추출기 결과는 이름에 추출기 이름(_crack)
         print("\n== %s 실행 ==" % axis)
         rows, all_recs = run_axis(axis, arms, items, detector, overlay, not args.no_boot)
         if not axis.startswith("combo:"):

@@ -28,6 +28,16 @@ def arm(name, family, *stages, baseline=False):
     return {"name": name, "family": family, "stages": list(stages), "baseline": baseline}
 
 
+def _tag_value(v):
+    if abs(v - round(v)) < 1e-9:
+        return str(int(round(v)))
+    return ("%.1f" % v).replace(".", "p")
+
+
+def sweep(prefix, family, builder, values):
+    return [arm("%s_%s" % (prefix, _tag_value(v)), family, builder(v)) for v in values]
+
+
 # ---------------------------------------------------------------------------
 # 노이즈 제거
 # ---------------------------------------------------------------------------
@@ -181,15 +191,11 @@ LIGHT = [
     IDENTITY,
     arm("autogamma", "global", auto_gamma()),
     arm("histeq", "global", hist_eq()),
-    arm("clahe_c2", "local", clahe(2.0)),
-    arm("clahe_c4", "local", clahe(4.0)),
-    arm("divide_c2", "local", illumination_divide(2.0)),
-    arm("divide_c4", "local", illumination_divide(4.0)),
-    arm("retinex_s45", "retinex", retinex_single(45.0)),
-    arm("retinex_s75", "retinex", retinex_single(75.0)),
-    arm("homo_s45", "homomorphic", homomorphic_filter(45.0)),
-    arm("bgflat_k31", "morph", bg_flatten(31)),
-    arm("bgflat_k61", "morph", bg_flatten(61)),
+    *sweep("clahe_c", "local", lambda clip: clahe(clip), [1.0, 1.5, 2.0, 3.0, 4.0, 6.0]),
+    *sweep("divide_c", "local", lambda clip: illumination_divide(clip), [1.0, 1.5, 2.0, 3.0, 4.0, 6.0]),
+    *sweep("retinex_s", "retinex", lambda sigma: retinex_single(sigma), [25.0, 35.0, 45.0, 60.0, 75.0]),
+    *sweep("homo_s", "homomorphic", lambda sigma: homomorphic_filter(sigma), [25.0, 35.0, 45.0, 60.0, 75.0]),
+    *sweep("bgflat_k", "morph", lambda k: bg_flatten(k), [21, 31, 41, 61, 81]),
 ]
 
 # 고주파 강조(high-boost)는 언샤프와 같은 계열이라 생략했다. 필요하면 아래에 추가한다.

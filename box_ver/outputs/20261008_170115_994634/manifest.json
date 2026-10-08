@@ -1,0 +1,4022 @@
+[
+  {
+    "image": "China_Drone_000035.jpg",
+    "image_sha256": "913a8eed2525abb54325cb687fc421c24967a8a928cfec523546f98390d08fe2",
+    "annotation_sha256": "9236f9fdfdc4f12a2b55ef286f25f0ecc325dd24ce33690b7a5b4065ace8b632"
+  },
+  {
+    "image": "China_Drone_000041.jpg",
+    "image_sha256": "8ce2142c2a28d4bd48fad23e5b5161b16c18fea00433cae2d526c59655af8fca",
+    "annotation_sha256": "2c4b2dbd5ab7548630b2d30145d4a652eace732e0d10d2b924807dc1ad5a5cc7"
+  },
+  {
+    "image": "China_Drone_000209.jpg",
+    "image_sha256": "94baa49efb8c7c443c3783d0016409b6b9837cb00e37f4da7105f77b882465a0",
+    "annotation_sha256": "a6cf384e3171b0e0c5ce7d510e0e5f5ddfd2d3d3a0c726ed26c86a66b4c790da"
+  },
+  {
+    "image": "China_Drone_000211.jpg",
+    "image_sha256": "43046aada5a5bd5a169746c2dfef1629436f95526b092ea3a67e392ea499879e",
+    "annotation_sha256": "c418295cdb10a86a34cb36ce2efd09ebb3a311b55e0c0b3687c507c07d4b73d5"
+  },
+  {
+    "image": "China_Drone_000228.jpg",
+    "image_sha256": "5deb6debbdf3c763d124435195492b6e42f20f11111207f6707e754f4fe8a4b4",
+    "annotation_sha256": "056ae194c8958831affdd2a9f03f36dbb8396937e8f96ba0fc18f406e7654cda"
+  },
+  {
+    "image": "China_Drone_000230.jpg",
+    "image_sha256": "0cd70238589d82ba7b07a4334be1f00bed4aae896aa6ba1187d10d90a0e0285a",
+    "annotation_sha256": "cba79da25db7bce95ce959dd092ba296121d8d2d9077b1b152247bafb96d7cea"
+  },
+  {
+    "image": "China_Drone_000297.jpg",
+    "image_sha256": "a4db54e46e3e20083c4864bcf4bcda7d412e7bdbfa0c184a41399944a24e9bd3",
+    "annotation_sha256": "ddb60fd029c2c3afa51da507e9f40bd457f5ccd2e88f27c88fcd733207305aed"
+  },
+  {
+    "image": "China_Drone_000308.jpg",
+    "image_sha256": "14863bb69266a6ad4151a7a2c923b056717ad0abd500ea729f6bd548c4969ca4",
+    "annotation_sha256": "83d21d5d369a8b83a61a7d572d6ea1bcbfae82611cee2a8c3731d50fea338d4c"
+  },
+  {
+    "image": "China_Drone_000327.jpg",
+    "image_sha256": "666f8563008b65e6cba743e48773b9712c5cb3bce7316efcad145364c26fb541",
+    "annotation_sha256": "4f59ec69a4065db7bd7929dc5c0ead56ef7fc8d751b7f202359e4ebe3edd4de9"
+  },
+  {
+    "image": "China_Drone_000350.jpg",
+    "image_sha256": "1f4450774870d4fa61cccbb33246496b300a8152e29befa55f31c795800246f0",
+    "annotation_sha256": "bbe07059e9f526f0152ce8cc34b4bb371bdaf1b27dddf79295e4bb9f64980e33"
+  },
+  {
+    "image": "China_Drone_000474.jpg",
+    "image_sha256": "c77a75748f9d357b7c62724a14fc3657019ba390f2b4fec4ea975880fc9d88c4",
+    "annotation_sha256": "231d354b08c4c696e8fa084e5eb7e71f9996e9d85cbcca70e1b4bac85f67c83d"
+  },
+  {
+    "image": "China_Drone_000525.jpg",
+    "image_sha256": "7b644e6690afd680b231f9fe349f5118ebf910ea56dbed5f9b850848897fcdb5",
+    "annotation_sha256": "bc78c4c7624fb40fcc839298f3fb702e7958d21663f42a271c6210bc0963179c"
+  },
+  {
+    "image": "China_Drone_000590.jpg",
+    "image_sha256": "8fe742af8f410acd51bfdacd36c442897aa8c639b0c1015a422aef218a79882c",
+    "annotation_sha256": "a38fc24660c5d61410cc94abb230b8fc67635f70e4a1fac1877211e91454f88b"
+  },
+  {
+    "image": "China_Drone_000680.jpg",
+    "image_sha256": "0781e21aa3bae6773a0798b720d1d6f501bbb339920b3f64991baf2e969c0285",
+    "annotation_sha256": "f66a804089df60ae993fa26a4b306b21abcc751979a06762739a71bab9cbecca"
+  },
+  {
+    "image": "China_Drone_000692.jpg",
+    "image_sha256": "f3698de4256944cd49312135bb3916b02890136938974db56bd6eaf4c190bca3",
+    "annotation_sha256": "ec6faaed81f1089e1f53af3cdcbfdb124e00994395e8ed00d77e443f3070435b"
+  },
+  {
+    "image": "China_Drone_000701.jpg",
+    "image_sha256": "b8885dbd2f43acaedab948f10aec792082cce74ba54b63a25bd127c5fb3fcde8",
+    "annotation_sha256": "6f60b34cad6a624d88e1bd59dfaf321ab9927fa6b8fc2c3713de30ae7a11dbaf"
+  },
+  {
+    "image": "China_Drone_000723.jpg",
+    "image_sha256": "1c69c6fe7e5bce306875788f4a6921bfa17807337331ef9bbe52f2f47c154568",
+    "annotation_sha256": "581dfd624819032be649dd3389dc4a413ccad4f8ffbe8c7316779e3048fc372b"
+  },
+  {
+    "image": "China_Drone_000743.jpg",
+    "image_sha256": "a78190f64680fdef31b03754136d5f973ccf5371d07e647eeefb87b80150e9a4",
+    "annotation_sha256": "bb1e6ed36f7f00dc3f8320f5f2251fefe3a9ae839b96e47af7d6f411c96a7ad4"
+  },
+  {
+    "image": "China_Drone_000785.jpg",
+    "image_sha256": "1a6264ed5c96ee42e9bf3954f019f3e38744046d99a1124e9dda4bbc11ddc775",
+    "annotation_sha256": "2eb983883e78fdde59097ccaf65add72c9ada6cc61b6dead3f0bb215eedbfd35"
+  },
+  {
+    "image": "China_Drone_000790.jpg",
+    "image_sha256": "842ffa8e03d5185eaad6a02a6cd48959fa2e59d6a44ba7385fd543175b1ae332",
+    "annotation_sha256": "258032ba882f6231e69c10fe25b15f4cb28ed0bd5f8bca24e29def54114bdd03"
+  },
+  {
+    "image": "China_Drone_000823.jpg",
+    "image_sha256": "61069685c1c8574560c23d9fd5a34e2a1bbd3c73ed54565223c703479e3eb2d0",
+    "annotation_sha256": "96a6b9573267732fd5c4baa95b5d7c511ab8c2090d7eb7efa7020f59fc8f324f"
+  },
+  {
+    "image": "China_Drone_000826.jpg",
+    "image_sha256": "58ca5ddf8d3477e1c31b7bf634b6dfa12067420e2b696e9b2c5e50570b23c9b9",
+    "annotation_sha256": "5ccf4c24a1925c9daa16d541b857555ac1974ab469abf0b68edb9e9a922ca5ed"
+  },
+  {
+    "image": "China_Drone_000923.jpg",
+    "image_sha256": "dd04c3790d698627373e58149842de39dc1bf8a6106be11f6ca37656e7dc0688",
+    "annotation_sha256": "4ce040500477d8162a14afad4bb934dc9728869229c20e0e3a2a26d1fbe821b6"
+  },
+  {
+    "image": "China_Drone_001040.jpg",
+    "image_sha256": "fe1c620d2a8bb27348295d3a4d6cbba4270b54d607848f22a814190f13de1a84",
+    "annotation_sha256": "5eb7193a76bba3048506de90008a8f41423f4d3a3450f0a58d49a172192f1230"
+  },
+  {
+    "image": "China_Drone_001041.jpg",
+    "image_sha256": "1eff34f283b8dfc6446e5c23bbb34e3b0effc14e2e889d26a764c074903588ef",
+    "annotation_sha256": "24eaac4ce272c3600db13ed1a913b6c947f1dcf707a6c211ca8165185b95a505"
+  },
+  {
+    "image": "China_Drone_001057.jpg",
+    "image_sha256": "de531f83008d5c71e0e25a78a7b18677adae389e91630f34a3730d0811af7060",
+    "annotation_sha256": "a18f7ff37107f7420f013e638eeeafdc3b270144184bddf5bab8f3577dc0c0cb"
+  },
+  {
+    "image": "China_Drone_001198.jpg",
+    "image_sha256": "8ea2a46d360f76c914fb7ddbbb726a7c47eb03567238f7db216d2b2e9a4db1a9",
+    "annotation_sha256": "9ae49ea23d0ae0f6287218a288bec6458d779b379b1d8fcb178689e3ee28c477"
+  },
+  {
+    "image": "China_Drone_001327.jpg",
+    "image_sha256": "46883850f042d7a583d9e419edfc58d4e64575acafeb0399bfcaa3507bcd99ba",
+    "annotation_sha256": "d0a1e00cba73b6653b662c6c86acad3b9b6c9f641eacd31ae16d1596dadcfad8"
+  },
+  {
+    "image": "China_Drone_001368.jpg",
+    "image_sha256": "6c21bc84f8f57e2d774c36436410c3172aba850ef2ada5cf355930b54688c0fd",
+    "annotation_sha256": "02789d55a3d4603b30c2e4c562d9ae013c3616d6c2821ec642fc24a7329956e9"
+  },
+  {
+    "image": "China_Drone_001406.jpg",
+    "image_sha256": "840e99ddf9659bd8d85bbe1fd1f30d9cba1961f8e92368ea198728a78bcf47b2",
+    "annotation_sha256": "895a2f083ed3e9cc073285593d6d14640edd0acb83262fe9d624249ad049fad9"
+  },
+  {
+    "image": "China_Drone_001473.jpg",
+    "image_sha256": "3e825795ba66f97312a0689d00739cd153d1b419aac8b5d6c12c4a9e57960420",
+    "annotation_sha256": "9b0941bd223a3975180843bbd67df3a600822b50941ccd432c8bf5f8de5eabdc"
+  },
+  {
+    "image": "China_Drone_001501.jpg",
+    "image_sha256": "d116427d315b6b72050cae68bcaf959ce308b33ff2ca77a426e864c4f71d9259",
+    "annotation_sha256": "82fb2e0fccf83e50eed1f88b787449ebc5a773d3c9bea03c64a73b6990eb385c"
+  },
+  {
+    "image": "China_Drone_001560.jpg",
+    "image_sha256": "e8a7d33b6be60ee729899d7d8aa25d600f054f193eeeecfb2cbda6c8e57ffb53",
+    "annotation_sha256": "82d1f9eb47f6018af3bc9d695aab5743447550aa93bde9f8647e3328f3563691"
+  },
+  {
+    "image": "China_Drone_001615.jpg",
+    "image_sha256": "97b336099fd6c0c98d99e60cf782514267f9a739a26a82e082c1018f4ccc262d",
+    "annotation_sha256": "5ab7a766b1ada61fc9f290058dfbd8dd3f7de465e763fc3629470d8a9acfbe8b"
+  },
+  {
+    "image": "China_Drone_001669.jpg",
+    "image_sha256": "bdb56e0e501d6566104e9156592ff2b56f44c25dbf6e444938505986f073d5b1",
+    "annotation_sha256": "1e554f423bd1b501a11da0fc9f65aa258a1da7da9a21f56f51273bb245f518e3"
+  },
+  {
+    "image": "China_Drone_001708.jpg",
+    "image_sha256": "4ab11274c0b6b65b296efec10f5af86b2eca1b7cf090e532dfc2f2f1da105b30",
+    "annotation_sha256": "2ef1e224f067fd5acb166479c1dc07f532d6e4a3286edc4712744059f3d8da61"
+  },
+  {
+    "image": "China_Drone_001824.jpg",
+    "image_sha256": "5b77a2b6b20905dcfcd7326ed705946e6469708960de4593dc0b677f86b71db7",
+    "annotation_sha256": "3d8d43f5ece548a20e2b5bd52cdbcea2a5d39bad1e309d88348c36b61b05e1be"
+  },
+  {
+    "image": "China_Drone_001846.jpg",
+    "image_sha256": "6e87b46c594f186840c2db9c56bba4201ca9781dc1ea8ea1c9871a31cfd4b9a2",
+    "annotation_sha256": "27bc221928fa317d929df93c14ea10a8f18df813a9ac9837ae84e68346e7d3d7"
+  },
+  {
+    "image": "China_Drone_001888.jpg",
+    "image_sha256": "bcad6647d6245972e624da28b92fedad2b98e72f5209d170f7d33c3a4e0f5497",
+    "annotation_sha256": "ff38e85c4e0c068e095b200865d53deecfd6aaaeda9f82be1a9605c47bf8015e"
+  },
+  {
+    "image": "China_Drone_001958.jpg",
+    "image_sha256": "d824cc01847680900db827fff5b10013ed0b32fec38de9788ab40038da465926",
+    "annotation_sha256": "2388a7c83b0d9ad0b601933ba3588a37c87c49357aa5ef49901ac24e99c83d02"
+  },
+  {
+    "image": "China_Drone_002093.jpg",
+    "image_sha256": "b94dd6f496a9d838d64a27c76d010c6a59e37c2e7375e740798571c100f0a9bc",
+    "annotation_sha256": "6781bf7b16ec305bcc21f19b34115fdafe6ef460bc33de1f068b9496fcd6c5db"
+  },
+  {
+    "image": "China_Drone_002097.jpg",
+    "image_sha256": "395d056ae802de7883ba9b671ca1bc01700bdb719a0d5af9229687456f106393",
+    "annotation_sha256": "5bd0cba106877d28e48713ad9a1b2e00914fec23c315fd8d78925dd74f2b98cf"
+  },
+  {
+    "image": "China_Drone_002278.jpg",
+    "image_sha256": "beef3f4fc46f17139df23512addf0c27d10c42194af926b718bd3233ce6c93ba",
+    "annotation_sha256": "1ce028dcbef6d7ff0a798febe393517023927a92125380c2e06db012f5e869f6"
+  },
+  {
+    "image": "China_MotorBike_000017.jpg",
+    "image_sha256": "ecf49dee7acc538d8cda23cc79feded54b692eaf9ed036d2299db5fda9e8fff9",
+    "annotation_sha256": "060599f4fa59d8fcfb21efe07d603511e3aa57a9eb41677d99eac5eda96b7c17"
+  },
+  {
+    "image": "China_MotorBike_000067.jpg",
+    "image_sha256": "dc4715478de9f4e3d7d7d0970e064c4b5e7d8fb5523d279f26041946420f0df8",
+    "annotation_sha256": "e4d1aa6fa4694da9430784ebd54a80b66e33039685f845f1ad1c94d39d16ac54"
+  },
+  {
+    "image": "China_MotorBike_000083.jpg",
+    "image_sha256": "34f95cd2faffa59baaef244147aa5993e9dffcd2b63773e70e4004f9b0fa1ad2",
+    "annotation_sha256": "75b606dd6075896e8905bd4e17958ff58e9f24951d47fceb67e368218e67bbaf"
+  },
+  {
+    "image": "China_MotorBike_000094.jpg",
+    "image_sha256": "52e9b27a1aaca00bd2d07fad11f88e196cc0c2287c0dc0970349168cba818757",
+    "annotation_sha256": "ad085e0e6d441ffe5641cb9c8303b167680bc0435c2d2cd124279de1320d2bee"
+  },
+  {
+    "image": "China_MotorBike_000129.jpg",
+    "image_sha256": "97ae6efa2e47c5f7f701081da12ff0cdec1df64329e624f59e57ac58b724a5e2",
+    "annotation_sha256": "a248f4f5db186f2bd4d2d1df83eac3fa8c983669d25cf09f839ec464350bb3fb"
+  },
+  {
+    "image": "China_MotorBike_000172.jpg",
+    "image_sha256": "9a7102d2ee8cf7d7dfa1e78f42b271c2b55fdd788eab2f2c669dab5450a6887e",
+    "annotation_sha256": "91d321ca186104da9d9ca000f1b0e8619471ccf78d0ed68f7f36805909dd2056"
+  },
+  {
+    "image": "China_MotorBike_000239.jpg",
+    "image_sha256": "c269608acbe30abbc42034cb9a303f5831bcae5d15d29d1eebc7330a7a566e78",
+    "annotation_sha256": "5241f020294c0f918a232c8922d91d841f6cc61c80201fbb8a21b436a37c24db"
+  },
+  {
+    "image": "China_MotorBike_000250.jpg",
+    "image_sha256": "e6d5c1bca383017459e9cd460e9cba4386817de89714249f94e5bad821e9d3f3",
+    "annotation_sha256": "03f4f90245e7f79a928743daffa8ae7f0a21c9b0c3633f6b200fb2bf4146bf57"
+  },
+  {
+    "image": "China_MotorBike_000255.jpg",
+    "image_sha256": "3bac6d0cd5fa8129eed3287bab5818e4afe9476e8ed1a97d667613c466da7b82",
+    "annotation_sha256": "9a153af4b67a01c3ee1ef4e89f6b3be76b473819af00fc12d8b0439d8ef3feb8"
+  },
+  {
+    "image": "China_MotorBike_000265.jpg",
+    "image_sha256": "a8f2696fba70b1225d3645dee12d51d5aa836657fb24baedfc589e38a651d9d5",
+    "annotation_sha256": "90cd5653f3b267eaeacc5a16e50b7332e55baa90bb1a82f16e71f7ade2b33c77"
+  },
+  {
+    "image": "China_MotorBike_000323.jpg",
+    "image_sha256": "d2b53ef8ec4b24e474bf1e3e4c97cdd3d7a294ca74bfa3275c110c77eefe2524",
+    "annotation_sha256": "2ec6be00adc61feec89774a3722b1fecbc9d09b64c2b12d8f99199b30f5e7f9f"
+  },
+  {
+    "image": "China_MotorBike_000480.jpg",
+    "image_sha256": "6a13b928a3ebd8d01efda97a9cfa462dafeaaddb55c74cdb0b302c04ecc85bf4",
+    "annotation_sha256": "c821ca0242c36b48c17ce9924bb44153e4936eeaf421d3360ab2f573a8aa930a"
+  },
+  {
+    "image": "China_MotorBike_000541.jpg",
+    "image_sha256": "cb7c2ca6c7eb84d1d9a18b886426d0cd147654dee32e6b83e2b8ff0e6deb61a1",
+    "annotation_sha256": "479305a72a4c1d098c1aeca266c68e5124f37b926d0332f3d49002b4355b075e"
+  },
+  {
+    "image": "China_MotorBike_000549.jpg",
+    "image_sha256": "f90e0c7138a52008e5dc9b8374a47c1b769e6452bdc520eea9bd6167755ed709",
+    "annotation_sha256": "891ea17191f8765e9f7f7034e72947cc1f4c304c0fa2b5d1f23cc5916be0d27e"
+  },
+  {
+    "image": "China_MotorBike_000553.jpg",
+    "image_sha256": "2aaaa793af08af3e25b7a0c78f1d6256d2d45e11d3ff4c362a6a310cc57d556d",
+    "annotation_sha256": "d5249bc969355f52a07d410ef3f9425f3f2f294ffba67ba1dfd01e53d7e24a0d"
+  },
+  {
+    "image": "China_MotorBike_000567.jpg",
+    "image_sha256": "32477ae01745748ad00a92950f01dc458d720caf0fac80990a54f13dd662c0f3",
+    "annotation_sha256": "5f67fdfc9098fe4e4f226c0c2ac0653f59fb5abfc74372b88e1b350a34a31a6a"
+  },
+  {
+    "image": "China_MotorBike_000600.jpg",
+    "image_sha256": "abb89a16b4e15d2750ab5b65d81f2c51ffa56cf5cbd68ac97f9e7e34cdae4d9a",
+    "annotation_sha256": "8fbb9bd333afd3ce5c3fcc4003cb55f8fdba287510420d7118696ef2ede36a55"
+  },
+  {
+    "image": "China_MotorBike_000607.jpg",
+    "image_sha256": "2d471f861b05f5efc7ed56a53a6f2ac302781bdc8805dd1763ec41a74e8f8e32",
+    "annotation_sha256": "eaf9743da6168620a93f9c720e69b08f8e0f86c36cce52723c6e3a883efd7627"
+  },
+  {
+    "image": "China_MotorBike_000647.jpg",
+    "image_sha256": "046287e0a1874783035325485298e8eb286c27c227f24ff9fd988a50ad74fda4",
+    "annotation_sha256": "0e16ff368bb7e874952ff5979cabb8e106a9a6b3f3420c582c54dc98b91a91a4"
+  },
+  {
+    "image": "China_MotorBike_000658.jpg",
+    "image_sha256": "31e30d143f0ca6033d2d4f7c13759448d3c1a61c9cdeb02372b8d14bb9883d6a",
+    "annotation_sha256": "2aa7a20ae304695c143c86ec01f258e92150cb1822b40507acc9e9dd640f0df8"
+  },
+  {
+    "image": "China_MotorBike_000675.jpg",
+    "image_sha256": "a094a57b3af14c05baacc81fcebbf0cbd252f7c7d2bb29362bca99da972e166f",
+    "annotation_sha256": "9f1b0ea7c4079dfda2465386bf0edf08353d738afa56bfbf5d3385ecf878e12d"
+  },
+  {
+    "image": "China_MotorBike_000721.jpg",
+    "image_sha256": "c89cf96399a74cd56f9360be1f1cc1fe53ab79384322deeb8702a096c69e4d6b",
+    "annotation_sha256": "1104838665d1c006e946acd689b96da5edde24df514e408f66345462f4967363"
+  },
+  {
+    "image": "China_MotorBike_000788.jpg",
+    "image_sha256": "b4fbc1ffb04c522d749f6a5de209b5f3bc61de8c0147d372c3549fc12b5a4f29",
+    "annotation_sha256": "34d4b13e093cf17b4cd08b79bba7571f43011ff17ef12afab87a9dbaf9cc6512"
+  },
+  {
+    "image": "China_MotorBike_000794.jpg",
+    "image_sha256": "c25521f1df5f7b7154f5d4432243b1ff9fa9dd44715b0246330786ec71cb3bf1",
+    "annotation_sha256": "0ce8a4b1ab736afc1579ba9a25c32a09c4c4e3e01a242331feaa3e95f524e673"
+  },
+  {
+    "image": "China_MotorBike_000815.jpg",
+    "image_sha256": "928f035ee89172d690593b0f97dae746a1499400b74db2a2898cfd29a047e54a",
+    "annotation_sha256": "d94c4859b4836ee33a1ef5767465889172ac9df840fdfa7d803a8a755992f4cd"
+  },
+  {
+    "image": "China_MotorBike_000824.jpg",
+    "image_sha256": "80b4c907d6629539c1afea84baeb9ae80ef0b8f4838e368d4a48977eb7e30829",
+    "annotation_sha256": "5df8cf16f4838b1755e3be09d9992f5b3a1afa6511f2e152b12c30281120e040"
+  },
+  {
+    "image": "China_MotorBike_000853.jpg",
+    "image_sha256": "3359d1ad2ecb6335b554f9d740dedf4da6d3d9ef575b2e7a9711bcd64dadf7d5",
+    "annotation_sha256": "d975678f773fb011d21cfbf5e47296cfcc17cc0ac52494f4390ab5521c77352a"
+  },
+  {
+    "image": "China_MotorBike_000855.jpg",
+    "image_sha256": "6b5cd0fd5a0b749fed0b8f48fd22ab7699f6cb31beb8619109500cbfb4168e21",
+    "annotation_sha256": "adc503ee865e377de183b50656545a780f737605d5103c21648635f650b32d26"
+  },
+  {
+    "image": "China_MotorBike_000866.jpg",
+    "image_sha256": "9d3330022446d658e7290be108b0632e73c47abbc1670926118a476e0219b3f6",
+    "annotation_sha256": "8bd14af467a5943ce83d426e1e8879fa63294238c61fc8d6e814a0c91f4545d0"
+  },
+  {
+    "image": "China_MotorBike_001014.jpg",
+    "image_sha256": "ea26b224949ec57bcb2da4132752727315c2554f83ed9fe009a5a1238ca250fb",
+    "annotation_sha256": "8cf2d8926b64f697927e8d945ab543c0bbf12e7679a63fb519dbe01e4ef27f4c"
+  },
+  {
+    "image": "China_MotorBike_001025.jpg",
+    "image_sha256": "e234460dd6f76cc251e819a3c804115f8457d84d3bc94707c9d7b4ceb29a358f",
+    "annotation_sha256": "d4c2cc96a13d81e55a65dd7a5faeffea61e68d62f6b480742afcadd926dc39ed"
+  },
+  {
+    "image": "China_MotorBike_001096.jpg",
+    "image_sha256": "f9f4017f38ad17623acccd52996d8a6570b3459601738f95f80feec4e65f7c54",
+    "annotation_sha256": "c6bf764b1a47e7da75acec57d851ef00bc981760bf15979a6a7b658ee42f2e59"
+  },
+  {
+    "image": "China_MotorBike_001241.jpg",
+    "image_sha256": "07fd6e7d9da7019a2a119d6ffb06834e28c65492e60c6f959e367ba58ff63c1a",
+    "annotation_sha256": "b94791dca41e28296b2024b2d373dd39f0e99936cafffc926dac9c47889d47ed"
+  },
+  {
+    "image": "China_MotorBike_001246.jpg",
+    "image_sha256": "561305b9d4c82836dd6b5c97085ac58f7aeef1d500487db2a066a8509933bf45",
+    "annotation_sha256": "86a50b629a9e1bbafc3b209d527df30c6deccd29787d5597bf8a2ac1a1d34208"
+  },
+  {
+    "image": "China_MotorBike_001259.jpg",
+    "image_sha256": "418b16f548e2b7c8ae2d55c3377321e9896c356bcac1ff1bc6646c82c92804dd",
+    "annotation_sha256": "0fae05da60405b6891c0f10e6a46aef394fef947d9544b03c970c5b66cc17582"
+  },
+  {
+    "image": "China_MotorBike_001277.jpg",
+    "image_sha256": "1c3e0c94f8f77695663711cc60be2a4cb50eb866ca973fb3639190597bddbf5d",
+    "annotation_sha256": "54c09f4eae2eafc0ba0330a95cfea40721f38ad5c226724a665752714a8037f9"
+  },
+  {
+    "image": "China_MotorBike_001339.jpg",
+    "image_sha256": "41d909a6bd84602b2b919710f39fb5e1c27e10ccdd35412372e2b931a0024111",
+    "annotation_sha256": "f8a74083002eff34cd8a7a8d8e844e3a421131a76fd0874ebfc35b112a84af58"
+  },
+  {
+    "image": "China_MotorBike_001361.jpg",
+    "image_sha256": "2bc7a5a458dcfc6f1daebd73110ef3af316717f544b45677ca6b462b7b068f94",
+    "annotation_sha256": "3499c3801c78bf7a43819257d0ad14ef2b382680e7df7f0785e3f92c5a788017"
+  },
+  {
+    "image": "China_MotorBike_001497.jpg",
+    "image_sha256": "ef1c130f7bc3eafb019149d716115ff772531807eb8bfad580c02e360666072e",
+    "annotation_sha256": "e5bdd9f9bfb49dec9c13dcb59daf36ca506868689b763a4b74c3218ec5a68bd5"
+  },
+  {
+    "image": "China_MotorBike_001558.jpg",
+    "image_sha256": "8a902da6e8ff002eec5563c4db3fd1a1e917160e80fd882c943db5ffb8df6ab8",
+    "annotation_sha256": "e55ebca6ce0f9075ca4543b1cf18fa0398ece13d5ce78d4648be42715144be7e"
+  },
+  {
+    "image": "China_MotorBike_001559.jpg",
+    "image_sha256": "0cf881e89dffa88dffe4dde4c17062d527a980b4252cffce519ac37c06bc5d2d",
+    "annotation_sha256": "a7b4421561dea4512e278ce05a0329193557120ae8afdf50a67ca8ccd3fda90a"
+  },
+  {
+    "image": "China_MotorBike_001620.jpg",
+    "image_sha256": "3604ca037ee8e292d3dfa3e38fbde397378b9944d540322ffbb944e3c54649ea",
+    "annotation_sha256": "963f571cebaf390a9b83d6311a7ecb5902c9957a89a78918a58b1e8dbb254514"
+  },
+  {
+    "image": "China_MotorBike_001662.jpg",
+    "image_sha256": "fe029140ecd199a553aef260f18cf9af3fc530047527f3c233f5773ddc6ebcc6",
+    "annotation_sha256": "7edced5203bccf9fb8e3e094de39db7b93ed2e5c87e475edbcfa4bce508a086f"
+  },
+  {
+    "image": "China_MotorBike_001794.jpg",
+    "image_sha256": "7e5e1d766c8b9e9674c0e768589ecad9f94c0eb9eb9f1e32e008b81e0cbdca1c",
+    "annotation_sha256": "83f649c79fba83e35003858cb899855d3d33215d47adc4c5560dede040371b76"
+  },
+  {
+    "image": "China_MotorBike_001814.jpg",
+    "image_sha256": "030aba6c60b82d902b1f4a6c881c45a5a46052be35d859275ee4b4d48d8dd9b6",
+    "annotation_sha256": "59659b206b0ff1d9bd14c809357bb9dee0000179c2ecd1831c69fad9468ecd2e"
+  },
+  {
+    "image": "China_MotorBike_001920.jpg",
+    "image_sha256": "e6cec96e913c6e299a9c8cdce132d17b15e785418814645992773fcd6ef0e9ab",
+    "annotation_sha256": "3620cd1f727a0977c369701d107e27ddf4597758ecb951fce978837596b24ce2"
+  },
+  {
+    "image": "Czech_000429.jpg",
+    "image_sha256": "06f00539c2abb64987bff5439927ceebd2173c815dc15ab54d698112deb8f188",
+    "annotation_sha256": "87d7f42b1dc14a77c0b1141b5af24697734876109ffec22221d68ca81d16d148"
+  },
+  {
+    "image": "Czech_000617.jpg",
+    "image_sha256": "e13fa18ba2cad7add07b579653cdadc8ee2c762dfda854ca85f9f7dd02538c53",
+    "annotation_sha256": "65ae39835cf235d733aba6ac9c11275470201852a9c4a4e80cfca1963c54ef3e"
+  },
+  {
+    "image": "Czech_000694.jpg",
+    "image_sha256": "b1d25c487936eeeba16661cc9b4f27afe9fcdb002dc2400a7dc52ad16c7225cf",
+    "annotation_sha256": "7c1d023731564d8a5facb86de0c17529811fd8bfc448d8b58e6db4ee2f013b4f"
+  },
+  {
+    "image": "Czech_000776.jpg",
+    "image_sha256": "1897b4b5fd8fa7adb043efdf7b6aeeaf97a8858e9c7e7436ad59349529a94ece",
+    "annotation_sha256": "77db6bea4b29de0d9da84f3dfeb0dc91f5734b75af011a481ffc48f74d773b70"
+  },
+  {
+    "image": "Czech_000947.jpg",
+    "image_sha256": "a5cc02b8c6ce529742bbc4a64e64e2230952627d7d7e556b99dfb8dbd23869d2",
+    "annotation_sha256": "89af0fa506d72c305507a1c29aa93b7b99a646b989dee66937260f6e2a358936"
+  },
+  {
+    "image": "Czech_001065.jpg",
+    "image_sha256": "fb1ac58b95d4052a95e0f631fe1d685652a9c8adf93042c3b107678314d1eaf8",
+    "annotation_sha256": "fd7582ced895ea69a6cb27d16dbba34f9de4ee3d5f5cd667687f334d7fb46b74"
+  },
+  {
+    "image": "Czech_001106.jpg",
+    "image_sha256": "cdd23216ce330c0f0c6a6fc311c36dccbf395aef5965145092827dfb3d403ec0",
+    "annotation_sha256": "9d9f73b6af5cf8ca53660c37ddcdc5826c5f4252e81f58d20c6bc812019bd7c3"
+  },
+  {
+    "image": "Czech_001247.jpg",
+    "image_sha256": "40c2594f5b6da51e313410f9f9c8076389fdcf00123bd4082ed71346817f37c8",
+    "annotation_sha256": "4a86531fb83c14d77fb6e9ae1c5ae64c827f0defb845192f6d684f7f118d096c"
+  },
+  {
+    "image": "Czech_001327.jpg",
+    "image_sha256": "1933e0daf4b3105d382da34847bf44304a5040c08f456df39a8cd3d70a3f378f",
+    "annotation_sha256": "bbe2c348e65935baf5639a3f56c5ed2cd75542bfebe10d7ddb37dacf1dd5e2ee"
+  },
+  {
+    "image": "Czech_001517.jpg",
+    "image_sha256": "f85086b80a6f522ccfec1470a178380a5f307a7b5c9174e4edb0e43547282ba3",
+    "annotation_sha256": "e5a4787c134d48ef3218377d2dae3ed28fe43811722f74158ff3e7ed41a8b786"
+  },
+  {
+    "image": "Czech_001579.jpg",
+    "image_sha256": "ffcedd1d2aad57b7c3db9ef36dab32b8b94cd360ec249602244dd6dc310c4b71",
+    "annotation_sha256": "74a21d4ead296c107659ef769fbba5a54cd4425be98e4a3497a6763ddc27cc1b"
+  },
+  {
+    "image": "Czech_001730.jpg",
+    "image_sha256": "ad6d120767ce86eb7237cc60fe4e404197132ba990ef4f722b4b7b393f81dd4d",
+    "annotation_sha256": "0276a5743fefd9bf97879f54b6f0525836adfae1de42f2d468f140ca9d73e29a"
+  },
+  {
+    "image": "Czech_001786.jpg",
+    "image_sha256": "f29d66116be94e34dc7345e0e25f8021a35c2e6dc877b30ee8847200c0763b5b",
+    "annotation_sha256": "ca9da9c8024528ae843efeb766e3a5a08fcd02e29f9c4a430bb5a4a2b0698be8"
+  },
+  {
+    "image": "Czech_001998.jpg",
+    "image_sha256": "ee22e7c27a11fb4d0343eee82907b55117a953d91a9558872184e90a86f9b079",
+    "annotation_sha256": "3cd9f4b254cfbf584bdf8e58b6cdb386782721efe51bf35f22922b1fcc9b26d5"
+  },
+  {
+    "image": "Czech_002013.jpg",
+    "image_sha256": "9763a318841eeddd6d174accc474a4928dd9059ae8f753259faa082b49c1f6bb",
+    "annotation_sha256": "e3ee4687a40b1212c91ae70d8a5d3d7dd20530bcafa5dfe3745bcfab96bd5c4b"
+  },
+  {
+    "image": "Czech_002117.jpg",
+    "image_sha256": "16190755478c53c6d33c3d6a0979b7b4c94af8f040b4c2bcdaa865bac8757a35",
+    "annotation_sha256": "13bca4385abaf3afc05522a57fb6cb78aff523a6a90a4aaf5601256a32ca4c84"
+  },
+  {
+    "image": "Czech_002121.jpg",
+    "image_sha256": "e3b32c37f97142ae71b531a3d469dc1bcb5888eb195ab128d7a0267a78e10b79",
+    "annotation_sha256": "67c518f86b0ea321fb5ba26d6541c6e3a82d43681ea33ba9744c2d26f857ced8"
+  },
+  {
+    "image": "Czech_002142.jpg",
+    "image_sha256": "55435875fecd57764e07e2c5aa2bef623fed85949328f54b5605f2de874729f0",
+    "annotation_sha256": "ba0f1260828cc95879745c2b96e8dd7a555f0285b5fac32bb8ec5713d5f75b99"
+  },
+  {
+    "image": "Czech_002332.jpg",
+    "image_sha256": "233ae6734b12f1b238d218ae1f30cc03736a7e11381109730f211353615c92ef",
+    "annotation_sha256": "329043e9f800c8eec026138c18e0e858aab4b6101b0ec66ef959648d425e34d0"
+  },
+  {
+    "image": "Czech_002411.jpg",
+    "image_sha256": "a057cda3884fc0eb7d08d67e8ac245c4165a8d1692149c7d4c8a0ffe55ddf94a",
+    "annotation_sha256": "3f052207caafd19e12e4d6002a8306b9ae84b1467a2276e5086c7a99ada84dc9"
+  },
+  {
+    "image": "Czech_002454.jpg",
+    "image_sha256": "e41ce01ef39023d8e54ea197e9759829b951f051e06da95a664e329aac6ec01c",
+    "annotation_sha256": "8b792f8c0db0b04ba19e7357f30728c33171bd128d70b18486d4214d92984551"
+  },
+  {
+    "image": "Czech_002472.jpg",
+    "image_sha256": "73d3fcb81a2f9de5db6b99add76c2de8e7ad5f1b980793dc83d242f6ac28805b",
+    "annotation_sha256": "744da598326e3a5c5a9ea819df28ca316da77eb3e75d6817b3c7f2cbff9fb5af"
+  },
+  {
+    "image": "Czech_002476.jpg",
+    "image_sha256": "0d4e5f1d2b55016d6bc129ef53bfdb593100980d12b178a678f06c702a149106",
+    "annotation_sha256": "b2331d86762d86772006f1d790330f5e6f7b78df40a3a3af9a9298a2e5c3f08a"
+  },
+  {
+    "image": "Czech_002670.jpg",
+    "image_sha256": "baee39d0209de31c4b24dfcdb8626473c36fc0358561901eb908ce1e9d7577f2",
+    "annotation_sha256": "57e9b924532f1191c14eab11fdc04ee357f7e4b08521a4118e97789818107101"
+  },
+  {
+    "image": "Czech_002697.jpg",
+    "image_sha256": "1985d2337173c69fa06648eff4d16af3aee5ea3044b23ce694e19ed023d20909",
+    "annotation_sha256": "35ec574dcc5d6a112f5db75a0a80ebc7e3c0c95b956cec8508df98bc3c671bc2"
+  },
+  {
+    "image": "Czech_002706.jpg",
+    "image_sha256": "8ff628ee8158cffc8f630c3d148fcba9f873fa9993082006565b05eae4298653",
+    "annotation_sha256": "d64984a11a992ef5910b4a9db31935278c975027406dfc5284e9195d4c77848d"
+  },
+  {
+    "image": "Czech_002732.jpg",
+    "image_sha256": "12c7c0be894601d1ced531e449067a8d33460a0567afc01f67a2c23c8dde3da3",
+    "annotation_sha256": "af93e2319616d1b216c2509153c1bef1606a7f4b7ace89ebfa6e3cade5967daa"
+  },
+  {
+    "image": "Czech_002738.jpg",
+    "image_sha256": "957f73509989a33f30a6ece0e331d580e87e5cb491d29a081f30fc0affd77fe0",
+    "annotation_sha256": "4afeb15b0ce4e5c5d6cca53624f6dfc86c794ef53371acd1edac3127e6d2dc3b"
+  },
+  {
+    "image": "Czech_002769.jpg",
+    "image_sha256": "9057290a9be0b1925d7a5a7b9d40a938b562ca197c3082e264591825bf1e6552",
+    "annotation_sha256": "465f5d348abc827b55d1c8a892d33de65917d1acb935185b2ba2c96c8e39dc68"
+  },
+  {
+    "image": "Czech_002783.jpg",
+    "image_sha256": "a8944c8ec384690f8ff9b420241bed81eec5cd6ca730df7f4f066e2683d8a470",
+    "annotation_sha256": "cfd823f926daac54fde0b5264c16937ad69fab5acc2887c1ccb83d80d7b01c54"
+  },
+  {
+    "image": "Czech_002786.jpg",
+    "image_sha256": "35ff319f7653a7c36424309340d3bf1826e5a6c1e2827da0c91a20b049e9edf7",
+    "annotation_sha256": "7d468d2e3afadd84241a3053052f6116e2a1363c127bc2977c7f82a7b17f81ee"
+  },
+  {
+    "image": "Czech_003144.jpg",
+    "image_sha256": "16d666e720acdfe8b4f9a0ec315c6a1dd2f8c45693b5e0c0a7a3fe48732f0a98",
+    "annotation_sha256": "f084a89f64c896dd093ec683b02e51c910e55858151046e8434f15dfe910debf"
+  },
+  {
+    "image": "Czech_003262.jpg",
+    "image_sha256": "6f6a66e4472dcb0224ac6076a1f76aad051611bd8d3de81b7ba4aa9618609552",
+    "annotation_sha256": "d3bdda3012fa71822e561f2e61b6d7ef38af03de6645c9f66438af13e8b18d5d"
+  },
+  {
+    "image": "Czech_003285.jpg",
+    "image_sha256": "7d2abb2d2ba3cb8055ada514a95e75232c70e8571510fcf562d9676247b470bf",
+    "annotation_sha256": "2c09ec181363d0a5cf6ded69973cfd25908c2b456c54e479621fea4e982d17b4"
+  },
+  {
+    "image": "Czech_003345.jpg",
+    "image_sha256": "4c647609d023c45e1e55958ef398ad8a7879c301b6d597f73f3f93b40c5ab6e5",
+    "annotation_sha256": "41bf52f5b3cd68647b353846ef5de57fb3a7438a7320ded937f9f42d70bf5e09"
+  },
+  {
+    "image": "Czech_003360.jpg",
+    "image_sha256": "ecf1f465b0e6e643b64f836170197b4ed3337fb4cd6892316f0094e6c27f826c",
+    "annotation_sha256": "e52a6498a7f619f9845fc3bc443deff764f8cb64295cfc9e989174bbe84edf26"
+  },
+  {
+    "image": "Czech_003376.jpg",
+    "image_sha256": "accbe2fc27d16425eb84fdff85ec09ba23b1169260efff78f02020d4b883217e",
+    "annotation_sha256": "cc1e3bae5cf0ad3c71d0809520f9c44e5b54473e51ff1705777960791658398c"
+  },
+  {
+    "image": "Czech_003391.jpg",
+    "image_sha256": "4d62d19ddcb6a075143c70ff6ece9c88c1b036b047e98fed80ae095b534cbb75",
+    "annotation_sha256": "c4854f0d2494100a44a044e68a8d5bc809a911407db62d928df1bb77f834430b"
+  },
+  {
+    "image": "Czech_003438.jpg",
+    "image_sha256": "cd396b88efeca0abf9f605ad2f27f852fb490edadf97145a6690d3c158038399",
+    "annotation_sha256": "75d4fac230400c35aae9486a495b193b6072a767e50640d3343da621d1d42ee0"
+  },
+  {
+    "image": "Czech_003494.jpg",
+    "image_sha256": "bcddc099f50a56745d65cc6832e4886990928f00e1f6a8424b0cf6e07110e190",
+    "annotation_sha256": "77c80960d59af8b18e68db66147c7cd9dcda4cb87eddbaf1d12f43d9511ff584"
+  },
+  {
+    "image": "Czech_003498.jpg",
+    "image_sha256": "2664d6d30567f3788200baa3022dbc8e52d6f9fcc805bb862c500f831b8ff4a1",
+    "annotation_sha256": "8e175fb8ec19d1f382a4ef90e18b4f0ee6271fabda02d3e8bb6232bb78852969"
+  },
+  {
+    "image": "Czech_003500.jpg",
+    "image_sha256": "86b4ce7e19a98af1b23a087cfc82142837111af9a8a565176a459b57917a6803",
+    "annotation_sha256": "79d69d79a48b7b9ece7b35562faa5423e05b3e6f7f02a01991331efdd9e863ac"
+  },
+  {
+    "image": "India_000047.jpg",
+    "image_sha256": "6fbd4de7c14263defeb4e8cc305b0819df92ae20a035e9a053b8282a19ba58a1",
+    "annotation_sha256": "64d3aa06b0f70447528494e9359d0970b04f7d24af08b8ee0541913d75d86a57"
+  },
+  {
+    "image": "India_000317.jpg",
+    "image_sha256": "ebdf201f25b1c207b0131110f4fe93c665d37c4865bb4f6fb10b2914bfe0ca33",
+    "annotation_sha256": "5bb6fa8360e864b60cf61537edf132b5dc7282f7d63915b322b600c42494a820"
+  },
+  {
+    "image": "India_000376.jpg",
+    "image_sha256": "e339705b7e05680e8b895be132e726b7348253316d557466d45f6ae384d905d7",
+    "annotation_sha256": "291cc22e07f2a749f812fafdedd4e98dcb154e57e1279f2886f872e9b8eb7215"
+  },
+  {
+    "image": "India_000606.jpg",
+    "image_sha256": "0f2316849c910f669e2fc7cdec4a8916d2042dc727bd3e447aa4ac4a64a82f6a",
+    "annotation_sha256": "d40970dc5797e03be1ac7dc168796b61b3f871cf017a5e8b1d97eca963ad955f"
+  },
+  {
+    "image": "India_000618.jpg",
+    "image_sha256": "d4fd4dfdd3d7d3adca5b28f666c94a47b8d70ef47e8554651eaf022a736ee227",
+    "annotation_sha256": "defa61ee60d2d7d9b0d6122720fcf79015fe87e73a84dabdd16bc027ff4a99d8"
+  },
+  {
+    "image": "India_000806.jpg",
+    "image_sha256": "cc8534ad88d39495a6a9eae240ff18a7c9a97374e12b37ce1cb1aca988d48c3b",
+    "annotation_sha256": "760532ba2c65866514ce1c9f7a452873801edbdb57920033f588648570fb5a6e"
+  },
+  {
+    "image": "India_000851.jpg",
+    "image_sha256": "807068d8b1ce0808ecf2958f29f9c3c1f739acf249df56e636bb5f5493a9a347",
+    "annotation_sha256": "c9a05d06c01ce64e3c42f9580bc8216e94be1e30afbd67874485d68b56548cd1"
+  },
+  {
+    "image": "India_000913.jpg",
+    "image_sha256": "6141fbe674680cbaa83bd194ac8522c577979934ca1297fea066e6f416bc33b2",
+    "annotation_sha256": "edd2ab5c32d017866e2be76ea8448e926141186040360442ca93fdb8e6b6cc13"
+  },
+  {
+    "image": "India_000919.jpg",
+    "image_sha256": "b073aa79da6c16f7a6186bf395669a4b3b6c50523a24845910bb83f909561ee7",
+    "annotation_sha256": "a12b081c595d0f8018e843601553053777452b65282b031d7c6dea650a8598bf"
+  },
+  {
+    "image": "India_000922.jpg",
+    "image_sha256": "5f5b2f24df9719b8ae0b52db4fd38df9cc61f5365d071fd9c5a818964968e82f",
+    "annotation_sha256": "da78879d898c428c91959ed933f4a0354ce217bbdbcadb5dfe912e9e34e760e6"
+  },
+  {
+    "image": "India_000997.jpg",
+    "image_sha256": "d2a06d062635e98d66368971af0d86fad693c7d412f1e4b67dbe6444c8042233",
+    "annotation_sha256": "551f56d4eea81d50dff0455b12754ebdcc643b0a1e52b7a22b9565d928c42dbc"
+  },
+  {
+    "image": "India_001037.jpg",
+    "image_sha256": "fc9143a868f49d5d955b60c24d492b1caf19e1b09e652d85037cdfc1af131ce8",
+    "annotation_sha256": "244ee8c28191217360ae3b6451fe942624101bd7addac9c709aca42483194d8c"
+  },
+  {
+    "image": "India_001380.jpg",
+    "image_sha256": "5a7a6367381591bbee60ffa037ac51bf840420a720ba28e2e107a962c0a04e6e",
+    "annotation_sha256": "e1378fa194faa9e3d17cc6f68def052d361aad707642781ac072eee858b3d926"
+  },
+  {
+    "image": "India_001400.jpg",
+    "image_sha256": "d15033b05f798ecfc4bc1d4d45044fde098a8dc5719eb7cd19dc84f297c0b671",
+    "annotation_sha256": "3d0e817c134489c7f19402768fb2b24fa8eb4d4416a68696db75fb4a6a1d6a74"
+  },
+  {
+    "image": "India_001497.jpg",
+    "image_sha256": "94a5e209fa047f0ba33074a597cdd01a5d85bbe2396c4a7089c515f4dbf46d17",
+    "annotation_sha256": "587d7a6edad5c9fcf3fe257d85875940ab543022b66d41287396336966a36423"
+  },
+  {
+    "image": "India_001517.jpg",
+    "image_sha256": "7c746250be565d1034f2d53322c75a6b4dfdf6b397717aeba55d30774ae09179",
+    "annotation_sha256": "7ff40dbc275cbc9bf4e4ffd45b9a54222a20e04889c0e1f33fef9444de8835bc"
+  },
+  {
+    "image": "India_001599.jpg",
+    "image_sha256": "5e9ef394acf390e040128b7beadf06e4ce932d5c0083dd926acca22f27c0380b",
+    "annotation_sha256": "c66d7fd067db78ece5969a647065a9869a408a3c37c5854ab37cdb91b5055ef0"
+  },
+  {
+    "image": "India_001604.jpg",
+    "image_sha256": "3cba95ed2cbc7022e2b58947f44a07425a67946af9fda0a8271f8b5a7251c2de",
+    "annotation_sha256": "ceec6acd0a79f73b628761ad23256c71c6cf3951a20ad9c2b2ce245fffc12192"
+  },
+  {
+    "image": "India_001609.jpg",
+    "image_sha256": "d57e10b52901048ba342eb5cfdd2836c7d6ebd1f25a85acf1a3cc6c9acad8a68",
+    "annotation_sha256": "887e3fe54cb5fe30b4974c63f383fe6515c2ec54f3a40880d2d5ba34e252c0cf"
+  },
+  {
+    "image": "India_001633.jpg",
+    "image_sha256": "1570b5c432983d0e7da733b8f7feafcf9f2b4774ed624281a267e632be5c7914",
+    "annotation_sha256": "ad7c1ad2ed749a6f1ad1d89f7f1c64e6ec155424de0e70e184b16692ef9ef645"
+  },
+  {
+    "image": "India_001702.jpg",
+    "image_sha256": "f7b849462a4695f2ed223061b6a605fc796d4528d3529eae82f87a106126a206",
+    "annotation_sha256": "5dce7ef924813f1bd27988db75b614cb06d1f41758e09dc29e268efa564b53b8"
+  },
+  {
+    "image": "India_001735.jpg",
+    "image_sha256": "1b13d6d0f5a495e412d283e1d7a73818d629fb395192b91f424a7bb172a86a75",
+    "annotation_sha256": "975e22d8575fda4c48569ed5a86e61814ddd17f2705c638fdb775176fb074ace"
+  },
+  {
+    "image": "India_001767.jpg",
+    "image_sha256": "2f88e982f2ec7a3177d9c946c15dfd9eb11f7afc182cad9050c1799aef1b5ffb",
+    "annotation_sha256": "a186b567b710949fa09932e143fa1e27e7a87f2233ee8cdbd27538b78f5f6688"
+  },
+  {
+    "image": "India_001785.jpg",
+    "image_sha256": "c1ef68a0488a80cbe8cf359da48f06452938d0fdfc61311555fc8b1e338ab2f8",
+    "annotation_sha256": "81777f48f75488c925d347b9afe28a53b86389c6abae4a5ded25f39cca4a1048"
+  },
+  {
+    "image": "India_001820.jpg",
+    "image_sha256": "ee5986a0af5b7c5b249bbab7a45c30383aa5dd0a2cd1fe28c1acddd7e480247c",
+    "annotation_sha256": "8140c78358f24f00dbe87d19387ad50b85ba7737f18443fcc12a4f82732b4ebb"
+  },
+  {
+    "image": "India_001936.jpg",
+    "image_sha256": "290e92001d198e764b3088df828d32b66d9ebdb28475da0055937775afcc360e",
+    "annotation_sha256": "288401ac1e46b14a350df925948f419593395df18655efb1be8c7b7bef4c907d"
+  },
+  {
+    "image": "India_001939.jpg",
+    "image_sha256": "74fff1e9c69355061bf4ac78766dbb1f0b7b787ea021641aef42f2909b569da3",
+    "annotation_sha256": "e7b9af1162971dfe0b587fac8e9f3993fd643005d85c656b372c8c74f146c697"
+  },
+  {
+    "image": "India_001962.jpg",
+    "image_sha256": "a229351040657290e4746f710e4968b7d65939ca69b60c14d996db133b3e31ad",
+    "annotation_sha256": "2f178a4603c84215b0f1711eed8b7200990a9d928242fca9096e606ac1236a1e"
+  },
+  {
+    "image": "India_002022.jpg",
+    "image_sha256": "80b71465e73e0e18ff7a1bf4ef926c713ecc8ee5da14e8c74fa682a0c56e070f",
+    "annotation_sha256": "6fb46e32d317180a21f706b85c44dfb3a783e34e6c32f8e30007d1a4b4571684"
+  },
+  {
+    "image": "India_002028.jpg",
+    "image_sha256": "306ea95114d5d4bede3ca636420000b1a1366a38c6e0fbcfd000e71dd1792afe",
+    "annotation_sha256": "87b6fde05c9327afcd3f2efd1af5d941f022290fc79b374afea75410a2a89f6f"
+  },
+  {
+    "image": "India_002085.jpg",
+    "image_sha256": "4f0dc33b375a3a54a3ce05b91ac4822125931703595fc1a4145a5ae1e9b774cf",
+    "annotation_sha256": "3b51ed94b4c7cf0c38e6b68f8644d38fc3db8cf3472783579f76d826da472549"
+  },
+  {
+    "image": "India_002128.jpg",
+    "image_sha256": "55a77e380e827a0195a44626f9c2148975a3e730004ae5094e8393462ff5ab34",
+    "annotation_sha256": "68225c5db593d5629f3f185a95437718bb57af84a5bad3dc6a37e7c166c6fd16"
+  },
+  {
+    "image": "India_002135.jpg",
+    "image_sha256": "5318c0ab9dde7c8ebd824502a6f7fde0ad242fbb4641bd6313622633f0af744c",
+    "annotation_sha256": "5b956aad1265bae3c5bc1135f7afa6b3c5a136db464ebf3d0ba28991a34cdba5"
+  },
+  {
+    "image": "India_002143.jpg",
+    "image_sha256": "2f6cd5728a526e825a9b0c185aea72a6455ea75e02a75b2da596a93c78588090",
+    "annotation_sha256": "ac39c7dfe95bcfa2544218e493a5f31d565aef0fe4f470e0d68899fc9532f125"
+  },
+  {
+    "image": "India_002211.jpg",
+    "image_sha256": "72bc7f1f3b9f85d1e177df1bdf7ff58b483c72e78cc4c47c9c6488cfdb1f2f54",
+    "annotation_sha256": "86a0ae2efe99a2a0734a4130d88434577c5c64adb2466b27ac719f2122f15d67"
+  },
+  {
+    "image": "India_002288.jpg",
+    "image_sha256": "50e4752638f5bcbdad75b2e6f43ff226e5644a10f1ed4629f274084344da6415",
+    "annotation_sha256": "1f896d202f5a6653ad58fa749578072f67a4bf15025b05e26f8eba8404db5be9"
+  },
+  {
+    "image": "India_002320.jpg",
+    "image_sha256": "c752e46e341a8fae8dc158f996f5eb62182bc5401f65e1e24470c2916c188189",
+    "annotation_sha256": "c9d8a68c2d9d62cfff94fd944856b861ecd561b587e1f98456e7a4741911b424"
+  },
+  {
+    "image": "India_002387.jpg",
+    "image_sha256": "9bbf97cfe088ec31eab49a26f94c4a31b7312b5fc96e375ab2ac85b42b6a9ce5",
+    "annotation_sha256": "e4ebc4efb85d58ad97e9c018a44c6a29bfc15b63f9eeb1e7f5e52ea4423dc5f7"
+  },
+  {
+    "image": "India_002504.jpg",
+    "image_sha256": "17d021e7e2e80c1b67c0f8e1954ebb611e3fc7b959c1729ba819777191ee632f",
+    "annotation_sha256": "9744f672738f0fcd2b29f03fad28ccbd46510d21d86af0d021f3d936c49bd12a"
+  },
+  {
+    "image": "India_002554.jpg",
+    "image_sha256": "f9018e5560c44915d6d02e1a59f679d154ed189f993722b5ac6b7859617ee629",
+    "annotation_sha256": "9ca002019c6907d0df3d6220253137d85063c816fe3ff35de1434717ac471956"
+  },
+  {
+    "image": "India_002590.jpg",
+    "image_sha256": "c2665cb1b5cd0e299ac5b1999c1584d474f171ef8dce1a61236d08c36cd1d160",
+    "annotation_sha256": "83b4cb908b1ccb81bef4b0a013b008348a86fa9747b94eedc1cabd5f29b502b9"
+  },
+  {
+    "image": "India_002610.jpg",
+    "image_sha256": "43560380e30ee041eb63695e5c2d43d6c3a696c018d0122c60311780e839d955",
+    "annotation_sha256": "4e5a9e8f691caf81566c82faff74ad997be02bd3cb5db8ddc42b8283e47cf862"
+  },
+  {
+    "image": "India_002614.jpg",
+    "image_sha256": "17be17002d4e9574c464ef08a511d783b57d9a6d51c296c82b1d66413209e308",
+    "annotation_sha256": "e2bd0b1434777910993ed36184223953b8ee992dabfd65ce64aad00cc6d0d9e9"
+  },
+  {
+    "image": "India_002618.jpg",
+    "image_sha256": "5aa4b7471820c396e8bc1557aa52322be043fe1ae9dff59cc4175be1e4bd3d00",
+    "annotation_sha256": "ca0db33eb94c223d6ef5ab2366500e61df16eba27a00d7abb2eb0e9826b96552"
+  },
+  {
+    "image": "India_002662.jpg",
+    "image_sha256": "061a0c488b19404ef9c3b6d28cfa5a9337bd113e20e166981899a26af9178b6c",
+    "annotation_sha256": "34febeb90a63c8abe189aa816fd9cac0b17134892a0bddbf62783ea054a45d7f"
+  },
+  {
+    "image": "India_002678.jpg",
+    "image_sha256": "97d96b5a577d90b36771e886cee16a0c5cb18707c74f5c2223164df07e6ce964",
+    "annotation_sha256": "5a786b9dcdcea5453b532bc8a8df1dc3d1bfa656cf09e964b467b8dc18524253"
+  },
+  {
+    "image": "India_002750.jpg",
+    "image_sha256": "7531c1e9fdaa581012ba9320b855d34a7767e1fc953dfae49e1d4fb4f68ee49d",
+    "annotation_sha256": "1ebe26f5b92600dc5d5245baab971251a4df7a1b389b8b61c86e99f9d74d01df"
+  },
+  {
+    "image": "India_002798.jpg",
+    "image_sha256": "3b6718412b13f912dcb525d545d97e47bdf7a840a5832e2947a160a02578d66c",
+    "annotation_sha256": "6d206f32bc7dc8841167078d17eaaeb56e8bae1132645a8bf4f8569d1a42e995"
+  },
+  {
+    "image": "India_002825.jpg",
+    "image_sha256": "3bf623c143ffb279aef7722ee01d9c64d6e27a0274016d572d3c8b46bffde65e",
+    "annotation_sha256": "824cac58647e1bc24c09f5a789b24ac109a023c0ec5642c7ded75c039e86f28c"
+  },
+  {
+    "image": "India_002860.jpg",
+    "image_sha256": "d1a8ee27e8edbf27a75746647d7799a95f75e9e7b228cd5593ed42333b436b7a",
+    "annotation_sha256": "90fe9fc9839d8b76ed150288f549a5bd23d63636c759bb46a0f15348df7d8e91"
+  },
+  {
+    "image": "India_002875.jpg",
+    "image_sha256": "f2c11aa598bca12a6c6c69499a6d39880e53087f2d7c85c72bd141b0d3149e6f",
+    "annotation_sha256": "f8cb0b2c9675f957694be7b33363861932b3868502046264ce31ef0f46771e5f"
+  },
+  {
+    "image": "India_003021.jpg",
+    "image_sha256": "eb53c1081ca9250f9c14cd23e2ba3e98685b92815d499d44125eefa3ebe42a50",
+    "annotation_sha256": "1a48b962fc1910be84a18764541a0f5f382bf5ce7869e40a7d0d4c3c534c9ce9"
+  },
+  {
+    "image": "India_003074.jpg",
+    "image_sha256": "c79967bde4537140d9b5e13ce72a003efe1b11b9f1d1cb537e39cb6934d3a5fd",
+    "annotation_sha256": "9edb3584bb974115279d71ee33a7d0675cfff14f4a7c4affe31d6f9d779d8c8d"
+  },
+  {
+    "image": "India_003094.jpg",
+    "image_sha256": "ba76c5678d8fc6f0703a14516e19f4703c8d1103193bc053890026106be2f547",
+    "annotation_sha256": "625899eb36180fdf2f09cd6cbb1d051409666bd243002dcb8043155937b8dfc9"
+  },
+  {
+    "image": "India_003130.jpg",
+    "image_sha256": "5fe26f1ad175a37ccfa87e1492ccb027ee589b88eb8fdf2be57a4ba967fc66ce",
+    "annotation_sha256": "d74db8b3f377ab628c6275819825739c76da8bdc16f3fdf950e5025dea95418f"
+  },
+  {
+    "image": "India_003161.jpg",
+    "image_sha256": "c22a9395ac072c851117bd97c39de833c3c5b909268c3b0f0077adb9971235e7",
+    "annotation_sha256": "dfaa2519e7df4eff743c0df157c1821addf489343e6d910b8fc2da2076627fb4"
+  },
+  {
+    "image": "India_003265.jpg",
+    "image_sha256": "2cbb8e6d23722916ea1b2297be5374c4080b9afc3aa1af809e4d07b3e88e5e0e",
+    "annotation_sha256": "6f49dca4163d6ddef6aa4046af619b66b4015d9cc5f2b020ca46009d9d0876d6"
+  },
+  {
+    "image": "India_003289.jpg",
+    "image_sha256": "c427a8b3c8b97ad29e62a9a4c8ea79b7bd2dc1ee8f8b67549be3a7e36aaeba66",
+    "annotation_sha256": "735c3f5510b172852e7a4d2f4416365e3cfc57a1228cf07990e901a031bf3ec8"
+  },
+  {
+    "image": "India_003338.jpg",
+    "image_sha256": "b320d3daa2517926a217ea290d21f1bd66f249b3ce68a48958b9a2cf1b95952c",
+    "annotation_sha256": "e7ca2656526f4cee044f3c4c5f3d0ea65f4bafafed0af6a527e341a9ebf72b00"
+  },
+  {
+    "image": "India_003430.jpg",
+    "image_sha256": "9c12ee7a21c012e6b7e339642da7ceef0ff7515619d8984672a714a90133e3e1",
+    "annotation_sha256": "00cdb45f89f18602b4ec8a09e0c72299f482d1c2110103edc604d8ab81915296"
+  },
+  {
+    "image": "India_003575.jpg",
+    "image_sha256": "7df15f70794504ced43a4dcd1d224e9de757238d7bb1f4d803a7b8477a74866b",
+    "annotation_sha256": "12eae8a57ba799366ec7e9492fc1087d505fab826540d94ccf09c6683992cdfc"
+  },
+  {
+    "image": "India_003577.jpg",
+    "image_sha256": "1b312f2061103e9850c892dd40e5673c71eadcb832c41ed0d18e76e6ebcdb30a",
+    "annotation_sha256": "2519ce76df44623f6dbd64084f87b15939d63b954022c370f0144bd8057a66ae"
+  },
+  {
+    "image": "India_003589.jpg",
+    "image_sha256": "84337ac8076a1eadf78b2cc3fefec7e654a3973dadc64f93a2e13ab686620a0e",
+    "annotation_sha256": "9194c2950d28009cb5f775165e8c5a0fd64fff536ebd9f94d07656354fa42e89"
+  },
+  {
+    "image": "India_003595.jpg",
+    "image_sha256": "a650a45d7ce3ea4ade79ec75c3d6a7a3a7263dbf5dadba63ada743fdb6ec3b9e",
+    "annotation_sha256": "2dbbb2376a971cb61d92e4070bc40975ab8d6be0918cc809ee27d7c14565e8cf"
+  },
+  {
+    "image": "India_003672.jpg",
+    "image_sha256": "338a431ba23659aa405445b10f701565610038f2f8be7afc371bdf4ba09606b0",
+    "annotation_sha256": "49361a0c4f26649915619c8795ebc139c10ea1e001a0c03a13093205e4db998b"
+  },
+  {
+    "image": "India_003674.jpg",
+    "image_sha256": "8c6b59d6d9effaab63fcc4ebb42ee13aeb04ad0d28bfa0ce6d21133ba03b652a",
+    "annotation_sha256": "a3c96c4704e97e338a0047c8d8098658f3f4e84e20413b4f8eda6a8a46995150"
+  },
+  {
+    "image": "India_003738.jpg",
+    "image_sha256": "d26d01c1f6dbe9551818047808c187c528cc09d38ea9d10c13c60ca608511900",
+    "annotation_sha256": "e4a91ffbcf4607cc3d96d3010273c3829e6227161b13f081b3058ca4ebf9d5c1"
+  },
+  {
+    "image": "India_003741.jpg",
+    "image_sha256": "05dd9191a9093731b8055777ce5a5fbb7e3a6b07e2912a5bf7d4f0cfc04793d8",
+    "annotation_sha256": "5ca7b2eff076d2134578578a5012856fcd28f0584535ce62632dad28d4582fc9"
+  },
+  {
+    "image": "India_003758.jpg",
+    "image_sha256": "f0244eac5f4b2fd1edbb7ba71a8bce4ac161fb48db3f051168f189b3cbda5235",
+    "annotation_sha256": "799b631085e54824c2a5a78d316305304ddadee37899833e753c9d85800e14c2"
+  },
+  {
+    "image": "India_003806.jpg",
+    "image_sha256": "31481cb0243d8cc90b63d792a2d4d06475e200bbbbbf7709f91a4e1cb14b060c",
+    "annotation_sha256": "64d55affd2be2e69be3506a561b2a0c0380b870be3fedf88728c1de149f8fb64"
+  },
+  {
+    "image": "India_003811.jpg",
+    "image_sha256": "daa3d3513078e940b73222dd0bb8f58f4935d314d5095d1d3c21d7a01c84906a",
+    "annotation_sha256": "b01c691abc50fe1e2c227b6a94bf0c2e8c7fcdbeb6c8b32089a2e48618d49a00"
+  },
+  {
+    "image": "India_003822.jpg",
+    "image_sha256": "4b6558a8cfec7e1bbcbc6773aa85d74914c0cc60c4894bb42e40ab830fdf4bd1",
+    "annotation_sha256": "d15420db7b5e36f6fadf9c7671150c6a854033d2514c43a553dbdbfa6d728b8c"
+  },
+  {
+    "image": "India_003831.jpg",
+    "image_sha256": "c7fd5d846d96f3c8312083a084b0da1088c44c2d2cc3b43af2919e9b6e0f0ac1",
+    "annotation_sha256": "b0aa74a6063826f9809b4a0678efaf0bcbb37c2655490b6ed1c4c6e1b4e90198"
+  },
+  {
+    "image": "India_003866.jpg",
+    "image_sha256": "af524f270b7ce5a8ed888f950abbf68da1e849349d4f739ff72d746ff86b312a",
+    "annotation_sha256": "69d227d401390f07e8af1e8e44f2e2bca6deb86f441007beecc6cbd8c95bf4f7"
+  },
+  {
+    "image": "India_003937.jpg",
+    "image_sha256": "c9d1fbf6046ead1eed090b9ec8b23c706c278c313b6c413b60a0d80b344c0400",
+    "annotation_sha256": "63781ba066cb2a9f330de6de1842fc784e622458c4380298b1bbe5e8bfffbb7e"
+  },
+  {
+    "image": "India_003949.jpg",
+    "image_sha256": "a5780955770551becc1d2d4343b9c1ea8d35c1eefda7c772443c72663f0e8983",
+    "annotation_sha256": "cf6c9eb5e8f21c2453dfd580ecef3449ee5593f836f1e05c56d84f5d1ac21ed2"
+  },
+  {
+    "image": "India_003959.jpg",
+    "image_sha256": "42be93bcb37059a835982c4a91bc7e0e91dd5785b3ac6518297f398a8a0f63ed",
+    "annotation_sha256": "ed4a3ad0bbdfb9aa77ec77f03f920c22b43084bb3f7cdc8e4f2218be27ab08e7"
+  },
+  {
+    "image": "India_003975.jpg",
+    "image_sha256": "1374875c07b703a7a87d5af1167ceec2630d1ba9bc412fe1b5fa84bd6350e00b",
+    "annotation_sha256": "1b3c2e46ff437fe609f7c358e6e3d2d1830373867be0cb62b2f0d4fe53f43bb3"
+  },
+  {
+    "image": "India_004015.jpg",
+    "image_sha256": "a7cc36250663c3a5e172289a112d698c8cfe8514075c05fdda2273e3d51e6274",
+    "annotation_sha256": "671271037473f4e599c3add1532f2827dac21aba735d9b7316e522965ca6d5f5"
+  },
+  {
+    "image": "India_004035.jpg",
+    "image_sha256": "de6203d39140f336d4f94836d2eae31c8311fe293f52dce1eb5e476e67e43d31",
+    "annotation_sha256": "0ff3b283ffc5b8e50290e593c1bd2b5c3999db00aab6d995802e737b860e69b1"
+  },
+  {
+    "image": "India_004051.jpg",
+    "image_sha256": "1fa6e2be9b004dc2569739ff67ae9d3b74ab9546209833772c1465fb15b8c373",
+    "annotation_sha256": "c6c837d194919b59f6c84f6953daa5b78f4f3e9ec7e3bd51243550c9c9e55646"
+  },
+  {
+    "image": "India_004091.jpg",
+    "image_sha256": "af60b1b7d5cd99d20d8cfa66ad5d28dbf087e004bf2606916e846c003a14b465",
+    "annotation_sha256": "f28f7f0edc7a280777b8206f467c012cf8340799ebde36c9317d6891d171e198"
+  },
+  {
+    "image": "India_004155.jpg",
+    "image_sha256": "f0f125a5a9d392b964bcffa81dd174f9a975fbce25d0904723849066ac345703",
+    "annotation_sha256": "561cf73766a6c46751259a703ce2a7d780a5a69ca44e6678a55ea0bed0a8ff2a"
+  },
+  {
+    "image": "India_004193.jpg",
+    "image_sha256": "2542928af7538da14d392a042a795a0de6e34115393ea245a3833e5c792a3d43",
+    "annotation_sha256": "e904106d7a0d70ede699453df74f940f9db35e0d08f66e60a361ffa669a83968"
+  },
+  {
+    "image": "India_004231.jpg",
+    "image_sha256": "04ad36661ca5fac548e696182281f753bafb389dca5400b27323010ee2be09f8",
+    "annotation_sha256": "efa19328898206aed11bc985d6c63a039f8114804cf1549814ce62b05475fbb9"
+  },
+  {
+    "image": "India_004279.jpg",
+    "image_sha256": "b4722a373d041b275740ca019c761aac8bf9b0e9deb615a749016f31eb4ce05a",
+    "annotation_sha256": "0510ca69d4d73b1ce2fc98f22a7a0e6484cde67f8a0c6cf039e933596a8b54b5"
+  },
+  {
+    "image": "India_004375.jpg",
+    "image_sha256": "42600fc349b0bb3e4fa2fe4147216695ccb98618f6da369a2ab759218395c85f",
+    "annotation_sha256": "56fe501fbafcda1eab76e666ec969a68aeaab9a78c445e20e85e8e542a705013"
+  },
+  {
+    "image": "India_004425.jpg",
+    "image_sha256": "8701995df283edbc78a445fb03f55d9b6a82650d9527eaf98ba775ec33d1a57d",
+    "annotation_sha256": "07e2398df4570fa1454e7959b300e12a779123af8c630037e349331ffe8dcca9"
+  },
+  {
+    "image": "India_004431.jpg",
+    "image_sha256": "6effbff70af5c451a3d99fe733de77abbf695c75bab90d88582408cbd69c1720",
+    "annotation_sha256": "2d94fd12f897de14e32dd101a87432596a7defeaaedb4b00977fe8fc01708421"
+  },
+  {
+    "image": "India_004437.jpg",
+    "image_sha256": "ce3c527f0146e841225e3e542b6ccf1304292d5b8114781008e9a2bae05a08c3",
+    "annotation_sha256": "ebec1955107fa7421b482c030b50d2995573730fd1e1b3f8176c6f6709e8cb1f"
+  },
+  {
+    "image": "India_004530.jpg",
+    "image_sha256": "7da067a53a1801ba8e79663dbda4738a9b523dc414648d0e8a1ddd374cb56efd",
+    "annotation_sha256": "c0ccf79850f05fb773a36faf4723d6981bb4f13aba8915d0fb49ca7995237999"
+  },
+  {
+    "image": "India_004556.jpg",
+    "image_sha256": "cbff6c43fe3f7179b2e14e38f4a28867d98d22caf3c395a1bba1f44881eef6a3",
+    "annotation_sha256": "2e94637d803ed65460c6fdd2d985612a8def1a2e0a559bcb76af7555f6e86793"
+  },
+  {
+    "image": "India_004571.jpg",
+    "image_sha256": "eb397173c274165a173850756267438ffa79d2b8fa9e3053b37f1f8595b806ef",
+    "annotation_sha256": "fa7e6aef1fe27048b180fbeece4aecd08fedf4cf052af750ec2b12ead638522d"
+  },
+  {
+    "image": "India_004742.jpg",
+    "image_sha256": "dcaedc50f4f57626d7af72ad5c2ada15abec8db3f24eb37eefca2c000d1d6d6c",
+    "annotation_sha256": "6ae49f286b8c3716232dea63166b57924a2a44d3c838b48864411bbc8cdc26f3"
+  },
+  {
+    "image": "India_004764.jpg",
+    "image_sha256": "e624ee9b9a062ea5902e8e31e54d3c90911588fc8b0882604da33066760f7b8e",
+    "annotation_sha256": "7b5137ffb31f664fbc05250a8c4d8ba491dcd1d0e09ab85b248f7e005da8883f"
+  },
+  {
+    "image": "India_004913.jpg",
+    "image_sha256": "77e2dbf94ee06e2cb70d5e9715f05b7c9373c92c5004d78358805c696ae04cff",
+    "annotation_sha256": "069f991b5501ac181e5cdf09eb55c57389b91118a7cb76428e9e606f6aa1968b"
+  },
+  {
+    "image": "India_004920.jpg",
+    "image_sha256": "c4368d405bed3b3309feb5d794de465d8de04b77b9a43f066a52915a433b5051",
+    "annotation_sha256": "341253687f6e19de6afd0c77c8b8e6980ec1768e894a6ad8eb76a42f96f457c2"
+  },
+  {
+    "image": "India_005058.jpg",
+    "image_sha256": "dfc6afd9082d0b7cce5dc1c9c461278e4470f63566c358f490000d3d60ed7ca1",
+    "annotation_sha256": "ed366d2f78fb0e6dbcdeaa4eeb0348fc747c7e5abf5237018c43e66e7e13a4ad"
+  },
+  {
+    "image": "India_005080.jpg",
+    "image_sha256": "b80cb7c0a0c7f83f52ad85168498ce4cee0c8b80286a92b7388fc969b13cd390",
+    "annotation_sha256": "e60b8a37265d583f1fce7b1ac9222886e254825da802f826d4d9013f4bccbb72"
+  },
+  {
+    "image": "India_005087.jpg",
+    "image_sha256": "e0b88e57b4057ab2d8163e741e76befaa58e5d428d774abce4f1bb69cd502395",
+    "annotation_sha256": "d8522516087d31664c80cb0d5575f58b1e70f67978dea7efa411ec83ddb4c5af"
+  },
+  {
+    "image": "India_005296.jpg",
+    "image_sha256": "d52d36f093a175b2da8072a6e8d8e45ca9a5e3c539f41d9b372e12bc29d02cdf",
+    "annotation_sha256": "1cc69904b85f7c5d7c403b49b4f842b2f6c1c197965444510d4947a34b0fccae"
+  },
+  {
+    "image": "India_005308.jpg",
+    "image_sha256": "ae72b49be8f01336a934c10739326f394a6342b2091d17490c2aa3505979c2b1",
+    "annotation_sha256": "b8bfdec67834f92ae72da7ec8fad935454b16a73f71231bbc7b36599702acb93"
+  },
+  {
+    "image": "India_005318.jpg",
+    "image_sha256": "c18bff2589cb714d5a48bc39d7cbb7459a801f24495588fcabfd7b192a83a787",
+    "annotation_sha256": "5a5ef4333d03e20c399549bd2c730655fdb261371de15a6ac101344313734ae9"
+  },
+  {
+    "image": "India_005618.jpg",
+    "image_sha256": "634687d610850aecadbedac5b4cf582da53a37769bc903f8282a8cf089657d61",
+    "annotation_sha256": "81664fc997b1e18bf2b7d62c70dd97a9770681bfbaecb5a18f690ae79998a4df"
+  },
+  {
+    "image": "India_005659.jpg",
+    "image_sha256": "ef0cc68a0c68e860828fe9b6683d08da77845b40046a2d995dfc1eee3d17387b",
+    "annotation_sha256": "dc21354d9c845c68ba63acd5fd87378f0b39e754b03980bc5c9ba9e210530fec"
+  },
+  {
+    "image": "India_005676.jpg",
+    "image_sha256": "4ae7b98ce6414fcf1b32bdedac18c3341ad792f0489b8a57c4965bddb2becb68",
+    "annotation_sha256": "b7bff2fdd00aa07d3bc1678520e7168163311508b9c5f9c2077810b241a2cb20"
+  },
+  {
+    "image": "India_005729.jpg",
+    "image_sha256": "e57cbecb21ed387fe34774abe8e423ba6b7f376c5e77f9cd0e75ba06aaf7d5c5",
+    "annotation_sha256": "d76a58e6caf1be5d70edc66bfd8cb4a82b984a726bbe1c338a877e4c455751f1"
+  },
+  {
+    "image": "India_005742.jpg",
+    "image_sha256": "5e60ada6ff0bcc8b09dac043f60592690e6fc5d295a08770101c0d8cdf4fdec8",
+    "annotation_sha256": "f164f14b8e7b46b5e7f955209466caa59524b48ad9d3c2a4024fe3ca3fff5598"
+  },
+  {
+    "image": "India_005902.jpg",
+    "image_sha256": "00b5ef70c1fc4f33da2de118e3387fdd019fce4d169e3d9aedc8aed11fd36ea9",
+    "annotation_sha256": "db6796f1613bb77d5fa2e681d17cc457a0c3ee9f727a9a5657eaa9b018118815"
+  },
+  {
+    "image": "India_006079.jpg",
+    "image_sha256": "70a4a7e9c5b7ea8dc20701bf8df821974b3db4f7505349745137f48b2cdd9732",
+    "annotation_sha256": "03d1944f2459ab5267b8c538d2845561741a0e7097bb5705b3cae4120366a562"
+  },
+  {
+    "image": "India_006091.jpg",
+    "image_sha256": "1aaf97b63aa9f1b5679654da6f5d080fc6882dd3cadb130031cf5118fa97b42c",
+    "annotation_sha256": "55571a3ed4f19958459c987e56bdf4be093fa8a915a87b1eba18c5489d979bf7"
+  },
+  {
+    "image": "India_006238.jpg",
+    "image_sha256": "65abe94f5b5a0c24f0ed4f4cbe63bbfc2ea9f9ddc7b7f353893b78f82153a7df",
+    "annotation_sha256": "646317e4d3614d71f78399c4a6d2ba4b54340f11f1728d7b1f97910fdb5d6523"
+  },
+  {
+    "image": "India_006295.jpg",
+    "image_sha256": "042995d7708bed8509fefcb854e1398da84043dde01a8c3ac7364ebba981d3be",
+    "annotation_sha256": "a846fab3f3fded4f88681a477b9951424a1ab7d2bf70b269ac1e5460ee91895a"
+  },
+  {
+    "image": "India_006357.jpg",
+    "image_sha256": "ca6c2772cdd88a206ac39a3fe924fa37a76d82913a933cfcc6549c9e2b4d5be1",
+    "annotation_sha256": "d35a12fcb43eaf16c42919340fa42ddcb9a07d623d66caa784e74ad916d055f9"
+  },
+  {
+    "image": "India_006600.jpg",
+    "image_sha256": "70d9e21873225673803a4d85fc76e78a3210836d7fc656321ac4eb7ed913be36",
+    "annotation_sha256": "361365318476f9f25004a3b52d3d9e60f128f3ffd407bdc33ef453beab5b53fc"
+  },
+  {
+    "image": "India_006645.jpg",
+    "image_sha256": "79ff5c502411f480340deb3e346d8081656569013190bbc54b1140eba51a0cb8",
+    "annotation_sha256": "09a4697c01bbdd3de771352feedeb2d791296a16c21680f482f1f920678a1ac8"
+  },
+  {
+    "image": "India_006663.jpg",
+    "image_sha256": "7c654f3d96183986fc04a69f6d602936c013b6922e5abe5594c1922978078878",
+    "annotation_sha256": "364a1652ae214283439dbb91a54c7eed112d3edff33f60e7b9777a5010ec7dcf"
+  },
+  {
+    "image": "India_006808.jpg",
+    "image_sha256": "d3a4b3b34b6b3cfadb1fe0287fe51f7857eb3cf24e784ec83bd51b74629ba024",
+    "annotation_sha256": "73c4f96d32b5c7e93fd2f864405ebeebe9d4b1c310b60a3f90f10050ee4fc0f1"
+  },
+  {
+    "image": "India_006845.jpg",
+    "image_sha256": "7f155943103a4bf7c47f5bb1c604ea8034db4ca412998421e5186954890c7176",
+    "annotation_sha256": "a3278025745e5443ded8b650e58fac871dab74aeba2aefd6d353466e6dcf59ef"
+  },
+  {
+    "image": "India_006896.jpg",
+    "image_sha256": "987ca5e2e51cabedb34c19bdd1fc9203178a21646d25f291882d1e63b2f27fee",
+    "annotation_sha256": "9b4797641d88ccffcb6f43ae1c5aad32d02e985561a882f0aa4591ee48430ba9"
+  },
+  {
+    "image": "India_006909.jpg",
+    "image_sha256": "1f5bddbb36e9cca5f9976533bb4f013529418f714065a541b33ccfe32db3156f",
+    "annotation_sha256": "cc84b240ab1062c32616992e95fd7e99f73c6df669a5329a820e38ea87936832"
+  },
+  {
+    "image": "India_006919.jpg",
+    "image_sha256": "6e18fb1ebd74781e8e1946c640e9d5a1a330abe50c1d9050b05fb4f31e1a1ec1",
+    "annotation_sha256": "8f71a117621970390b1581767f5bec5a50934e90bc4614e1eb1eec107df0e926"
+  },
+  {
+    "image": "India_007007.jpg",
+    "image_sha256": "eeacac1fcd3b500d4f0598fe46a55976c752db6f790bedddbbd9b21f5026c9a6",
+    "annotation_sha256": "f10b870e3515c116ec4081d7d6252f14d061582b3d1df3aa75996bb9f4fdf11a"
+  },
+  {
+    "image": "India_007013.jpg",
+    "image_sha256": "c19306c2bf65852ef9cd7c1e82f6a20cf6cd18a03d0262149dff95a08cd4990f",
+    "annotation_sha256": "c04c3406b866bccf3e800d0760ae65808ea7fa434315ede5acb6007b70c94d42"
+  },
+  {
+    "image": "India_007135.jpg",
+    "image_sha256": "621035c33f439c91ee0f49780b8773e32bbe3f80853101e9cee142db9f112837",
+    "annotation_sha256": "23423c8511b8b2618fdc81eb1465e8dd47b10d3b277e9f9c7194709bd7a00b4e"
+  },
+  {
+    "image": "India_007171.jpg",
+    "image_sha256": "fb460455e04f211a7a828a107e913ca8700d8255860e19c76feb49cf7db0cb81",
+    "annotation_sha256": "16e8b830a215d3f40c712dab0ee73218367ac453f49809e5236d602a001ee817"
+  },
+  {
+    "image": "India_007220.jpg",
+    "image_sha256": "e27c2a187041012ea32b907a7977bd5b7f9fb646a7ef846c43be5e26886fe2e5",
+    "annotation_sha256": "57becb1f767e715365aebcda2984c868a44999bcd8532ed042d5f7b6e89fa912"
+  },
+  {
+    "image": "India_007377.jpg",
+    "image_sha256": "fb59b442b37fd8338ec63263935457fe703b4497b5b8c5c38a5a6a4848ca189b",
+    "annotation_sha256": "e73ca034b82da3020be12b21fabaab202978c658570d6adf6e1abeb44fb0999a"
+  },
+  {
+    "image": "India_007404.jpg",
+    "image_sha256": "8bf85ca1495434910a76afada6fffbccd97b0c8fd637fb2abb8c4ddfdc1e3ab3",
+    "annotation_sha256": "ddeb4668948f0871de66c51c4d4853181fba3c67d201db6bbe5110a0d347cc1b"
+  },
+  {
+    "image": "India_007407.jpg",
+    "image_sha256": "03532e8ea733a33cc7a4755dd5599d014badb4c6981455c0ebdbc2c12530d7b7",
+    "annotation_sha256": "f9a72143f59174429c6e4b7b2dcaa33ae44e141e8b37cfd9567887111daad796"
+  },
+  {
+    "image": "India_007416.jpg",
+    "image_sha256": "4f6f1b878fedbe70a77d416ffb121f3cdf7cff10de00e4d1211f9c81cc4d0013",
+    "annotation_sha256": "920921f6d0e9782682fd1183525568c9eec64a8094964e8e85993575285a2441"
+  },
+  {
+    "image": "India_007423.jpg",
+    "image_sha256": "ae55eb659c65214778f1ddbfa549b0e216e850daf8ef06a5b7e743033887eb66",
+    "annotation_sha256": "b9ffae6b7c4bfa28ce7bc9cb3a4ee012b283ae7ff6fdc548b725e13094a164ab"
+  },
+  {
+    "image": "India_007451.jpg",
+    "image_sha256": "dc6d1aaecc29a68c5d20e85708048c3f6ffd09b94b37d1006976f9f44ca13402",
+    "annotation_sha256": "190c91224f7577a3caf98f6df3cea86b963865addf0c5a974923d5c111b7b223"
+  },
+  {
+    "image": "India_007497.jpg",
+    "image_sha256": "77fe62b57fa119fc5348f7d53d21e3408a3a1b61854f80cd0c765968358854d4",
+    "annotation_sha256": "81211e8569a343c7e5d75a73715ec3abd7e8bc3d49d84fc47484afa109ae91ca"
+  },
+  {
+    "image": "India_007612.jpg",
+    "image_sha256": "9f1c524cfeac0f4771c953ca90c8bd2458438ff546cee559e346df61ba771b99",
+    "annotation_sha256": "1c2e69ee335a197d9bfdfa2db19d8d7f13500a4ebabc1ac77f92a2dbbd6ecb70"
+  },
+  {
+    "image": "India_007613.jpg",
+    "image_sha256": "3b0e78dee3980ae84edcec329bed56352d32c6df50ca6279a037e606e46b9c1c",
+    "annotation_sha256": "651d9fc7d82df702f46d1e9d30a54bb9937bda5655b6cff545cc60eec860df00"
+  },
+  {
+    "image": "India_007702.jpg",
+    "image_sha256": "7532ba517b498380130f096f83248e97f1626c86239527067af80938acd8bab4",
+    "annotation_sha256": "a89e66e8bb75c07b0d7ffd1cb331d7f6c1af93134779ebda1d1799629ffa66b2"
+  },
+  {
+    "image": "India_007947.jpg",
+    "image_sha256": "fdfb2e719bf56773fc83680d995318e8953bbe01868eba79c9d0d768d8dc2f0a",
+    "annotation_sha256": "df0681c31dbdd6efa471ef4849bdcf1cbc1c2e53dff0ea6271395fddfd4f4153"
+  },
+  {
+    "image": "India_007955.jpg",
+    "image_sha256": "a39aa578e908d2adde295af26de6767bb3a534943dff5925cd8efe8efb717de8",
+    "annotation_sha256": "8c1d1d4795f34ed65208d54c7c349fdcd8039cde0eec75ff62ac3e7f7cb25d09"
+  },
+  {
+    "image": "India_007978.jpg",
+    "image_sha256": "a0a5fd6614f1dacf0eda46c9a81234915b0053cbd417fba5dacc5ce5a38afb11",
+    "annotation_sha256": "1eed065f0a20ab9eea277aad3141d23e9c55ac4634497ded82139ebc893a6784"
+  },
+  {
+    "image": "India_008126.jpg",
+    "image_sha256": "f20b1d79534d0e29a987095d31ac689fbca11a30bd67c6323c1783a6e6c97552",
+    "annotation_sha256": "b384d931dc644729598e9542a872c4b4d58b08a3419557f567bdee7b8996fbd9"
+  },
+  {
+    "image": "India_008129.jpg",
+    "image_sha256": "a80582b11c39ef1ee989b6a540a79d32a8f5b1a6d972045d2831bcba4ebf489f",
+    "annotation_sha256": "f19bdc2775dfdd093d70b299afe04c41b14f6e49bc29099337b564c3218ee36d"
+  },
+  {
+    "image": "India_008189.jpg",
+    "image_sha256": "ba393bfafc317c7716eb2a611a9ab290a0ca3e8a12fec38bd3142677c33f08e8",
+    "annotation_sha256": "de43512595c97d7e7849b4c37f5d4b27dac36c2e600107c74bff03164dd6415e"
+  },
+  {
+    "image": "India_008227.jpg",
+    "image_sha256": "72db3ed7fa9de3cfab97ef4cb21b1f00a9243c7c131c5cd2d4aa9af0168c94a8",
+    "annotation_sha256": "4085ac0ec7fe3e3426ceecc0d01a30e3dfcf8c9e5292dd9a5fdcdfc0403f6da6"
+  },
+  {
+    "image": "India_008238.jpg",
+    "image_sha256": "4431cc84e00f82236818fdfdf06aa08f3ac7e5a6806c22bf659fe887e6156968",
+    "annotation_sha256": "5790765330b12097fa450f6510858dba37d6bc068dbff35ad86d5c584ddba4e1"
+  },
+  {
+    "image": "India_008296.jpg",
+    "image_sha256": "4497b806123c531839e56d96d052b0bc0835f853cd9f581298142b6b8c69ebf8",
+    "annotation_sha256": "5d536e67067de85216249bf47d0cf1d2dd0c377a7a781e04517e866f3f171f2a"
+  },
+  {
+    "image": "India_008301.jpg",
+    "image_sha256": "b91ea6d159cefa0add1076f88cbb8cdc383efd33ca9ca1e6e79784667bb89538",
+    "annotation_sha256": "8ea7f90c624787f62712e9118b3a77f04b0db7ee7ea0614e82ba51a5f4dbd050"
+  },
+  {
+    "image": "India_008385.jpg",
+    "image_sha256": "733fd5ebf3a25387faa3261ba0d44937b71eae4c391c8df76c60d31034ca0b0f",
+    "annotation_sha256": "6506cb1efedb3c0ee770d01280da434924b5d624741efbec691f229f08d112a0"
+  },
+  {
+    "image": "India_008627.jpg",
+    "image_sha256": "3128ffc2381cf8a3107fd7d27f3ef512f25f84e1ac1b50dc4f46af22d91af62f",
+    "annotation_sha256": "fd66e6aa0c65aed9ac2d8e4c3e27adcb29d77c26985813ec8dafd0c039873504"
+  },
+  {
+    "image": "India_008631.jpg",
+    "image_sha256": "2c702003c37753c4ec36b5431333428915e5be24f3fb9c4c3660823c7dd0b4ee",
+    "annotation_sha256": "7ff14f75fb76aa8294085fa59577d48571c5063bfc9d320150b11c2215cfb66b"
+  },
+  {
+    "image": "India_008702.jpg",
+    "image_sha256": "701b88fe273bc07a99b104beb2d682c8e8964ec1bf9a73ac4304ef10adcfddc7",
+    "annotation_sha256": "cdf7ff0fdbe5fe40949a635125cb4e2200641cad8f534c7b316da47f56748617"
+  },
+  {
+    "image": "India_008720.jpg",
+    "image_sha256": "24e0d6579e3869dbd3ce0544e7d64c09d988dfd1f5f99d44f109dff2b7000fbb",
+    "annotation_sha256": "5a2c368b74406013a726bdf65d1b8f07a5e27d75bdefd4a03721c15919d2caec"
+  },
+  {
+    "image": "India_008762.jpg",
+    "image_sha256": "123c5ecff3ae5b6803b692b7df27772f73cb8ae5ea6922724b50d9cc51746a26",
+    "annotation_sha256": "d030e352df87d9d7ec7bbdfb706a46f62a3496d011036d9ad2c4ca633eb9134e"
+  },
+  {
+    "image": "India_008802.jpg",
+    "image_sha256": "ef3ec0ad97e47734d5880452a1c059a2e369d26c947f5862e3c0074e0d4ace42",
+    "annotation_sha256": "44419dda9ceee0df50972b965d49eaf048a24ce9d4b677869863fd009d9427bc"
+  },
+  {
+    "image": "India_008847.jpg",
+    "image_sha256": "82008f87de134b3c6bb5b760cfa3dd79bd66cd0bb1d9211ab99c7c2a1e689157",
+    "annotation_sha256": "9fb02999c8f7d470f45aa4fb15f0290c66a305b9d9dead2255c940cb26d4412c"
+  },
+  {
+    "image": "India_008852.jpg",
+    "image_sha256": "3fe9625b9f131966cbe6fbadd6cb8aba69c1a6c5dfa9c09ad7038e503201a65c",
+    "annotation_sha256": "7dab6d4f22eeae8f2a19d5b15ed3e120558da181127c0d054ade0fa246a287a8"
+  },
+  {
+    "image": "India_008986.jpg",
+    "image_sha256": "8c0584a55d31261f662c377b85c85c9f74202a3e72861bb697cac96069925e2d",
+    "annotation_sha256": "3b860381c89fc5a765105b7494b813744668105d5d62c4a42d5992084bb91429"
+  },
+  {
+    "image": "India_009057.jpg",
+    "image_sha256": "85686118ead1121f45d953647104aa6d7ae4b3845541e483798b32f98e517f34",
+    "annotation_sha256": "2c31b466d3fd590e06b1cdd3b05d58d33f2b9366248c8ea81bb2982bfc1b5c68"
+  },
+  {
+    "image": "India_009071.jpg",
+    "image_sha256": "b568ef949397c4464fbba2aea84e0993872e5c49755adfca8b37d62ed946b9ea",
+    "annotation_sha256": "4699be0dae7c9fdcd938857eb776675b79a91b2e0eb2fd26205aa59295477074"
+  },
+  {
+    "image": "India_009143.jpg",
+    "image_sha256": "b046429b5cc6766d1370b472465c0b48925c2842ca8c2fdd712e3671abc36060",
+    "annotation_sha256": "b4be78b6f27a819eec61fc769c590a1d15d4c51c14fb50e3db978b7e62deb6bf"
+  },
+  {
+    "image": "India_009282.jpg",
+    "image_sha256": "b7fa8015f427b7048c52cb6adeca67a681aab8c5fc7c5dc09a22cb276a416849",
+    "annotation_sha256": "bca1eee3b6a9a0fe564ce01b0d91aeb78ca182ae504c850aeca2c4d32d51174a"
+  },
+  {
+    "image": "India_009476.jpg",
+    "image_sha256": "1c00d808794b207e438859e13b1fbeb236c3b8d5ece2e58209599f55efaca7e8",
+    "annotation_sha256": "0e11f1d2455bccfb3632251cd963a2a97d896ca59524e8e86f596d9ea8f0fb4a"
+  },
+  {
+    "image": "India_009660.jpg",
+    "image_sha256": "7e48828a498e9fb1bea7b508633352f515e50c4c9fa29520107e3af695efb8d6",
+    "annotation_sha256": "47d6fcbd73b9506552bf587f317a7733ece3fae6d6f38fe7365e1f06d7996c13"
+  },
+  {
+    "image": "India_009796.jpg",
+    "image_sha256": "a3bd0c3361b7ce7849bd3b6263f7d058c232b5456bbe203f90ac939b9056b5f7",
+    "annotation_sha256": "3e9fe6e670b7d4b55baa173018a857fcc271e5b8a5873cfaf60aee4fe34c332a"
+  },
+  {
+    "image": "India_009799.jpg",
+    "image_sha256": "792b5831766d13e9b6ebc1a49d52305d44380192bcbbe7a1136be58b337e83f7",
+    "annotation_sha256": "ccd82bc5fca0e68a5c97adad4d1e5b3cb03f6ed0a7ba1fc6a72d51f931cd5c37"
+  },
+  {
+    "image": "India_009838.jpg",
+    "image_sha256": "d692381f87680eed0a2a64e61e2c421a728af4abf5674db008728afc4113e0b3",
+    "annotation_sha256": "e6830dc11daf69f97d397ada2a15b6b96bb4782a8de67c5a4c65b03939938bf6"
+  },
+  {
+    "image": "India_009880.jpg",
+    "image_sha256": "4375f5eb6887888b91fc41e426de9e0b42bac50321c40f7bf947d6cc1aad2514",
+    "annotation_sha256": "1b5a9b4d81615f69abf9c6870a523221e228f4bbd4910308c400b1c2556f8fc5"
+  },
+  {
+    "image": "Japan_000015.jpg",
+    "image_sha256": "5bc4460a900393cd2276af7812a5774937eab77c673de5c85692dd5473949a13",
+    "annotation_sha256": "4f6e8d7edb72992602e3addd71de17a53204ec2aaa82159cf534a6d42ed8b254"
+  },
+  {
+    "image": "Japan_000079.jpg",
+    "image_sha256": "fb4366ceb1c03eaa4af0016785b5d37a5c3ab772dc3f33467c4c48b2886cd95a",
+    "annotation_sha256": "c0729c423ea906c28be423a2a287fc77faaa8654e787c2a69c852de671a72a8a"
+  },
+  {
+    "image": "Japan_000081.jpg",
+    "image_sha256": "616d00e38bfc1513fb19615586b79c739f4cd19099eb84f7188b32d2874e7644",
+    "annotation_sha256": "da1593bdc69359eac5c9da1432daec12d9f15a20441e778cece9e9e1e4a922f2"
+  },
+  {
+    "image": "Japan_000092.jpg",
+    "image_sha256": "205f491f9cedbc7dee50abf3cd9f9eb4de81c0960866a6b75da280793790391c",
+    "annotation_sha256": "68b7d87aaab5bfdab1c2585312348dce1ce34d6cfddfb6775c5f62f093a10860"
+  },
+  {
+    "image": "Japan_000110.jpg",
+    "image_sha256": "97b4d23eddce158844d53734c235c7f1328b01cddbc3202c0b9d0c4ca31692ef",
+    "annotation_sha256": "687b2c062dab6147c31bc61e7e480670d59f51599359c908cc97fe09edfe0550"
+  },
+  {
+    "image": "Japan_000121.jpg",
+    "image_sha256": "cda8ac852e6b025f2fad7983270bca0cd61a3e54168b60a339700600ce3b2337",
+    "annotation_sha256": "24a7722cae4b2498dc2cb0040db8613163222b02cba43ab07915692e46f79085"
+  },
+  {
+    "image": "Japan_000130.jpg",
+    "image_sha256": "39ecc7130108f06db00e8d9f6112393476cb47ec4af0014dcaa5f7adb42d8b49",
+    "annotation_sha256": "7288bdd7ed123a193f738060a0e4b8f195ec1b6d4c8fb33104ebdedb6938e425"
+  },
+  {
+    "image": "Japan_000238.jpg",
+    "image_sha256": "31190ea510bafd58d774f05828e73164f0f764a13c5adcfbd0737cef9af76a3e",
+    "annotation_sha256": "25bc555ed19bd91feb12dc507858f32731d307d5efc89f034131b07557d00e31"
+  },
+  {
+    "image": "Japan_000253.jpg",
+    "image_sha256": "c511064eeb92a1f38a124e97215b8f9254cde6744dc944ba9d99fc126f26821d",
+    "annotation_sha256": "451a761d761d1d816cf092f20e0c0218b42113e76f47b509e70c40f1c30bbc22"
+  },
+  {
+    "image": "Japan_000318.jpg",
+    "image_sha256": "d60d4078a81e49c51090dce22b93bbc16cf48c969b757e2265fcf9e5a373ae29",
+    "annotation_sha256": "d4be25db285c9a8efc5355d142756e33449291d15e88b1b16ce5a588b98b6b8e"
+  },
+  {
+    "image": "Japan_000361.jpg",
+    "image_sha256": "bae44490b31a9617eda776af3f1a618e223d549de5274f66d875c9b5eab52046",
+    "annotation_sha256": "3acc26f975fecab622966b5cb258152613b2a159420a105fadc783b1444f99fe"
+  },
+  {
+    "image": "Japan_000376.jpg",
+    "image_sha256": "b2e45c899fded9054d5446cae3e42f12d8bcc5cc103d2c35fa78a76ab6adfc1c",
+    "annotation_sha256": "20a2a6960ca118cd6eaaa09f9b0141894e933ae64aa72d64b774dcc11b00d9f4"
+  },
+  {
+    "image": "Japan_000400.jpg",
+    "image_sha256": "5624add6154e6e447b89d369375fb2c95289957299f7f17fe06dea73ca1874f5",
+    "annotation_sha256": "b4bd81db02e082ceb61aed76d3baf46edef662ea2d330614cb14bad87393b6e4"
+  },
+  {
+    "image": "Japan_000404.jpg",
+    "image_sha256": "791ae1a5f534b61af3468a9020339858c63f4e6407666885b04a0ec20ebb8a9e",
+    "annotation_sha256": "5c6d462c4a2d241d257f2a0c1c81efc19740ed019d4e5af22c744c22b3fcd686"
+  },
+  {
+    "image": "Japan_000407.jpg",
+    "image_sha256": "66e6b7c41f99da38236d6adb3148a798aeabb0a7d4f95e8f7f243f042b360642",
+    "annotation_sha256": "5a24c556b1c95b6233cdb9fc07a219f7d1e2a5a61587f53601be869a325247dd"
+  },
+  {
+    "image": "Japan_000474.jpg",
+    "image_sha256": "a0da6d411d1dbc8c264015c7a7e163424aff672953e940fc76565d8164d3b540",
+    "annotation_sha256": "c8cc3e1495dcb2424b0474f5aaec120cce4152e578a697ad1007ae3bd0552ed7"
+  },
+  {
+    "image": "Japan_000509.jpg",
+    "image_sha256": "5e9379d19d02058d8971eb2b68d644aeeb024386d087d63f1c133888ca615afb",
+    "annotation_sha256": "95f7ebda549e3d2b8c39d909997d35b2928ff892580453228579ece17ada727b"
+  },
+  {
+    "image": "Japan_000602.jpg",
+    "image_sha256": "6c68921bc6ebd0ef922b15022f996bd648af65e0ec6f9bfdae25291dd21006b0",
+    "annotation_sha256": "219b80f7f11e2979817efc1b433b120e8d3e93c795d05acfde0c932590496160"
+  },
+  {
+    "image": "Japan_000611.jpg",
+    "image_sha256": "6f28634b761dfb20882e6cc09e88374f981901bfb7a94c5e9dfda59f933f2bf0",
+    "annotation_sha256": "8a17e2b54cbfe1c741085ab44cb78f6cf4e60f3764c811f32e301d9f34482644"
+  },
+  {
+    "image": "Japan_000643.jpg",
+    "image_sha256": "7063b072de5dc2b140645ca6c7d1bf9bc5182fa9e59b9c9827990730f9309333",
+    "annotation_sha256": "991bcc1714441d4d6a6f8321281877aa0950d45c12bd2a60e3c62e85df9c83e4"
+  },
+  {
+    "image": "Japan_000852.jpg",
+    "image_sha256": "62cb8a05f0b4572be2c8391cab7f6534ce963afd6cda28cafdab2ca1cac4931f",
+    "annotation_sha256": "2eee640842963944eeebfa29716e4891f9100ad7626306165d30c51ede56d4e7"
+  },
+  {
+    "image": "Japan_000881.jpg",
+    "image_sha256": "d080289935470786f29ff9759964770d3cf495568a65aeb133ade8f0bc3cac09",
+    "annotation_sha256": "88a2a4a14d17d20f94a7f7e33f57614067b530a49a72284c81a2ab6e1793d359"
+  },
+  {
+    "image": "Japan_000896.jpg",
+    "image_sha256": "0be22da458cc1cca84c235aaa3ad5d7aee162e19014cbada503c9dc19f3b63f0",
+    "annotation_sha256": "2d44287bbfaa33d2671edeed5bb6c390b1fe709569893d1e3155c342434fc4ac"
+  },
+  {
+    "image": "Japan_001063.jpg",
+    "image_sha256": "558e4d176a46c3d69774e7cc9c7837d3f21e82d167a1a6ff137682d8fb54c13a",
+    "annotation_sha256": "89f1b3aeff39b32e2cdff9aeb58a8a9aa7ac0b25d241e8c5a8c74c60d07be254"
+  },
+  {
+    "image": "Japan_001066.jpg",
+    "image_sha256": "fed53f99f5c022a3500e616153b83cd0c338ea68dc463095f967c94767d396be",
+    "annotation_sha256": "cfc02cf537266c917542b5567a3b35991a7fe2d4c43aed3385468c11afe52456"
+  },
+  {
+    "image": "Japan_001134.jpg",
+    "image_sha256": "05f9e208f07b7bd7675f2a7cf6140d21555db22bb9086ac8f464ba301ea07e3a",
+    "annotation_sha256": "b043adff2d43bc2e686949fbe17add02a5a635ef566ff900ced928163792b045"
+  },
+  {
+    "image": "Japan_001180.jpg",
+    "image_sha256": "57b587cdb72b0f617b92302e53d6c345bbb1486b6f8ba3e3da4555c0d7e838aa",
+    "annotation_sha256": "58484f275cdd3bdc7767e57c21bdc8573a79b03c0a07b831e9f0147050e6027c"
+  },
+  {
+    "image": "Japan_001239.jpg",
+    "image_sha256": "fc4dba8617193b58ca6d3005210adb8b2901564987805f2f334a51e26cd5ea11",
+    "annotation_sha256": "06cc3a48c71e625f71fc02cbe3dda161bfe9c8974b023e29c1874465aceb90ea"
+  },
+  {
+    "image": "Japan_001262.jpg",
+    "image_sha256": "c80fd76f0e0a21c9f555155246bf0460a5aa6fff6a48833bdd1252763b15b19d",
+    "annotation_sha256": "9773feb5346a207859025b1fe6cd88fb245df76faeb49d304301464bcf962157"
+  },
+  {
+    "image": "Japan_001282.jpg",
+    "image_sha256": "ded899f5f81962f8cd869f65176fefd8c6f0a60ddd18715ef638e1fdaf88e1cc",
+    "annotation_sha256": "e55bc5b584961f0b9e2497c9f641f34c9185d68a191a45f342cd7e040a3eecf5"
+  },
+  {
+    "image": "Japan_001625.jpg",
+    "image_sha256": "070673c53369cc9102815dc71513f0775c38486f4309c8e7732201ad730e1fd6",
+    "annotation_sha256": "bde41abe57ebe4251d58c04d83d9ff2fc44caf27d0d3eda8cab9fec6c52483d2"
+  },
+  {
+    "image": "Japan_001665.jpg",
+    "image_sha256": "44a78c1c4bd69349e13ba9df63afbefe19637344a535e5332012bc646701fe0e",
+    "annotation_sha256": "17eb5980eda506d013a97c6effd24e4ad409323964e327df83d2182189051e3b"
+  },
+  {
+    "image": "Japan_001690.jpg",
+    "image_sha256": "73682cdbdddabad2a818306000dac68464124d3cb7a7b39457b1257f8a676db9",
+    "annotation_sha256": "0b996443750e6a248681b44dcac663516f65907f8323e737b53787dc819424cd"
+  },
+  {
+    "image": "Japan_001713.jpg",
+    "image_sha256": "63dc6785689b7c2346abc60894ee3970f710372db0cb5d8a2fd2fe585e630d69",
+    "annotation_sha256": "4e7eae5703b8f3a93a8f09764dea2c6e4d3798e33538ca00449246b7e2495ac4"
+  },
+  {
+    "image": "Japan_001738.jpg",
+    "image_sha256": "6b862788e0b21a6775aeccc98e6d83d7461c57a7a4c9838bc7631970f666d159",
+    "annotation_sha256": "3713d0742e96049d23b1cbc08848174cf63274957ed876a76be622c727cf368e"
+  },
+  {
+    "image": "Japan_001806.jpg",
+    "image_sha256": "9f3611236bb135aa2ce4eee18c6c7825edd45d7daff469233420cecc3d8c4abf",
+    "annotation_sha256": "e9861b2fdeeddf2cdefe189e21aa238ed469f89b88e42dca33b5faa1b9950d8e"
+  },
+  {
+    "image": "Japan_001855.jpg",
+    "image_sha256": "5bc1cf512185dbe58c0bc62a6085b617578fc65dbf030401a1de266e020ac02e",
+    "annotation_sha256": "319d99b0973f48a611cee99f3e2a89526e56fe4bf2da2c9b7efb009fb8ecd100"
+  },
+  {
+    "image": "Japan_001874.jpg",
+    "image_sha256": "a7c33e17f08c7d77d6233c033acf328579b7b838363f364f158a32902a991b3b",
+    "annotation_sha256": "4c93b1d985004898959b110e13de376c7c8acb59ae2550c8afdb54e28a478162"
+  },
+  {
+    "image": "Japan_002104.jpg",
+    "image_sha256": "43a11edd6318edd6018424a68fe47620552806b777ec7179802981df5aeef178",
+    "annotation_sha256": "24c671f3ade77325d01ed4c98b71ea65a2f5c94baebd905a4757590fda12679f"
+  },
+  {
+    "image": "Japan_002128.jpg",
+    "image_sha256": "37b69757eb2fc3a44612f1dec5524b6791e2af4eec994bcd0564e157811baebf",
+    "annotation_sha256": "04e98566b2ee4ee32e350911bf1ab0a6778585f3bb594b1b4b7ac661bcda2f27"
+  },
+  {
+    "image": "Japan_002195.jpg",
+    "image_sha256": "c15113c7b4649efe942c4b77bfef1190fc490c337dbb4a800c2c88a2c8b65ac5",
+    "annotation_sha256": "36805229f586478b2226f591dcf91857609f1342fcc063ec31706fb24a4707e6"
+  },
+  {
+    "image": "Japan_002225.jpg",
+    "image_sha256": "e660a66d0041c1769b504f50a2f9532f60eab726dbdc8dabb6a5a856ea4c98e4",
+    "annotation_sha256": "36abb0da402824c54d5165b40eb2d4d7d8af243d18f015f7adce12958ea9306c"
+  },
+  {
+    "image": "Japan_002306.jpg",
+    "image_sha256": "6223a60514fd9cd829144e9490d6240237145059287ba4ea7743b5b10cc6c070",
+    "annotation_sha256": "fa263e03357c7de3875d59de19ae770e73b81820b8a6f59f58d6f66c3d35018d"
+  },
+  {
+    "image": "Japan_002314.jpg",
+    "image_sha256": "a3cf5ad28711e7f36c09c88536543779477ae8b258263dfc8b5c5ec02dcba3f0",
+    "annotation_sha256": "e3241fbb2b9dc74822d785fe054f2ce5c06abec6c45d720c0e37394114675cf6"
+  },
+  {
+    "image": "Japan_002357.jpg",
+    "image_sha256": "02eed7235ee455e857b3513aba1325f1be892de8996df120366f4f81bbe9eb80",
+    "annotation_sha256": "71b58627c2cbe4943c6c198e6b4531044e2b4ee5114bed28f3f987c455a88620"
+  },
+  {
+    "image": "Japan_002472.jpg",
+    "image_sha256": "adae0de67ebe0783fca3af7501085040a131f21381f0038de81017d9cd6d3467",
+    "annotation_sha256": "f922073535818891e4323d5d5cb9ddc54b2496c8269aa322f42beb7bd61b99e2"
+  },
+  {
+    "image": "Japan_002550.jpg",
+    "image_sha256": "23573de81176cbf0ceb3830231826ee63930fe0f05a8aa64069b3b5935cba6b2",
+    "annotation_sha256": "fc3827350e731f95df283bd771bf4289f20a00f761af813ec808f22d383b2d95"
+  },
+  {
+    "image": "Japan_002552.jpg",
+    "image_sha256": "38720215ea9d7e2c061d99c48dda11329e2f09f51dd84c12ab1bdad611fdb072",
+    "annotation_sha256": "663eeb0e3c94b581710c0b058e5fbe6bb3f8d25c02f48b84df06deb1718e1b59"
+  },
+  {
+    "image": "Japan_002560.jpg",
+    "image_sha256": "03b09f2fb86cf19147a49f915b26b659292b01abcc53da7b8ef96434d7f4183b",
+    "annotation_sha256": "5344bba45004ccb574233ed75b057397d721ebe4c3216bdd17e8d6f84fb24d7d"
+  },
+  {
+    "image": "Japan_002561.jpg",
+    "image_sha256": "c6b14771817484658edac55d9d1d92ba1115e713dc45be35176f3666e7e10e4e",
+    "annotation_sha256": "5f013d5dbe7a9d2943586ad7d4ae380844ff7ac66a3fa5420ff1c0c765a0b4b3"
+  },
+  {
+    "image": "Japan_002601.jpg",
+    "image_sha256": "c7c28da36ee6219b549f383192b3928e42623b929095b3b99e16e4ae63b0d9f0",
+    "annotation_sha256": "8a2e2029fa3b078a7f3c649cf339b1ad2282635c3303c93c7666d59afabb07d6"
+  },
+  {
+    "image": "Japan_002845.jpg",
+    "image_sha256": "16c6e05139b277d191b1f20acb9fd40b5aae2575ce29a2d63ffb935e427a98db",
+    "annotation_sha256": "7cd2a1f0ba9e5be416dedf166bfd394dea77171a22d2371a3e7e47ff9b903151"
+  },
+  {
+    "image": "Japan_002863.jpg",
+    "image_sha256": "c230305837df17f880ba57c1f1f1d8e7e9877805b89a19ea957203d92dd05adb",
+    "annotation_sha256": "06611022cdc6cccecf9b27e7d61c33c3ee71949ee0f6a6eea094d189d8569984"
+  },
+  {
+    "image": "Japan_002871.jpg",
+    "image_sha256": "1b714e1da304e12f3a93e6f9668e042c04966a5da3630f3bd77c0f7456089aa6",
+    "annotation_sha256": "0041decbb80ffbc5c2ced2d24b4a36e9ebc64901629dcf7d69ea5720ee707ff0"
+  },
+  {
+    "image": "Japan_002889.jpg",
+    "image_sha256": "0b21d136c33ef13987fece83004c04314a0be032f1a5236b40d808126e166725",
+    "annotation_sha256": "88add23978b3506649a496e434ebbb40ad1ed5c20d3ec17dba35c21d78845ed3"
+  },
+  {
+    "image": "Japan_003021.jpg",
+    "image_sha256": "a8a779bdf6a62821123987637b0b33d2ae3c7732ae7e5077686fc025990b03e9",
+    "annotation_sha256": "fa12bfb06b88515972e44319cfbc1a679e79d4b5c1b6258052848485e8ebcbe5"
+  },
+  {
+    "image": "Japan_003057.jpg",
+    "image_sha256": "6c2c222d557a8258424becac4351be5df427fad33f91e5e6aea24c54daaaa223",
+    "annotation_sha256": "7040d8ab1ce4196fc51691fb506537fb0c447d93426bd36d3f403cb4253ca7fe"
+  },
+  {
+    "image": "Japan_003139.jpg",
+    "image_sha256": "a51dd062d59c63ca36ed6ab45920e1113bd6df253dfb71b85b4a0b699390866a",
+    "annotation_sha256": "1b98ed504d3970fd232908aafdc5cf8b5974fe4ab613f667cfc40376a52101e7"
+  },
+  {
+    "image": "Japan_003155.jpg",
+    "image_sha256": "4cd7b41231d0a5d6f67c1b13254debd432caa2bd17a3498568a7baf4b2b859d9",
+    "annotation_sha256": "0456ecbc355b31e99a107095ce19fb1f6b8a92d04da3aaea95066970834e8afe"
+  },
+  {
+    "image": "Japan_003194.jpg",
+    "image_sha256": "4d14c001b51d0ce6c5de28b49451fde560d126ec0c274b8ec58d29725fe5c6c3",
+    "annotation_sha256": "43a55432baace46bfb42af3d2cad3b59f10a9c3eb7e98cf37b347c01c83edf1f"
+  },
+  {
+    "image": "Japan_003244.jpg",
+    "image_sha256": "43c0da0098c72f8d2aa16f6418b5bdcc48f91cb94c45e9d7e39ba078c7ed2043",
+    "annotation_sha256": "c5f9b1e3107627f363130d456ede6b9a4db54269ae362db845eadfe1bc27fb2d"
+  },
+  {
+    "image": "Japan_003271.jpg",
+    "image_sha256": "8060b5f551c3c54adbb49d646641c5c1012b834d017e65c656e20f831921cd0c",
+    "annotation_sha256": "407587c53b5a2eaeae23dc74bf984510496021911362a39c1b6416c30e0ee704"
+  },
+  {
+    "image": "Japan_003429.jpg",
+    "image_sha256": "0ae9b589da3c5a606d2150bfb83966ae468e064e16d4247a55638ab89c30c228",
+    "annotation_sha256": "1f3b36b904c94b229b0c3e5639af3583a806fbfa04d131b8f6fb57b013d2dcbf"
+  },
+  {
+    "image": "Japan_003487.jpg",
+    "image_sha256": "865888b2c567a72fb78366bf17f3c836844cd03cf00f70541f6240c28e0e0de8",
+    "annotation_sha256": "014528ce815ba953edf17f953a5325db3d7e83f0de7ce0615966ba1b92ca2ccb"
+  },
+  {
+    "image": "Japan_003537.jpg",
+    "image_sha256": "87e6dc35f6ec29ed083ab4358678f5a006717da5466c9318072d8cce0dc34ad3",
+    "annotation_sha256": "bf4d28b3489bd74dcbaaf2f0dfccb111e2263dc072737ad93dd37f3c158e42fb"
+  },
+  {
+    "image": "Japan_003631.jpg",
+    "image_sha256": "4fcb897d8a0526be854e021c01665e35686994100819990256bd3fff483404d1",
+    "annotation_sha256": "8589e6989f2ede6e0bc92ddc96b57ceb7615883498cac8508fef9b29ef34e8fb"
+  },
+  {
+    "image": "Japan_003643.jpg",
+    "image_sha256": "de1c5aa74def419db8f82576b362b48ee6ba2e1e17216d6360cf0552f0ca3d68",
+    "annotation_sha256": "61b7216e9a8fe65f268c6020d29a2a730451351d8dbc617d95fda2f3123e4dbf"
+  },
+  {
+    "image": "Japan_003656.jpg",
+    "image_sha256": "6ccb81767c4b9cb7206236dae051061db61e236c57934b38aeb8bcbd15d84550",
+    "annotation_sha256": "9402169e7c0cfc827bd206547995e298e80d7f5d7bec215c7bf9d0e5908c42ff"
+  },
+  {
+    "image": "Japan_003657.jpg",
+    "image_sha256": "84e8dd8b289bf015ac8627cdd4afeaba6a5096fd21831f5201c2adc4ee0498a7",
+    "annotation_sha256": "7972dae9d6a46e6dc9b0ef5de4ef952c9e47fe817b489aba2f4a48b5e32a19e6"
+  },
+  {
+    "image": "Japan_003663.jpg",
+    "image_sha256": "c64de523a007f12a605ab91067048c0770c72e6960ac39ac6b92e72fdd2e8f3f",
+    "annotation_sha256": "3905429ea132aed4d81e0dd06cedc71e7103d6c3d3cbd575c915173c02a60238"
+  },
+  {
+    "image": "Japan_003716.jpg",
+    "image_sha256": "2189c62712168468067f3f5693eca99c2244f966c3bab00a68f5944007ec8a8d",
+    "annotation_sha256": "90e67dba410ed4e537a4ad16d9161967f82cadf7c884293df4af5d3748671a52"
+  },
+  {
+    "image": "Japan_003822.jpg",
+    "image_sha256": "3c4a9e9ae950e1de993cff460aba7e48d56ddb58b1d4ba06785bbbfe9d62d412",
+    "annotation_sha256": "78544eadbdc6f76cb842845c0c1bdb7ac4ac533549c02339692170aac4746ea4"
+  },
+  {
+    "image": "Japan_003865.jpg",
+    "image_sha256": "938cfea37ce0b975b7004de44aeaab63b31fa0f8cbab2ead544176b548ef1b0b",
+    "annotation_sha256": "c0ba830335b3d695c492ba585dccc282f51fbe6f279c564f672a73a893ab133a"
+  },
+  {
+    "image": "Japan_003947.jpg",
+    "image_sha256": "2ced347b02f236b6c6dfa4a6e89713a767c938825615d8c20aea350814c3072c",
+    "annotation_sha256": "5ea2db40348ae79699d44e5228c9a73176cd007de1b9389b2027ec94d530a96d"
+  },
+  {
+    "image": "Japan_004023.jpg",
+    "image_sha256": "deb2658e37b749956dc8b2e0b010d7c88a37029a552770cb1e7269c5c679dce1",
+    "annotation_sha256": "b3936da973ead6fbe994cc75f87f02deee9fdd58f70a75698bd294c4a6444f23"
+  },
+  {
+    "image": "Japan_004038.jpg",
+    "image_sha256": "d825ec34c490657ed5a1c1ae8f2c411895e4f6a11bde2de409bf88518981aa3a",
+    "annotation_sha256": "cccce9f989ec1a8d12b7f4fabd26bb4ca17469bc883f781be0f9cf83594c4e96"
+  },
+  {
+    "image": "Japan_004104.jpg",
+    "image_sha256": "917d1357141e19cff2c405ae9284d8b796e52aa87ad128014273049f3a6645e6",
+    "annotation_sha256": "f1acc02a8f2de3f513789a2bc48b5e11cf92b10304b4586d1e20b47082509ee2"
+  },
+  {
+    "image": "Japan_004183.jpg",
+    "image_sha256": "b0f289aae9911861229e15292910102651a616357759ecfcda71d20721bce4a7",
+    "annotation_sha256": "5992df9d6e14a1c17740257f3ae65a9b7f533631fe4bb7bd6ba9272ed8c0dd03"
+  },
+  {
+    "image": "Japan_004219.jpg",
+    "image_sha256": "2d7570b802da84ecb69183399af65bba29511cae74e85bc97c7b9023ebe0be2e",
+    "annotation_sha256": "16ce4db9271d5f7547a72bced427b4e9824d1de7a7154004c3923f1602a52712"
+  },
+  {
+    "image": "Japan_004346.jpg",
+    "image_sha256": "b099fd0f4f21501f03f1d0734bf1fca536e79f545183572084be1a1f0343468c",
+    "annotation_sha256": "37fc6684e057942f74113ac7f62dae320f00a9c7daafe28c974a492eb5838538"
+  },
+  {
+    "image": "Japan_004351.jpg",
+    "image_sha256": "a53a2b1c8728eab1294ab81c1de4425b14ba3502bba5dad2ac212f9b5260aac5",
+    "annotation_sha256": "9fd88bcb7feb954aa8ce76c00661ba6c77fcd10d6fa2cb3a644601a16667d77e"
+  },
+  {
+    "image": "Japan_004405.jpg",
+    "image_sha256": "4f8d814df6f79d8153f38bf50ee403fe867f2931c91cab7dac51b571e45b7e0a",
+    "annotation_sha256": "be412322f9c696d34d9361de85fa748b3aa48b1637a46d01f7e4b4a8cd18aa74"
+  },
+  {
+    "image": "Japan_004447.jpg",
+    "image_sha256": "bbe69256aafd255526da807e27231a721adb4f6eaf5b4ac387ff69f078eba4c7",
+    "annotation_sha256": "225ce09ac500b378e8f65983b1325c6982e6ae3958acd3027f5ce395035c7e6e"
+  },
+  {
+    "image": "Japan_004501.jpg",
+    "image_sha256": "1fdf6f1fb3fa92170cb5dc73d23fd2b50e7eee47b929e9ee0b02ef22a3354e1d",
+    "annotation_sha256": "f4783efcef6de203a22e3679019f93551681a8a2c4c4a1ff628926bb2530dd5c"
+  },
+  {
+    "image": "Japan_004567.jpg",
+    "image_sha256": "c9226080152a94ac6a474d4a163544a8ae8def34fb9f8ff97a812b4bdc04ff78",
+    "annotation_sha256": "b6bd5f0f086ef8c986e93c3153b7eddd66cc443ca70656229c45ee57a75fceef"
+  },
+  {
+    "image": "Japan_004597.jpg",
+    "image_sha256": "2b4c44677b9f3ddce8377514965a6c5a9f2b3836d750c3d9c8b0f31ff78f1810",
+    "annotation_sha256": "705824ee6c5eec4a2fe7d559319abc8e457ef851ddb7e04aa96bf84a1c97c474"
+  },
+  {
+    "image": "Japan_004614.jpg",
+    "image_sha256": "a529e5959bb961bfdece4df812d80cc33747990fa5969985cf9a89b93d0fc491",
+    "annotation_sha256": "9d0282d9d0b4293ea46aeea98cb0084fbae7bd8e05f8df0a6e3cc6dc8eb5573a"
+  },
+  {
+    "image": "Japan_004621.jpg",
+    "image_sha256": "d53c2477f6b50743de0d6d8489cbde0d15de21cafe08490e5b935b337a3ce953",
+    "annotation_sha256": "14a195513f153169101ddfab4447d81d93f19c86898df3f49bf56a6a0ca8e5c7"
+  },
+  {
+    "image": "Japan_004634.jpg",
+    "image_sha256": "a8ed94f3f4ca4c6ff0cb9154bb969290c9039c1a56296f3d6708eed41e0af19d",
+    "annotation_sha256": "1b67322fb5e16f9fd93c7b489b3da9091627972aa5be9736005f8e40682dff7e"
+  },
+  {
+    "image": "Japan_004650.jpg",
+    "image_sha256": "7739d5e82e3ee0647a02eb15a64bb5f2a558be42ca8d91a238edfb54c7967bf8",
+    "annotation_sha256": "00e2953a03e93418d373a2f6d97b2904b385a23fb916cc0fcc05c8186e7e57e4"
+  },
+  {
+    "image": "Japan_004741.jpg",
+    "image_sha256": "681d7544ee17eb1fe77b59d82c3ae18f706ed1604f6771d950a3366bf4d327b6",
+    "annotation_sha256": "bb95f5e0c612ee3bd86a30c2a66e3709bbaafeb90013279c32b5e425f8cec48a"
+  },
+  {
+    "image": "Japan_004774.jpg",
+    "image_sha256": "a3c5dfd9820de8599081f031ea85a2ef7ade4f7ee8b20a20e93ddd44657aac41",
+    "annotation_sha256": "3f0248a9bccea0d06fcef2e5c5068fe28c31d66f8c1b5457ea2ced18777af38d"
+  },
+  {
+    "image": "Japan_004778.jpg",
+    "image_sha256": "8f7f0a32f657bdb27e7866e7b29d241ba4855a00528de4d3b4ec265864ad90a6",
+    "annotation_sha256": "8669b85c76e1f8d9d8f714e2f20c6a5fc9e45618f5354cc8f890c1e17e76b53c"
+  },
+  {
+    "image": "Japan_004820.jpg",
+    "image_sha256": "074d4d943bca7b2b5ffe89763958d4d4aaea42af259de7284fef8b5f014ef7ca",
+    "annotation_sha256": "39a153708e094cc02d50e56560af772a6f2d1fd61cf68351170716a2c35902d2"
+  },
+  {
+    "image": "Japan_004914.jpg",
+    "image_sha256": "c04f61f1c1eeb113e9bd0cd18b6dcfa7a0994f31f569ea04ed0e7766e2075611",
+    "annotation_sha256": "36a49d8c3539cf08893c2f2eb0185e8f78e5a9a3e78bedbfb5ca3514748598b7"
+  },
+  {
+    "image": "Japan_004928.jpg",
+    "image_sha256": "dd8b19d3ad484c1828e2c06ab7433c0369e806374694e95920099190a92d835f",
+    "annotation_sha256": "96aed6ee10df4bfbd58a18f3961e152dcfb7d6773eb9694d9203e0fba9a8a871"
+  },
+  {
+    "image": "Japan_005050.jpg",
+    "image_sha256": "b6857f945a628235eaf002de89aa76aae7eab0579483fa37896a6293ee173023",
+    "annotation_sha256": "502953fba669a5d339ae518538a4e5336084d7a619d25bd075d4f98489d793b7"
+  },
+  {
+    "image": "Japan_005054.jpg",
+    "image_sha256": "f4464a47c3de53f30f9ceae6f8fd7e536c312402b03fe323f9578aafbe8d2118",
+    "annotation_sha256": "e5eafdf86c4e525b7e7d4a1b6394e976a9137176befcd9397a024545e999140d"
+  },
+  {
+    "image": "Japan_005096.jpg",
+    "image_sha256": "c850020416efaa6b0b42948e445639a19877f53de7d06b492688fbae8bcb603b",
+    "annotation_sha256": "a6deaa89ccdc5552dfd8896e02d60f94b2414afffc7f12f0bbc02d8576a5c264"
+  },
+  {
+    "image": "Japan_005448.jpg",
+    "image_sha256": "be8fb40a198597b9ff6dd39301ff42c7872b6843520c79d42059c01e5891c8bc",
+    "annotation_sha256": "d2f9300b4b17a050208a11c2693b16650985427f5791d32996f272950cf9c8f1"
+  },
+  {
+    "image": "Japan_005472.jpg",
+    "image_sha256": "47c12eb9ecd2283f6146fa95c79b273805ce448c82e44137f5c059326b3822e7",
+    "annotation_sha256": "5264467407103639e14b559fe84cb375e4d734c43f15b9f2b881f7d6235389bd"
+  },
+  {
+    "image": "Japan_005477.jpg",
+    "image_sha256": "c07550ace045460cfb0528b8aac4b00d89911e0dd16bb9e9f3e05c74aa96b3b8",
+    "annotation_sha256": "475512f4d60a07471645bc63c9fdccb16fa9338e2d747c9fc9d9f4d6363edb81"
+  },
+  {
+    "image": "Japan_005515.jpg",
+    "image_sha256": "29da67bdce595c1dad54a0033a6125a8b6a74199270d3dfa73e4aebf734410f3",
+    "annotation_sha256": "c253846b5eb39fb34d670205b6db4e3dd38796e971161c768d400c8ff22570cf"
+  },
+  {
+    "image": "Japan_005545.jpg",
+    "image_sha256": "a3a77d240693b2145ccfb00199ebd4b244e62c7485e89184ac9b197083a74cda",
+    "annotation_sha256": "49f824456b04f013e17c256ed6aadcf335cad1181b6535b827073236fd358de2"
+  },
+  {
+    "image": "Japan_005601.jpg",
+    "image_sha256": "49befe48df59fe11ca562f27243f0fa919bb99db8dd4ae49c4798e2a117d30aa",
+    "annotation_sha256": "c8f78fae8de0d7f446c9255e65fc93bedf269b9dc34c5d94c55f839e5704d6ef"
+  },
+  {
+    "image": "Japan_005727.jpg",
+    "image_sha256": "0dbef838b302ab99fe692cbc48d8fcd56b993b9eece619af4d5d24ce6d4b450a",
+    "annotation_sha256": "3a7ba31948595a1460ae328101941eb0401b0bdb2d3bc214239d80cb7a2483db"
+  },
+  {
+    "image": "Japan_005791.jpg",
+    "image_sha256": "f20fa2eca076f7a8e94d670c9934b0da4fe85a4893abdec152f6f4dde5586f6c",
+    "annotation_sha256": "9d9d7c82986a00532e3bc508a4808f129b1bd99c37b3929734fe8cafae2b9efe"
+  },
+  {
+    "image": "Japan_005807.jpg",
+    "image_sha256": "22bc20497c0b4efb69a11bc95efeee9159ce741609f028c82a7c346d6f7a7df2",
+    "annotation_sha256": "60313a5d7534184324afc3b2c21d330d692029850e366c4607ca93b3ab54cb83"
+  },
+  {
+    "image": "Japan_005850.jpg",
+    "image_sha256": "0586be59ce5244d4fec3a5ec1ad96e92671acf23bc82f8337e4b153c8ec7f4bc",
+    "annotation_sha256": "aad9c536b11923e636a256bc65e71c6dd19be99857ea89bb3c940f51c2ca5bc8"
+  },
+  {
+    "image": "Japan_005972.jpg",
+    "image_sha256": "41033a257f8f39088bd3f8814c019ab36867d9ab26c1c2bda297b9cc15f8584d",
+    "annotation_sha256": "fae7be0415e1feb59c5ba63464901be0fa2a98052ae0ca4bff1b9450f070b525"
+  },
+  {
+    "image": "Japan_006040.jpg",
+    "image_sha256": "fa28a922693bb51dfe0be250b663de1f8c4aa3b9a473c142070916c9ae42ee62",
+    "annotation_sha256": "c9097f109cb09930e90bd9d96f16d1385209950fc4b0d03c104ee6da7d194e80"
+  },
+  {
+    "image": "Japan_006087.jpg",
+    "image_sha256": "f82eb8b236d243af6aeb8fb771a4ff4f2e92707190f39f928174fba63e2082ec",
+    "annotation_sha256": "4d664c60e287f11d52ac15c56aab05bb3424fe7bbdabe5877bdcf9b11bc1cd5f"
+  },
+  {
+    "image": "Japan_006206.jpg",
+    "image_sha256": "2f97d4c00fcb1acedd46777b4e4ec75c9170e34b7f9288faf3ba4d0fcfb005f7",
+    "annotation_sha256": "70c4aa2ee59142bdfdf39f2b58a6d33b1c2fe1e53e4c8f92d7a40db42ffd1394"
+  },
+  {
+    "image": "Japan_006267.jpg",
+    "image_sha256": "09141e9594136dfd87ebb650b425486412a3120d5e24e2cc832c30edba047339",
+    "annotation_sha256": "e82972f033c65f30ec0aa103563d0734e9aadc8eebdbf25da1bb8fa482ca0447"
+  },
+  {
+    "image": "Japan_006380.jpg",
+    "image_sha256": "4bfdb0f942906d4568e34185fe13d800eb52fadb079a684b74abaff7014f0fc5",
+    "annotation_sha256": "3d98ef74992c8879495ec3b45da8165f76850b2a0bddde60ea64d61e45ad97f4"
+  },
+  {
+    "image": "Japan_006485.jpg",
+    "image_sha256": "149c54a592957c461247bf981a9802baee8c40c7eabea3b50d4a5251a2928e91",
+    "annotation_sha256": "2735f3cdd4915768b58231927575568383427a2ce08882ef33d7f09774c6f67b"
+  },
+  {
+    "image": "Japan_006635.jpg",
+    "image_sha256": "2d1f5ff090b49811c1bd9de02188a5d12e8843e67b94b1eb777455cf6e47554c",
+    "annotation_sha256": "a209d2eea398a0efec10c4c27b3ad8e3490e326ab775b89d5705455319028a1d"
+  },
+  {
+    "image": "Japan_006701.jpg",
+    "image_sha256": "b919b34634406dcdbdbd285b86138063fd594aba4aa79bddccbfb825a772801a",
+    "annotation_sha256": "675976fa2ba32d9d41465f58295db700111d9eee924cc4db2f44fa6421ac0722"
+  },
+  {
+    "image": "Japan_006742.jpg",
+    "image_sha256": "bea0a95d8b18b151995695077878d09f6e4365ac14f2c5eb39f7c67451763446",
+    "annotation_sha256": "298382565c1267ab1ece491d2716d4447f08031668dc77e4c59058dff45ff882"
+  },
+  {
+    "image": "Japan_006794.jpg",
+    "image_sha256": "e81c06294471f1c22118f26f1c467f78a1e58f12a2c43455518a8bda3fcece20",
+    "annotation_sha256": "c7d3c13c4e6442f0824232cc7422e662d96ce96d8dd6cd5ba1b63b0ff8422e06"
+  },
+  {
+    "image": "Japan_006839.jpg",
+    "image_sha256": "2657c653c2499deb61eefbfcc0e40a26946318bef0df1e16cd52ea3008a96e24",
+    "annotation_sha256": "d6103185650cb6ed7e805bd2c5612ac9b6b33b62760679a251c86237643cf018"
+  },
+  {
+    "image": "Japan_006899.jpg",
+    "image_sha256": "ebd2e7172e3e7e9652be3265934b8e5a0a54835a0c90137aa2d575bb4f52b4a2",
+    "annotation_sha256": "ad03276274ddab7fb3845a49d92829de75a35c7e1e584a21222231f2cc34f6fe"
+  },
+  {
+    "image": "Japan_006901.jpg",
+    "image_sha256": "d3d7aefc2d11eaa26c7ee03b2c9df6531c1420e001bc028e1145205bfa8db5c8",
+    "annotation_sha256": "a3cccef331ee1f409bda5587da2686e135ab2b349c447acd6c6d4ecff8c87dd0"
+  },
+  {
+    "image": "Japan_006968.jpg",
+    "image_sha256": "6414ee7a3c80155af25e64fac2eb3bd972d1b29eaaa78db8d1941e90a60e186b",
+    "annotation_sha256": "3108e70bfd9fc7d60ec5602acefc35b8c8d78b52d8a1e4afdaee815f96823809"
+  },
+  {
+    "image": "Japan_007019.jpg",
+    "image_sha256": "653df89c3e3cfe66d2427530320e5d7ad8dd9aecfd00b2644080bb1e976d4b10",
+    "annotation_sha256": "4d943f3bb57e853207f6dda9ba02951b9a88b55341dd1f76a8ecbd188884e003"
+  },
+  {
+    "image": "Japan_007035.jpg",
+    "image_sha256": "e004dfc4192241d224f3bb50fbe467b3d57f7386d7f021b40c6edc65d9b08dcd",
+    "annotation_sha256": "6a89374f74e9a7431fec652c11d277d2e58c0a3cb2f24e409dca61576d04305d"
+  },
+  {
+    "image": "Japan_007038.jpg",
+    "image_sha256": "761366d50cd2643538f967f0845b4882e1ca10b407fcb13f755fd2f678fb7208",
+    "annotation_sha256": "d85abbcc5f4c77f6b3955f109095773fe51a35128c994ed92194cfeb09dac0a8"
+  },
+  {
+    "image": "Japan_007041.jpg",
+    "image_sha256": "8e49b984ac5ff75485f4903c9ec3eadeef9e454d00f273c64dbde40e8b64fe01",
+    "annotation_sha256": "85518ee95bd8595c6999fff56e986d26a67f59912d1d4e36a2350c7d0299c56d"
+  },
+  {
+    "image": "Japan_007043.jpg",
+    "image_sha256": "e27dd95dd53383d5b38f5e738693af737a23c7b621722dd546504b862c2ac16b",
+    "annotation_sha256": "3863a236f036adfbdd1bdc925cf2809a69cfe6a63ffcf0b9925f909bec72d270"
+  },
+  {
+    "image": "Japan_007090.jpg",
+    "image_sha256": "13847c85d27f86d331bfe13d54efc8cd51a77d777ee30427e49b64b42508499e",
+    "annotation_sha256": "193b2baf35766925f5801c36ce7132ffead5893694bd73ae8bac45a4f5231c75"
+  },
+  {
+    "image": "Japan_007278.jpg",
+    "image_sha256": "4859f245f787c21c83e87aa8e060a802165b094c0f5126ae7381055db9c3ad1c",
+    "annotation_sha256": "b8004a8ab60b9d6969e718f288e8b7d9faec869cbb4f44cf658e24a0b50e1994"
+  },
+  {
+    "image": "Japan_007296.jpg",
+    "image_sha256": "2ccf5fbd508ed091c36dd630522d6c47a12179789483adbe4187a460d5639ead",
+    "annotation_sha256": "a72a7afd30d5ea3c5752acb00f1e4883ba123576c153c66caf47627f4bbe9179"
+  },
+  {
+    "image": "Japan_007338.jpg",
+    "image_sha256": "cf9fb6bc28f276b8bce7a7d165a95b2b39fda33d2d532efe6a42c6f1706af64a",
+    "annotation_sha256": "58ea3d4289b4d6c15cd3af0934a6b34c19eaad930829bf43d31ae36fb677c83a"
+  },
+  {
+    "image": "Japan_007377.jpg",
+    "image_sha256": "487c5b4701eba00b1f4f62d3593ecffd5d7a9c8ea027ae705105dfe88b90fa69",
+    "annotation_sha256": "df12cbe35d27fef5552a06ca311655062590d26f129c2823ee1c26cbcf1885e4"
+  },
+  {
+    "image": "Japan_007483.jpg",
+    "image_sha256": "a9a5d8bb78ee14e8e2d1366d12e6f94d3a0cf0816fe223d42cde532ec2116f8c",
+    "annotation_sha256": "5471d93ba9976f3b554458f9cc89efa1307a4913fb56bd7c9b0cfdb437f11cb8"
+  },
+  {
+    "image": "Japan_007527.jpg",
+    "image_sha256": "a48de9822c703225aaf5264570d1c0f3095f104c8c5f1dbfde2f8b18b87cf941",
+    "annotation_sha256": "5873261ea157deda5b938f4eb7537030b8d302ba05d165ee68ce01caabd3836a"
+  },
+  {
+    "image": "Japan_007536.jpg",
+    "image_sha256": "62e7a8e8b6346eb09eb7dcdba5d57234c3be6169104fef8baa373abfde0a3398",
+    "annotation_sha256": "cf4851703dae1a988c47101301a2c04b72409dfdf4523b8fc0ba9d7b470e9414"
+  },
+  {
+    "image": "Japan_007557.jpg",
+    "image_sha256": "e1d4548272b6f4c789872e0e7c29f043eba12b13bfc99bad3d1e1d4df8f38a69",
+    "annotation_sha256": "99f036f058509d07b68113b075d31315da496e16376a357fa993330a1dfa18fd"
+  },
+  {
+    "image": "Japan_007751.jpg",
+    "image_sha256": "de13c2cf46f4af6db3e4b9cdb1d7f2d950da0cf5568464885c7313da024b9822",
+    "annotation_sha256": "f37c2aed9435b4fab59b68df08d235ea6d856eff62a347f04ec961588b7b3b07"
+  },
+  {
+    "image": "Japan_007992.jpg",
+    "image_sha256": "36eedf7d16b7a60a9547478960c1b45aaa572e050998d5799d5e37add925e7ce",
+    "annotation_sha256": "348d404735620d6d88a840d7c4878664776032f094fc462682a8e2f6b81ccfad"
+  },
+  {
+    "image": "Japan_008016.jpg",
+    "image_sha256": "b0af1c9ecf345b5d457ce8c35abe4edf2c6b06f917672c46f7eb717981fd93b5",
+    "annotation_sha256": "792be360c0594b78ffbfcffa84050a3f331854a27b6b9c871a9d6a59dbd9a87f"
+  },
+  {
+    "image": "Japan_008055.jpg",
+    "image_sha256": "0cfb76ff8b374728a213f9a8cb7cecb96d04a0b5f92b149bfab9255efbe23665",
+    "annotation_sha256": "1f1a3d6bb57896dc206e03d578917f3873b91e196551548ca7e42ea83e08b926"
+  },
+  {
+    "image": "Japan_008079.jpg",
+    "image_sha256": "cb6f311f2e5c69fd575f5f84206f32a084e48fce8808c96e9491d27e9c1fab50",
+    "annotation_sha256": "cad748ef82eb9661ea3e9493739abf356c7600a458b4f96ef0937797d124ea7e"
+  },
+  {
+    "image": "Japan_008159.jpg",
+    "image_sha256": "af3403ed83ff5151d4c03fd03feb12709a8a8fb849f9481818a213ebefa1c579",
+    "annotation_sha256": "35218aedf98d70690f59a5ac3ba6ea40ad88dc22d16b85aaa6dbfdc1bed27cdb"
+  },
+  {
+    "image": "Japan_008198.jpg",
+    "image_sha256": "1289401d920f64d0f42d8c5f712fed3bc66216b2c651c2bd5cef0a3d64f31f09",
+    "annotation_sha256": "7a777ea9efe959a7a027fd56c3b7a21d66f3e4c9e07db8ca27f401e9018c9ddc"
+  },
+  {
+    "image": "Japan_008205.jpg",
+    "image_sha256": "5a50c1cfa06299059ec6bd34b9d30a65c58a974066a692e77a551e0b919ac3ee",
+    "annotation_sha256": "8f080b67f8b427907d3891a8b12170df7d107ef755539c2729a0a80927400ed0"
+  },
+  {
+    "image": "Japan_008364.jpg",
+    "image_sha256": "1976a29ea1facdcf4cd58c4a0e94a4038adf5409f0e0ddad966272494b543126",
+    "annotation_sha256": "928aaa8fb25edba5efc4c89aa49aa280d5c78cb5c85436e0e9ac957eca19fa06"
+  },
+  {
+    "image": "Japan_008380.jpg",
+    "image_sha256": "822ade3cbc6f91720a5a90cf0d930b83077d4a61acd1af647b903f2b03e655ce",
+    "annotation_sha256": "5e49dfdaf505c3006def94de14cadebfb8b1c7010c480200227c603e1cd62db3"
+  },
+  {
+    "image": "Japan_008406.jpg",
+    "image_sha256": "373a9e89c608cec8c8df739d1705ca3eeae1931338f181b869cd11eb635107cd",
+    "annotation_sha256": "1b5828e1dcd9072adfa112440a99aa3c06d12238459f1c500ec1d8521282a0eb"
+  },
+  {
+    "image": "Japan_008413.jpg",
+    "image_sha256": "8350db4c04304ec8d87258ca06aa8aa04d25f5c350c121e93ec94eea4191711c",
+    "annotation_sha256": "04bf11c81283c4fd3d8cb7cee088a2ef66673c63e7ed2868ab34d8307010cbae"
+  },
+  {
+    "image": "Japan_008495.jpg",
+    "image_sha256": "868639f78a7a40a460b2e045dee544e71cd99ca4040130ed730376729dd1adb5",
+    "annotation_sha256": "384f29365de395670fe6109a57994a9497bad7e8ff1858fb725f1a7ab95325a3"
+  },
+  {
+    "image": "Japan_008542.jpg",
+    "image_sha256": "b6e801704dc6360458fdffcf8dd03406ebf2ec17c31421bfb102faaa3f3bdd88",
+    "annotation_sha256": "e65b1bb6aa38d38991e76e829a41a354f5008cffb96bf39fae56dd254fae89e1"
+  },
+  {
+    "image": "Japan_008561.jpg",
+    "image_sha256": "58c417db3fe7cd89ef3bc265e4073c59ea306ab0bfe8059062955295b5ed1ed5",
+    "annotation_sha256": "3d8ce060087a4fcb2bb6bfb65eccc678b1c68438c0be5f31d5b0c8a88164dac5"
+  },
+  {
+    "image": "Japan_008627.jpg",
+    "image_sha256": "cbd4fceb9602a768e6bf3f098b5ebb86a99e4a66147a45498faa072585cfc488",
+    "annotation_sha256": "ac51772525430057034693f48d7e8cd090278bc2834ade9dc542674f03e854d2"
+  },
+  {
+    "image": "Japan_008749.jpg",
+    "image_sha256": "0e9702ad23a19ef0780a4eade0818713344bf3777018d55626e96260ea98a1c3",
+    "annotation_sha256": "9e875c6a525ac3c954eca5594d7c1dec1cafc0999392ad51f3517d9eb1b5ec13"
+  },
+  {
+    "image": "Japan_008884.jpg",
+    "image_sha256": "5db156355281166841fd044213f9ee17d5a5c5eb04e90b6952c3e85301f7a6f1",
+    "annotation_sha256": "634b188c9e9af1af3eb79ceff6d0f2f6071e3e050572cc16bba20cf32b15a328"
+  },
+  {
+    "image": "Japan_008887.jpg",
+    "image_sha256": "9967898cc88e2154aac8f1ed2773e6f35ed561b9ac03c68cf4c933602d0e56f1",
+    "annotation_sha256": "cc4af0b7996b04418cb80a53cce30ed1b05e201134421fb44fa13b8ea41a9885"
+  },
+  {
+    "image": "Japan_008916.jpg",
+    "image_sha256": "137f7c1f2f97c2e86abe048187d5f443d81469511e5933c795a9c904c820fa0b",
+    "annotation_sha256": "bd16d81a0daba576f951e175ef00286195e5020cb08ebb2852b383e52370ce88"
+  },
+  {
+    "image": "Japan_008942.jpg",
+    "image_sha256": "6829d8b7ec8ee6cb94b95387a8a1dc2c2a74f1452eb7eec51498b13c7ef22fe4",
+    "annotation_sha256": "d93f473921e4747a9b874f9525c8a040852ca5824b05ef859177d18a5fde1854"
+  },
+  {
+    "image": "Japan_008951.jpg",
+    "image_sha256": "e11ac56a922b47ad5a6e8c23472467fb7c74874edbf3cd13e27b8490b0333372",
+    "annotation_sha256": "97572200aac8002b12604b4016120598a96cc319aec8c6b1d3718d434988d59b"
+  },
+  {
+    "image": "Japan_008998.jpg",
+    "image_sha256": "65871c8763469752580e7f44aa12501075873c43fc8c699f5b5d151d5648b7dc",
+    "annotation_sha256": "b5e6ff6378797474789c9b79ab533f7f8d879472c2dbe1e4e266739facf3e9e9"
+  },
+  {
+    "image": "Japan_009054.jpg",
+    "image_sha256": "d424cb56ba4d8c0c008de0b2a2b6f8e4ed43ac4ea138b6b2519493bd18d01d98",
+    "annotation_sha256": "ff3bff8564b9eaf1ca4e3e22fb6c1a2f51ac409cba24056036ca53a38d61fbac"
+  },
+  {
+    "image": "Japan_009124.jpg",
+    "image_sha256": "ac7631ecc697d509e2ba55ca9c1171e505e2bee0dc102bb8ace0494b166963e3",
+    "annotation_sha256": "dc4fe4cb9e4812124196dd8b4532292cfb8566795b4e150fd07d2664340bf5ed"
+  },
+  {
+    "image": "Japan_009301.jpg",
+    "image_sha256": "43f5ce5c92117732830fd053c4e7b0a3bccc3474858f4dd8fb98d4c12f68144e",
+    "annotation_sha256": "f87a23c927db9f6d1c9f85a44cec871c99ec8b8575d02fa01f2e6162909ce103"
+  },
+  {
+    "image": "Japan_009325.jpg",
+    "image_sha256": "b3abbbeebebe7d6825b4ec0d13a6a72523b0616c5f8bd6f52e25a14811d99342",
+    "annotation_sha256": "4e387cfaf90470a952d728b49a41e42ad88717e25756f1fdecc8f64d8e0a10e5"
+  },
+  {
+    "image": "Japan_009345.jpg",
+    "image_sha256": "d16420355067a936d8cb448c52a2ca1f6175cf5f50eee434bef87c08e68922f9",
+    "annotation_sha256": "06f6d4d20bd76998b18c28227c15e80f4fdf023b8abbf49c0d9f3bc9903b8659"
+  },
+  {
+    "image": "Japan_009384.jpg",
+    "image_sha256": "a1ab3923cf7e8ecf552aa19c0fd17ebef34ff51190dcf5f32d425efe2f8f3939",
+    "annotation_sha256": "511d024bea3a1332c6d34713e30445aa4605b1f3ade89b800c405aaac106af7f"
+  },
+  {
+    "image": "Japan_009404.jpg",
+    "image_sha256": "49ea6933a73fd35cbb238e0ad804a159611519215a2744db72456fe93f54aa3e",
+    "annotation_sha256": "19dee1ef30e23d74625162b6f2e5ecf6a694833254d48e01b6803d4eedf5a8b5"
+  },
+  {
+    "image": "Japan_009408.jpg",
+    "image_sha256": "8b386acdffecf57e780f1899ca232bb4b840128c9def324d82acb66e8759e2de",
+    "annotation_sha256": "7200ba66975d23ac6d6c2fd517a0c0a4efdf4e62e1dc79fcc24905346150fae5"
+  },
+  {
+    "image": "Japan_009521.jpg",
+    "image_sha256": "a58ddcd95e0bf0558bbb6e00e344f8d42328228de7350449a8cfa2d6f8224ab1",
+    "annotation_sha256": "c14c616655977e02d4fb24b9b6ef55f13bdfefbf6e67c0c669681fd820b90a45"
+  },
+  {
+    "image": "Japan_009565.jpg",
+    "image_sha256": "84c0c87c5e3852a43204a13a7466462e4924068b0bb6c82556b84705bf77e83d",
+    "annotation_sha256": "ae155359c2041299c518bbaa84c340764cfd261284c32e79b420e30f60d8d77a"
+  },
+  {
+    "image": "Japan_009660.jpg",
+    "image_sha256": "bdb447fea221b25720da2ca24b9199f6eb35068ec0e1ceff6522f8242db12cfc",
+    "annotation_sha256": "96c75be6f9d38fe259fff7aa6646d9353b4bac3f996e6ea96ce83d657c526720"
+  },
+  {
+    "image": "Japan_009738.jpg",
+    "image_sha256": "38dc9ed01f97113813d897da84ac27e134252192a33d822a4772c3615f9c62b2",
+    "annotation_sha256": "33d6138556d25d319dd06c4996b88093060a0045f4a344624be4ef8fe3ea2c2a"
+  },
+  {
+    "image": "Japan_009798.jpg",
+    "image_sha256": "337bb5ae180ce449598f7b8ccb88fbd13ddd34255517235390dbc8dda03d0c10",
+    "annotation_sha256": "b14967d67747c115a5144a4942836d63f73787140f469a3049f1b147698fc0b9"
+  },
+  {
+    "image": "Japan_009814.jpg",
+    "image_sha256": "7dd9ad576762867ecb3f896bf78abc7f1afeb272bda818e2d76ba8c3833f9a34",
+    "annotation_sha256": "7e499297561b3c5cdff7369f90703abce41e6b300032e3419c7821e4e28ff35e"
+  },
+  {
+    "image": "Japan_009824.jpg",
+    "image_sha256": "6e88cf55271b99521d9ffb374434f51cd36dc92374e32c5a62d7a56de231a15d",
+    "annotation_sha256": "d65ff218c0d71cb82d44d3b30c507480979f1fbe199227cf264f3f7ed163188b"
+  },
+  {
+    "image": "Japan_009892.jpg",
+    "image_sha256": "29884fd4a0a3196eca68a8061b1df5ed8575daa5ac9a99b2cfe1e17ca3d81f2e",
+    "annotation_sha256": "47b58216422e593ba51b0e963c6753496bba9ebd5a59f1d249f966c7c5de6bca"
+  },
+  {
+    "image": "Japan_009896.jpg",
+    "image_sha256": "0210c92309103a0bc06d66639a79fc12501d05c6c8c0d59dc7c449249faba66c",
+    "annotation_sha256": "759959050f31b90887ce3c2eebae784cde0126bc626579f2b85e5f364fac8217"
+  },
+  {
+    "image": "Japan_010021.jpg",
+    "image_sha256": "7f65f3b3727896be159cb7ece0b5d8b3a9b3da173ffea6a21f1cddc7af29144a",
+    "annotation_sha256": "1b23c6eedc1b06d05c46e7e15d7a43caf7148cfdd6531eb3101c6edcdb13dfca"
+  },
+  {
+    "image": "Japan_010051.jpg",
+    "image_sha256": "47d8c0f6b96996b1187d996ca8df06541ba2cc41fe823df72293cc2230cfac51",
+    "annotation_sha256": "a7a37c142b65f00e54aa9344ed383d607b07a854b70a3a7c2aafe6749d8c5411"
+  },
+  {
+    "image": "Japan_010121.jpg",
+    "image_sha256": "9d5a841462020006bbfb272a02c89181131d9bebd9e29d93f23d4017b732ff39",
+    "annotation_sha256": "6db3ffaca9219cd1dac5c16cff0e18879480f750a1972c3e7b85b5648441867c"
+  },
+  {
+    "image": "Japan_010138.jpg",
+    "image_sha256": "ffb96206ccbcf79cb38f69f5e63fcbac55906cd2db1a583638f59df091fbd2b0",
+    "annotation_sha256": "4dd5ac276d261c4cd7e873f90836eb8514dd2467d2e45c6356227bd5ff3f8025"
+  },
+  {
+    "image": "Japan_010255.jpg",
+    "image_sha256": "3c0e17416a46124642f61a473a8cc6cf6c27380b9f6f588234358a00f24d7886",
+    "annotation_sha256": "ae949fec63c44e58998b4f7f80fd9cbcce6f2b8d9ad69e11a5a84eee763463ae"
+  },
+  {
+    "image": "Japan_010371.jpg",
+    "image_sha256": "f3a5273e953b4f4353581c040ce803626e8eba21dcfd854fc132aae0aa9e7518",
+    "annotation_sha256": "37e663cd8c68ef00d378ef81bcbde5c2fe1554df6dd70a481dda48a62c00903a"
+  },
+  {
+    "image": "Japan_010373.jpg",
+    "image_sha256": "8aa1bf459358f097be6be5e03a47553d9a8ab9e3026520e877aa6a999db20b57",
+    "annotation_sha256": "6e18df234becf3f08a641c5254edfc6ca180cdb423d8414f542866869dc53bc5"
+  },
+  {
+    "image": "Japan_010377.jpg",
+    "image_sha256": "8fb243de0e5a458aa273fefeca11f352b4340493a7de00ecb3645764938bf30a",
+    "annotation_sha256": "c9783d5cdb3917488a54dccbf33e73fcca35c6aa2443d02322089f62c6ae75be"
+  },
+  {
+    "image": "Japan_010451.jpg",
+    "image_sha256": "3bc196f983b00fd66ff6e0a7598c0080bd8e63b1b9a18840eb3d121f7843cce2",
+    "annotation_sha256": "e471fc903087dab01e03913b3d74d58765c9bcc7fd5907dd3f054ad79cd75a0c"
+  },
+  {
+    "image": "Japan_010568.jpg",
+    "image_sha256": "7b9778fa1a4b49a41329aa68a5e43eecfc74533b068391107cbecffcfc9d46d8",
+    "annotation_sha256": "b46519ae4608f17042839d933d456a3157e9a6de8a9fc9d2ebb8181fb97f8be7"
+  },
+  {
+    "image": "Japan_010611.jpg",
+    "image_sha256": "25b2db1acebd73a70d82babfec21399abf9ccb4262de78f0f4b651e2a06bd363",
+    "annotation_sha256": "b493b6d400b910b3d214b5079600e44a52a0d80b4012ada218a701dd945cc1a9"
+  },
+  {
+    "image": "Japan_010662.jpg",
+    "image_sha256": "d3fd6b872358fd19d7c02538397aa5581438547f8c89b5cce059ee7b3037e696",
+    "annotation_sha256": "bd90c99080daa72bdf470966d316df6c0025a8ca187706e68df8593ce26be70c"
+  },
+  {
+    "image": "Japan_010733.jpg",
+    "image_sha256": "df0d298b9757226effed7b55019334f4d0ad019b34aa6bab2a13427406691e4c",
+    "annotation_sha256": "94bee4ec61d1f8a31c462c16b1f991546e8a23d17e5c641882989af62e6549e2"
+  },
+  {
+    "image": "Japan_010769.jpg",
+    "image_sha256": "d4c51a575236a5774956cb89f474841a3daef71e950c498b4b8fb076fd859dac",
+    "annotation_sha256": "1f6d58217d71bb27352c2d723730122a1dddd82f137d133200f50773561e5cbd"
+  },
+  {
+    "image": "Japan_010837.jpg",
+    "image_sha256": "057361ba2bef32609ad6a6dff256c8287138a50d407b3b04247d79800d53ace1",
+    "annotation_sha256": "6c581fd044399f46601f7144f8c68e6fac74c0394cfcca120c9cfef86658bbd1"
+  },
+  {
+    "image": "Japan_010946.jpg",
+    "image_sha256": "516bcb1db8e0309947c89f1e816dd381f4062a03b8c6d3c793b425057a1d57a1",
+    "annotation_sha256": "a1bc8c0a0bfe09b4aeb071575b247eada05ec5a3974b4e12c92bfc3f747fd7ed"
+  },
+  {
+    "image": "Japan_010974.jpg",
+    "image_sha256": "30f0fada0848dfdd67e983f7b43c4b66d463658b6c5d219819b5d6dfff8c22a0",
+    "annotation_sha256": "e1a8ad888771ba4ffe534cfc58b59c65d8990ee82c9334aa5eb7138a0010b637"
+  },
+  {
+    "image": "Japan_010985.jpg",
+    "image_sha256": "e6880d46aef780977e957276fb090625109dbddfa4b2264906494125b13a4bbe",
+    "annotation_sha256": "11532bdf340a6aa02486ce3a8c0220cb208a3d73663eab6b0f1e09df8f25608d"
+  },
+  {
+    "image": "Japan_011115.jpg",
+    "image_sha256": "e7d9f17297d66a385898652ae0b2c26edb0d85e36e1d5a7e6aec5329c0e9a444",
+    "annotation_sha256": "e067075e3640671ffc22acde7f0b3e1cd31f4a67e79bd4cb42ab844d17042d91"
+  },
+  {
+    "image": "Japan_011120.jpg",
+    "image_sha256": "788341075505f1d2e778e07a6857c43c5d152dc2771baa7cfee38e11288c43cb",
+    "annotation_sha256": "d7ac5487aa5dd67a665281fda021751dd6ff72f0dd8a38f50eb23e1399b32d6b"
+  },
+  {
+    "image": "Japan_011152.jpg",
+    "image_sha256": "51d6ec3d2fbe5983a6d7b10eef7d91aee1ff701f816a6f3c4835bb3629ac6fca",
+    "annotation_sha256": "0d31c8b906286edd0aceabce605c8edf490fc741d7085e6ae2d807fdd63b60f4"
+  },
+  {
+    "image": "Japan_011279.jpg",
+    "image_sha256": "44ce380d6eb4e430e92c1ceb1c65a63887fd4d65a80e51db43eda9abdbbc6034",
+    "annotation_sha256": "0f1c0dfafe21a80b0f9f02dd5a7ffc0695fdc076f446602120090160e52564a2"
+  },
+  {
+    "image": "Japan_011306.jpg",
+    "image_sha256": "5c8ec1c5565ef489a5c5cd4e0097725578c83535e8012fb3763582a98e3a890b",
+    "annotation_sha256": "d150054849ad8d96f168432302489c89a9418b97a63e86d1f9809286b01e7d54"
+  },
+  {
+    "image": "Japan_011316.jpg",
+    "image_sha256": "2d3ba297ba9d6641e0defadb67b087f67e3984b8613ee151e0c543ec39125e7c",
+    "annotation_sha256": "3b7d765295c8115897339b1dc1acfceaf1d790433d996b18c798f82692bd965a"
+  },
+  {
+    "image": "Japan_011346.jpg",
+    "image_sha256": "80efbfe41db85c2c57c90baadc7563f0f0d9c653bc0b96c387cff6c31ad2724a",
+    "annotation_sha256": "994429cdfc9756801dfe201c35b79bd09faaa2eaf323069891ee2cf5e14f22a4"
+  },
+  {
+    "image": "Japan_011386.jpg",
+    "image_sha256": "4b132c44e9f025987b645a502a3f21b0a6942448c5ef98352eee4c5c61b8d651",
+    "annotation_sha256": "1dc0b7734818285646089e5f05d6dc1ec1373deb7a814c075577e1c3d9ffe224"
+  },
+  {
+    "image": "Japan_011439.jpg",
+    "image_sha256": "16016a66a4576c63ef0ad19f36d0748fc727fef9290bc65f3281cb5d9f2c28e4",
+    "annotation_sha256": "654c7fbc8db9fdddd41f88de2476ed50f59b0d184bb6ee8900ecf6e011e7600f"
+  },
+  {
+    "image": "Japan_011576.jpg",
+    "image_sha256": "f5013c571b5c7ddc75a46a063b6162a90ccf4b8f4e69a310d0fff34b9e009d19",
+    "annotation_sha256": "09a016383c6e33dcc3495a1c2594c0112a7344069b92386c99ea71a26a839fdc"
+  },
+  {
+    "image": "Japan_011645.jpg",
+    "image_sha256": "38a474008bdfa484e977fc57e52548d40a398413bae5710e225095e60bff2ca8",
+    "annotation_sha256": "4ee7bb3057129c6beab2f08e5843a15e552f8e4b3fa8ad340ec3bd74d730613f"
+  },
+  {
+    "image": "Japan_011682.jpg",
+    "image_sha256": "0c9e59f288d8a17bc81ed23de8868aaa6b65d4e6ef6e287a4c2c26a37b7fce3e",
+    "annotation_sha256": "0ca9f298b59fc13b02cea252234f83963fe0eb6582780bf9d89063e3a112c297"
+  },
+  {
+    "image": "Japan_011733.jpg",
+    "image_sha256": "ec17c651aff857b2dd654df9c2cd6aa4ce2e4a2c8a3368f93752b831bafa24ef",
+    "annotation_sha256": "19c4c8fc608b6046d93bc8958892c3d37c7f9a6e22039caf978cce9f266550ec"
+  },
+  {
+    "image": "Japan_011838.jpg",
+    "image_sha256": "cabee99926776407deae0b33987ac34997233b48ccd43cb3731e0bef22e1da8a",
+    "annotation_sha256": "041b87c479459dbef5ee3c106d65ad9fc9b242383b9802581f80b18bd4214c51"
+  },
+  {
+    "image": "Japan_011891.jpg",
+    "image_sha256": "baf93c2f9eec589ed667307ceb5a5a98f8894e90cd4ed03fa8898aad7127be78",
+    "annotation_sha256": "8bfc4128c8c21c67674989aed4cb4f74211f889dc357afb8a1520fb5327343a2"
+  },
+  {
+    "image": "Japan_011895.jpg",
+    "image_sha256": "8a4d6ddfeb393df0ba2083973d3ff396d82ed1475184249c7ca8f8b342f95af3",
+    "annotation_sha256": "82fa561ea15c4f10fd1931404c88126104349ad36d2a4d3060bb72bb57f50d81"
+  },
+  {
+    "image": "Japan_011914.jpg",
+    "image_sha256": "c931edb3cdd4de37d8e85a083fc0c6f464d1c1064ffe6c047b047fc32dec3403",
+    "annotation_sha256": "cb6dbdef9eac6ece4fe6f46a481d9e5beff36a953869816b7fc8853700a07ad6"
+  },
+  {
+    "image": "Japan_011936.jpg",
+    "image_sha256": "88f9045012a0f3f6958004983275d3db1a1be85bcf16417e71c136a42eb1fafd",
+    "annotation_sha256": "cd9d12ef9be98aae0a4afc0c4ea4dabfb4c8e76ede0a5e1636b86866d7ec1cfa"
+  },
+  {
+    "image": "Japan_011939.jpg",
+    "image_sha256": "032fa2ec78cf2c7616f6e20e8d25cdebb4dcb71f8c5320f8edda6e2c89313498",
+    "annotation_sha256": "2e0d3a3a9fe53e1940e27d8c2dd8d183195b25cede0fa9f16ffbafcda7f52d65"
+  },
+  {
+    "image": "Japan_011972.jpg",
+    "image_sha256": "878f922617715f181a0ad6e0e7c3c1053584a566f20c3ad34cd8a66e0f6c5fe1",
+    "annotation_sha256": "3ebb657ed9162956b73eb3aad2cafa0555c7418a5e31390f578cae40149a13f4"
+  },
+  {
+    "image": "Japan_012029.jpg",
+    "image_sha256": "4e208887ed927f331e11cf14e4fbcb6ba87bd8801c0abdd2ced5d00be87c34c0",
+    "annotation_sha256": "1a995e986b1c46a67befdac80579068b616ffd40a54dd5d4858b2ab19d500c23"
+  },
+  {
+    "image": "Japan_012049.jpg",
+    "image_sha256": "05f3b40da4c785fee0d380eda5aea585b1d9cedb4b86afc48e0bdfa23f3724fb",
+    "annotation_sha256": "93608566eecd2ef091de21ec8c0d33bbffae1ab288f4ff7029bd61858c883f10"
+  },
+  {
+    "image": "Japan_012054.jpg",
+    "image_sha256": "79b22ac16503a435bac74c7ef08b17459fe8528d558a09d78e2ec437076ac307",
+    "annotation_sha256": "ef60c271a637e293939f711f67d558c185402f3e82689ef4445f6a0422d210fa"
+  },
+  {
+    "image": "Japan_012089.jpg",
+    "image_sha256": "4c54428f0d99ffbbd1c152482caa6f8451bf1bfbe04ad38c5d7fa06b8d4d3f51",
+    "annotation_sha256": "309164bccc085b3d39bb1bd90b12ae54495aa6dbea214df40e2b581bf0337cfa"
+  },
+  {
+    "image": "Japan_012234.jpg",
+    "image_sha256": "575b9eba70731aa1d9b1625c81a3b3842ce7d45624f3513b97e7e88f3ac8efb6",
+    "annotation_sha256": "14e0d1bc50e64ee372e4afa9aea2189fd9896fc6c5cfeb57e28f334fb27a0434"
+  },
+  {
+    "image": "Japan_012332.jpg",
+    "image_sha256": "ba80f52e4c4f72c04dcfc0c70ae56b1d8d525f2f43801b0b7a478bcdb21a202b",
+    "annotation_sha256": "18482fe27e698c14834740548d748c7bdda6df1e14b81c69ec7e899fd6f48c83"
+  },
+  {
+    "image": "Japan_012354.jpg",
+    "image_sha256": "8d88ab8cfd7b05adf671f9baaf50e89d69dc729351fe21ac9834d4213a30af3a",
+    "annotation_sha256": "fbfdd4b5a38596e335ff68986f69455530bec6ed663490a202b75be2bec40c68"
+  },
+  {
+    "image": "Japan_012357.jpg",
+    "image_sha256": "c1d3d6ede8be1340e1ca70475035ed69866ccdba43a7e068f1d1ec70d7c2d149",
+    "annotation_sha256": "264a680797239f43c4000b3f42b25815ebc0f51b240eb8666d8e935cc3b643ca"
+  },
+  {
+    "image": "Japan_012389.jpg",
+    "image_sha256": "080de06b698b17744f801a2abe9feb41b6863f82131bbc0fd5c6cbc93754eb63",
+    "annotation_sha256": "6bd7b6bc3f4ceb8133233775411c4632c3924128cfb5900b5f80ee03d5118ae2"
+  },
+  {
+    "image": "Japan_012453.jpg",
+    "image_sha256": "ed06c9ef8ac4ab42811de792d37b62bcc348306634c904e1cf32bda85c921aca",
+    "annotation_sha256": "3e50999032206ff6a0891b961d29a4f6d82c36378fa45392ba60126d28538d78"
+  },
+  {
+    "image": "Japan_012477.jpg",
+    "image_sha256": "bf6ffed1b41cdcb4ca81961cfc3457bb5516b0051e7c86e1536018e9db2f705d",
+    "annotation_sha256": "88fddcf8afa781c3c96d6094d27b12892c46fc90e1e46873ba10922633d7da1c"
+  },
+  {
+    "image": "Japan_012521.jpg",
+    "image_sha256": "317556880a3f95a0c47b2124001f34de9e75ccfe0ba764c76298c8e70a734107",
+    "annotation_sha256": "0ebe2e491214ae416aa9acf619166e896eb3c9d05bba540024f9b15496f08283"
+  },
+  {
+    "image": "Japan_012546.jpg",
+    "image_sha256": "9d73c8381cb1d0d8e2f9505a2a57264df1df19f575ad42d0672cbbf08653e045",
+    "annotation_sha256": "2f4a9f399efbedaba72d788f1ae802dc464a17c7825ab2e81895918027d14f5e"
+  },
+  {
+    "image": "Japan_012651.jpg",
+    "image_sha256": "8f6070eb3ccd17442ed706034eb5edc1f72835e7baa32ac3d2a4e8dac4f2f172",
+    "annotation_sha256": "b78a49487437105498df11d40676b456a7167ca816632cc2ee7db1bdfedd6765"
+  },
+  {
+    "image": "Japan_012735.jpg",
+    "image_sha256": "6e3d7e7f4db3c8ac0b585f0c13f6ffd94f2cc15921a3ab282c1f5c63322ac1cf",
+    "annotation_sha256": "d62af54b429a791b0116380330d9afa165d7af9fbafe979f1c333bf3ce22feb7"
+  },
+  {
+    "image": "Japan_012794.jpg",
+    "image_sha256": "3e1f02af320d4170f19d37d9077f7dcfdd8e193282efd017885c80b4173d0dba",
+    "annotation_sha256": "c8902132a803eb9b0585d244b225f077ac1fd85d6c98194e9bced4dbb071e482"
+  },
+  {
+    "image": "Japan_012797.jpg",
+    "image_sha256": "97ee6821d3d81310576c2f10df43490063ea385501794cdc95d4f66318e1b7c0",
+    "annotation_sha256": "8fc112a431dca35e85e6d8e32683922bbc32895dd7728d835f442c8aaf9ad331"
+  },
+  {
+    "image": "Japan_012874.jpg",
+    "image_sha256": "54787fc64dc32ba8363e302cd37114c9681c7a0489a3252fc2d523d81b6e9021",
+    "annotation_sha256": "03ed6abeed39b9bfa1465cb26692609d75aae0d7f741ca913d5103af5b78af70"
+  },
+  {
+    "image": "Japan_013032.jpg",
+    "image_sha256": "53d05f1c57de27a3c6bda96fad40a90b034e8d35d660e9586e2023428eeaf0ef",
+    "annotation_sha256": "9b77cf68974efb27de36d3841f3cc8344f183f123c01e0086de166f363391382"
+  },
+  {
+    "image": "Japan_013066.jpg",
+    "image_sha256": "08bf3fd804737d42db1d724e46b640d749dc2b4f105a8631ce280b7c2f4fa596",
+    "annotation_sha256": "b42860161f506c598d469564872bde5c376989ccae94d6c174f08519b6037447"
+  },
+  {
+    "image": "Norway_000024.jpg",
+    "image_sha256": "a542d9210f40fac82327e37a6133b520bf6c23139dfbd895b12bbfd00253585f",
+    "annotation_sha256": "1c8a774392c94ced62861ca679b4a9502b76acd3d133be312eee6eaa383067a4"
+  },
+  {
+    "image": "Norway_000056.jpg",
+    "image_sha256": "be33c09c6972ddf1e343887bc0ad5282c70754bbbf69e914dde686f748f3bc74",
+    "annotation_sha256": "3c8a4405874c726de5c2cedf96f9221416c62368aff0b44c694bc2ff7889455c"
+  },
+  {
+    "image": "Norway_000169.jpg",
+    "image_sha256": "cc26c1def78b49516fbc8c2092b0b47603253c9a333b25817ef8c255c7e3a53f",
+    "annotation_sha256": "45a68cf72dcac03fdfe1a46ff014479370a943387b8a275e46a1ca7cec91cedb"
+  },
+  {
+    "image": "Norway_000215.jpg",
+    "image_sha256": "52e8739d4478e5e8d1b4ac8e2cdc0c3c235584961a20d95ecc3e25be9c0cb996",
+    "annotation_sha256": "f1631043a0dd3d7ef9bd94eda1c0232e85978b5e27432e9000b1e9a6186de714"
+  },
+  {
+    "image": "Norway_000260.jpg",
+    "image_sha256": "7d2235863c703b687491353334a1cb9d8e6681ff20a3315b837a4797b6bda153",
+    "annotation_sha256": "a6e1b928c8f0d91490614a74e4790ff525f2f717ae532fd04482b7ab295b5e82"
+  },
+  {
+    "image": "Norway_000277.jpg",
+    "image_sha256": "b9363dfd38e9f88ab5e5dcc0a4e841d7f3fa21d1ed209f1c8064a54ae74cca52",
+    "annotation_sha256": "093a016b8521a4e8ced572755293ebcd3a9358a397cac355c7c1462a5cbf4da9"
+  },
+  {
+    "image": "Norway_000293.jpg",
+    "image_sha256": "2688c533770fe0be7778af83cb44d0b5cf0520a2865564a893299bcd306a9820",
+    "annotation_sha256": "1fd68cafec424eba58d807662dd95419048376f4cae40b927a114996b3b4479f"
+  },
+  {
+    "image": "Norway_000299.jpg",
+    "image_sha256": "0b28722ff0f272aa4d0df514a6d0726aab18684e54edcdc6bbb001e2246fe0ec",
+    "annotation_sha256": "a613ac1a6b551f2cec44e421b507261b6af0cb0c1e974a0d6706e9571c8be038"
+  },
+  {
+    "image": "Norway_000380.jpg",
+    "image_sha256": "4ec769bb35c1f4294becd36df216f89b61c9e702e2ab84d4f678495f8272f343",
+    "annotation_sha256": "bf838eab0259bcb720955912384a9f8e53c5568d1ef0e2843a6e4d1fd2047c4c"
+  },
+  {
+    "image": "Norway_000456.jpg",
+    "image_sha256": "efa59e13580260768fdeb533ee1ba8312462b94f268812415a1d9f3e158822af",
+    "annotation_sha256": "b2570b2e5f91e822f6321cc45699acc0714edd9cf5a05b97c38b949431b60388"
+  },
+  {
+    "image": "Norway_000492.jpg",
+    "image_sha256": "5283bd2cd6c807aa624e4324e36a63bd4a4b864a106718a361fdf159f7e85324",
+    "annotation_sha256": "c186f82b8664b858d080035989a0b909f89504a39c1d4119d8d57bfb5e3d2484"
+  },
+  {
+    "image": "Norway_000659.jpg",
+    "image_sha256": "e48e7eb8a1455c72f16afacc2598c59c3ecf8f8e17398bd3f984cc12b95eefec",
+    "annotation_sha256": "404306183513e900e4802059781dc76fb18fde34f159a83d3e779673bc19df31"
+  },
+  {
+    "image": "Norway_000673.jpg",
+    "image_sha256": "e8cb7a53e55bc87af3d211483509e5045ff43719d9f3267d5056603168c3aea0",
+    "annotation_sha256": "c107a34ab946d79dfed8c1908d9089350a32be6893d5ecd9c35f5c04d79840f2"
+  },
+  {
+    "image": "Norway_000706.jpg",
+    "image_sha256": "cd02d600df3e2be30cfa33678f06d20f0943b13c7bb896f9314b3169070d4efe",
+    "annotation_sha256": "8b2b9064da2857565911d3401a9e7e42a2456d51ed9277b9227da87e30b7ddc1"
+  },
+  {
+    "image": "Norway_000721.jpg",
+    "image_sha256": "c4458b516b3d7c680bc7cf2eecf8660735d765c9f8f364a62996c3616bb99b97",
+    "annotation_sha256": "25ad46cc0d7a17f5e47a12951fccf956ea686945929208fee648bbe93b0d6586"
+  },
+  {
+    "image": "Norway_000803.jpg",
+    "image_sha256": "7611b539d7302473774ed5ae44efd23e2bb5bfee3c39ad76b1ad3fc8dd2383cd",
+    "annotation_sha256": "47541be2ea5dfe8605c48cf6c745f4462c7bbe90ed07c0ccc646b3691d810622"
+  },
+  {
+    "image": "Norway_000891.jpg",
+    "image_sha256": "f605a1dbc0583019e0767bdef3de166353a8f91825417579939880a4a485156d",
+    "annotation_sha256": "bf8527f2cfce4413f33ec4f79a37a4c8d8d8423b0eadb4d3c0bbfe4d8b7e28f3"
+  },
+  {
+    "image": "Norway_001120.jpg",
+    "image_sha256": "f2cee8c59931a666c0caf1cf1ccca738dc93c507797ed0118f998e82616f302c",
+    "annotation_sha256": "9395252a6458e68e554d08b6ccef3fd6052ba376c857c2b8a9acfd9c5feea5d9"
+  },
+  {
+    "image": "Norway_001144.jpg",
+    "image_sha256": "aaa5c5ca9b9f25d67c8080d34e2b288c51fa2994ebd277d087a994e0b021aa8c",
+    "annotation_sha256": "d0db45a52b808a257cb23a3b476d2c565f2c6deb798d8ca3cac6cd3c1ec7f11c"
+  },
+  {
+    "image": "Norway_001198.jpg",
+    "image_sha256": "5f797bcee9f0dd264d319fb543558bf08f0e7b254217d04add506c3c8361a625",
+    "annotation_sha256": "9d8d084dfb99123977dfa59e39a2afe49b1817a79b5d41f31b2b6e68e778a1d5"
+  },
+  {
+    "image": "Norway_001248.jpg",
+    "image_sha256": "f6613ba215941e1650bcc936feb87078c8ff17ce36499aa75b430f8c32591e48",
+    "annotation_sha256": "9bb826ab5f7e8c12b15f553a2b93f77b1e9373df6a6cd111844a9afc61e8d427"
+  },
+  {
+    "image": "Norway_001268.jpg",
+    "image_sha256": "829cbafceb4b0dac8a6c85375b10cb77687f4e5a1d9be552cf08446acb6ac429",
+    "annotation_sha256": "0fc9d89f14a7b7b4184948b822babca817cbd3d8f15d44c44558299f5dbd213b"
+  },
+  {
+    "image": "Norway_001305.jpg",
+    "image_sha256": "e93b256e9801eb84eb70c6b10cf136a99bdc3c59c60e5f1571052ec2d181d415",
+    "annotation_sha256": "f85159c9f07cb9de314af83a53e8d3e2f956023da269231f15e619c93ad4e932"
+  },
+  {
+    "image": "Norway_001322.jpg",
+    "image_sha256": "907e5841b51113d79b2ecb4cb5de4986b09028c855480e6bdf457bd25fdbc22a",
+    "annotation_sha256": "cddf17bf173407cf97e7114e5e5f4320910a8f2491103006ab5e2d72ff63c9f6"
+  },
+  {
+    "image": "Norway_001361.jpg",
+    "image_sha256": "e72eabeafa193bc118ecc2dfd5952a04b9ba17eba3efae827d789dd37336bf2e",
+    "annotation_sha256": "8c6f9179f20daace050d1e1063f462ae72f4fa68076fb0a75daf8ec54647eccc"
+  },
+  {
+    "image": "Norway_001378.jpg",
+    "image_sha256": "3c9aebf06054a5f4425d2ba96174869cfaaaf5586202bd1c8f19be25a335276f",
+    "annotation_sha256": "19ddc2697a85adbcb03cec4c00ca1d6c272e767a77279853ed83766c6b8024b2"
+  },
+  {
+    "image": "Norway_001386.jpg",
+    "image_sha256": "5de2f5909d38ead94d96eafdb9fe0a8374e5a01596c969feb4fcc57f113351df",
+    "annotation_sha256": "1a36e182580a15e38df7147e7ae5f07a774cc5fd4553cfbd795a29999c593574"
+  },
+  {
+    "image": "Norway_001492.jpg",
+    "image_sha256": "d8d42278d9183f84b52f4e6d843f3951c3021c15e57eb64fc38a0ff7c065fb77",
+    "annotation_sha256": "ec4e83c71cb48315a452c8476c534c3bfa3eaf73896bea01e129877f038a722a"
+  },
+  {
+    "image": "Norway_001508.jpg",
+    "image_sha256": "203d4e80f67e8ff811915ec5871181e6f44e5dda379f648e6bd156f5fb948cbd",
+    "annotation_sha256": "840a86ce79b559c782e3281a1586ff16eb368724fe7a0f5fbc28a31f8fa79e4e"
+  },
+  {
+    "image": "Norway_001619.jpg",
+    "image_sha256": "5324aeab32e80862a9532e0b69d501142978a4b4bf4588a1f884656a09f25bd3",
+    "annotation_sha256": "54dc90c94097c4295af8634e096385c6e545a754339ee1fc4b751a8ec2d1505d"
+  },
+  {
+    "image": "Norway_001703.jpg",
+    "image_sha256": "2d98927ef636cb81e30bd90ed6e6ebb72d13fbdb014b2007f485dd9c34f507e4",
+    "annotation_sha256": "55d5be1d409fcfc54b5ef1282f5ec3c28a2e70f4bdc67b2195fabbe2ab9f744a"
+  },
+  {
+    "image": "Norway_001728.jpg",
+    "image_sha256": "657e31911e1d84e09902a863f41c40fe85027859921f6486f4078c30f02d5cfe",
+    "annotation_sha256": "8a99c42354d4ce07dfb4ffa09fc443b4239ca6cfe0ea196144da38595d11782d"
+  },
+  {
+    "image": "Norway_001853.jpg",
+    "image_sha256": "c2ed41c8fcf59d11dffbf1b30a9beba17aa3adae07196f8673a17283a409a809",
+    "annotation_sha256": "0dde4a7d41ca39da2f6ad7da805649587b545eef24c94b55b78d312f59e51105"
+  },
+  {
+    "image": "Norway_001876.jpg",
+    "image_sha256": "58540513fd44e6e14d1db720b30228dea8f5256caacbfd81ecb638e3e2cd5432",
+    "annotation_sha256": "02f6a8e1d93f1910fb0353325a9d5991a6c218e58aca12712084dea6aaa5a5f0"
+  },
+  {
+    "image": "Norway_002026.jpg",
+    "image_sha256": "2e8a1e8cc1daba1f0cac9a8b6a99ef387d87c8012adbb0c4d71f1e9ffb34bfff",
+    "annotation_sha256": "a45b77f1c44529e6a9185669a3164fdb739048b51d678298320e233ab4cd8966"
+  },
+  {
+    "image": "Norway_002042.jpg",
+    "image_sha256": "ff5472504a8d3a1da9136b10ea5a7041a8e269c6ed0da1cfb9b4eb68badb06bd",
+    "annotation_sha256": "e2138d92f99e6d5ec28f6f973dd2fcdef05e4b92bcf34f71475c37552a912305"
+  },
+  {
+    "image": "Norway_002098.jpg",
+    "image_sha256": "f7ec705f60264141d74e6d9122ce5ebcb86901bf209d56054163cd27afecf206",
+    "annotation_sha256": "052c79f1d03eabbe41243fc1c22beafececf900eb5c660c9751b6165e3a0a309"
+  },
+  {
+    "image": "Norway_002267.jpg",
+    "image_sha256": "6c954da5d34f0040486be5762fcc89be23d3ee2da1f3e1c9cf6a4838d412ce8a",
+    "annotation_sha256": "3ae71bd5331d3cb27e593f2c2558385f81487420acf2086891fffdfc590f7f2c"
+  },
+  {
+    "image": "Norway_002296.jpg",
+    "image_sha256": "3640366c303bc1050a54c46aedb9a3d76e853ed510ee3e3e88e97a03707d0499",
+    "annotation_sha256": "35041ccb062848aae07cf7cf35aac55a191dae9200fe8198882d91f49d69a3d4"
+  },
+  {
+    "image": "Norway_002305.jpg",
+    "image_sha256": "49b1b47db4b32e78b9a5972d63ee93e797657c14b67a5219c260e8f11a91c575",
+    "annotation_sha256": "232796fb078ba8adad06804cfd1f9730c50c6472c2cb2a28e1df4aa4b0cf734e"
+  },
+  {
+    "image": "Norway_002336.jpg",
+    "image_sha256": "1f73a83e7725c5da3a52c76f2a98fe698b0c508d0e6c271c6ddde466b940aaf4",
+    "annotation_sha256": "e8913cfac24207d0c342986e21fea4bcd935310b18a5b212075d9317ed0b6483"
+  },
+  {
+    "image": "Norway_002337.jpg",
+    "image_sha256": "b3886588551626eff2941b87957ffef64dbc0113be0ad6405bbb0d87747b4072",
+    "annotation_sha256": "ccd42a289bfe61073c6ca20deb53af341ac38f9e48773f012b2355a47041cb4b"
+  },
+  {
+    "image": "Norway_002340.jpg",
+    "image_sha256": "c545d08273e6fc176d6b275509b45cc32b1254a4df029e64fcc26916db995330",
+    "annotation_sha256": "7ffefb7e327d5bd4b68b3f720eee9242a3286c0dc4d53462f294bed32587fc7e"
+  },
+  {
+    "image": "Norway_002351.jpg",
+    "image_sha256": "2eaabba8aab79a9884d5bbc37534301b5963358cec933e2c14240eb0aea08bae",
+    "annotation_sha256": "1ad9ce1446d9291eacc30a68278999e270e9e65764951636f989b29bcb446269"
+  },
+  {
+    "image": "Norway_002353.jpg",
+    "image_sha256": "821af08a60dcb50575859e81778e720e710d3bd5055cdd050e41201861f75414",
+    "annotation_sha256": "9b072408d949d963d2d3d92ed4b613dad914fd82d604cb295a78ba444aac40f8"
+  },
+  {
+    "image": "Norway_002475.jpg",
+    "image_sha256": "4e3ccd4d2ada1b65d217edd1bf7d884f253e0287becfde96439af52ea6d433bc",
+    "annotation_sha256": "d8de0b5ffe0aad22f56a1005337d7954fd729427be4e7b2aade8ecbcdcd37585"
+  },
+  {
+    "image": "Norway_002490.jpg",
+    "image_sha256": "9df11ae95e1a6bdbb376d89a6ac4d4dbefc887c8e02e22278746a7001c1aec01",
+    "annotation_sha256": "1f314a5b20ff71e4c5316c1303cd17540e0bd05e1a3537b8224ccf83ad7f4571"
+  },
+  {
+    "image": "Norway_002523.jpg",
+    "image_sha256": "45585ebdf419fd578c48d999d5fdf1b6cc8f55922931741d4032dd6b2c185327",
+    "annotation_sha256": "70de59b51614b67826b8760f0c8d3d6da36a0ec54c513aede66fdeb52ba005ee"
+  },
+  {
+    "image": "Norway_002528.jpg",
+    "image_sha256": "bb54e4173e0864c401a0ac1d172ad2f4459a9695034bc48fa491d474e4b6331a",
+    "annotation_sha256": "9be543fcb540ea409fd5c393a366ccd99f1c133fccbbbfe09116218d109e6223"
+  },
+  {
+    "image": "Norway_002624.jpg",
+    "image_sha256": "ddfe517290a21f43f06944c2f6f48e9c77ec1bc8f7062755961ee2b172b993b7",
+    "annotation_sha256": "b11d24aa7355ecff1a6404db71160126c748a4f64229d0e0b15c5eb7d613d1bd"
+  },
+  {
+    "image": "Norway_002710.jpg",
+    "image_sha256": "1ce36e755d2541cfb06aa51fd29a348c109dc22380ff910cc51d7d24a9e6759d",
+    "annotation_sha256": "6068e9c0117c4c988f8e05961749f10afd12cb70ef22d7d81fe17d89357cc972"
+  },
+  {
+    "image": "Norway_002735.jpg",
+    "image_sha256": "e3764e67b610f2c72a6e53f1224b0546fcb299f1dc06c736cef7d0c023660de1",
+    "annotation_sha256": "375edfb0063ccd73f9a6512fb5f2d74114ce1db758e6aea7c937db0a3c94bbfe"
+  },
+  {
+    "image": "Norway_002779.jpg",
+    "image_sha256": "8ea1b991881800c4a6521fcccd695d10f31fad3c9ac06e841218e50899d522a6",
+    "annotation_sha256": "e3e6c178cef017cb40233ab995408349881afc049e15a82aa2aa80c2e268c3fb"
+  },
+  {
+    "image": "Norway_002825.jpg",
+    "image_sha256": "0daaafbe2a8f7ef6361cc07ba70b25fda75bfad4fa6307709c090075a2280e80",
+    "annotation_sha256": "c1c5f2003bec6bf0830cc2850157ae890ede2e72882bf36d5436dc2e2e5fbf38"
+  },
+  {
+    "image": "Norway_002844.jpg",
+    "image_sha256": "2b82ab47e781d45335b3bf55316b8c7078610da441af4a78dbad5a5c611d5909",
+    "annotation_sha256": "d0a5363508f4c4a6c1b732baa8f602c0e2da68064d4a958f3a6c0e2d9ac034c0"
+  },
+  {
+    "image": "Norway_002861.jpg",
+    "image_sha256": "d83bd09629419d65d482ef91b4ef236745ee044492360076e5b4651d5e3c6631",
+    "annotation_sha256": "893f14260c34632aabf1780b676ae528158400e30ea101b9b34ec8c9be4594a9"
+  },
+  {
+    "image": "Norway_002879.jpg",
+    "image_sha256": "05cd1598dd6681bdcce509891dc7d13a73a1568d2260ee304ddf32bb1ee91810",
+    "annotation_sha256": "155dabf36437bb933c3b2e00be29eeb6b7e1d263bb45af1937b5524338c04f8f"
+  },
+  {
+    "image": "Norway_002906.jpg",
+    "image_sha256": "a3b57e5626f8120ba264ffd0c50cb81af02d32d491741b62e1e54a645acdad4f",
+    "annotation_sha256": "528339af25c5a597256a12fa91e5747e70e209baaeb465c8e50255abf57f6f08"
+  },
+  {
+    "image": "Norway_002912.jpg",
+    "image_sha256": "5f48cfc88637c445946b334f78207b9734b0fa2b4b61c70b61fe24e327b5bd40",
+    "annotation_sha256": "45d6e0ebc38be36aadff71f0115a678fb3a449c98a377889e693f4d4c27e8ff9"
+  },
+  {
+    "image": "Norway_003003.jpg",
+    "image_sha256": "327371d3c524816a1290376c9ad359dd044438a60c3ec6663102b0d4a86fc8de",
+    "annotation_sha256": "fb7eb8abca6fe874064b5722d70dd588460605a2682caf2ec0b8556422f5bade"
+  },
+  {
+    "image": "Norway_003021.jpg",
+    "image_sha256": "77102a8a4caf6e397fbc67699810f8e37ecd8c464deb95f57b3f3f3639441b58",
+    "annotation_sha256": "9dc860935d393ddffd2d78ae00b04a88a207166f5c6cc2f48a81f3a62394e15d"
+  },
+  {
+    "image": "Norway_003045.jpg",
+    "image_sha256": "12cf59da8f926e1cbf696605d8afdeb02e4468c24a57fbae48bd99ce84b31d72",
+    "annotation_sha256": "b5c5ca8717260985a868cf1baa04dd86d8cb6ee1b938c7c0899ee99feb6dea4d"
+  },
+  {
+    "image": "Norway_003080.jpg",
+    "image_sha256": "f9a730370bcbb4b379ca9a69c58e4b3488ac50d624ac459dd09ef0d2868017ab",
+    "annotation_sha256": "a2bf49438ccf65460d1ef8691e153afc0f51bd2ccdd472a85f0d460c30b79394"
+  },
+  {
+    "image": "Norway_003123.jpg",
+    "image_sha256": "4ceb25b356a00b191cc52a46bca86d0c92a02250f6bf172bdb09684a4ae5085b",
+    "annotation_sha256": "36b003fea54fdf85cdf527558145d7d098b2d0285626fb763aa8b48bb68e1533"
+  },
+  {
+    "image": "Norway_003138.jpg",
+    "image_sha256": "e4e5ebf442578ac150baf0746cfd47553dcc059a60b13f3ff7b9d62c419bf8e7",
+    "annotation_sha256": "50c8000e790a68c7eefca4a85692c0c0f24075d130cb6f901b0334a1f3f560b8"
+  },
+  {
+    "image": "Norway_003207.jpg",
+    "image_sha256": "60d9cf2b1738422aaeaad816089294882b83e7f9a8a27f7aebc832a20eaee6b2",
+    "annotation_sha256": "7f6840646c2d58185ab33679cf2d71f2c0c537270a4bdb6e1d663daa40710130"
+  },
+  {
+    "image": "Norway_003314.jpg",
+    "image_sha256": "ebfaa3636f2887e7c5a8fe31af6caca28dcfff7d86b699c165d5ca849b42b1f3",
+    "annotation_sha256": "68eb76f27aa14b87d7833a102a232b1c990bbc72ed2c43cb2f32ad3862c0969c"
+  },
+  {
+    "image": "Norway_003389.jpg",
+    "image_sha256": "ee01c01c5fb2b3fbc6bf0a19e4973b204ed472470062ef72d82d4e013e247554",
+    "annotation_sha256": "812ad09d1ac9bbeddd502944029a5bda930854430445d5c124866d614222ac0a"
+  },
+  {
+    "image": "Norway_003397.jpg",
+    "image_sha256": "de55a6748d89cca4e970213cebf58053ab962875067eebeaf37b47722e44db50",
+    "annotation_sha256": "dde986abea8ef2915ce2dec4f56a4257d7b4d5ec7d437cb34cf0af5ebe76278c"
+  },
+  {
+    "image": "Norway_003517.jpg",
+    "image_sha256": "d427af62b20fba5ff7d95f15007e232891140bda119a37d49d2d488de5a4b6ba",
+    "annotation_sha256": "d7dbeb9b453029d4f90b43424a08be8501ccf42d4d85148153a9f250df3f613a"
+  },
+  {
+    "image": "Norway_003604.jpg",
+    "image_sha256": "6dc295cafd8e154fd16c8a381c1731044355cdb5746159e0e1c9243cfb0c4609",
+    "annotation_sha256": "8c9c1bd637eeda4546c608b74f76962a6ecec056b23fb67ff5263f8fb9dc41f8"
+  },
+  {
+    "image": "Norway_003723.jpg",
+    "image_sha256": "4454a097bb1e6bf168b9ab209c0cd276d70b86c72deed663c0cdc78dbabe7275",
+    "annotation_sha256": "105b4f7cd97a6c67d22f26ad122a8e1f6bb19b23e9de2d816c515467b871d5f2"
+  },
+  {
+    "image": "Norway_003728.jpg",
+    "image_sha256": "4e6a56464a5d5a31f2ce1d3678598f7c076138994b3edee8cf49955023bdef85",
+    "annotation_sha256": "ef340645ddbf50db7e43b127550800c9dc560d3fbf347f127946af0b1ad37908"
+  },
+  {
+    "image": "Norway_003860.jpg",
+    "image_sha256": "af7105856fa0356867dd4e9fa17c66d3ef626f548dcfdd0a8199befdb6252ac2",
+    "annotation_sha256": "ed6e801575d419ce99f2753e9f66cee9bd7a29ea5df56a992b1f3db746c68abb"
+  },
+  {
+    "image": "Norway_003879.jpg",
+    "image_sha256": "ba698536fe600cdffa1829cc1e30173a28c0a769106ce7e679e0954c2e9fcb8e",
+    "annotation_sha256": "28500f9c7054e98dc90f8a804f161db10198c086c7df9b735cf61c471684ad24"
+  },
+  {
+    "image": "Norway_003885.jpg",
+    "image_sha256": "bb4b12fa69e99175e295617e1d56f489b7c79d668464589833b98a275bf51be3",
+    "annotation_sha256": "79db9ab1df52a74c60f545b03d51a5e29219286fcd286ee4f70b708004196193"
+  },
+  {
+    "image": "Norway_003910.jpg",
+    "image_sha256": "f79e79fdd97a6efc6dd5c5d9a9c7de4a83790eb32f7395f9103b2db8390cd142",
+    "annotation_sha256": "401c3d2295cbdc118af2943bb0f3b8a808b0900937ae952b4d56f5eb2c4a27cb"
+  },
+  {
+    "image": "Norway_003951.jpg",
+    "image_sha256": "37b2b509415b0ca4e88fc6fb4b820ce01615332bf6d79a909e1c156795af3e80",
+    "annotation_sha256": "8b0b41c18de0524a2c311777cef8219d2be616caf5b9af91ce235704eb5104b2"
+  },
+  {
+    "image": "Norway_003995.jpg",
+    "image_sha256": "c89c9ecde56dd683669bc6a3b5942471954b4cb309356987c84f992a49f52462",
+    "annotation_sha256": "414ac9fb53b7eaed48a0fd593285ee7b9bf2df5d45e11cefc4dd628f0196ff74"
+  },
+  {
+    "image": "Norway_004026.jpg",
+    "image_sha256": "c0abf9774b1823f75c8bf022d1e239f8f04b9f07b6fa0885802b77d494da404f",
+    "annotation_sha256": "891044a1a712ff4bd5ead4f3e7c624d75dbb8350819afbeefe792865a714a601"
+  },
+  {
+    "image": "Norway_004068.jpg",
+    "image_sha256": "b3a6107d4c743ea5e0d2588104740ae09fd19680b6b9953bf3a3e14b9a1274e2",
+    "annotation_sha256": "459803956d534cd7df9b183ebb2ad412f5fce73e50d3b666c92826bdb9c82416"
+  },
+  {
+    "image": "Norway_004195.jpg",
+    "image_sha256": "4fb81a97bdc6b04a258e022a0d1856f26410c37a7a5897c9bacfd54ab6032ae7",
+    "annotation_sha256": "dd26987d5839844db0c433205240df871698435182ad96fc29527ef6793ffc2f"
+  },
+  {
+    "image": "Norway_004213.jpg",
+    "image_sha256": "2cc87d749310730be6edd6048e9a38687f6a3a75d78a8703a00af1bc31682448",
+    "annotation_sha256": "f5cacabca9056cbd5f73b0a6bf7a9309056f080a8b64d0105d8f83f9d63061fb"
+  },
+  {
+    "image": "Norway_004269.jpg",
+    "image_sha256": "68d3ff2fe3c8a1c38fe3984d5284f4dd12759bc95f87035a12aa64989db8a922",
+    "annotation_sha256": "00b735a61ecd7723bec9c9e157dfcb3cd44b8013c065f219fa451a8662d96c92"
+  },
+  {
+    "image": "Norway_004326.jpg",
+    "image_sha256": "f69854ee3457a6fefa62bc078bc164e9458b73b438137fc67d2787ebd8fd4940",
+    "annotation_sha256": "9e854963ecab18e962f3d509e15540f4c069cbef9cc4b373935243da84f22f07"
+  },
+  {
+    "image": "Norway_004384.jpg",
+    "image_sha256": "c799104dd24007aa8a9dcad120b6060b88464924265d8102f3b89f8df8a8bb59",
+    "annotation_sha256": "aed9c90763a4103024e3b3aeeaed85b2ff192ebebc9dbbe81cb4ae3c7e5f2c42"
+  },
+  {
+    "image": "Norway_004485.jpg",
+    "image_sha256": "7cbaec3bb0ad6c9636082e859369c33cec8879ea77cc405da00597e2d4d457fa",
+    "annotation_sha256": "a404d2f0cb7ed38f6682b713a4592e7a3efcc64a2fef39ec07d987274631c164"
+  },
+  {
+    "image": "Norway_004614.jpg",
+    "image_sha256": "334950262ebf8337e68e5ff5add475de6ee50deae629c529522a447f41eb26b8",
+    "annotation_sha256": "9213409e9395e96004e5cd17dc0b9e715b93dd23d3a58fe82d3d71095a3e6b45"
+  },
+  {
+    "image": "Norway_004629.jpg",
+    "image_sha256": "af75ef69940543e6c60367b8a0b976656deb2c52571f3de84e8c7384a191846b",
+    "annotation_sha256": "7ba35ae884a260e7be73a870f7d7d93498669faabd6f190800aa652aeb022567"
+  },
+  {
+    "image": "Norway_004689.jpg",
+    "image_sha256": "33d443f9fba8ceee7a6d43a02de3352a45015b119663e892c74dc9b4261c0579",
+    "annotation_sha256": "4270d61154cfbda7367c80261d09ac4f0718153d25668944bd0400a5ab852bab"
+  },
+  {
+    "image": "Norway_004714.jpg",
+    "image_sha256": "7a93911d0c389b5688990a12ee682db6556f92b4f1df62d70cfdd871160acd2d",
+    "annotation_sha256": "018372878d57c64cd358ef1ece67cccecdbf433f8d941493b983e56b810b6ab9"
+  },
+  {
+    "image": "Norway_004719.jpg",
+    "image_sha256": "87153f70da62ec6dd9650d57931cd831c2a43ea1522043d7af77f4d7fbcd4d23",
+    "annotation_sha256": "107f3aa91f086863f0448ca6e38d1c7cac7e1805d5f4d9fd48ff98c79f38adf9"
+  },
+  {
+    "image": "Norway_004748.jpg",
+    "image_sha256": "4ed05e7a75cb53aa90ac581384401a7fc777623c9a6ffc62b0fea568a3ac2b34",
+    "annotation_sha256": "2fa68708de7e765fed220706ed9c6904abfb899eb5296a3a7b62ba3cce2e4bc8"
+  },
+  {
+    "image": "Norway_004761.jpg",
+    "image_sha256": "8d6f26db8d6b3f24e9b0d2d638edf0c606c44e6f91266cc29eeed13be44004ae",
+    "annotation_sha256": "dc0111e41a01941057549b23b32ee72b28e15916499f8aa0f181d276d4f7f1a4"
+  },
+  {
+    "image": "Norway_004790.jpg",
+    "image_sha256": "772b0cf932a6c9e4140aa885e6421b2499f16bcb200ee5a094474b28847b1a98",
+    "annotation_sha256": "553e6e6d087efb6592c89774821ae957f9953fb6d31acce454a8671e4e806fab"
+  },
+  {
+    "image": "Norway_004862.jpg",
+    "image_sha256": "25f5d7b2d338f08ed2de15d3913e5d129939d57c95307c1ee157bcc662ce42b4",
+    "annotation_sha256": "6ec6131f0712ecc6dea26b35f90464c4694cb839992935767411afb346a36964"
+  },
+  {
+    "image": "Norway_004914.jpg",
+    "image_sha256": "8b6035aca4d368fa2249b42ff8454eac5b7ce07bfb885f91b34977230154c957",
+    "annotation_sha256": "df7561743141fc923ebecc807035037e5ae8af0d4edb17e90b7edff12be60d2a"
+  },
+  {
+    "image": "Norway_005086.jpg",
+    "image_sha256": "8961901a6f734d0dbd5dc6fb8a73e66e86e7b6a0883f40068665d86a27d1444d",
+    "annotation_sha256": "4b6571be2ffd308b85329ccae231c55704fba3fb295d8bd772de687b5abd30a4"
+  },
+  {
+    "image": "Norway_005105.jpg",
+    "image_sha256": "fffeaac883c4d5a3ae2cecee911343c2ae25c6bf8309150d0144b160d6a61e8e",
+    "annotation_sha256": "8e8b88596119a3cae3b636ac7e706d2fd690a4401b8f498ade064e59976a092b"
+  },
+  {
+    "image": "Norway_005163.jpg",
+    "image_sha256": "37bde569d099f94aa16a16e11fed32bb5794d63d3761ba0c8ee288173ee83d78",
+    "annotation_sha256": "4b35e209ef661301abc4d7f5786196514528eb095554c768bf98987b5c2c6148"
+  },
+  {
+    "image": "Norway_005169.jpg",
+    "image_sha256": "0dcb4b75ea9c5fb39c5b451c561ea6d4ddd6ed3b1efb243f645621716dbfabc5",
+    "annotation_sha256": "98fea489dfa33c21987e7fc73d562dab0ebdcc98db096582556d7dc82ee44a46"
+  },
+  {
+    "image": "Norway_005261.jpg",
+    "image_sha256": "f914845ea3052dc689f1fcb455011f9065586db129a12bad814dd5d4e230e5ae",
+    "annotation_sha256": "42b8c7a8f4710d20f921c058dd7e88232cba834c02024d68a775ed071d6acb9c"
+  },
+  {
+    "image": "Norway_005271.jpg",
+    "image_sha256": "8256434e9620bef0a3e717ec796b27c9a62f76cf6edbc16ea7e80bab299be9b8",
+    "annotation_sha256": "ba334d756df5659a7c3db4f85b13e3772d306188940ed8a2288ccd357e994cb1"
+  },
+  {
+    "image": "Norway_005280.jpg",
+    "image_sha256": "c91f17bc779db8ef9ee25e98731468fe5e0cb504ab755c6dc747de9db36cf999",
+    "annotation_sha256": "4a0dc8de9e9097f9484d29b31fba09d3c7179007fb2ecf10376146dc5a51cec8"
+  },
+  {
+    "image": "Norway_005426.jpg",
+    "image_sha256": "b91c4f8e54a4cc989ed11e43961aca86a0369a757868fef499c26e519a0dbc9d",
+    "annotation_sha256": "e48eb7bb6fd7be8e33fd6f712aa7b315cd8374bafa4fac095e1efafd66e5262e"
+  },
+  {
+    "image": "Norway_005521.jpg",
+    "image_sha256": "48f602376ae8ce1444ed4e51f9f0be8c0094401409d13e0c402b739d3bf9ad0d",
+    "annotation_sha256": "4c613e354c11117ef58784fcac814a5f668ed7dc2fc8b47f836d951a3c6e9a40"
+  },
+  {
+    "image": "Norway_005534.jpg",
+    "image_sha256": "efc889afa021ae4da82e182362e56ba2428e4f967616d855b9bb032c9c3c825d",
+    "annotation_sha256": "cc5bfaf0cdc3a6e0f53b84ebef1632ae39929001f77cb3a68c522a2fb40acecd"
+  },
+  {
+    "image": "Norway_005606.jpg",
+    "image_sha256": "380bd505c57a5e4e4d8aa8ecdc946297232fdfd8a39271e1c9e752a1b3f5336e",
+    "annotation_sha256": "776cdec254f267e32700bec5125727a02bba806fcb288f4ab328e14ced38a229"
+  },
+  {
+    "image": "Norway_005627.jpg",
+    "image_sha256": "be43f7a77ea6c2b539f1939d4f2a2f3745cfcb9846edceeb599dc03ba74a51f1",
+    "annotation_sha256": "6929c0ab0b06f1f9de7f0b8591065de4196b0f70fb90764462b89511a6fc51df"
+  },
+  {
+    "image": "Norway_005688.jpg",
+    "image_sha256": "eae65c2aeb83f6b756b1c53eea14c337aeeafad81bdf56f00086466b07fef55f",
+    "annotation_sha256": "e833223745f82dcc2e95e9f6330100948eb30a0a50bee8d39a4c1aba23035e2b"
+  },
+  {
+    "image": "Norway_005704.jpg",
+    "image_sha256": "887acb77e989d7b2f04162e37e96f920b9ae62268f02a236ce1420fbf7218769",
+    "annotation_sha256": "4bf7929d3a8eec49e0214fafa5a768adb9d731b959896c2cea1455f9b11af0f2"
+  },
+  {
+    "image": "Norway_005741.jpg",
+    "image_sha256": "673e1400e2dd3e3bda2860ca6536ca42df6025ef3d0e51453510f14970d0b6dc",
+    "annotation_sha256": "c6519980962468aa103ed4468c818dd10f8ee7864b263cf4bb9d73ae2228c750"
+  },
+  {
+    "image": "Norway_005743.jpg",
+    "image_sha256": "8974725fd7349e70416fe7b75a7f0ffb5fe3565e6213701ebee81fd598e09274",
+    "annotation_sha256": "54bb12766c4ea08003267a1c14dae5ff031f48f9da72d40e3aa31119e10ce0d3"
+  },
+  {
+    "image": "Norway_005753.jpg",
+    "image_sha256": "cff21e15cf28a7c358b3bfda54fced0f800dff04afd703705c0bc6bf3f097637",
+    "annotation_sha256": "92fbfe6db4d6c6f28adb1a0bda944a7dca6c6e74fb9efdec4df916cab45f7346"
+  },
+  {
+    "image": "Norway_005762.jpg",
+    "image_sha256": "4438c70274005c9ada29dc710dbf512de210a9371a3809931d92976994f5a019",
+    "annotation_sha256": "bf42cb75afdcef793cdcce31778e304ae0771b3d0488282d3b43322a6fcaf4ef"
+  },
+  {
+    "image": "Norway_005795.jpg",
+    "image_sha256": "342fdcde9521f49b563a3c1f17074d0e7d87c7cf99b0a66b0b147c374b0ccd80",
+    "annotation_sha256": "bd52aa4c2a043526da3d39d3a5f3b4866e48aef020ab025932652356320c3eb2"
+  },
+  {
+    "image": "Norway_005827.jpg",
+    "image_sha256": "5011854ac019797ca2e2d51ebff6e38a31d7a5017f88f7dca5ae5f729b79c84b",
+    "annotation_sha256": "cbb04f18c898118161d8ae989b4344995902440402b395f3b7e2099e0bcd6ad5"
+  },
+  {
+    "image": "Norway_005847.jpg",
+    "image_sha256": "21427d5753d29f4ec7bdf7f683769917fef10e97e98374f03f1be824408ba96e",
+    "annotation_sha256": "7902e60a6b1c2ea170c49abc49a48932f5dc74a21941725838737843566b0f0b"
+  },
+  {
+    "image": "Norway_005887.jpg",
+    "image_sha256": "2967ad2df98e172b75b177bad1d1deea44c3bc6ed0d96429dc9f125953676f86",
+    "annotation_sha256": "ad5079264f48a2350ea828523807eccef781d84aac60edea02235497281dc945"
+  },
+  {
+    "image": "Norway_005944.jpg",
+    "image_sha256": "b057f482942eac5ac6b429fc6bab19e50813f3c9a59c0a9578969a26ccb28e0f",
+    "annotation_sha256": "a5560fac7340bdf3677f9705668538a564a256900f05a3ccf8e36d6b98542d90"
+  },
+  {
+    "image": "Norway_005947.jpg",
+    "image_sha256": "525e89835c6b486fcdfe0abdeadca962a83f66ecf4d25187c7f5324eeb2c47e3",
+    "annotation_sha256": "434455a086c73de684cde3aced18448480b2da80c451d81f2c7124658470f574"
+  },
+  {
+    "image": "Norway_006027.jpg",
+    "image_sha256": "fa84ed32d46a2df40137fe4e83fcd4758dbca746162ee6fd370d47e96d6b8b93",
+    "annotation_sha256": "52f1c5268f72bb5d2d141c9b2dc83a05ac595bdcffe3d3e29a5b8fbe784a57b8"
+  },
+  {
+    "image": "Norway_006125.jpg",
+    "image_sha256": "64265e808dcf2a1668f293bee71170ce27c9ff8f37d6094d1dc5cea2c71b12a4",
+    "annotation_sha256": "3312a07757a366f83cb1469aa3665016e56236c5ef07a13463f2eb532ebb8305"
+  },
+  {
+    "image": "Norway_006171.jpg",
+    "image_sha256": "d696726002f89119a9a4c05cde5645ada3bb1902d65888a5a4fb176525ec13df",
+    "annotation_sha256": "666f5509f9e30e63192d1ac935375ecee5a15b88d94669ab312d4c4ddfaf0b27"
+  },
+  {
+    "image": "Norway_006219.jpg",
+    "image_sha256": "ee2a6bb823fc748cbdb87825612fa68269f697fa2c7b2dcbbeacd41f12deb0b8",
+    "annotation_sha256": "600abe0f4c83fb7907f1d37de90fbad8816663bd446820d5d022889df75eb413"
+  },
+  {
+    "image": "Norway_006259.jpg",
+    "image_sha256": "dc10997d8658281f5426d4a782cde5566da9e0f3faf39a115367b577318ec9f0",
+    "annotation_sha256": "705177a57fc8fe8379177d824a9f24761e5971d488bdad87c3150fde37c11cfc"
+  },
+  {
+    "image": "Norway_006260.jpg",
+    "image_sha256": "f88b38bf1bed5a29820a3be3c5b6564a423d3b827a043e597a6ebdc21842f5b1",
+    "annotation_sha256": "1a57f644912b3219b282ac192f6b4d72c5292bfbecd56b185d9eeb5f406c7a1d"
+  },
+  {
+    "image": "Norway_006346.jpg",
+    "image_sha256": "8d48451ba5e0a1fc0095193e747a575f3ef2d394035d68d2ef7f3b8c839a1400",
+    "annotation_sha256": "648ee750afdd85fec375e7b0e4c6a69720ee8dc66d19760088d5b13f7922acc7"
+  },
+  {
+    "image": "Norway_006350.jpg",
+    "image_sha256": "5876257081f42f48f547a4c4432e15731d6bfa83562480d9267ae2a37600b3de",
+    "annotation_sha256": "2f0626b38e4cdefd2c56b760cfe060c38637c62bed4fc57525234bcb606ed288"
+  },
+  {
+    "image": "Norway_006357.jpg",
+    "image_sha256": "3629d68d4d6a6d71107f61df0495bcf415fb2404bb6064ef3f6507ddc92ab94b",
+    "annotation_sha256": "970a2c2f507eab6ed5275709a23975f218a39a13fbc7fe1ee7d5604274d3600f"
+  },
+  {
+    "image": "Norway_006388.jpg",
+    "image_sha256": "f94352f8f2ce355a4e1625ff3e1878daa988fdcd7f39c92d3d787997d5e792d3",
+    "annotation_sha256": "c4b1493b69ad416cef780eb5369de27ae18b7b3ef800bb274321c97b59b14793"
+  },
+  {
+    "image": "Norway_006456.jpg",
+    "image_sha256": "e2206606bb2bdf43fc96275a51925cf77f2acaa2307de4b56f94dd1e258c540c",
+    "annotation_sha256": "656ce795c42b910254f4c9d2317e850db9982ab2253b63b5fd1aa1dfa125f527"
+  },
+  {
+    "image": "Norway_006458.jpg",
+    "image_sha256": "fdae39fd02f832133a2805b3729d66b3374e633a19dd7501234121a1794ba087",
+    "annotation_sha256": "f9f5d6eb32dd658eb0e5d0bffac57cea5a4525f61bc4c6877ef7bf3149cbb497"
+  },
+  {
+    "image": "Norway_006502.jpg",
+    "image_sha256": "c6660bb3b124a9701eeb65eea3d5aac8b2568310e37ad91d7fa54b8e89323b32",
+    "annotation_sha256": "95f5db28c3e491765f3c85adc7faec6f22f0ee8633064c07fb84c5724a7de0af"
+  },
+  {
+    "image": "Norway_006525.jpg",
+    "image_sha256": "71efe218e75002cc0a1122fddaf220637264cc015a9c548ff534684db4983a85",
+    "annotation_sha256": "f89c4fdbfc08f6b6e76f760a6127fd2dce6a7ab6d865a80d6794f278dc9a0876"
+  },
+  {
+    "image": "Norway_006530.jpg",
+    "image_sha256": "52c460853a35994d91f9563021339aebaf6ada3855514e60e2ce4e07fea59de4",
+    "annotation_sha256": "701288232f16967f0a42f34bdbdb911ef886bb17b1c1c3e644325d5810a93d38"
+  },
+  {
+    "image": "Norway_006587.jpg",
+    "image_sha256": "bbf77fa5838b4f6c26a30fa187f690ff5fbf765afd16fb32f398b4a6c19ed57e",
+    "annotation_sha256": "c6edd9b4c5f2325055f25ccdec12a111dc35e5db60c6808e27bbff7ae8c7596b"
+  },
+  {
+    "image": "Norway_006649.jpg",
+    "image_sha256": "810a4ea72c27efd1a55fe78a6053e3d4154d5bd8437c720b68ebbe076bca2fa7",
+    "annotation_sha256": "c387f1a12900a0db6f2aad2b523592d02f9efe09b1fbd8bc5a5fd268f2aabd8b"
+  },
+  {
+    "image": "Norway_006694.jpg",
+    "image_sha256": "66f923a0fc308c62152854ab7a4e7a4ac8e83a67dd2aa5a771a6f47c79254cb7",
+    "annotation_sha256": "94a85fc76ede4b90852346f48f436cee18adcf918c14ec0934dee7b765a15ad6"
+  },
+  {
+    "image": "Norway_006711.jpg",
+    "image_sha256": "5ce16094dfa69c955bc37da5b945b2a3d907104826b5045f1fbe159c647a8a2c",
+    "annotation_sha256": "b9d9af2acdd9749d987b9c2e5b6329f75dbca7c4f4398a719bc9fe16815dd1ac"
+  },
+  {
+    "image": "Norway_006734.jpg",
+    "image_sha256": "6f219a03fa177b7e3527f6994a2768abe4f2da8ca0791629f5675bf1975ac0ee",
+    "annotation_sha256": "a75c71eda6ff947560b0d05bac335fc60f93ecab40251ae72562f124a4fd81ae"
+  },
+  {
+    "image": "Norway_006806.jpg",
+    "image_sha256": "32b7ac7c3e48dec684dae3739cbbd195f59ec163d065f8e61915aae370ee79ea",
+    "annotation_sha256": "a16008bd8a1b15d34a83c5cb4d4056eca06630615a68ab5fcf2171be21100841"
+  },
+  {
+    "image": "Norway_006826.jpg",
+    "image_sha256": "2bc3fe66431364b1703a07d0877c8ac4acde682e772a8a6dadcb142c5997f810",
+    "annotation_sha256": "0483c0883562f04ae6a8604c15fe587cae4fd50ac226a24a45300cf2ea1b8fb9"
+  },
+  {
+    "image": "Norway_006834.jpg",
+    "image_sha256": "e65a47495a42029d303b6184bfe1d71d20f7dd2394df4cdf0dbc57a6e46ac49a",
+    "annotation_sha256": "e9920cea0c41249e4db358c21b9fa4cca229a972c85c5c5e26bf29f5049b6b24"
+  },
+  {
+    "image": "Norway_006843.jpg",
+    "image_sha256": "93dbaa11005ef6e8cb416f1579576219e837e8e5820e89c1a0d8ba9411220f8c",
+    "annotation_sha256": "ec3079b0e750382b8bcb8da80d53bcd68a600533ccc7d5d3763e0cdb1e46eacd"
+  },
+  {
+    "image": "Norway_006846.jpg",
+    "image_sha256": "7257774a956d4641908352bbc3576b34643df8ad041084af66f534407b266c32",
+    "annotation_sha256": "a05c680798e48e2fe406b3189620b52b7b5f97a717fb3474b4e522d201ddf970"
+  },
+  {
+    "image": "Norway_006872.jpg",
+    "image_sha256": "38123fbbf6f103baa48f53b746e3975ffae2ad197d9c624b1c6aae87ae356dc0",
+    "annotation_sha256": "7d5f62d35b6d60474cb2d93734c979df04948de6ba46c35f792ffa44963cce10"
+  },
+  {
+    "image": "Norway_007020.jpg",
+    "image_sha256": "a84e7de2896e65b7cfeff4fbb484f8e6f0ffd141131b51a466d5e870fb561fff",
+    "annotation_sha256": "c887fa4c5113d24b01e1b1beb9179f2e734ad33252298e8bf49cd209ea8b72b4"
+  },
+  {
+    "image": "Norway_007088.jpg",
+    "image_sha256": "17be376d60d6ea53fddae93fdc8e1ded5484a6a79878eaf8cd791fbf35b26316",
+    "annotation_sha256": "cdfd96b3da88a28f312b59d9e72488cb22527ce30ac37955ae4109777ebd3207"
+  },
+  {
+    "image": "Norway_007109.jpg",
+    "image_sha256": "3f239c361b060dd812e0f30a146e4a9b4862f87bbd1d551ecbe88c041261e525",
+    "annotation_sha256": "5ee70cec68a1ef835351d5628b48fcd55cf36fb5e032e5d247cb429f7ce45a40"
+  },
+  {
+    "image": "Norway_007170.jpg",
+    "image_sha256": "d7c088857384b5415e74509e761492d7d8aec1575612b531465a7186255e8c0b",
+    "annotation_sha256": "5b343cafeb08e4a5d3a096ca2073a8b4d44c505bd1e96a1f3668f20dcf7cc573"
+  },
+  {
+    "image": "Norway_007175.jpg",
+    "image_sha256": "e0b0d6c65dd5c97d55cf6c5203ae5871d3b79b29b887410ecec13978c3750c2a",
+    "annotation_sha256": "a2e5a9fb358d587acbb493bb6d6e3d8e6a5877d3ae99d11c6745495feefe9454"
+  },
+  {
+    "image": "Norway_007239.jpg",
+    "image_sha256": "d216a7b2bbc26db30323077e3440e4b76420c59dc60aa5df78dc876d2ea72602",
+    "annotation_sha256": "7fce63a27f3f72261399df3316769173ca520faea758327750bf94d831e95c3a"
+  },
+  {
+    "image": "Norway_007321.jpg",
+    "image_sha256": "1be0a94d1e308a30c9accded7e6bba121c00deea5114f24f5e15d683baf00a3d",
+    "annotation_sha256": "000800b3132962644fdd8e8feaffb506c2f72d0d309541addf2c63ad218432ea"
+  },
+  {
+    "image": "Norway_007371.jpg",
+    "image_sha256": "fb43a604adb34006fb9d53f757de6dca5536bd948d071f22e3ac4dc814bbae6b",
+    "annotation_sha256": "f508cc30e7c974127e8c2e1a5002b935cbd900ed7dbfb78164e1661f8cfd8491"
+  },
+  {
+    "image": "Norway_007373.jpg",
+    "image_sha256": "bd367f057bafb21e16f39b540815b35c66a6fbc1e624caf652eefcc13e7c6cca",
+    "annotation_sha256": "f868f1d77cb870066c9da5870e6f557c0947849eae356dc07c81e176b1dbf2d7"
+  },
+  {
+    "image": "Norway_007444.jpg",
+    "image_sha256": "d79c0c122017ad1d38dfe9a2c3ff5edbdf49980a241783501287ea0da2e6411d",
+    "annotation_sha256": "c95534425e87bf847f1774fd52930c72aa86158f2e12584b961dd3de93ecb392"
+  },
+  {
+    "image": "Norway_007511.jpg",
+    "image_sha256": "b6a62a5e2baf5bd23f1f2025d519fa530db8afc110a637a97ee4503f5b54c4e7",
+    "annotation_sha256": "cbc194f1c3275460958294947edb1841293a676be14f0d2de8aacd6a1c3dcb6d"
+  },
+  {
+    "image": "Norway_007514.jpg",
+    "image_sha256": "045ffdbe1517125a9ca82a42e0c4be4434d5a1c156c9932d4fcdda802df3ef27",
+    "annotation_sha256": "f9f94381fedc081e763e811c2a6a2862d20b687317605312fbb7d3486886c3a4"
+  },
+  {
+    "image": "Norway_007575.jpg",
+    "image_sha256": "fdcd1811ef9256a273448865107ee82b1f5429811d5297889db9c72b3b477800",
+    "annotation_sha256": "a1283462f324abba12f09e2b47d98da7c5802f59c79121367a54cd05a573ceed"
+  },
+  {
+    "image": "Norway_007583.jpg",
+    "image_sha256": "5f9f950aa023bbfe11ee3df2bf445efe1e265e325e4dd1cdb4fd929e0d68d0e2",
+    "annotation_sha256": "149eb34f2d9d24956ec857b50733c6c8f9b8b5fb7a8a7b2cfaf71afe8d453def"
+  },
+  {
+    "image": "Norway_007693.jpg",
+    "image_sha256": "b7ff3fcd4566a425221823e205ab46a8889458ad633f3386f2e40d954a86509e",
+    "annotation_sha256": "f77c558ecc8b849a9caa764d891c53f1c00b2e598e99d525cf3665760a3a9496"
+  },
+  {
+    "image": "Norway_007796.jpg",
+    "image_sha256": "9ad90fc78cd350b16f40209abef92b43f4c659f0175d048b4b1e25ba7d1c87bb",
+    "annotation_sha256": "3c00cba9a21252a02202ea3bc3a45be5cd8beb5bae07b1fc46c169ed83740dd4"
+  },
+  {
+    "image": "Norway_007802.jpg",
+    "image_sha256": "d31697ed240012e4dd64f6b50bffe75ac3a91a6891165698eaf282ef60f3c715",
+    "annotation_sha256": "752c94043ec22c7107895bab70e6c46a8457cb216e36ab5544832c49e3abeb13"
+  },
+  {
+    "image": "Norway_007811.jpg",
+    "image_sha256": "ede64383f14715006e48bc93d541ec277dde40565103ac6411de40abd983e735",
+    "annotation_sha256": "00061a455eacc24f4fed1b28af80ec37a52df72e87e9e9cfbd44253302f11ceb"
+  },
+  {
+    "image": "Norway_007954.jpg",
+    "image_sha256": "7edc722952e0830a461f791dacce9750c4d36fe65dba77816d32c2180c592ea4",
+    "annotation_sha256": "62126137cac1aef44e83669ee42b0bb5a4b7f362ad5d911794a9e9a0e09206ec"
+  },
+  {
+    "image": "Norway_007966.jpg",
+    "image_sha256": "aa883a9c6c8d808b9d230d890e1f2122512679eb0edc280427e76dcab0f24b56",
+    "annotation_sha256": "cdfad21c10e8f89943478dcd7cb6292ff40963d2d4c61f46001cf961c04cd95b"
+  },
+  {
+    "image": "Norway_007970.jpg",
+    "image_sha256": "cb93d153b6917fb2ee871d5b22f6cf761b60aa775ce22bd957cdcfbb6bddad98",
+    "annotation_sha256": "65ac7b55a0106b39a842657f839b3cc27a8a14667da2b30d4275ec18acd12ddc"
+  },
+  {
+    "image": "Norway_008009.jpg",
+    "image_sha256": "2058e911bd7d6a1b3940bef1f6b7bc908d1b6305baa937a70708d250d702bca1",
+    "annotation_sha256": "db6a1acc2a273f1a331a78ad694930a7c9c4b0eec982c9fa0710658c8c923b9c"
+  },
+  {
+    "image": "Norway_008021.jpg",
+    "image_sha256": "ef43a89aefd516309eae47ae314d502e835ea757122cd33b949d780900f77af4",
+    "annotation_sha256": "e1a77a9a33ffa9edc6d459a16a997ef710ec89fb34540522ddbfcde1a4d225d3"
+  },
+  {
+    "image": "Norway_008034.jpg",
+    "image_sha256": "2276f5308081215d5bedff84d9062c8d9a17692fbfe01c1bb9dfc0b0191c7335",
+    "annotation_sha256": "def6103898ecd883f8196236f02475224b954082f0fbd1be0415d8cd05860dad"
+  },
+  {
+    "image": "Norway_008081.jpg",
+    "image_sha256": "2dbbaffc92f42f2f278b8c2b0420e9620141b31da029dd6a6efa9713eb7550cf",
+    "annotation_sha256": "d0a08fcf338356682f4723ee36c9632f1fcfb3b9571efc75fb17f84c1bdb54f8"
+  },
+  {
+    "image": "Norway_008127.jpg",
+    "image_sha256": "29e6ae79777e5cd0b8292fb10d54c52c234976b9904d00a55429863cd2f89efd",
+    "annotation_sha256": "c30f0b1337456ceaa8644c920799b6c9ed57d723324cd87b6f02b1e4974311ad"
+  },
+  {
+    "image": "Norway_008137.jpg",
+    "image_sha256": "b8b14ef9f9f51bc40b61d3c8c9bcbb89e7c2719ad9387ffa3ea25682072dbbb9",
+    "annotation_sha256": "34f3ceaacb103f5e2e625e5ffb4c52a106b611a8d9b3634a32818c6f19ef3f8d"
+  },
+  {
+    "image": "Norway_008146.jpg",
+    "image_sha256": "bb066531ef06761a75e700b793b808d8e2884e0e7ee2b14e9a6b6d535ecad4d7",
+    "annotation_sha256": "005b6412f97f69211d272be74474832128b2ef3088e2a50f6e5b76644ddc2ee8"
+  },
+  {
+    "image": "United_States_000020.jpg",
+    "image_sha256": "3f8eb1b50a18317cb2b33c7bc2019c8a384f5cefda9c1a419413bf3206198bb6",
+    "annotation_sha256": "d0cc69c5a9ba60a7c9d7301c5bf29fbdcfd2506be6eb4ee4dcb200ba61656e31"
+  },
+  {
+    "image": "United_States_000238.jpg",
+    "image_sha256": "e5f07efedc17bd648aabbd152094c0abe8a5f511a0d4a476d451d512494364a8",
+    "annotation_sha256": "b4a5b323d46fa4ebac72ce7e105fa1a44c0cb34328ffbcac66785da90ddc0097"
+  },
+  {
+    "image": "United_States_000245.jpg",
+    "image_sha256": "137ebfbb1be7ca4e724411d6582f2bf64d830a8ce8045eb52337687b74d3499d",
+    "annotation_sha256": "1831d7f67930fe1f23db8133fec17bd53dcb4b4c96dbeb06bd16b4326913e7af"
+  },
+  {
+    "image": "United_States_000269.jpg",
+    "image_sha256": "e3e8308217d12e4a40ad7777dea3a59aa50350d0a5adb9fc2720fb41bf3af817",
+    "annotation_sha256": "b427520693585ffe36ac6bf21f844e26eebe3efe4e2ee1dcd5cb3fe73667e247"
+  },
+  {
+    "image": "United_States_000322.jpg",
+    "image_sha256": "8e95f5cbffcd97c77a4b8382de489764b0df3cc9ce6aa55498b8f33705cd9714",
+    "annotation_sha256": "a3a0fce5d662d4c43606d8bd322d3e1a2a71f38387edd1f829ec6885fceece27"
+  },
+  {
+    "image": "United_States_000389.jpg",
+    "image_sha256": "52e4ee58c641f69a1a4e21d8d217cdfc26f8334ab55053f70bf1c0bafa27e934",
+    "annotation_sha256": "c6190756e8508b052adf112ae0cfc656daa578a9080ee68aa3df8fb9e0df9ad4"
+  },
+  {
+    "image": "United_States_000397.jpg",
+    "image_sha256": "91b9eb5b2eb9d4fb46d95cbb065d1165dccb208e83a8b47fdea4364e8c6ab026",
+    "annotation_sha256": "68837e4842a74084eb8d6d02dccccfb781c23bff03c87580da181ae274845d00"
+  },
+  {
+    "image": "United_States_000426.jpg",
+    "image_sha256": "deeacd835a5e519545384f1e64e631bec54123f709b440578572f5c2297b8922",
+    "annotation_sha256": "29cafff56667b87007be382962f51bc96ec711fa54a8a2b2b5219bf9fb988e3c"
+  },
+  {
+    "image": "United_States_000443.jpg",
+    "image_sha256": "9c1bda95e98e49f3a25dec15b1bb631dfb94ed79a7ca44915531ec7f30113b6f",
+    "annotation_sha256": "61e89054ab1c9ed36d3532a47444fa7c0c0247e3b1ff955d6268be6ebdaae02c"
+  },
+  {
+    "image": "United_States_000476.jpg",
+    "image_sha256": "c0f0a6fd3c750c4df4bd7386c474f3231a4c6bbdabf0c2819cb60108d6e888b7",
+    "annotation_sha256": "1d76bd1216790b3ace878a609eb2da5e5d8662e65b81b396040fa91d434b7ca2"
+  },
+  {
+    "image": "United_States_000509.jpg",
+    "image_sha256": "7d8341fb68d95bb36a58f0ee1736018a96f9d796879b0b94f498ae69ab6bad18",
+    "annotation_sha256": "fe486efba89e44b369feddb8764ed709229c4cc192b810b51b7b138cca3b4233"
+  },
+  {
+    "image": "United_States_000534.jpg",
+    "image_sha256": "958832feafff1754466e8e0386c3a0e34deb356ca19b62a082c48af06faa163b",
+    "annotation_sha256": "b8535e20eed5ff662177c876bd962f897e27ec1813749842be3df137a0a6434c"
+  },
+  {
+    "image": "United_States_000543.jpg",
+    "image_sha256": "004f1273cfd978a5e7cdaec30a95bf814305c0a22b7357412c026d497263346c",
+    "annotation_sha256": "9b9511d429fed69d8b3035456e2dbdb7475556a4b706eefef35d368b0a78b57d"
+  },
+  {
+    "image": "United_States_000549.jpg",
+    "image_sha256": "bb8253e70bd93bd965f4227e4c7b91965c2642aa0283767c24867785a2c39fca",
+    "annotation_sha256": "5c917c49faa4591fb26d9d3e94101e1f0522d0a3fc66086faf0a82e2322f9b50"
+  },
+  {
+    "image": "United_States_000691.jpg",
+    "image_sha256": "791838bd7e66c90563f5d6783ae1eca51bb917c6f52a94e4c2c9c74d582fced1",
+    "annotation_sha256": "558f5fcd0beb75acff3aea7e9e54c807936163ecf963fbf70c24f38779181334"
+  },
+  {
+    "image": "United_States_000700.jpg",
+    "image_sha256": "4d065e24a2b8baaa6c7b4de175552e8e58a7e3b19d01419c475dc23d34c24e30",
+    "annotation_sha256": "d41bc16691f339ac0a37bf0fe462b9a0173e65fcc5c412b980d121d7161c8b10"
+  },
+  {
+    "image": "United_States_000753.jpg",
+    "image_sha256": "e094d73ef9f3039f5082e188b7e0dfe1952c4f2c0fea26b6dcf707ebfaee347c",
+    "annotation_sha256": "0fbb0de4ffa1961c568659e042e9fa1986e41e58571469d3e207e913893754bf"
+  },
+  {
+    "image": "United_States_000766.jpg",
+    "image_sha256": "41f70da22d044d0acae0492356df7b4357444fe044cabd3b10f0a9abe645de1e",
+    "annotation_sha256": "bc451bfdbf8fdc260dbf4b7f00abb82ad8479a8be2506690218b5cb7c71e198d"
+  },
+  {
+    "image": "United_States_000805.jpg",
+    "image_sha256": "6b675d309c7cc946762cfc9ca32948ad9f66ebb13a26b683a69e4fcfd31f49e7",
+    "annotation_sha256": "6f8b607b73f11f08213e6ef4e537038bbbbf60990db280782729bad6df5b6901"
+  },
+  {
+    "image": "United_States_000827.jpg",
+    "image_sha256": "cf641275516b05bead11f2ec0be008daa15353175caf62e49a694041f912e155",
+    "annotation_sha256": "d51988118b68a18571fa1e359889455a6b7228db4731c11db5a711f42eab32ed"
+  },
+  {
+    "image": "United_States_000856.jpg",
+    "image_sha256": "5d05b8a53d8fd024a5bdecbad0de1320adda0eb36e8ec83d7bf92bc3988ec1ca",
+    "annotation_sha256": "0af7d4db0f282269e67b4f132ccd56056f44e2b562e6db4ee3048ba4fffe20b3"
+  },
+  {
+    "image": "United_States_000911.jpg",
+    "image_sha256": "acbd9d22eb5251e960eb8e03db9f721fbbebc1228c1d974fb833d69b3e2a788e",
+    "annotation_sha256": "de38ee88525b395117811ca6656a108d0586a145716351ce7d8eafe0a6a21dc5"
+  },
+  {
+    "image": "United_States_000936.jpg",
+    "image_sha256": "2bb563cdb16827f64ee36796f1e05a2d8ac283cfb3860b4e834c1c1cb2a5694f",
+    "annotation_sha256": "d2158c5d127dddfd22db7b5221aec36badb0ba0585bdcb52ac025f82e7d70eb7"
+  },
+  {
+    "image": "United_States_000983.jpg",
+    "image_sha256": "f1b54391b9119fe576e35c997c2a4cd36c4cd17d32e90c0c2a819eaed2f63d3b",
+    "annotation_sha256": "cd7288acf31f4ae5b5b277e45184690a15b8dbdbbbde1c666d94e6e3f91cb9eb"
+  },
+  {
+    "image": "United_States_001031.jpg",
+    "image_sha256": "0e91801e928de0181f5c6a88d0645f199204405ff52a2bf158c5478508dacce0",
+    "annotation_sha256": "9fa4083e03892ba0a35d0177814ce51131a66c33a5b131aa884d0b5e3413bb6a"
+  },
+  {
+    "image": "United_States_001052.jpg",
+    "image_sha256": "c11c4c08f5adee77c53c2872f4d4e7c7900e15ae3d0d598aeac54d127755f48b",
+    "annotation_sha256": "25eef39be8c5426e0e5b311ee8e77cf9b4b0c4bb247195784fe4f7453ff3b493"
+  },
+  {
+    "image": "United_States_001101.jpg",
+    "image_sha256": "6a86b1f93d7e1f079059c8b006bba245a5c91ccabc9fc11043600c9939df6864",
+    "annotation_sha256": "5e2d65d488ba653586879168b81dbd860ea8c6547338cf49078149d4f30b26a3"
+  },
+  {
+    "image": "United_States_001162.jpg",
+    "image_sha256": "e1900e606a86a038c599562c4c30fc911b4bdbc377073545960345500512be51",
+    "annotation_sha256": "df3c6beb3bb6c89f57dcd519f3f4ca015a3609674334a684af8cdac606e9cd37"
+  },
+  {
+    "image": "United_States_001303.jpg",
+    "image_sha256": "f07de1b60c8ab5f589f6b4bb57e19a78421c9d3a0b6cf4b955b794110cf0845e",
+    "annotation_sha256": "b1fbd5d6461fe0724f2fa1234e54a5eae93eb358156dba61c422628d478b1070"
+  },
+  {
+    "image": "United_States_001314.jpg",
+    "image_sha256": "fb63ee0a48777fe6e415bf6360c683eb268b19616f216cd7ffb1a5ed1789cb31",
+    "annotation_sha256": "4dda96e0acdd67bc1553e2e1dc728aeac2d2ef0ea5594afd5f4042c14f83f41a"
+  },
+  {
+    "image": "United_States_001356.jpg",
+    "image_sha256": "0051506264490ebbd6d3008f03d92db79a9673bb74dffe86f136f1d206eaf8f1",
+    "annotation_sha256": "e3e91301ebbbe0b7396f633b4e399720c77b80490b4184ecaf19457728fe2ba7"
+  },
+  {
+    "image": "United_States_001370.jpg",
+    "image_sha256": "75efbc3819e4d304000f2c2e7dc1a59be0aa03b93b8286c7a809cfbcd869e7de",
+    "annotation_sha256": "890ad408547cca969e13794a4b767dfdd111cd70c8e93349168b2ed6be017c8a"
+  },
+  {
+    "image": "United_States_001483.jpg",
+    "image_sha256": "5fccfbb8a53843e8355dd25dcfe1595559b8fc8816fd6e22046c4ab1f6db6b6a",
+    "annotation_sha256": "591adfb8846d9d32b9c637e6a2b69db7f9de3d187590c28c4b4b6dc204a943fd"
+  },
+  {
+    "image": "United_States_001491.jpg",
+    "image_sha256": "0ca81975b0a32a93d2b15f65538869cf51f99fd806c277dc605d44141e77fa6e",
+    "annotation_sha256": "ded61ce6fb8f4aa93f9e65b9004a0b25197630fa882c6fb66e30ab7ebd3da115"
+  },
+  {
+    "image": "United_States_001554.jpg",
+    "image_sha256": "95979a2bb111f85216a5d29be4e0676891a5e961a23da74bec1518a5f7bbb482",
+    "annotation_sha256": "d5f62e5f401e534bc60edc0256b767394fc0d7a04cf5200f5cd3f8a3ce849e5b"
+  },
+  {
+    "image": "United_States_001636.jpg",
+    "image_sha256": "08a0004fa6149e5fa62cd8dfda7b5d3ad889415f16bfdf3ceb2bcfbaae241d2e",
+    "annotation_sha256": "877082102dbff8bde4ee36436b84d5880a4e35ee79636625e236fc5ebadd4159"
+  },
+  {
+    "image": "United_States_001705.jpg",
+    "image_sha256": "8904f9d33ca394ffa1c8c779f86dd77cb6e31935141ec09eb060ce2af5d8dc65",
+    "annotation_sha256": "7d08a38ce16f83c51524e4b24b431852cfdcb787a8d03e0b8c2295ba7dc37c23"
+  },
+  {
+    "image": "United_States_001710.jpg",
+    "image_sha256": "32409b2c3c39a7f9aaa595087e8c217ee7e8dafd6ae83b8d1d7bf6e10862ed6b",
+    "annotation_sha256": "b143052f04c284e39364bf7c00458bbf7ce7404f125df5c8a6094ec0b80014d3"
+  },
+  {
+    "image": "United_States_001733.jpg",
+    "image_sha256": "012541788c4f333ca89ac1e855cc971e8fc340140bbc9d0fa3f1277c8ddc0032",
+    "annotation_sha256": "cc02842847d070bf23c7e8c3ef016d6a12512d20ac7ab0512ea7b0d1c41473f0"
+  },
+  {
+    "image": "United_States_001783.jpg",
+    "image_sha256": "70e0e1a3a17f966782dd5b9916eee4a96515f195054a5f0e357129598483e25b",
+    "annotation_sha256": "fda5813a8a0441f8fb3665037867a141b7296830301bd010c26bae339d3cc642"
+  },
+  {
+    "image": "United_States_001813.jpg",
+    "image_sha256": "11b54baf6cc1f640360563fd58babdd19defbbbcdbf177d9b966deba8988b3a8",
+    "annotation_sha256": "017e572f0e9b690e4eaccb169e8f1214361b256897673d76b0aae4c694951c18"
+  },
+  {
+    "image": "United_States_001844.jpg",
+    "image_sha256": "e07e244e90d99f2154c8ee4f555325b856ebc2e6630dd21c830117d08319fff5",
+    "annotation_sha256": "d0dd092c9285fc047399b360918f91028efe9617a99e41e0ceaa99140c24b3f3"
+  },
+  {
+    "image": "United_States_001908.jpg",
+    "image_sha256": "593e62f447410747d3701a6e197b1790dada428dfac872d1c1b43363cab85446",
+    "annotation_sha256": "c6f47df5d17a4bdd98136d47eb8c073f6c296d213551be81f48358cc89555e64"
+  },
+  {
+    "image": "United_States_002000.jpg",
+    "image_sha256": "9812c738752c7e8d071f8e38cd1d08fe62163fb113dbbbfe8b64b6a66c2407e0",
+    "annotation_sha256": "2f1db1094f9d527569c370f439bbbb93c9e5bc701127cda3a7f4c4457f5a394e"
+  },
+  {
+    "image": "United_States_002110.jpg",
+    "image_sha256": "db02e259b61f2b0c6833ec7fd031837ace27c7430c3505a828c06a653d011c14",
+    "annotation_sha256": "17044b1cb943f2a24f1f1f035fa357208856bddfb2274c715b50cadab42454aa"
+  },
+  {
+    "image": "United_States_002141.jpg",
+    "image_sha256": "169597c39e2c46cf37c728f7a5a7a317e062208d1717e5c86c1efde05df23906",
+    "annotation_sha256": "990a4e448c2f4c7087638158cc711dae7b7b0131799c64f1f3261fe90f5572e5"
+  },
+  {
+    "image": "United_States_002171.jpg",
+    "image_sha256": "bbf870c59ef7902e1d8b8eac6fc4a4a003ddeab1b264ebae459beb4206b7c24f",
+    "annotation_sha256": "b40e12c706f7668c1ec23a6f7691691b1a98063d41e03fb31b8e9fa523a3fee1"
+  },
+  {
+    "image": "United_States_002172.jpg",
+    "image_sha256": "2ae69beabddc2c419af32bdf3ed8e8243b538723d039273cd168e99badfd5f81",
+    "annotation_sha256": "92b9cb8b6680dc186f4692a2c75a7ab33ec27e201a56cb1979a17472700e9264"
+  },
+  {
+    "image": "United_States_002213.jpg",
+    "image_sha256": "e53d1571aad3cbe42510c9f6ccdc8c3c83e2d3739d8f9c3edb0603940de030a8",
+    "annotation_sha256": "526d0fb76c6d54a1ee4f9e69971003eec7ca1d938ed213702a289f674b041d79"
+  },
+  {
+    "image": "United_States_002238.jpg",
+    "image_sha256": "43de9185d2aa54d91c2e9a680a9b323cee781186919ad46bae1dc3a5d9e13c81",
+    "annotation_sha256": "97e4f163b7f7d78f9e7d2f6f38b16ae433e2402f352a838251a8129bd8e6bda0"
+  },
+  {
+    "image": "United_States_002312.jpg",
+    "image_sha256": "03691dc3d049e02eefdd27ed64b3c66a0dd84045fc756194c13428160367e1cc",
+    "annotation_sha256": "a5c382f42085b095efa71b6d625301468282f770ed923defd5dfed97a7d3cabf"
+  },
+  {
+    "image": "United_States_002403.jpg",
+    "image_sha256": "0d2864362ff2c964ecda6da7a0b75769da14226624d90b0f90bf73101e8c5db4",
+    "annotation_sha256": "49dc8ea895ad76cf93ded92eb777833c6edf1fd3f5fad1cb4a68979e3ce1e208"
+  },
+  {
+    "image": "United_States_002425.jpg",
+    "image_sha256": "671fb84e9072abeb2ebbb0b97167657c01d8ff773071a0e2c46708d294db79d4",
+    "annotation_sha256": "1a4e5048077dad12421a6dd82669e628921580db1f0588dce4d3ee4f9f5d224c"
+  },
+  {
+    "image": "United_States_002581.jpg",
+    "image_sha256": "b1af5d0713367adb5d456c2921bdc9b04376518f268db0b463fef53415302b6f",
+    "annotation_sha256": "dc17ecfad47a8b584650e30e99df8c9335bc434470543df68ecdb65a184c205b"
+  },
+  {
+    "image": "United_States_002754.jpg",
+    "image_sha256": "861a168afc1bbffeb98b44276e5fbcf5c672812fbf66fd3844aaa02316716bd9",
+    "annotation_sha256": "5d4a271327236cb567bc0121247829b56962aca7aea543e92942644451aa8f6c"
+  },
+  {
+    "image": "United_States_002852.jpg",
+    "image_sha256": "1ff52de5737d7e48185b8c98f56dd1b55d600759219e1d792db888968b10adbb",
+    "annotation_sha256": "1afa73b62cc024dfbf37e9326ca24a00ce0b7d6f14a3c9eb229417a5404a9726"
+  },
+  {
+    "image": "United_States_002884.jpg",
+    "image_sha256": "076c576a60201a4fab804039c0769c9e36ecc1fa02c13b316d0ecdf18d84afa5",
+    "annotation_sha256": "7445df9005c885782e55d40ecc676639d536db87cecb93daebb88fc155cc4046"
+  },
+  {
+    "image": "United_States_002923.jpg",
+    "image_sha256": "d0d2d78cfbcecae0fb101a0bda7a0427822c0289a297523e8c918a9dfc5be943",
+    "annotation_sha256": "45ac40e7bdc360a33ea797218344b29561f0a94a1137a06bc006496dbb85e4bd"
+  },
+  {
+    "image": "United_States_002929.jpg",
+    "image_sha256": "10a676330428e9e68b63de66f8a8d859bc2a943479010b536d920d3092d710ff",
+    "annotation_sha256": "dda844a6bfba91155248686b8b1873d05f7535f49ac6f720d8164d56dc87cd05"
+  },
+  {
+    "image": "United_States_002954.jpg",
+    "image_sha256": "335042ae237868da7d37b0c3a37ba86c5f4ba90a7845241dc96a09897cf47698",
+    "annotation_sha256": "4ded32d1abcf02cd12285c71230d314c52acf4d5c2ae453379f7037bacba2935"
+  },
+  {
+    "image": "United_States_002982.jpg",
+    "image_sha256": "ccb4cb86201d1eb9d0ce56a538c07ed47f06f09cb00cf2e084a1f6aadd724b65",
+    "annotation_sha256": "7b047ce75976f3913d45617b300ad032438611b3eb1df10bc9d2e1135ef46c75"
+  },
+  {
+    "image": "United_States_003011.jpg",
+    "image_sha256": "61949d9af54af823290b9e4f7b10b9022bb8341171e70f117e2d5371da3f6080",
+    "annotation_sha256": "2670d8de7ec48ad160164bc972de5b3987c184ba09985b10df2338db0246fd1c"
+  },
+  {
+    "image": "United_States_003069.jpg",
+    "image_sha256": "b7c51e017d74db43f9ae6478c819e6430d808ffa4df766bc5aad328a799ccea2",
+    "annotation_sha256": "1361e501c1de60d4a525a6f016d5f721fbb66e5947a1ec1afc2cdad813af5ecc"
+  },
+  {
+    "image": "United_States_003081.jpg",
+    "image_sha256": "d129f09afa14ffcc776c639c906cb24668739b05480a6d2fd1c6e65ed8336eb2",
+    "annotation_sha256": "9eeb64f02b64371d6bf0a6daddd9f8b219e54c9c8c6fbf3e6dc8515bd78047ab"
+  },
+  {
+    "image": "United_States_003161.jpg",
+    "image_sha256": "d81b65f19ccc4eb1af77554438f2fb5ac2f17a54f27444c156a940912f779cd0",
+    "annotation_sha256": "709beb5302a610ea104d82469fb20d85db8d3df37f475429dd5700aaf42a08d8"
+  },
+  {
+    "image": "United_States_003187.jpg",
+    "image_sha256": "f7de52d44cd873b6bf89f963dc89b2dd6df9fbdcbb3d49acb64b9834f0ec3635",
+    "annotation_sha256": "255e95ecc7b10291a61a9fd83a43383355669c0270538a5a918b9c294bb21468"
+  },
+  {
+    "image": "United_States_003221.jpg",
+    "image_sha256": "f13692961eb0057c099d22ca37bfed5481b840d5e4e95cdd716aca57c6a39ff7",
+    "annotation_sha256": "b447e00c8afd56db91edeb0f378df50d3d177dd30e8ebc71e66936867c91716d"
+  },
+  {
+    "image": "United_States_003290.jpg",
+    "image_sha256": "e16ffcce3b5058b6a63245791b2dbedfd8257187730dca11211114808bd0fb2a",
+    "annotation_sha256": "be17eedd7fabe514a52618c3d62775b49af5191453f0b3bf2d2912cc840362a5"
+  },
+  {
+    "image": "United_States_003320.jpg",
+    "image_sha256": "9d90d7120aeac0fbc45ca91086766824add1e9d37535c0db7a3ecc13253d041d",
+    "annotation_sha256": "f2df922b335e5cf6e8ffbde8b95829fc88a1f9cd3b32258cdc728d29134de770"
+  },
+  {
+    "image": "United_States_003339.jpg",
+    "image_sha256": "0450772ec06c16ca648de321988250bc3b86407b4527dbe24fa2acbf05adb081",
+    "annotation_sha256": "f564153e9cd8df5bbde27e097c9c842cfa98323cb314862d8c1ddd70dd88ddf5"
+  },
+  {
+    "image": "United_States_003439.jpg",
+    "image_sha256": "ba13e32add11b24d9f43fe9245372719e8b223e81eb1aad8e978a143e7e276f9",
+    "annotation_sha256": "ec4ac063143b2719c9a19b1cdf1aac21dd1d2f7974611a27ba255406fb57c35f"
+  },
+  {
+    "image": "United_States_003541.jpg",
+    "image_sha256": "4bbacca6d864467968915c4f299a550425f04b361e6848db2bd28c646036fc65",
+    "annotation_sha256": "34caa81c08628ad68281702c26bbc36ba4ccf9abefafe377dc047f8b7d508b1f"
+  },
+  {
+    "image": "United_States_003579.jpg",
+    "image_sha256": "bb94bc6cfdc02bd31e3944db97d28ace36ab7aa6d0dbb7633455b86c2bdbe58d",
+    "annotation_sha256": "b9ddf85b7a44b812fad9c9df69f1050145725f6e13eef86856319e8fae852719"
+  },
+  {
+    "image": "United_States_003587.jpg",
+    "image_sha256": "95068ef4e6eb61b222c1c9a2d62a222a42f5583f845664ff39fc8d234e8a3c7b",
+    "annotation_sha256": "74adda249e35572dbf37936400deab07f5a723fc5a0fc2c0abbd197cada02208"
+  },
+  {
+    "image": "United_States_003632.jpg",
+    "image_sha256": "ec7871dd09b478c1a5bba8de786eb030326e662731ad7b78ded53e1052d6b35c",
+    "annotation_sha256": "a61545f00f7973d8b70aa60cec8f331c54058fd4756d917d24c64595768d2ec1"
+  },
+  {
+    "image": "United_States_003642.jpg",
+    "image_sha256": "2de92ef460e28208e5c1710131277658408cd062ba8c1174a84a29c5a8714f72",
+    "annotation_sha256": "1843e501230cbc7ef843f7601adad57fcbb4937b26e5cdb0971ac546abc92026"
+  },
+  {
+    "image": "United_States_003687.jpg",
+    "image_sha256": "58cdc365be7aab5bfb466360b0227f46c2c46c6d7622430ba4949ae91a8195e5",
+    "annotation_sha256": "8f36066c59bf9bd273ef2ea642f5af6845f56e06bcfb7b1d71974d36d8aa9533"
+  },
+  {
+    "image": "United_States_003742.jpg",
+    "image_sha256": "78efd42fd282765d66c585c404f7a0a2fe7d717914171d4942a71428041787d8",
+    "annotation_sha256": "3fb3fe93cac8fb0ac45cd0d1355ec56e9dc2f3e234bcdd63f1c95453626ae8f6"
+  },
+  {
+    "image": "United_States_003773.jpg",
+    "image_sha256": "d64cbac16a1aaacd50ca39d89ecc86a0125fd291a34380f1a4bdfbc66e24c6f4",
+    "annotation_sha256": "f9c67fa94a45de6fd0c1421415c6cfd7c7d2365b5f580976f136612a115cbe3c"
+  },
+  {
+    "image": "United_States_003850.jpg",
+    "image_sha256": "bc94dee64eff73867b97431ac4c738b656fe6eebc25ec8f69a771d7d4483fdaf",
+    "annotation_sha256": "c056fa3f08fc4a40901e6e753e05921d326d15e1676528e648d268e2cf3b77c0"
+  },
+  {
+    "image": "United_States_003894.jpg",
+    "image_sha256": "6f4e01fa02384c90948568262970dbb00c6bc7985e721a08c633b8316b57611f",
+    "annotation_sha256": "506ddf848f02e89548d87705f02595a017b5d033931e4fdad773b21996986c02"
+  },
+  {
+    "image": "United_States_003926.jpg",
+    "image_sha256": "a03c3e9e8d323af9eb4ca0ca34857bfe3c2d27cbb937e70b503eb93a27afb99b",
+    "annotation_sha256": "cc528881494a3abcc1f23306868aa6956f6e425837a6ca33e9faa36e5bf44423"
+  },
+  {
+    "image": "United_States_003996.jpg",
+    "image_sha256": "acff08802998ddd468c7b253b40e7b08676310854c67ea9bc15add309cc85d2f",
+    "annotation_sha256": "2ee9f11b91ac3c5b46fb0b9bab153a35b1ff034e232f7f8da5d04f9dabc39e92"
+  },
+  {
+    "image": "United_States_004011.jpg",
+    "image_sha256": "aa4871ddf078b207dd6c9df0b5fe23176b95d6df446e1d25ee76f0640605c0d3",
+    "annotation_sha256": "b6738c6815b93ac6b8a0cebbe98a4a546a68f468f7f5553bd0d4d1748b33774c"
+  },
+  {
+    "image": "United_States_004028.jpg",
+    "image_sha256": "e6b6115a0cfe81c14d29fc1a56bde4c54494f4376dba1adcb3c397cfba0944b7",
+    "annotation_sha256": "43fe58092803b3bcafc9e1b242205c7d6dfe27573238a3b907bb4d241601f6ee"
+  },
+  {
+    "image": "United_States_004097.jpg",
+    "image_sha256": "d3c601fe9910189fb313cdcaf2d4e31584ebc17af320c09c48c87e9cece2420c",
+    "annotation_sha256": "bd57dc07d9cfbcc8b20d3f604d2e581dac4a88bfa215a598af4047d751ddfb84"
+  },
+  {
+    "image": "United_States_004292.jpg",
+    "image_sha256": "3b7a0fc42bbb91459662a1798ed771a5e758327089ed20debf73f65f162245db",
+    "annotation_sha256": "153deead3e47f352579251fe7c356340df3de0afcd02f2dd55992506acb8f55c"
+  },
+  {
+    "image": "United_States_004353.jpg",
+    "image_sha256": "9b4be09fae08745da07da9ce3622743a61141c3aec8bd10b9b80c5917df7bcf0",
+    "annotation_sha256": "adb855a079a644601eabee73e2e296affa1065d348759c87746199e1686006da"
+  },
+  {
+    "image": "United_States_004444.jpg",
+    "image_sha256": "1d3b134aea42b8764b7ee111a89f8e8c55f187938f41aee44bb555b6d20bbf2b",
+    "annotation_sha256": "70b147227845d6c331821c7b11b28a313412458d91767aa1f4ddfa355b70068e"
+  },
+  {
+    "image": "United_States_004463.jpg",
+    "image_sha256": "d051b1fdb6a535e086fe6e9d73267e21ce87a43fbea8d75418763f8688b974da",
+    "annotation_sha256": "1a735f046750eeba5426bf567e3899f71b03f934664f397f0c547addf6a343c5"
+  },
+  {
+    "image": "United_States_004538.jpg",
+    "image_sha256": "8f44f10026d2d9f4284500388fe1d51495ed16cdccd222373d3de16d3783bbeb",
+    "annotation_sha256": "af4be02c9fdcccf000f8f5167a0d37f1b5e8a6a501062280c139e667e2d50616"
+  },
+  {
+    "image": "United_States_004555.jpg",
+    "image_sha256": "6308d6099b5954b23a7f427f9769b2d16ec36fdaec96278f8c3a463b3845926f",
+    "annotation_sha256": "31ea00fafb717a13cbba1d8248057ff80927c2c7c836fc52e51f2cfef10cab83"
+  },
+  {
+    "image": "United_States_004573.jpg",
+    "image_sha256": "019b648b25bfa4893ff1f7053e51720b81e1a1cad4bed0899006e20b78369a1a",
+    "annotation_sha256": "98c78c3f9e4eb826524f7ed459b6d69a31567c12187891d429b7c7a6bcf084d6"
+  },
+  {
+    "image": "United_States_004725.jpg",
+    "image_sha256": "3087a68a688e315c1e447a4294f49e1edaabcde97f1b664f34337ade4d1e301e",
+    "annotation_sha256": "ee03116a15656bece63541afcf7c1d5b5d35f7ff9503dd01ef8f2402274d2d6e"
+  },
+  {
+    "image": "United_States_004780.jpg",
+    "image_sha256": "727747aff0a47c1336feb17fea37029389d503aea1084080e0580b9c1b28a9fe",
+    "annotation_sha256": "10556650ccb07b7eb47bc53b53d2def5e257b54c58ad291ea665133c8d57035f"
+  }
+]

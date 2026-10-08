@@ -1,0 +1,28 @@
+{
+  "opencv": "5.0.0",
+  "numpy": "2.5.3",
+  "python": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+  "roi": "none",
+  "config": {
+    "segmentation": "hst",
+    "min_area": 32,
+    "max_area_fraction": 0.12,
+    "min_compactness": 0.025,
+    "max_aspect": 4.0,
+    "min_solidity": 0.45,
+    "median_size": 3,
+    "closing_size": 5,
+    "ring_radius": 12,
+    "max_hull_growth": 1.8,
+    "min_std": 8.0,
+    "min_contrast": 6.0,
+    "gray_ohi_threshold": 0.87,
+    "sobel_ohi_threshold": 0.85,
+    "nms_iou": 0.45
+  },
+  "source_sha256": {
+    "C:\\Users\\yuhwa\\cv2026\\box_ver\\run.py": "4872304a7365a85518d5a5ba80869543a53cfc20bfbf94614e9d9863b1ceb911",
+    "C:\\Users\\yuhwa\\cv2026\\box_ver\\ryu_detector.py": "9e10011f7520f76f19eed9156586a5a0f33b58691b52ff694e1c7d66b0c0b976",
+    "C:\\Users\\yuhwa\\cv2026\\src\\image_ROI_Resize.py": "eee9025d5324d0237c32681180bbfaebe5ac94205949b8ef559b37a4d046ddd5"
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "image": "China_Drone_000035.jpg",
+    "image_sha256": "913a8eed2525abb54325cb687fc421c24967a8a928cfec523546f98390d08fe2",
+    "annotation_sha256": "9236f9fdfdc4f12a2b55ef286f25f0ecc325dd24ce33690b7a5b4065ace8b632"
+  },
+  {
+    "image": "China_Drone_000041.jpg",
+    "image_sha256": "8ce2142c2a28d4bd48fad23e5b5161b16c18fea00433cae2d526c59655af8fca",
+    "annotation_sha256": "2c4b2dbd5ab7548630b2d30145d4a652eace732e0d10d2b924807dc1ad5a5cc7"
+  }
+]

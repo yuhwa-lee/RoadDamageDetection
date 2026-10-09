@@ -3,6 +3,22 @@ from __future__ import annotations
 import cv2 as cv
 import numpy as np
 
+from resize_long_side import resize_long_side_with_info
+
+# ---------------------------------------------------------------------------
+# ROI 탐색 옵션 (결함 누락 개선 항목별 스위치. 기본값 = 개선 적용 상태)
+# ---------------------------------------------------------------------------
+ROI_CONFIG = {
+    "downscale": True,         # 긴 변 640으로 줄여 ROI를 찾고 결과를 원본 좌표로 복원 (속도)
+    "relax_dark": False,       # 명도 하한 제거: 어두운 크랙/포트홀을 후보에서 배제하지 않음
+    "wide_flood": False,       # floodFill 허용오차 확대
+    "grabcut": False,          # GrabCut은 결함을 배경으로 밀어내므로 기본 off
+    "light_morph": False,      # 모폴로지 커널 축소 (OPEN이 도로 가장자리를 깎는 것 완화)
+    "merge_components": True,  # 선택된 컴포넌트 주변 조각도 합침 (결함으로 쪼개진 도로)
+    "fill_holes": True,        # 도로 마스크 내부 구멍(결함) 메움
+    "hull": False,             # 도로 영역의 convex hull을 ROI 마스크로 사용
+}
+
 # ---------------------------------------------------------------------------
 # 공통 전처리 설정
 # ---------------------------------------------------------------------------
@@ -118,8 +134,11 @@ def _build_road_candidate_mask(image):
     # - q : percentiles (0-100)
     # - axis : 집계를 수행할 축
     # 2) clip을 통해 임계값이 너무 낮거나 높지 않도록 제한한다.
-    sat_threshold = int(np.clip(np.percentile(bottom_band[:, :, 1], 70) + 18, 55, 150))
+    sat_threshold = int(np.clip(np.percentile(bottom_band[:, :, 1], 70) + 18, 55, 150)) 
     value_low = int(np.clip(np.percentile(bottom_band[:, :, 2], 8) - 20, 10, 120))
+    if ROI_CONFIG["relax_dark"]:
+        # 크랙/포트홀은 도로보다 어둡다. 하한을 없애 후보에서 배제되지 않게 한다.
+        value_low = 0
     value_high = int(np.clip(np.percentile(bottom_band[:, :, 2], 98) + 15, 180, 240))
 
     # cv.inRange() 함수는 HSV 이미지에서 특정 범위의 색상을 가진 픽셀을 선택하여 이진 마스크를 생성한다.
@@ -157,7 +176,10 @@ def _build_road_candidate_mask(image):
                 continue
 
             local_std = np.std(local_patch.reshape(-1, 3), axis=0)
-            diff = np.clip(local_std * 1.6 + 12, 12, 35).astype(int)
+            if ROI_CONFIG["wide_flood"]:
+                diff = np.clip(local_std * 2.5 + 20, 20, 60).astype(int)
+            else:
+                diff = np.clip(local_std * 1.6 + 12, 12, 35).astype(int)
 
             flood_mask = np.zeros((height + 2, width + 2), dtype=np.uint8)
             cv.floodFill(
@@ -180,7 +202,7 @@ def _build_road_candidate_mask(image):
     gc_mask[flood_union > 0] = cv.GC_FGD
     gc_mask[low_sat_mask > 0] = cv.GC_PR_FGD
 
-    if np.count_nonzero(flood_union) > 0:
+    if ROI_CONFIG["grabcut"] and np.count_nonzero(flood_union) > 0:
         bgd_model = np.zeros((1, 65), np.float64)
         fgd_model = np.zeros((1, 65), np.float64)
         try:
@@ -196,42 +218,51 @@ def _build_road_candidate_mask(image):
         candidate_mask = flood_union if np.count_nonzero(flood_union) > 0 else low_sat_mask
 
     kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, (7, 7))
-    candidate_mask = cv.morphologyEx(candidate_mask, cv.MORPH_OPEN, kernel)
+    open_size = 3 if ROI_CONFIG["light_morph"] else 7
+    open_kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, (open_size, open_size))
+    candidate_mask = cv.morphologyEx(candidate_mask, cv.MORPH_OPEN, open_kernel)
     candidate_mask = cv.morphologyEx(candidate_mask, cv.MORPH_CLOSE, kernel)
 
     return candidate_mask
 
 
 def _select_road_component(candidate_mask):
-    """후보 마스크 중에서 바닥과 연결된 가장 큰 도로성 컴포넌트를 고른다."""
+    """후보 마스크 중에서 바닥과 연결된 가장 큰 도로성 컴포넌트를 고른다.
+
+    merge_components가 켜져 있으면, 선택된 컴포넌트 근처에 있는 다른 조각도 함께 합친다.
+    (크랙/포트홀이 도로를 가르면 조각이 나뉘는데, 하나만 고르면 반대편 결함이 누락된다.)
+    """
     num_labels, labels, stats, centroids = cv.connectedComponentsWithStats(candidate_mask, connectivity=8)
     height, width = candidate_mask.shape[:2]
 
     bottom_band_start = int(height * 0.70)
     lower_half_start = int(height * 0.45)
+    top_end = int(height * 0.20)
+
+    # 라벨별 "해당 행 구간에 픽셀이 있는가"를 한 번에 계산한다 (라벨마다 전체 이미지를 훑지 않는다).
+    def present(row_slice):
+        flags = np.zeros(num_labels, dtype=bool)
+        flags[np.unique(labels[row_slice])] = True
+        return flags
+
+    touches_bottom = present(slice(bottom_band_start, None))
+    touches_lower_half = present(slice(lower_half_start, None))
+    touches_top = present(slice(0, top_end))
 
     best_label = 0
     best_score = -1.0
 
     for label in range(1, num_labels):
         area = stats[label, cv.CC_STAT_AREA]
-        if area < 500:
-            continue
-
-        component_mask = labels == label
-        touches_bottom = np.any(component_mask[bottom_band_start:, :])
-        touches_lower_half = np.any(component_mask[lower_half_start:, :])
-        touches_top = np.any(component_mask[: int(height * 0.20), :])
-
-        if not touches_lower_half:
+        if area < 500 or not touches_lower_half[label]:
             continue
 
         centroid_x, centroid_y = centroids[label]
         center_bonus = 1.0 - abs(centroid_x - (width / 2.0)) / (width / 2.0)
         lower_bonus = centroid_y / max(height, 1)
-        bottom_bonus = 1.0 if touches_bottom else 0.0
+        bottom_bonus = 1.0 if touches_bottom[label] else 0.0
 
-        top_penalty = 0.35 if touches_top else 0.0
+        top_penalty = 0.35 if touches_top[label] else 0.0
         score = area * (1.0 + 0.35 * center_bonus + 0.35 * lower_bonus + 0.6 * bottom_bonus - top_penalty)
 
         if score > best_score:
@@ -243,9 +274,37 @@ def _select_road_component(candidate_mask):
         best_label = 1 + int(np.argmax(stats[1:, cv.CC_STAT_AREA])) if num_labels > 1 else 0
 
     road_mask = np.zeros_like(candidate_mask)
-    if best_label != 0:
-        road_mask[labels == best_label] = 255
+    if best_label == 0:
+        return road_mask
+    road_mask[labels == best_label] = 255
 
+    if ROI_CONFIG["merge_components"]:
+        # 선택된 영역을 넓게 팽창시킨 범위 안에 걸치는 조각(충분히 큰 것)을 합친다.
+        grow = max(5, int(0.05 * width)) | 1
+        near = cv.dilate(road_mask, cv.getStructuringElement(cv.MORPH_ELLIPSE, (grow, grow)))
+        near_labels = np.unique(labels[near > 0])
+        min_area = max(100, int(0.002 * height * width))
+        for label in near_labels:
+            if label != 0 and stats[label, cv.CC_STAT_AREA] >= min_area:
+                road_mask[labels == label] = 255
+
+    return road_mask
+
+
+def _complete_road_mask(road_mask):
+    """도로 마스크 안에서 결함 때문에 빠진 부분을 메운다."""
+    if ROI_CONFIG["hull"]:
+        contours, _ = cv.findContours(road_mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+        if contours:
+            hull = cv.convexHull(np.vstack(contours))
+            filled = np.zeros_like(road_mask)
+            cv.fillConvexPoly(filled, hull, 255)
+            return filled
+    elif ROI_CONFIG["fill_holes"]:
+        contours, _ = cv.findContours(road_mask, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+        filled = np.zeros_like(road_mask)
+        cv.drawContours(filled, contours, -1, 255, thickness=cv.FILLED)
+        return filled
     return road_mask
 
 
@@ -262,24 +321,35 @@ def define_roi(image):
     - roi_coords: 원본 좌표계에서의 ROI 경계
     """
 
+    original_height, original_width = image.shape[:2]
+
+    # 긴 변 640 기준으로 줄여서 탐색한다 (고해상도 원본에서 GrabCut/floodFill은 매우 느리다).
+    if ROI_CONFIG["downscale"]:
+        work, info = resize_long_side_with_info(image)
+    else:
+        work, info = image, None
+
     # candidate_mask: 도로 후보 영역, road_mask: 최종 도로 영역
-    candidate_mask = _build_road_candidate_mask(image)
+    candidate_mask = _build_road_candidate_mask(work)
     road_mask = _select_road_component(candidate_mask)
+    road_mask = _complete_road_mask(road_mask)
 
     ys, xs = np.where(road_mask > 0)
     if len(xs) == 0 or len(ys) == 0:
-        height, width = image.shape[:2]
-        return image.copy(), np.zeros((height, width), dtype=np.uint8), (0, 0, width, height)
+        return image.copy(), np.zeros((original_height, original_width), dtype=np.uint8), (0, 0, original_width, original_height)
 
-    height, width = image.shape[:2]
-    x1 = max(0, int(xs.min()) - 8)
-    y1 = max(0, int(ys.min()) - 8)
-    x2 = min(width, int(xs.max()) + 9)
-    y2 = min(height, int(ys.max()) + 9)
+    margin = 8
+    x1 = max(0, int(xs.min()) - margin)
+    y1 = max(0, int(ys.min()) - margin)
+    x2 = min(road_mask.shape[1], int(xs.max()) + margin + 1)
+    y2 = min(road_mask.shape[0], int(ys.max()) + margin + 1)
+
+    if info is not None and info["scale"] != 1.0:
+        # 작은 영상에서 찾은 마스크/좌표를 원본 좌표계로 복원한다.
+        road_mask = cv.resize(road_mask, (original_width, original_height), interpolation=cv.INTER_NEAREST)
+        x1, y1, x2, y2 = map_box_to_original((x1, y1, x2, y2), info)
 
     roi = image[y1:y2, x1:x2].copy()
 
     # roi_mask는 원본 크기를 유지해야 이후 원본 이미지 위에 결과를 다시 얹을 수 있다.
-    roi_mask = road_mask
-
-    return roi, roi_mask, (x1, y1, x2, y2)
+    return roi, road_mask, (x1, y1, x2, y2)

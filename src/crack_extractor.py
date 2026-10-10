@@ -11,6 +11,8 @@ crack_extractor.py - 정식 균열 추출기 (포트홀은 별도 파일로 만�
     2. 임계값 처리      : 도로 마스크 안의 점수로 MAD 기준선 두 개(Z_LOW, Z_HIGH)를 계산하고 이력 임계값 적용
     3. 형태학 정리      : 면적 MIN_AREA 미만 조각 삭제 -> CLOSE_K 닫힘으로 작은 틈 메우기
     4. 모양 검사       : 조각마다 폭/길이/길쭉함을 재서 MIN_LENGTH, MIN_ELONG 미만이면 버림
+    5. 골짜기 검사      : 조각 중심선의 양옆이 모두 더 밝은(골짜기) 비율이 MIN_VALLEY 미만이면 버림
+                         (균열 = 양쪽보다 어두운 골짜기, 그림자 경계/질감 덩어리 = 한쪽만 밝은 계단)
 
 파라미터 근거 (제공 데이터 13장, 균열 정답 56개 기준. 자세한 표는 보고서/실험 기록 참고)
     BH_KERNEL=15   7~31 비교. lift가 가장 높음(0.36). 균열 검출률은 0.64~0.71로 크기에 둔감하고,
@@ -20,7 +22,17 @@ crack_extractor.py - 정식 균열 추출기 (포트홀은 별도 파일로 만�
     CLOSE_K=3      5px 닫힘과 방향성 닫힘은 질감 점끼리 엉겨 큰 덩어리를 만들어 탈락
     MIN_LENGTH=15  0~30 비교. 검출률이 떨어지기 직전 값 (20에서 0.75 -> 0.71)
     MIN_ELONG=4    0~5 비교. 검출률이 떨어지기 직전 값 (5에서 0.75 -> 0.70)
-    선정 규칙: "균열 검출률이 떨어지기 직전까지 기준을 최대한 엄격하게"
+    선정 규칙: "균열 검출률이 떨어지기 직전까지 기준을 최대한 엄격하게"  (위 1~4단계, 박스 채점 기준)
+
+    5단계 골짜기 검사 (영역 채점 crack_eval.py, d=5, 선정 기준 = 영상 붕괴 없음 + F2 최대)
+    VALLEY_DELTA=5, MIN_VALLEY=0.3
+                   delta 2/3/5 x min 0~0.6 비교. 검사 없음: P 0.152 / R 0.445 / F2 0.322
+                   delta 5, min 0.3: P 0.243 / R 0.410 / F2 0.360 (최고), 재현율 0.2 넘게 무너진 영상 없음
+                   delta 3, min 0.5: F1은 최고(0.324)지만 F2 0.342, India(1.00->0.00)·Japan_010993 붕괴로 탈락
+                   delta 3, min 0.4: F2 0.349, Japan_010993(0.70->0.21) 붕괴로 탈락
+                   min을 더 올리면 '진짜 균열 + 주변 질감'이 이어진 거대 연결망이 조각째 지워져 재현율이 급락한다
+                   -> 조각 안에서 비골짜기 부분만 잘라내는 방식이 다음 개선 대상
+    주의: 1~4단계는 영역 채점 이전에 박스 기준으로 정했다. 영역 재현율 기준으로 다시 확인 필요
 
 알려진 한계
     - 나뭇잎 그림자 가장자리는 가늘고 길어서 모양 검사를 통과한다 (조도 보정 전처리가 필요한 문제)
@@ -37,6 +49,9 @@ MIN_AREA = 20        # 3단계 작은 조각 기준 (픽셀 수)
 CLOSE_K = 3          # 3단계 닫힘 커널
 MIN_LENGTH = 15      # 4단계 최소 길이
 MIN_ELONG = 4.0      # 4단계 최소 길쭉함 (길이 / 폭)
+VALLEY_DELTA = 5.0   # 5단계: 양옆이 중심보다 이만큼(밝기 단계) 이상 밝아야 골짜기로 인정
+VALLEY_SIGMA = 2.0   # 5단계: 선 방향을 잴 때 쓰는 구조 텐서 평활 크기
+MIN_VALLEY = 0.3     # 5단계: 중심선 중 골짜기 픽셀 비율이 이 값 미만인 조각은 버림
 MIN_VALID_FRAC = 0.05   # 도로 마스크가 영상의 이 비율보다 작으면 마스크를 믿지 않고 전체를 쓴다
 
 
@@ -128,10 +143,101 @@ def is_crack_shape(sh, s=1.0):
 
 
 # ---------------------------------------------------------------------------
+# 5단계: 골짜기 검사
+# ---------------------------------------------------------------------------
+def skeletonize(mask):
+    """폭 1px 중심선. opencv-contrib가 있으면 내장 함수, 없으면 같은 알고리즘(Zhang-Suen)을 직접 돈다."""
+    m = mask.astype(np.uint8)
+    if not m.any():
+        return m.astype(bool)
+    if hasattr(cv2, "ximgproc"):
+        return cv2.ximgproc.thinning(m * 255, thinningType=cv2.ximgproc.THINNING_ZHANGSUEN) > 0
+    return _zhang_suen(m.astype(bool))
+
+
+def _zhang_suen(img):
+    img = np.pad(img, 1).astype(np.uint8)
+    while True:
+        changed = False
+        for step in (0, 1):
+            p2, p3, p4 = img[:-2, 1:-1], img[:-2, 2:], img[1:-1, 2:]
+            p5, p6, p7 = img[2:, 2:], img[2:, 1:-1], img[2:, :-2]
+            p8, p9 = img[1:-1, :-2], img[:-2, :-2]
+            nb = [p2, p3, p4, p5, p6, p7, p8, p9]
+            b = sum(n.astype(np.int32) for n in nb)
+            a = sum(((nb[i] == 0) & (nb[(i + 1) % 8] == 1)).astype(np.int32) for i in range(8))
+            c = img[1:-1, 1:-1] == 1
+            if step == 0:
+                cond = (p2 * p4 * p6 == 0) & (p4 * p6 * p8 == 0)
+            else:
+                cond = (p2 * p4 * p8 == 0) & (p2 * p6 * p8 == 0)
+            rm = c & (b >= 2) & (b <= 6) & (a == 1) & cond
+            if rm.any():
+                img[1:-1, 1:-1][rm] = 0
+                changed = True
+        if not changed:
+            return img[1:-1, 1:-1] > 0
+
+
+def valley_map(gray, skel, labels, shapes, s=1.0, delta=None):
+    """중심선 픽셀마다 '양옆이 모두 더 밝은가'를 판정한다.
+
+    선의 가로 방향(법선)은 구조 텐서로 구한다: 밝기가 가장 크게 변하는 방향 = 선을 가로지르는 방향.
+    법선 양쪽으로 (조각 폭/2 + 2px) 떨어진 곳의 밝기를 재서, 둘 다 중심보다 delta 이상 밝으면 골짜기.
+    """
+    delta = VALLEY_DELTA if delta is None else delta
+    g = cv2.GaussianBlur(gray.astype(np.float32), (0, 0), 1.0 * s)
+    gx = cv2.Sobel(g, cv2.CV_32F, 1, 0, ksize=3)
+    gy = cv2.Sobel(g, cv2.CV_32F, 0, 1, ksize=3)
+    sig = VALLEY_SIGMA * s
+    jxx = cv2.GaussianBlur(gx * gx, (0, 0), sig)
+    jyy = cv2.GaussianBlur(gy * gy, (0, 0), sig)
+    jxy = cv2.GaussianBlur(gx * gy, (0, 0), sig)
+    theta = 0.5 * np.arctan2(2 * jxy, jxx - jyy)          # 가장 큰 고유벡터 방향 = 법선
+
+    ys, xs = np.where(skel)
+    width = np.ones(labels.max() + 1, np.float32)
+    for sh in shapes:
+        width[sh["label"]] = sh["width"]
+    r = width[labels[ys, xs]] / 2.0 + 2.0 * s
+    nx, ny = np.cos(theta[ys, xs]), np.sin(theta[ys, xs])
+    h, w = gray.shape
+
+    def sample(px, py):
+        px = np.clip(np.round(px).astype(int), 0, w - 1)
+        py = np.clip(np.round(py).astype(int), 0, h - 1)
+        return g[py, px]
+
+    c = g[ys, xs]
+    a = sample(xs + nx * r, ys + ny * r)
+    b = sample(xs - nx * r, ys - ny * r)
+    out = np.zeros(gray.shape, bool)
+    out[ys, xs] = (a - c > delta) & (b - c > delta)
+    return out
+
+
+def valley_fraction(gray, labels, shapes, s=1.0, delta=None):
+    """조각 번호 -> 중심선 중 골짜기 픽셀 비율."""
+    fg = np.isin(labels, [sh["label"] for sh in shapes]) if shapes else np.zeros(labels.shape, bool)
+    skel = skeletonize(fg)
+    vmap = valley_map(gray, skel, labels, shapes, s, delta)
+    n = labels.max() + 1
+    tot = np.bincount(labels[skel], minlength=n)
+    val = np.bincount(labels[vmap], minlength=n)
+    return {sh["label"]: (val[sh["label"]] / tot[sh["label"]] if tot[sh["label"]] else 0.0) for sh in shapes}
+
+
+# ---------------------------------------------------------------------------
 # 전체
 # ---------------------------------------------------------------------------
-def detect_cracks(gray, road_mask=None, return_debug=False):
-    """균열 후보 박스 목록 [(x, y, w, h), ...] (입력 영상 좌표)."""
+def extract_cracks(gray, road_mask=None):
+    """균열 검출 본체. 마스크와 박스를 함께 만든다 (둘 다 입력 영상 좌표).
+
+    반환
+        mask  : 입력 영상과 같은 크기의 bool 배열. 모양 검사를 통과한 조각의 픽셀만 True
+        boxes : 그 조각마다 감싸는 박스 [(x, y, w, h), ...]  (mask에서 계산되므로 둘은 항상 일치)
+        debug : 단계별 중간 결과 (시각화/분석용)
+    """
     valid = np.ones(gray.shape, bool)
     if road_mask is not None and road_mask.shape == gray.shape and road_mask.mean() >= MIN_VALID_FRAC:
         valid = road_mask.astype(bool)
@@ -142,13 +248,37 @@ def detect_cracks(gray, road_mask=None, return_debug=False):
     lab, shapes = component_shapes(fg)               # 4
     s = _scale(gray)
     kept = [sh for sh in shapes if is_crack_shape(sh, s)]
+    vfrac = valley_fraction(gray, lab, kept, s)                                  # 5
+    for sh in kept:
+        sh["valley"] = vfrac[sh["label"]]
+    kept = [sh for sh in kept if sh["valley"] >= MIN_VALLEY]
+
+    # 통과한 조각 번호의 픽셀만 칠한다 (lab: 픽셀마다 조각 번호가 적힌 지도)
+    keep_id = np.zeros(len(shapes) + 1, bool)
+    for sh in kept:
+        keep_id[sh["label"]] = True
+    mask = keep_id[lab]
     boxes = [sh["box"] for sh in kept]
+    debug = {"score": score, "valid": valid, "fg": fg, "labels": lab, "shapes": shapes, "kept": kept}
+    return mask, boxes, debug
+
+
+def detect_cracks(gray, road_mask=None, return_debug=False):
+    """균열 후보 박스 목록 [(x, y, w, h), ...] (입력 영상 좌표). 기존 박스 채점용으로 유지."""
+    mask, boxes, debug = extract_cracks(gray, road_mask)
     if return_debug:
-        return boxes, {"score": score, "valid": valid, "fg": fg, "labels": lab, "shapes": shapes, "kept": kept}
+        return boxes, debug
     return boxes
 
 
 def detect(gray, meta=None):
-    """러너용 진입점. meta에 road_mask(입력 영상과 같은 크기)가 있으면 사용한다."""
+    """러너용 진입점 (박스). meta에 road_mask(입력 영상과 같은 크기)가 있으면 사용한다."""
     road = None if meta is None else meta.get("road_mask")
     return detect_cracks(gray, road)
+
+
+def detect_mask(gray, meta=None):
+    """러너용 진입점 (마스크). (mask, boxes)를 반환한다. 영역 채점은 mask로 한다."""
+    road = None if meta is None else meta.get("road_mask")
+    mask, boxes, _ = extract_cracks(gray, road)
+    return mask, boxes

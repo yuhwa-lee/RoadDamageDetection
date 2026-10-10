@@ -17,7 +17,52 @@ ROI_CONFIG = {
     "merge_components": True,  # 선택된 컴포넌트 주변 조각도 합침 (결함으로 쪼개진 도로)
     "fill_holes": True,        # 도로 마스크 내부 구멍(결함) 메움
     "hull": False,             # 도로 영역의 convex hull을 ROI 마스크로 사용
+    "texture_filter": True,    # 넓게 거친 영역(자갈·풀·흙)을 후보에서 제외 (아스팔트 표본보다 TEX_K배 이상 거칠면)
+    "veg_filter": False,       # 채도가 있는 초록·노랑 색상(풀·나무)을 후보에서 제외
 }
+
+# texture_filter / veg_filter 설정 (긴 변 640 작업 영상 기준)
+# 근거 (제공 13장, 균열 추출기 영역 채점 crack_eval.py, 선정 = 재현율 0.2 넘게 무너진 영상 없음 + F2 최대)
+#   texture_filter 끔 : F2 0.360 (P 0.243 / R 0.410), 정답 균열 마스크 안 90.9%, 포트홀 100%
+#   texture_filter 켬 : F2 0.457 (P 0.321 / R 0.512), 정답 균열 마스크 안 88.6%, 포트홀 100%
+#     - Japan_000107 자갈 주차장 제외 (마스크 면적 50% -> 39%), 균열 재현율 0.05 -> 0.44
+#     - TEX_K 2.5/3/3.5/4, TEX_SMOOTH 3/6/15, TEX_OPEN 15/21/31 비교. K 2.5, smooth 6 이상, open 15/31은
+#       Japan_010993(균열 많은 젖은 도로)의 재현율이 0.71 -> 0.35~0.45로 무너져 탈락. K 3.5/4는 통과하지만 F2 낮음
+#     - TEX_CRACK_CLOSE 없이(0)는 모든 K에서 Japan_010993 붕괴 -> 균열 선을 먼저 지우는 단계가 필요
+#   주의: 이웃 설정에서 Japan_010993이 무너지는 경계에 있는 값이라 촬영본에서 다시 확인 필요
+#   해결 못 한 것: Norway_008315 풀 비탈(640으로 줄이면 아스팔트만큼 매끈해 보임), US_005996 그림자 진 도로
+#   veg_filter: F2 0.369 (+0.009, 차이 0.01 이내라 효과 없음으로 판단) -> 기본 꺼짐
+TEX_WIN = 9          # 국소 표준편차를 재는 창 크기
+TEX_SMOOTH = 3.0     # 표준편차 지도를 살짝 펴는 가우시안 크기 (크게 펴면 차선·그림자 경계 같은 가는 선이 넓게 번져 열림으로 안 지워진다)
+TEX_K = 3.0          # 도로 표본(하단 중앙) 거칠기의 몇 배 이상이면 비도로로 볼지
+TEX_CRACK_CLOSE = 7  # 질감을 재기 전에 이보다 가는 어두운 선(균열)을 닫힘으로 지운다 -> 균열 많은 도로를 거칠다고 보지 않게
+TEX_OPEN = 21        # 이보다 가는 거친 영역(차선, 균열, 도로 경계선)은 제외 대상에서 뺀다
+VEG_H = (25, 95)     # OpenCV 색상(0~180) 중 노랑~초록 범위
+VEG_S_MIN = 40       # 채도가 이 값 이상일 때만 색상을 믿는다 (회색 아스팔트는 색상이 무의미)
+
+
+def _texture_mask(image):
+    """넓게 거친 영역 = True. 아스팔트는 매끈하고 자갈·풀·흙은 같은 색이어도 밝기가 잘게 들쭉날쭉하다."""
+    gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+    if TEX_CRACK_CLOSE > 1:
+        se_c = cv.getStructuringElement(cv.MORPH_ELLIPSE, (TEX_CRACK_CLOSE, TEX_CRACK_CLOSE))
+        gray = cv.morphologyEx(gray, cv.MORPH_CLOSE, se_c)
+    gray = gray.astype(np.float32)
+    k = TEX_WIN
+    mean = cv.blur(gray, (k, k))
+    sq = cv.blur(gray * gray, (k, k))
+    std = np.sqrt(np.maximum(sq - mean * mean, 0))
+    std = cv.GaussianBlur(std, (0, 0), TEX_SMOOTH)
+    h, w = gray.shape
+    ref = float(np.median(std[int(h * 0.8):, int(w * 0.3):int(w * 0.7)])) + 1e-3   # 바로 앞 도로 = 아스팔트 표본
+    rough = (std > TEX_K * ref).astype(np.uint8)
+    se = cv.getStructuringElement(cv.MORPH_ELLIPSE, (TEX_OPEN, TEX_OPEN))
+    return cv.morphologyEx(rough, cv.MORPH_OPEN, se) > 0
+
+
+def _vegetation_mask(hsv):
+    h, s = hsv[:, :, 0], hsv[:, :, 1]
+    return (h >= VEG_H[0]) & (h <= VEG_H[1]) & (s >= VEG_S_MIN)
 
 # ---------------------------------------------------------------------------
 # 공통 전처리 설정
@@ -195,6 +240,10 @@ def _build_road_candidate_mask(image):
             flood_union = cv.bitwise_or(flood_union, flood_mask[1:-1, 1:-1])
 
     candidate_mask = cv.bitwise_and(low_sat_mask, flood_union)
+    if ROI_CONFIG["texture_filter"]:
+        candidate_mask[_texture_mask(blurred)] = 0
+    if ROI_CONFIG["veg_filter"]:
+        candidate_mask[_vegetation_mask(hsv)] = 0
 
     # GrabCut으로 road 후보를 한 번 더 분리해 sky/배경이 과하게 섞이는 현상을 줄인다.
     gc_mask = np.full((height, width), cv.GC_PR_BGD, dtype=np.uint8)

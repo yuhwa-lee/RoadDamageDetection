@@ -32,6 +32,17 @@ crack_extractor.py - 정식 균열 추출기 (포트홀은 별도 파일로 만�
                    delta 3, min 0.4: F2 0.349, Japan_010993(0.70->0.21) 붕괴로 탈락
                    min을 더 올리면 '진짜 균열 + 주변 질감'이 이어진 거대 연결망이 조각째 지워져 재현율이 급락한다
                    -> 조각 안에서 비골짜기 부분만 잘라내는 방식이 다음 개선 대상
+    2단계 지역 기준선 (train 22장 = 제공 13 + 촬영 9, 입력 = 노이즈 축 adapt_gauss_s2, 선정 = 붕괴 없음 + F2 최대)
+    LOCAL_BLOCK=64, Z_LOW/Z_HIGH=1.0/2.5   (이전: 영상 전체 하나의 기준선, 1.5/3.0 -> F2 0.373, P 0.250, R 0.426)
+                   원인: 가까이 찍은 사진은 아래쪽(카메라 가까운 곳)일수록 알갱이가 커서, 기준선 하나로는
+                   아래쪽은 알갱이가 헛검출되고 위쪽은 균열이 기준을 못 넘었다 -> 블록마다 기준선을 따로 잡음
+                   - 지역 기준선 + 1.0/2.5 : F2 0.460 (P 0.245 / R 0.590), 붕괴 없음 -> 선택
+                   - 지역 기준선 + 1.0/2.0 : F2 0.466 (P 0.234 / R 0.619) 동점(차이 0.01 이내) -> 덜 공격적인 2.5
+                   - 전체 기준선 + 1.0/2.5 : F2 0.422, India 1.00->0.00 붕괴 (기준만 낮추면 질감이 균열에 이어 붙음)
+                   - 지역 기준선 + 1.5/3.0 (기준 그대로) : F2 0.368~0.381, 붕괴
+                   - 블록 48 / 128 : F2 0.438 / 0.447 통과, 96 : India 붕괴 -> 블록 크기에 민감한 편. 촬영본 추가 시 재확인
+                   - 전체 기준선과 지역 기준선 중 큰 값 사용 : 정밀도만 오르고 재현율이 떨어져 F2 0.285~0.332
+    4.5단계 PRUNE(조각 안 비골짜기 구간 잘라내기)은 F2 0.343~0.375 로 개선이 없어 꺼둠
     주의: 1~4단계는 영역 채점 이전에 박스 기준으로 정했다. 영역 재현율 기준으로 다시 확인 필요
 
 알려진 한계
@@ -44,7 +55,7 @@ import numpy as np
 
 REF = 640            # 크기 기준이 되는 긴 변 길이
 BH_KERNEL = 15       # 1단계 black-hat 붓 지름
-Z_LOW, Z_HIGH = 1.5, 3.0   # 2단계 이력 임계값 (MAD 배수)
+Z_LOW, Z_HIGH = 1.0, 2.5   # 2단계 이력 임계값 (MAD 배수)
 MIN_AREA = 20        # 3단계 작은 조각 기준 (픽셀 수)
 CLOSE_K = 3          # 3단계 닫힘 커널
 MIN_LENGTH = 15      # 4단계 최소 길이
@@ -52,6 +63,10 @@ MIN_ELONG = 4.0      # 4단계 최소 길쭉함 (길이 / 폭)
 VALLEY_DELTA = 5.0   # 5단계: 양옆이 중심보다 이만큼(밝기 단계) 이상 밝아야 골짜기로 인정
 VALLEY_SIGMA = 2.0   # 5단계: 선 방향을 잴 때 쓰는 구조 텐서 평활 크기
 MIN_VALLEY = 0.3     # 5단계: 중심선 중 골짜기 픽셀 비율이 이 값 미만인 조각은 버림
+LOCAL_BLOCK = 64     # 2단계: 기준선을 이 크기(640 기준) 블록마다 따로 계산한다. 0이면 영상 전체에서 하나
+PRUNE = False        # 4.5단계: 조각 안에서 골짜기가 아닌 구간만 잘라낸다 (거대 연결망 쪼개기)
+PRUNE_WIN = 9        # 4.5단계: 중심선 픽셀 주변 이 크기 창 안에서 골짜기 비율을 본다 (점 하나 단위로 자르면 조각이 잘게 끊긴다)
+PRUNE_FRAC = 0.5     # 4.5단계: 창 안 중심선 중 골짜기 비율이 이 값 미만인 구간을 잘라낸다
 MIN_VALID_FRAC = 0.05   # 도로 마스크가 영상의 이 비율보다 작으면 마스크를 믿지 않고 전체를 쓴다
 
 
@@ -84,12 +99,41 @@ def mad_threshold(values, z):
     return med + z * 1.4826 * mad
 
 
+def local_thresholds(score, valid, z_low, z_high):
+    """블록마다 (중앙값 + z·MAD) 기준선을 계산해 영상 크기로 부드럽게 펼친다.
+    알갱이가 큰 구역(가까운 노면)은 기준선이 높아지고, 매끈한 구역은 낮아진다."""
+    h, w = score.shape
+    b = max(8, int(round(LOCAL_BLOCK * max(h, w) / float(REF))))
+    gh, gw = max(1, int(np.ceil(h / b))), max(1, int(np.ceil(w / b)))
+    med = np.zeros((gh, gw), np.float32)
+    mad = np.zeros((gh, gw), np.float32)
+    ok = np.zeros((gh, gw), bool)
+    for i in range(gh):
+        for j in range(gw):
+            sl = (slice(i * b, (i + 1) * b), slice(j * b, (j + 1) * b))
+            v = score[sl][valid[sl]]
+            if v.size >= 0.25 * b * b:
+                m = float(np.median(v))
+                med[i, j], mad[i, j], ok[i, j] = m, float(np.median(np.abs(v - m))) + 1e-6, True
+    if not ok.any():
+        return np.zeros_like(score), np.zeros_like(score)
+    # 표본이 부족한 블록은 전체 값으로 채운다
+    vv = score[valid]
+    m0 = float(np.median(vv)); d0 = float(np.median(np.abs(vv - m0))) + 1e-6
+    med[~ok], mad[~ok] = m0, d0
+    lo = cv2.resize(med + z_low * 1.4826 * mad, (w, h), interpolation=cv2.INTER_LINEAR)
+    hi = cv2.resize(med + z_high * 1.4826 * mad, (w, h), interpolation=cv2.INTER_LINEAR)
+    return lo, hi
+
+
 def hysteresis(score, valid, z_low=None, z_high=None):
     """강한 기준선을 넘은 픽셀(씨앗)과 이어진, 약한 기준선 이상의 픽셀만 남긴다."""
     z_low = Z_LOW if z_low is None else z_low
     z_high = Z_HIGH if z_high is None else z_high
     v = score[valid]
     lo, hi = mad_threshold(v, z_low), mad_threshold(v, z_high)
+    if LOCAL_BLOCK > 0:
+        lo, hi = local_thresholds(score, valid, z_low, z_high)
     weak = ((score > lo) & valid).astype(np.uint8)
     strong = (score > hi) & valid
     n, lab = cv2.connectedComponents(weak, connectivity=8)
@@ -216,6 +260,31 @@ def valley_map(gray, skel, labels, shapes, s=1.0, delta=None):
     return out
 
 
+def prune_non_valley(gray, labels, shapes, s=1.0):
+    """4.5단계: 조각 안에서 '양옆이 모두 더 밝은 골짜기'가 아닌 구간만 잘라낸 마스크를 돌려준다.
+
+    조각째 버리면 진짜 균열이 주변 질감·차선과 이어진 거대 연결망에서 균열까지 사라진다.
+    1) 조각들의 중심선을 구하고 픽셀마다 골짜기 여부를 판정
+    2) 중심선 픽셀마다 주변 창(PRUNE_WIN) 안의 골짜기 비율을 보고 PRUNE_FRAC 이상인 구간만 남긴다
+    3) 조각의 각 픽셀은 가장 가까운 중심선 픽셀을 따라 남기거나 지운다
+    """
+    fg = np.isin(labels, [sh["label"] for sh in shapes]) if shapes else np.zeros(labels.shape, bool)
+    if not fg.any():
+        return fg
+    skel = skeletonize(fg)
+    vmap = valley_map(gray, skel, labels, shapes, s)
+    k = _odd(PRUNE_WIN * s)
+    n_sk = cv2.boxFilter(skel.astype(np.float32), -1, (k, k), normalize=False)
+    n_v = cv2.boxFilter(vmap.astype(np.float32), -1, (k, k), normalize=False)
+    keep_sk = skel & (n_v >= PRUNE_FRAC * np.maximum(n_sk, 1))
+    # 각 픽셀에서 가장 가까운 중심선 픽셀의 번호
+    _, near = cv2.distanceTransformWithLabels((~skel).astype(np.uint8), cv2.DIST_L2, 5,
+                                              labelType=cv2.DIST_LABEL_PIXEL)
+    keep_lab = np.zeros(near.max() + 1, bool)
+    keep_lab[near[keep_sk]] = True
+    return fg & keep_lab[near]
+
+
 def valley_fraction(gray, labels, shapes, s=1.0, delta=None):
     """조각 번호 -> 중심선 중 골짜기 픽셀 비율."""
     fg = np.isin(labels, [sh["label"] for sh in shapes]) if shapes else np.zeros(labels.shape, bool)
@@ -248,13 +317,17 @@ def extract_cracks(gray, road_mask=None):
     lab, shapes = component_shapes(fg)               # 4
     s = _scale(gray)
     kept = [sh for sh in shapes if is_crack_shape(sh, s)]
+    if PRUNE:                                                                    # 4.5
+        pruned = prune_non_valley(gray, lab, kept, s)
+        lab, shapes = component_shapes(pruned)                                   # 잘라낸 뒤 모양 검사를 다시
+        kept = [sh for sh in shapes if is_crack_shape(sh, s)]
     vfrac = valley_fraction(gray, lab, kept, s)                                  # 5
     for sh in kept:
         sh["valley"] = vfrac[sh["label"]]
     kept = [sh for sh in kept if sh["valley"] >= MIN_VALLEY]
 
     # 통과한 조각 번호의 픽셀만 칠한다 (lab: 픽셀마다 조각 번호가 적힌 지도)
-    keep_id = np.zeros(len(shapes) + 1, bool)
+    keep_id = np.zeros(lab.max() + 1, bool)
     for sh in kept:
         keep_id[sh["label"]] = True
     mask = keep_id[lab]

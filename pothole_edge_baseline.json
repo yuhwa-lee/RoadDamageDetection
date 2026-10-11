@@ -1,0 +1,21 @@
+{
+  "proposal_mode": "closed_edges",
+  "merge_regions": false,
+  "blur_sigma": 1.0,
+  "canny_low": 35.0,
+  "canny_high": 90.0,
+  "close_sizes": [3],
+  "min_area": 120.0,
+  "max_area_ratio": 0.18,
+  "min_thickness": 5.0,
+  "max_axis_ratio": 4.0,
+  "min_fill": 0.30,
+  "min_solidity": 0.55,
+  "min_edge_support": 0.55,
+  "ring_radius": 8.0,
+  "min_abs_contrast": 5.0,
+  "min_texture_difference": 0.15,
+  "nms_iou": 0.5,
+  "nms_containment": 0.85,
+  "max_candidates": 50
+}

@@ -24,7 +24,6 @@ from src.resize_long_side import resize_long_side_with_info
 from src.pothole_edge_extractor import EdgePotholeConfig, detect_mask as edge_detect_mask
 from src.pothole_edge_extractor import detect_potholes as edge_detect_debug, AUDIT_STAGES
 from src.pixel_evaluation import restore_mask, pixel_counts, metrics
-from src.candidates import DEFAULT_POTHOLE_PREPROCESS, apply_preprocessing, compose
 
 
 def read_pothole_color(gt_dir):
@@ -168,8 +167,7 @@ def main(argv=None):
     parser.add_argument('--limit', type=int, default=0, help='평가 이미지 수 제한. 0이면 전체')
     parser.add_argument('--config', type=Path, help='선택한 검출기 설정값을 지정한 JSON 파일(선택)')
     parser.add_argument('--seed', type=int, default=0, help='각 영상의 GrabCut 난수 시드(재현 가능한 비교)')
-    parser.add_argument('--preprocess', default=DEFAULT_POTHOLE_PREPROCESS,
-                        help='기존 candidates.py 후보를 |로 연결. 기본: 노이즈→조도→샤프닝. none: 비활성화')
+    parser.add_argument('--preprocess', default='none')
     parser.add_argument('--refinement', choices=['grow','none'],
                         help='grow: 후보 영역 확장, none: 이전 후보 마스크. 생략 시 config/default 사용')
     parser.add_argument('--show', action='store_true', help='비교 창 표시. 아무 키: 다음, ESC/q: 창 표시 종료')
@@ -179,7 +177,6 @@ def main(argv=None):
     if args.audit_edge and args.detector != 'edge':
         parser.error('--audit-edge는 --detector edge와 함께 사용하세요.')
     # 잘못된 이름은 ROI 계산/결과 폴더 생성 전에 알린다.
-    compose(args.preprocess.split('|'))
     cv.setNumThreads(1)
     image_dir, gt_dir = Path(args.image_dir), Path(args.gt_dir)
     if not image_dir.is_dir() or not (gt_dir/'SegmentationClass').is_dir():
@@ -188,18 +185,9 @@ def main(argv=None):
         parser.error('--limit는 0 이상이어야 합니다.')
     color = read_pothole_color(gt_dir)
     config_values = json.loads(args.config.read_text(encoding='utf-8-sig')) if args.config else {}
-    if args.detector == 'classic':
-        config = PotholeConfig(**config_values)
-        if args.refinement is not None:
-            config = replace(config, refine_mask=args.refinement == 'grow')
-        detector_fn = classic_detect_mask
-        config_key = 'pothole_config'
-    else:
-        if args.refinement is not None:
-            parser.error('--refinement은 classic 검출기에서만 지원합니다.')
-        config = EdgePotholeConfig(**config_values)
-        detector_fn = edge_detect_mask
-        config_key = 'pothole_edge_config'
+    config = EdgePotholeConfig(**config_values)
+    detector_fn = edge_detect_mask
+    config_key = 'pothole_edge_config'
     extensions = {'.jpg','.jpeg','.png','.bmp','.tif','.tiff'}
     paths = sorted(p for p in image_dir.rglob('*') if p.is_file() and p.suffix.lower() in extensions)
     paired, missing = [], []
@@ -243,7 +231,8 @@ def main(argv=None):
         start = time.perf_counter()
         cv.setRNGSeed(args.seed)
         gray, meta = prepare_input(original, args.resize)
-        gray = apply_preprocessing(gray, args.preprocess)
+        if args.preprocess != 'none':
+            parser.error('현재 Edge 전용 실행기는 --preprocess none만 지원합니다.')
         save_png(output/'preprocessed'/(path.stem+'.png'), gray)
         meta[config_key] = config
         if args.audit_edge:

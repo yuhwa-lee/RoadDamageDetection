@@ -5,6 +5,8 @@ crack_eval.py - 정식 균열 추출기의 영역(픽셀) 채점과 선정 기�
     python src/crack_eval.py                    # 전처리 없음(none)만 채점
     python src/crack_eval.py --maps             # + 영상별 오류 지도 저장
     python src/crack_eval.py --axis noise       # 노이즈 축 후보 전체를 none과 비교해 판정
+    python src/crack_eval.py --split test       # 최종 평가 세트 (파라미터 선정에는 쓰지 않는다)
+    기본은 개발 세트(train_data/). 결과는 세트별로 따로 낸다 (train/test를 합산하지 않음)
 
 채점 방식: 허용거리(tolerance) 정밀도 / 재현율
     1. 검출 마스크와 정답 균열 마스크를 각각 중심선(폭 1px 뼈대)으로 줄인다
@@ -26,6 +28,7 @@ F2 (선정 점수) = 5PR / (4P + R)
 
 선정 기준
     ① 필수: 재현율이 COLLAPSE 넘게 떨어진 영상이 하나도 없음 (합산 점수는 한 영상의 붕괴를 가린다)
+            단, 정답 균열 중심선이 MIN_GT_SKEL px(640 기준) 미만인 영상은 이 검사에서 제외한다
     ② ①을 통과한 것 중 F2 최대
     ③ F2 차이 TIE 이내면 동점으로 보고 덜 공격적인 쪽(목록 앞쪽, none이 가장 앞)
     ④ 확인: 고른 것이 d=3/8 에서도 기준보다 나쁘지 않은지 표에서 함께 본다
@@ -39,6 +42,9 @@ F2 (선정 점수) = 5PR / (4P + R)
     D_REF = 5     정답 균열 띠 폭(640 기준) 중앙값 12.4px의 절반 정도. 3/8에서도 결론이 같은지 함께 출력
     COLLAPSE      0.2. 전체(micro) 재현율은 한 영상이 무너져도 다른 영상에 묻힌다
                   (예: India 1.00 -> 0.00 이 전체로는 -0.09로만 보임). 영상 단위 붕괴를 따로 막는다
+    MIN_GT_SKEL   100 (640 기준 정답 중심선 길이). 정답이 아주 작으면 조각 하나로 재현율이 0과 1을 오가서
+                  붕괴 판정이 우연에 좌우된다. 제공 13장에서 Norway_008315만 33px이고 나머지는 모두 315px 이상이라
+                  둘 사이 값으로 잡았다 (100px = 640 화면 폭의 약 1/6). 해당 영상도 전체 점수에는 그대로 포함된다
     TIE           0.01 (F2). 이보다 작은 차이로 처리를 추가하지 않는다
     (이전 기준 '재현율 하락 <= 0.02 + 정밀도 최대'는 정밀도 개선을 지나치게 막아 F2로 바꿈)
 """
@@ -61,6 +67,7 @@ D_REF = 5
 D_CHECK = (3, 5, 8)
 REF = 640
 COLLAPSE = 0.2
+MIN_GT_SKEL = 100
 TIE = 0.01
 
 
@@ -105,7 +112,7 @@ def score_image(it, pred, keep_maps=False):
     sp, sg = skeletonize(P), skeletonize(G)
     d_to_g, d_to_p, d_to_pot = dist_to(sg), dist_to(sp), dist_to(Pot)
     rec = {"name": it["name"], "source": it["source"],
-           "pred_area": float(P.mean()), "n_gt_skel": int(sg.sum())}
+           "pred_area": float(P.mean()), "n_gt_skel": int(sg.sum()), "scale": s}
     pot_zone = d_to_pot <= D_REF * s
     Pi = P & ~pot_zone                                  # IoU도 포트홀 주변 검출은 제외
     rec["iou_i"] = int((Pi & G).sum())
@@ -171,13 +178,19 @@ def image_recall(rec, d=D_REF):
 def judge(base, recs):
     """선정 기준 ①: 기준(base) 대비 재현율 하락과 영상 단위 붕괴 검사."""
     r0, r1 = summarize(base, D_REF)[1], summarize(recs, D_REF)[1]
-    collapsed = []
+    collapsed, skipped = [], []
     for a, b in zip(base, recs):
         ra, rb = image_recall(a), image_recall(b)
-        if ra is not None and ra - rb > COLLAPSE:
+        if ra is None:
+            continue
+        if a["n_gt_skel"] / a.get("scale", 1.0) < MIN_GT_SKEL:      # 정답이 너무 작은 영상은 붕괴 판정 제외
+            if ra - rb > COLLAPSE:
+                skipped.append("%s(%.2f->%.2f)" % (a["name"], ra, rb))
+            continue
+        if ra - rb > COLLAPSE:
             collapsed.append("%s(%.2f->%.2f)" % (a["name"], ra, rb))
     ok = not collapsed
-    return {"dR": r1 - r0, "collapsed": collapsed, "pass": ok}
+    return {"dR": r1 - r0, "collapsed": collapsed, "skipped": skipped, "pass": ok}
 
 
 def pick(rows, base_name="none"):
@@ -194,8 +207,7 @@ def pick(rows, base_name="none"):
 # 오류 지도: 초록 = 맞은 검출, 빨강 = 헛검출, 파랑 = 놓친 정답, 회색 = 포트홀(채점 제외)
 # ---------------------------------------------------------------------------
 def save_map(it, maps, out_dir, arm_name):
-    ds = next(d for d in rr.DATASETS if d["source"] == it["source"])
-    bgr = rr.imread_bgr(rr.find_image(ds["img_dir"], it["name"]))
+    bgr = rr.imread_bgr(it["path"])
     h, w = maps["tp"].shape
     base = cv.resize(bgr, (w, h), interpolation=cv.INTER_AREA)
     base = (base * 0.6).astype(np.uint8)
@@ -234,12 +246,15 @@ def main():
     ap.add_argument("--axis", choices=sorted(AXES), default=None, help="이 축의 후보 전체를 none과 비교해 판정")
     ap.add_argument("--maps", action="store_true", help="영상별 오류 지도 저장")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--split", choices=["train", "test"], default="train", help="데이터 세트 (기본 train)")
     args = ap.parse_args()
 
-    items = rr.load_items(args.limit)
+    items = rr.load_items(args.limit, args.split)
+    print("세트: %s (%d장: 제공 %d, 촬영 %d)" % (args.split, len(items), sum(i["source"] == "provided" for i in items),
+                                          sum(i["source"] == "captured" for i in items)))
     arms = [IDENTITY] + ([a for a in AXES[args.axis] if a["name"] != "none"] if args.axis else [])
     stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    tag = "crackeval_%s_%s" % (args.axis or "none", stamp)
+    tag = "crackeval_%s_%s_%s" % (args.split, args.axis or "none", stamp)
     map_dir = os.path.join(rr.OUT_DIR, tag + "_maps") if args.maps else None
 
     rows, base = [], None
@@ -265,6 +280,8 @@ def main():
         m = report(recs)
         f2_3, f2_8 = fbeta(*summarize(recs, 3)[:2], 2), fbeta(*summarize(recs, 8)[:2], 2)
         verdict = "기준" if recs is base else ("통과" if j["pass"] else "탈락 (붕괴: " + " ".join(j["collapsed"]) + ")")
+        if j.get("skipped"):
+            verdict += "  [정답 작아 판정 제외: %s]" % " ".join(j["skipped"])
         print("  %-22s %6s %6s %6s | %6s %6s %6s | %5s  %5s | %+7.3f  %s"
               % (name, f3(m["F2"]), f3(m["P"]), f3(m["R"]), f3(m["F1"]), f3(m["tIoU"]), f3(m["pIoU"]), f3(f2_3), f3(f2_8), j["dR"], verdict))
         out_rows.append([name, m["F2"], m["P"], m["R"], m["F1"], m["tIoU"], m["pIoU"], f2_3, f2_8, j["dR"], j["pass"],

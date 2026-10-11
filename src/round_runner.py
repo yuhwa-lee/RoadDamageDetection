@@ -18,7 +18,9 @@ round_runner.py - 전처리 후보를 같은 조건에서 채점하는 실험 �
             lift = macro - chance (순위 기준). 영상을 복원 추출(bootstrap)해서 baseline 대비 향상폭의 범위도 낸다.
 
 나중에 바뀌는 곳
-    - DATASETS: 촬영본 항목은 큰 영상 축소 단계를 넣은 뒤 주석을 푼다 (source 별 집계도 자동으로 나온다).
+    - 데이터 분할: train_data/(개발: 제공 13 + 촬영 9), test_data/(최종 평가: 촬영 10). 라벨은 labeled_data/ 공용.
+      기본은 train만 불러온다. test는 파라미터 선정에 쓰지 않고, 최종 성능 보고 때만 --split test 로 돌린다.
+      제공/촬영 구분(source)은 파일 이름으로 정한다 (제공 데이터는 나라 이름으로 시작).
     - 박스 단위 정밀도, CNR 같은 열은 summarize() / run_arm() 에 추가하면 된다.
 """
 import os
@@ -37,20 +39,18 @@ from image_ROI_Resize import define_roi, resize_image_with_info
 from resize_long_side import resize_long_side_with_info
 
 BASE_DIR = Path.cwd()   
-IMG_DIR = BASE_DIR / "dataset"
-GT_DIR = BASE_DIR / "labeled_data"      # 제공 13장 + 촬영본 라벨이 한 폴더에 있다
-CAP_DIR = BASE_DIR / "captured"
+GT_DIR = BASE_DIR / "labeled_data"      # train/test 라벨이 한 폴더에 있다
+SPLIT_DIRS = {"train": BASE_DIR / "train_data", "test": BASE_DIR / "test_data"}
+IMG_EXTS = (".jpg", ".jpeg", ".png")
+PROVIDED_PREFIX = ("China_", "India_", "Japan_", "Norway_", "United_States_", "Czech_")   # 제공(RDD) 데이터 이름
+
+
+def source_of(name):
+    return "provided" if name.startswith(PROVIDED_PREFIX) else "captured"
 
 # ---------------------------------------------------------------------------
 # 설정
 # ---------------------------------------------------------------------------
-DATASETS = [
-    {"source": "provided",
-     "img_dir": str(IMG_DIR),
-     "gt_dir": str(GT_DIR)},
-    # 촬영본은 큰 영상 축소 단계를 넣은 뒤 켠다 (24MP 그대로 넣으면 ROI 계산이 장당 수 분)
-    # {"source": "captured", "img_dir": str(CAP_DIR), "gt_dir": str(GT_DIR)},
-]
 OUT_DIR = "out_round"
 
 
@@ -141,26 +141,27 @@ def prepare_input(bgr, name):
                               "road_mask": road}
 
 
-def load_items(limit=0):
+def load_items(limit=0, split="train"):
+    """split: 'train'(기본, 개발용) / 'test'(최종 평가용) / 'all'. 라벨(labeled_data)이 있는 영상만 불러온다."""
+    dirs = list(SPLIT_DIRS.values()) if split == "all" else [SPLIT_DIRS[split]]
     items = []
-    for ds in DATASETS:
-        names = sorted(os.path.splitext(os.path.basename(p))[0]
-                       for p in glob.glob(os.path.join(ds["gt_dir"], "SegmentationClass", "*.png")))
-        for nm in names:
-            path = find_image(ds["img_dir"], nm)
-            if path is None:     # 라벨 폴더가 공용이라, 이 데이터셋 영상 폴더에 없는 이름은 건너뛴다
-                continue
+    for d in dirs:
+        paths = sorted(p for p in glob.glob(os.path.join(str(d), "*")) if p.lower().endswith(IMG_EXTS))
+        for path in paths:
+            nm = os.path.splitext(os.path.basename(path))[0]
+            if not os.path.exists(os.path.join(str(GT_DIR), "SegmentationClass", nm + ".png")):
+                continue                     # 라벨 없는 영상(capture_pothole_01 등)은 채점할 수 없어 건너뛴다
             bgr = imread_bgr(path)
-            inst, shape = load_gt_instances(ds["gt_dir"], nm)
+            inst, shape = load_gt_instances(str(GT_DIR), nm)
             if bgr.shape[:2] != tuple(shape):
                 raise ValueError("영상과 라벨 크기가 다름: %s %s vs %s" % (nm, bgr.shape[:2], shape))
             img, meta = prepare_input(bgr, nm)
-            items.append({"name": nm, "source": ds["source"], "img": img, "meta": meta,
+            items.append({"name": nm, "source": source_of(nm), "path": path, "img": img, "meta": meta,
                           "inst": inst, "shape": tuple(shape)})
     if limit:
         items = items[:limit]
     if not items:
-        raise SystemExit("불러온 영상이 없습니다. DATASETS 경로를 확인하세요.")
+        raise SystemExit("불러온 영상이 없습니다. train_data/ test_data/ 와 labeled_data/ 경로를 확인하세요.")
     return items
 
 
@@ -496,6 +497,8 @@ def main(argv=None):
     ap.add_argument("axis", help="noise | light | blur | all | combo:이름1|이름2|이름3")
     ap.add_argument("--overlay", default="", help="오버레이를 저장할 영상 이름(콤마로 구분)")
     ap.add_argument("--limit", type=int, default=0, help="앞의 N장만 사용(빠른 확인용)")
+    ap.add_argument("--split", choices=["train", "test", "all"], default="train",
+                    help="데이터 세트 (기본 train. test는 최종 평가 때만)")
     ap.add_argument("--no-boot", action="store_true", help="bootstrap 범위 계산 생략")
     ap.add_argument("--resize", choices=sorted(RESIZERS), default="long",
                     help="long = 긴 변 640 이하로 비율 유지 축소(기본), fixed = 640x480 강제 리사이즈")
@@ -507,7 +510,7 @@ def main(argv=None):
     RESIZE_MODE = args.resize
 
     import src.candidates as candidates
-    items = load_items(args.limit)
+    items = load_items(args.limit, args.split)
     detector = get_detector(args.detector)
     overlay = tuple(s for s in args.overlay.split(",") if s)
 

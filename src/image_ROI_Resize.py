@@ -19,6 +19,10 @@ ROI_CONFIG = {
     "hull": False,             # 도로 영역의 convex hull을 ROI 마스크로 사용
     "texture_filter": True,    # 넓게 거친 영역(자갈·풀·흙)을 후보에서 제외 (아스팔트 표본보다 TEX_K배 이상 거칠면)
     "veg_filter": False,       # 채도가 있는 초록·노랑 색상(풀·나무)을 후보에서 제외
+    "method": "chroma",        # 도로 후보 방식: flood = 기존(밝기 floodFill), chroma = 색 비율 기준(그늘 허용, 풀·흙 제외)
+    "horizon_cut": True,       # 굵은 도로 몸통 꼭대기보다 위의 후보(나무·건물·하늘)를 지운다
+    "gap_close": 0.05,         # 가로 방향으로 영상 폭의 이 비율 이하인 틈을 메운다 (차선이 도로를 가르는 것 방지)
+    "edge_margin": 0.01,       # 최종 도로 마스크를 영상 폭의 이 비율만큼 바깥으로 넓힌다 (도로 경계에 걸친 균열 보호)
 }
 
 # texture_filter / veg_filter 설정 (긴 변 640 작업 영상 기준)
@@ -63,6 +67,89 @@ def _texture_mask(image):
 def _vegetation_mask(hsv):
     h, s = hsv[:, :, 0], hsv[:, :, 1]
     return (h >= VEG_H[0]) & (h <= VEG_H[1]) & (s >= VEG_S_MIN)
+
+
+# chroma 방식 설정 (긴 변 640 작업 영상 기준)
+# 근거 (32장 = 제공 13 + 촬영 19, flood 방식과 비교. 결함 포함률은 정답 결함 픽셀 중 ROI 박스/마스크 안 비율)
+#   flood   : 결함 포함 박스 0.958 / 마스크 0.888. US_005996 그늘 도로가 통째로 빠져 0.00, Norway 풀 비탈·하늘 포함
+#   chroma + horizon_cut + edge_margin 0.01 (기본):
+#             결함 포함 박스 0.987 / 마스크 0.970. US_005996 0.87, IMG_1817·US_004830 그늘 포함, Norway 비탈·풀 제외
+#   crack_eval (d=5) 전체 F2 0.225 -> 0.226, 픽셀 IoU(영상 평균) 0.0924 -> 0.0935 로 검출 점수는 거의 같다
+#     - Norway_008315 재현율 1.00 -> 0.00: 균열은 마스크 안에 있고 검출도 되지만, 차선과 이어진 큰 조각이 되어
+#       crack_extractor 5단계(골짜기 검사)가 조각째 버린다. flood에 여백만 줘도 같은 일이 생긴다 (추출기 쪽 한계)
+#     - edge_margin 0: India 도로·흙 경계의 균열이 마스크 경계에 걸려 0.99 -> 0.56. 0.015 이상은 IMG_1825 붕괴
+#   gap_close (가로 틈 메우기, 차선이 도로를 가르는 문제): 0 / 0.03 / 0.05 / 0.08 비교
+#     - 0.05 (기본): 결함 포함 박스 0.987 -> 1.000 (32장 모두), 마스크 0.970 -> 0.988
+#       China_002209·Japan_010993 반대편 차선, US_005996 먼 도로가 들어옴. crack_eval F2 0.226 -> 0.228
+#     - 0.03: India 붕괴(0.99 -> 0.74). 0.08: F2 0.233이지만 정밀도가 더 내려가고 도로 밖이 더 붙는다
+#     - 지평선 컷 몸통을 닫힘으로 먼저 메우는 방식은 나무·하늘과 이어져(Japan_000156, Norway_008315) 쓰지 않음
+#   해결 못 한 것: 도로와 같은 회색 벽(cap_day_03)·집(Japan_000156), 차량(IMG_1824)은 색이 같아 남는다.
+#     젖은 노면의 밝은 반사(Norway_009625)와 노란 도색 횡단보도(IMG_1811)는 빠진다 (CH_V_HI_MIN을 230까지
+#     올려도 반사는 거의 그대로이고 India의 뿌연 하늘이 들어와서 170 유지)
+# 색은 밝기로 나눈 정규화 색(r, g, b 비율 x 3, 회색 = 0)으로 잰다. Lab의 a/b는 어두울수록 0으로 줄어
+# 그늘진 풀·나무가 회색처럼 보이지만, 비율은 어두워도 초록이면 초록으로 남는다.
+#   yel = (r+g)/2 - b  (노랑·갈색 +, 파랑 -)   grn = g - (r+b)/2  (초록 +)   red = r - (g+b)/2  (빨강·흙 +)
+CH_REF = (0.80, 0.30, 0.70)   # 아스팔트 표본: 아래 20% 행, 가로 30~70% 구간
+CH_GRN = 0.08        # 표본보다 초록 쪽으로 이만큼 넘으면 제외 (풀·나무: 제공 영상에서 +0.15 이상)
+CH_YEL = 0.10        # 표본보다 노랑 쪽으로 이만큼 넘으면 제외 (마른 풀 비탈·흙: +0.13 이상)
+CH_RED = 0.12        # 표본보다 빨강 쪽으로 이만큼 넘으면 제외 (흙·벽돌)
+CH_BLUE_SUN = 0.15   # 햇빛 받은 아스팔트만큼 밝은 픽셀은 파랑 쪽으로 이만큼만 허용 (밝고 파란 = 하늘, 맑은 하늘은 -0.3 이하)
+CH_BLUE_DARK = 0.80  # 어두울수록 파랑 쪽 허용을 이만큼까지 늘린다 (그늘은 하늘빛을 받아 어둡고 파래진다)
+CH_V_MIN = 15        # 밝기 평균(R+G+B)/3이 이보다 어두우면 제외 (색 비율을 믿을 수 없을 만큼 어두움)
+CH_V_OVER = 45       # 표본 밝기 상위 95% + 이 값보다 밝으면 제외 (하늘·흰 벽)
+CH_V_HI_MIN = 170    # 위 상한의 최솟값 (표본이 그늘이면 상한이 너무 낮아져 햇빛 받은 도로가 빠진다)
+HZ_CORE = 0.04       # 지평선 컷: 도로 몸통을 찾을 때 쓰는 열림 크기 (영상 폭 비율). 이보다 가는 연결(먼 도로 끝)을 끊는다
+HZ_MARGIN = 0.03     # 도로 몸통 꼭대기보다 이만큼(영상 높이 비율) 위까지는 후보로 남긴다
+
+
+def _chroma_candidate(blurred):
+    """밝기가 아니라 색 비율로 도로 후보를 만든다.
+
+    그늘진 아스팔트는 밝기가 크게 떨어지지만 색은 회색에서 파란 쪽으로만 움직인다.
+    풀·흙·마른 비탈은 밝기가 아스팔트와 비슷해도 초록/노랑/빨강 쪽으로 움직인다.
+    그래서 파란 쪽은 어두울수록 넓게, 나머지 방향은 좁게 허용한다.
+    """
+    f = blurred.astype(np.float32)
+    s = f.sum(axis=2) + 1.0
+    bn, gn, rn = (f[:, :, i] * 3.0 / s for i in range(3))
+    yel, grn, red = (rn + gn) / 2 - bn, gn - (rn + bn) / 2, rn - (gn + bn) / 2
+    v = s / 3.0
+    h, w = v.shape
+    ry, rx0, rx1 = CH_REF
+    ref = (slice(int(h * ry), h), slice(int(w * rx0), int(w * rx1)))
+    vr = v[ref].ravel()
+    bright = vr >= np.median(vr)          # 표본 중 밝은 절반 = 햇빛 받은 아스팔트 (그늘이 섞여도 기준이 파래지지 않게)
+    y0, g0, r0 = (float(np.median(c[ref].ravel()[bright])) for c in (yel, grn, red))
+    v_sun = float(np.median(vr[bright]))
+    dark = np.clip((v_sun - v) / max(v_sun * 0.6, 1.0), 0.0, 1.0)     # 0 = 햇빛 아스팔트만큼 밝음, 1 = 아주 어두운 그늘
+    v_hi = float(np.clip(np.percentile(vr, 95) + CH_V_OVER, CH_V_HI_MIN, 255.0))
+    # 허용 범위는 표본 색과 중립 회색(0)을 모두 포함하게 잡는다. 표본이 노을빛(노랑)이거나 그늘(파랑)이어도
+    # 햇빛 받은 회색 아스팔트가 빠지지 않게 하기 위함
+    ok = ((grn <= max(g0, 0.0) + CH_GRN) & (yel <= max(y0, 0.0) + CH_YEL) & (red <= max(r0, 0.0) + CH_RED)
+          & (yel >= min(y0, 0.0) - (CH_BLUE_SUN + CH_BLUE_DARK * dark))
+          & (v >= CH_V_MIN) & (v <= v_hi))
+    return ok.astype(np.uint8) * 255
+
+
+def _horizon_cut(candidate_mask):
+    """굵은 도로 몸통의 꼭대기보다 위에 있는 후보(나무·건물·하늘)를 지운다.
+
+    먼 도로 끝은 가늘어서 그 너머의 색이 비슷한 나무·벽과 이어지기 쉽다. 큰 열림으로 가는 연결을 끊고
+    바닥에 닿는 가장 큰 몸통을 찾은 뒤, 그 꼭대기 + 여유보다 위는 후보에서 뺀다.
+    """
+    h, w = candidate_mask.shape
+    k = max(5, int(HZ_CORE * w)) | 1
+    core = cv.morphologyEx(candidate_mask, cv.MORPH_OPEN, cv.getStructuringElement(cv.MORPH_ELLIPSE, (k, k)))
+    n, lab, st, _ = cv.connectedComponentsWithStats(core, connectivity=8)
+    bottom = np.unique(lab[int(h * 0.85):])
+    bottom = bottom[bottom != 0]
+    if len(bottom) == 0:
+        return candidate_mask
+    best = bottom[np.argmax(st[bottom, cv.CC_STAT_AREA])]
+    top = int(st[best, cv.CC_STAT_TOP]) - int(HZ_MARGIN * h)
+    out = candidate_mask.copy()
+    out[:max(0, top)] = 0
+    return out
 
 # ---------------------------------------------------------------------------
 # 공통 전처리 설정
@@ -240,6 +327,9 @@ def _build_road_candidate_mask(image):
             flood_union = cv.bitwise_or(flood_union, flood_mask[1:-1, 1:-1])
 
     candidate_mask = cv.bitwise_and(low_sat_mask, flood_union)
+    if ROI_CONFIG["method"] == "chroma":
+        candidate_mask = _chroma_candidate(blurred)
+        flood_union = candidate_mask.copy()   # 후보가 부족할 때의 대체값도 같은 기준으로
     if ROI_CONFIG["texture_filter"]:
         candidate_mask[_texture_mask(blurred)] = 0
     if ROI_CONFIG["veg_filter"]:
@@ -271,6 +361,13 @@ def _build_road_candidate_mask(image):
     open_kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, (open_size, open_size))
     candidate_mask = cv.morphologyEx(candidate_mask, cv.MORPH_OPEN, open_kernel)
     candidate_mask = cv.morphologyEx(candidate_mask, cv.MORPH_CLOSE, kernel)
+    if ROI_CONFIG["gap_close"] > 0:
+        # 가로 방향의 좁은 틈(차선, 균열 띠, 그늘 경계)만 메워 차선 양쪽 도로를 한 덩어리로 잇는다.
+        # 가로로만 메우므로 도로 위쪽의 나무·건물과는 이어지지 않는다
+        g = max(3, int(ROI_CONFIG["gap_close"] * width)) | 1
+        candidate_mask = cv.morphologyEx(candidate_mask, cv.MORPH_CLOSE, cv.getStructuringElement(cv.MORPH_RECT, (g, 1)))
+    if ROI_CONFIG["horizon_cut"]:
+        candidate_mask = _horizon_cut(candidate_mask)
 
     return candidate_mask
 
@@ -382,6 +479,9 @@ def define_roi(image):
     candidate_mask = _build_road_candidate_mask(work)
     road_mask = _select_road_component(candidate_mask)
     road_mask = _complete_road_mask(road_mask)
+    if ROI_CONFIG["edge_margin"] > 0 and road_mask.any():
+        k = max(3, int(ROI_CONFIG["edge_margin"] * road_mask.shape[1]) * 2 + 1)
+        road_mask = cv.dilate(road_mask, cv.getStructuringElement(cv.MORPH_ELLIPSE, (k, k)))
 
     ys, xs = np.where(road_mask > 0)
     if len(xs) == 0 or len(ys) == 0:

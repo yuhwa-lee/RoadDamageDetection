@@ -10,6 +10,7 @@ candidates.py - 전처리 후보 정의 (각자 자기 축만 수정)
       계열   : 같은 계열이 상위 2개를 독식하지 않도록 선정 규칙에서 쓴다
       baseline=True : 기준선("그대로") 행. 선정 대상에서 빠진다
   - 1라운드는 축 안에서 한 단계만 바꾼다. 2라운드 조합은 compose()로 만든다.
+  - 함수에 uses_meta = True 속성이 있으면 (영상, meta)를 받는다. meta["road_mask"]로 도로 영역만 볼 수 있다
 """
 import cv2
 import numpy as np
@@ -55,6 +56,39 @@ def bilateral(sigma_color, d640=9, sigma_space=75):
 
 def nlm(h):
     return lambda g: cv2.fastNlMeansDenoising(g, None, h, 7, 21)
+
+
+# ---------------------------------------------------------------------------
+# 적응형 노이즈 제거: 노면 질감이 거칠 때만 평활화
+# ---------------------------------------------------------------------------
+# 근거 (train 22장, 정식 균열 추출기 고정, crack_eval.py 판정 = 영상 붕괴 없음 + F2 최대)
+#   고정 강도 평활화는 가까이 찍은 촬영본(아스팔트 알갱이가 보임)은 살리지만, 멀리서 찍은 제공본
+#   (균열 폭 1~3px)은 균열까지 지워 붕괴시킨다. 예) gauss_s2: 촬영본 F2 0.109 -> 0.355, 제공본 0.450 -> 0.211
+#   -> 영상마다 노면 질감(Immerkaer 추정치)을 재서 GRAIN_T보다 거칠 때만 평활화한다
+#   GRAIN_T = 9 : train 22장의 추정치(도로 안)는 7.24 이하(제공 12장 + IMG_1817)와 11.56 이상
+#                 (촬영 8장 + Japan_001959 근접 촬영)으로 갈린다. 가장 큰 빈틈의 가운데 값. 6~11 사이에서
+#                 9장/13장 구분이 같고, 6은 US_004830·China_002159까지 평활화해 F2가 0.373으로 같지만 정밀도가 낮다
+#   결과 (none F2 0.246): adapt_gauss_s2 0.373, adapt_bilateral_c75 0.352, adapt_median_k5 0.340, 모두 붕괴 없음
+GRAIN_T = 9.0
+_LAPLACE = np.array([[1, -2, 1], [-2, 4, -2], [1, -2, 1]], np.float32)
+
+
+def surface_texture(g, road=None):
+    """노면 질감 수준 = Immerkaer 노이즈 추정치(도로 안). 알갱이가 잘게 보일수록 크다."""
+    if road is None or road.shape != g.shape or road.mean() < 0.05:
+        road = np.ones(g.shape, bool)
+    inner = cv2.erode(road.astype(np.uint8), np.ones((5, 5), np.uint8)) > 0
+    lap = cv2.filter2D(g.astype(np.float32), -1, _LAPLACE)
+    return float(np.sqrt(np.pi / 2) / 6 * np.mean(np.abs(lap[inner])))
+
+
+def adaptive(smooth, t=None):
+    """노면 질감이 t보다 거칠 때만 smooth를 적용한다."""
+    def stage(g, meta=None):
+        road = None if meta is None else meta.get("road_mask")
+        return smooth(g) if surface_texture(g, road) > (GRAIN_T if t is None else t) else g
+    stage.uses_meta = True
+    return stage
 
 
 # ---------------------------------------------------------------------------
@@ -185,6 +219,9 @@ NOISE = [
     arm("nlm_h5", "edge-preserving", nlm(5)),
     arm("nlm_h10", "edge-preserving", nlm(10)),
     arm("nlm_h15", "edge-preserving", nlm(15)),
+    arm("adapt_gauss_s2", "adaptive", adaptive(gaussian(2.0))),
+    arm("adapt_median_k5", "adaptive", adaptive(median(5))),
+    arm("adapt_bilateral_c75", "adaptive", adaptive(bilateral(75))),
 ]
 
 LIGHT = [

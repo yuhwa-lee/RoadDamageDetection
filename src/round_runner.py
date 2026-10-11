@@ -266,10 +266,11 @@ def score_image(item, img_shape, boxes_proc, rng):
 # ---------------------------------------------------------------------------
 # 전처리 적용 / 한 arm 실행
 # ---------------------------------------------------------------------------
-def apply_stages(stages, img):
+def apply_stages(stages, img, meta=None):
+    """전처리 단계를 차례로 적용. 함수에 uses_meta 속성이 있으면 meta(도로 마스크 등)도 넘긴다."""
     out = img
     for fn in stages:
-        out = fn(out)
+        out = fn(out, meta) if getattr(fn, "uses_meta", False) else fn(out)
         if out.dtype != np.uint8 or out.shape != img.shape:
             raise ValueError("전처리 함수는 입력과 같은 크기의 uint8 영상을 돌려줘야 합니다 (받은 값: %s %s)"
                              % (out.dtype, out.shape))
@@ -281,7 +282,7 @@ def run_arm(arm, items, detector, overlay_names=(), overlay_dir=None):
     for i, it in enumerate(items):
         rng = np.random.default_rng(1000 + i)
         t0 = time.perf_counter()
-        img = apply_stages(arm["stages"], it["img"])
+        img = apply_stages(arm["stages"], it["img"], it["meta"])
         t1 = time.perf_counter()
         boxes = detector(img, it["meta"])
         t2 = time.perf_counter()

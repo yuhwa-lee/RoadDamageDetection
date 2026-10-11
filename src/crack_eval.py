@@ -225,7 +225,7 @@ def run(items, arm, out_dir=None):
     recs, widths = [], []
     for it in items:
         t0 = time.perf_counter()
-        img = rr.apply_stages(arm["stages"], it["img"])
+        img = rr.apply_stages(arm["stages"], it["img"], it["meta"])
         mask, boxes = detect_mask(img, it["meta"])
         sec = time.perf_counter() - t0
         rec, w, maps = score_image(it, mask, keep_maps=out_dir is not None)

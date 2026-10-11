@@ -29,6 +29,7 @@ F2 (선정 점수) = 5PR / (4P + R)
 선정 기준
     ① 필수: 재현율이 COLLAPSE 넘게 떨어진 영상이 하나도 없음 (합산 점수는 한 영상의 붕괴를 가린다)
             단, 정답 균열 중심선이 MIN_GT_SKEL px(640 기준) 미만인 영상은 이 검사에서 제외한다
+       필수: 전체 정밀도가 기준보다 MAX_P_DROP 넘게 떨어지지 않음 (헛검출을 사서 재현율을 얻는 선택 방지)
     ② ①을 통과한 것 중 F2 최대
     ③ F2 차이 TIE 이내면 동점으로 보고 덜 공격적인 쪽(목록 앞쪽, none이 가장 앞)
     ④ 확인: 고른 것이 d=3/8 에서도 기준보다 나쁘지 않은지 표에서 함께 본다
@@ -42,6 +43,9 @@ F2 (선정 점수) = 5PR / (4P + R)
     D_REF = 5     정답 균열 띠 폭(640 기준) 중앙값 12.4px의 절반 정도. 3/8에서도 결론이 같은지 함께 출력
     COLLAPSE      0.2. 전체(micro) 재현율은 한 영상이 무너져도 다른 영상에 묻힌다
                   (예: India 1.00 -> 0.00 이 전체로는 -0.09로만 보임). 영상 단위 붕괴를 따로 막는다
+    MAX_P_DROP    0.03. 기준 정밀도(약 0.25)의 약 12%. F2는 재현율을 2배로 보므로 정밀도가 크게 떨어져도
+                  재현율이 오르면 이길 수 있다. 그런 교환을 막는 안전장치. 지금까지의 선택(노이즈 축, 지역 기준선,
+                  파라미터 재확인)은 모두 정밀도 하락 0.01 이내라 결과는 같다
     MIN_GT_SKEL   100 (640 기준 정답 중심선 길이). 정답이 아주 작으면 조각 하나로 재현율이 0과 1을 오가서
                   붕괴 판정이 우연에 좌우된다. 제공 13장에서 Norway_008315만 33px이고 나머지는 모두 315px 이상이라
                   둘 사이 값으로 잡았다 (100px = 640 화면 폭의 약 1/6). 해당 영상도 전체 점수에는 그대로 포함된다
@@ -67,6 +71,7 @@ D_REF = 5
 D_CHECK = (3, 5, 8)
 REF = 640
 COLLAPSE = 0.2
+MAX_P_DROP = 0.03
 MIN_GT_SKEL = 100
 TIE = 0.01
 
@@ -177,7 +182,7 @@ def image_recall(rec, d=D_REF):
 
 def judge(base, recs):
     """선정 기준 ①: 기준(base) 대비 재현율 하락과 영상 단위 붕괴 검사."""
-    r0, r1 = summarize(base, D_REF)[1], summarize(recs, D_REF)[1]
+    (p0, r0, _), (p1, r1, _) = summarize(base, D_REF), summarize(recs, D_REF)
     collapsed, skipped = [], []
     for a, b in zip(base, recs):
         ra, rb = image_recall(a), image_recall(b)
@@ -189,8 +194,9 @@ def judge(base, recs):
             continue
         if ra - rb > COLLAPSE:
             collapsed.append("%s(%.2f->%.2f)" % (a["name"], ra, rb))
-    ok = not collapsed
-    return {"dR": r1 - r0, "collapsed": collapsed, "skipped": skipped, "pass": ok}
+    p_drop = (p0 - p1) > MAX_P_DROP
+    ok = not collapsed and not p_drop
+    return {"dR": r1 - r0, "dP": p1 - p0, "p_drop": p_drop, "collapsed": collapsed, "skipped": skipped, "pass": ok}
 
 
 def pick(rows, base_name="none"):
@@ -272,14 +278,15 @@ def main():
                       % tuple(np.percentile(widths, [50, 25, 75])))
         rows.append((arm["name"], recs, judge(base, recs)))
 
-    print("\n전체 (micro, d=%d)   선정: ① 재현율 %.1f 넘게 무너진 영상 없음  ② F2 최대 (차이 %.2f 이내 동점 -> none 쪽)"
-          % (D_REF, COLLAPSE, TIE))
+    print("\n전체 (micro, d=%d)   선정: ① 재현율 %.1f 넘게 무너진 영상 없음, 정밀도 %.2f 넘게 하락 없음  ② F2 최대 (차이 %.2f 이내 동점 -> none 쪽)"
+          % (D_REF, COLLAPSE, MAX_P_DROP, TIE))
     print("  %-22s %6s %6s %6s | %6s %6s %6s | F2@d3  F2@d8 | %7s %s" % ("arm", "F2", "P", "R", "F1", "tIoU", "pIoU", "재현율변화", "판정"))
     out_rows = []
     for name, recs, j in rows:
         m = report(recs)
         f2_3, f2_8 = fbeta(*summarize(recs, 3)[:2], 2), fbeta(*summarize(recs, 8)[:2], 2)
-        verdict = "기준" if recs is base else ("통과" if j["pass"] else "탈락 (붕괴: " + " ".join(j["collapsed"]) + ")")
+        why = (["정밀도 %.3f 하락" % -j["dP"]] if j["p_drop"] else []) + (["붕괴: " + " ".join(j["collapsed"])] if j["collapsed"] else [])
+        verdict = "기준" if recs is base else ("통과" if j["pass"] else "탈락 (" + ", ".join(why) + ")")
         if j.get("skipped"):
             verdict += "  [정답 작아 판정 제외: %s]" % " ".join(j["skipped"])
         print("  %-22s %6s %6s %6s | %6s %6s %6s | %5s  %5s | %+7.3f  %s"

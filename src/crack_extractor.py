@@ -43,7 +43,24 @@ crack_extractor.py - 정식 균열 추출기 (포트홀은 별도 파일로 만�
                    - 블록 48 / 128 : F2 0.438 / 0.447 통과, 96 : India 붕괴 -> 블록 크기에 민감한 편. 촬영본 추가 시 재확인
                    - 전체 기준선과 지역 기준선 중 큰 값 사용 : 정밀도만 오르고 재현율이 떨어져 F2 0.285~0.332
     4.5단계 PRUNE(조각 안 비골짜기 구간 잘라내기)은 F2 0.343~0.375 로 개선이 없어 꺼둠
-    주의: 1~4단계는 영역 채점 이전에 박스 기준으로 정했다. 영역 재현율 기준으로 다시 확인 필요
+    전체 재확인 (train 22장, 입력 adapt_gauss_s2, 한 번에 하나씩 바꿈. 기준 F2 0.460 / P 0.245 / R 0.590)
+      규칙: 기존 값보다 F2가 0.01 넘게 오르고 붕괴가 없을 때만 바꾼다 (차이 0.01 이내는 같은 성능으로 보고 유지)
+      -> 바뀐 값 없음. 기존 값 그대로 유지
+      Z_LOW/Z_HIGH : 1.0/2.0 0.466, 1.0/3.0 0.456 (동점). 1.25/2.5 0.432 붕괴, 1.5/2.5 0.379 붕괴, 0.75/* IMG_1817 붕괴
+                     -> Z_HIGH는 2~3에서 평평, Z_LOW는 1.0 근처에서 민감
+      BH_KERNEL    : 9 붕괴, 11 0.461 붕괴(China_002209), 21 0.449, 27 붕괴 -> 15 유지
+      MIN_AREA     : 10 0.462, 30 0.457, 40 0.456 (평평)
+      MIN_LENGTH   : 10 0.463, 20 0.459, 30 0.456 (평평)
+      MIN_ELONG    : 2 0.459, 3 0.458, 5 0.463, 6 0.454 (평평)
+      MIN_VALLEY   : 0 0.411, 0.2 0.441, 0.4 붕괴 -> 골짜기 검사는 유효 (0 -> 0.3 에서 F2 +0.05)
+      VALLEY_DELTA : 3 0.441, 3/0.5 붕괴, 8/0.2 붕괴 -> 5 유지
+      LOCAL_BLOCK  : 32 붕괴, 48 0.438, 80 0.450, 96 붕괴(0.469), 128 0.447, 192 붕괴(0.461) -> 32~192 에서 F2 0.44~0.47
+    3.5단계 문맥 걸러내기 (헛검출 출처 분석: 정답 없는 사진 23%, 페인트 근처 14%, 도로 경계 근처 11%)
+      PAINT_K=3, PAINT_MARGIN=4, EDGE_MARGIN=10 : F2 0.460 -> 0.472, P 0.245 -> 0.273, R 0.590 -> 0.578, 붕괴 없음
+      - 페인트만: K 2 0.464, 3 0.468, 4 0.464, 6 0.460 (거의 변화 없음). 여유 7은 US_005996 붕괴
+      - 도로 경계만: 3 0.464, 6 0.463, 10 0.467, 15/20은 Japan_010993 붕괴 (경계에 걸친 균열 손실)
+      - 개선 폭이 작다 (+0.012). 페인트·경계 헛검출의 일부만 지워지고, 나머지 헛검출(그림자 얼룩, 보수 자국,
+        정답 균열이 없는 사진)은 이 방법으로 줄지 않는다. 정밀도의 근본 한계는 '어둡고 가는 선'이라는 단서만 쓰는 것
 
 알려진 한계
     - 나뭇잎 그림자 가장자리는 가늘고 길어서 모양 검사를 통과한다 (조도 보정 전처리가 필요한 문제)
@@ -64,6 +81,10 @@ VALLEY_DELTA = 5.0   # 5단계: 양옆이 중심보다 이만큼(밝기 단계) 
 VALLEY_SIGMA = 2.0   # 5단계: 선 방향을 잴 때 쓰는 구조 텐서 평활 크기
 MIN_VALLEY = 0.3     # 5단계: 중심선 중 골짜기 픽셀 비율이 이 값 미만인 조각은 버림
 LOCAL_BLOCK = 64     # 2단계: 기준선을 이 크기(640 기준) 블록마다 따로 계산한다. 0이면 영상 전체에서 하나
+PAINT_K = 3          # 3.5단계: >0이면 도로 밝기 중앙값 + PAINT_K*MAD보다 밝은 넓은 영역(차선·횡단보도 페인트)을 찾는다
+                     #          (도로 마스크 밖도 포함해서 찾는다: 새 도로 마스크가 밝은 페인트를 빼는 경우가 있어서)
+PAINT_MARGIN = 4     # 3.5단계: 페인트에서 이 거리(640 기준 px) 안의 후보 픽셀을 지운다 (페인트 가장자리의 어두운 띠)
+EDGE_MARGIN = 10     # 3.5단계: >0이면 도로 마스크 경계에서 이 거리 안의 후보 픽셀을 지운다 (연석·벽·인도 경계)
 PRUNE = False        # 4.5단계: 조각 안에서 골짜기가 아닌 구간만 잘라낸다 (거대 연결망 쪼개기)
 PRUNE_WIN = 9        # 4.5단계: 중심선 픽셀 주변 이 크기 창 안에서 골짜기 비율을 본다 (점 하나 단위로 자르면 조각이 잘게 끊긴다)
 PRUNE_FRAC = 0.5     # 4.5단계: 창 안 중심선 중 골짜기 비율이 이 값 미만인 구간을 잘라낸다
@@ -260,6 +281,25 @@ def valley_map(gray, skel, labels, shapes, s=1.0, delta=None):
     return out
 
 
+def context_guard(gray, fg, valid, s=1.0):
+    """3.5단계: 균열처럼 어둡고 가늘지만 균열이 아닌 것(페인트 가장자리, 도로 경계)을 지운다."""
+    out = fg.copy()
+    if PAINT_K > 0 and valid.any():
+        v = gray[valid].astype(np.float32)
+        med = float(np.median(v)); mad = float(np.median(np.abs(v - med))) * 1.4826 + 1e-6
+        paint = (gray > med + PAINT_K * mad).astype(np.uint8)
+        k = _odd(3 * s)
+        paint = cv2.morphologyEx(paint, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (k, k)))
+        m = _odd(2 * PAINT_MARGIN * s + 1)
+        zone = cv2.dilate(paint, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (m, m))) > 0
+        out &= ~zone
+    if EDGE_MARGIN > 0 and not valid.all():
+        m = _odd(2 * EDGE_MARGIN * s + 1)
+        inner = cv2.erode(valid.astype(np.uint8), cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (m, m))) > 0
+        out &= inner
+    return out
+
+
 def prune_non_valley(gray, labels, shapes, s=1.0):
     """4.5단계: 조각 안에서 '양옆이 모두 더 밝은 골짜기'가 아닌 구간만 잘라낸 마스크를 돌려준다.
 
@@ -314,6 +354,7 @@ def extract_cracks(gray, road_mask=None):
     score = blackhat_map(gray)                       # 1
     fg = hysteresis(score, valid)                    # 2
     fg = clean(fg, gray.shape)                       # 3
+    fg = context_guard(gray, fg, valid, _scale(gray))                            # 3.5
     lab, shapes = component_shapes(fg)               # 4
     s = _scale(gray)
     kept = [sh for sh in shapes if is_crack_shape(sh, s)]

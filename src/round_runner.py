@@ -141,14 +141,31 @@ def prepare_input(bgr, name):
                               "road_mask": road}
 
 
+def pothole_only_names():
+    """포트홀만 라벨링한 영상 이름(확장자 제외). train_data/rdd_box/boxes.json에 적힌 영상.
+
+    이 영상들은 균열이 보여도 균열을 칠하지 않는다. 균열 채점에 넣으면 실제 균열 검출이
+    오탐으로 계산되므로, 영상 위치(하위 폴더/최상위)와 상관없이 이름으로 제외한다.
+    """
+    path = SPLIT_DIRS["train"] / "rdd_box" / "boxes.json"
+    if not path.is_file():
+        return set()
+    import json
+    return {os.path.splitext(n)[0] for n in json.loads(path.read_text(encoding="utf-8"))["boxes"]}
+
+
 def load_items(limit=0, split="train"):
-    """split: 'train'(기본, 개발용) / 'test'(최종 평가용) / 'all'. 라벨(labeled_data)이 있는 영상만 불러온다."""
+    """split: 'train'(기본, 개발용) / 'test'(최종 평가용) / 'all'. 라벨(labeled_data)이 있는 영상만 불러온다.
+    포트홀만 라벨링한 영상(pothole_only_names)은 균열 채점에서 항상 제외한다."""
     dirs = list(SPLIT_DIRS.values()) if split == "all" else [SPLIT_DIRS[split]]
+    pothole_only = pothole_only_names()
     items = []
     for d in dirs:
         paths = sorted(p for p in glob.glob(os.path.join(str(d), "*")) if p.lower().endswith(IMG_EXTS))
         for path in paths:
             nm = os.path.splitext(os.path.basename(path))[0]
+            if nm in pothole_only:
+                continue                     # 포트홀만 라벨링한 영상: 균열이 있어도 정답에 없으므로 균열 채점 제외
             if not os.path.exists(os.path.join(str(GT_DIR), "SegmentationClass", nm + ".png")):
                 continue                     # 라벨 없는 영상(capture_pothole_01 등)은 채점할 수 없어 건너뛴다
             bgr = imread_bgr(path)

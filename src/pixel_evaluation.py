@@ -22,14 +22,17 @@ def restore_mask(mask, meta, original_shape):
     return out
 
 
-def ground_truth_mask(item, target='pothole'):
-    gt = np.zeros(item['shape'], bool)
-    for inst in item['inst']:
-        if inst['type'] == target:
-            y, x = inst['y0'], inst['x0']
-            h, w = inst['crop'].shape
-            gt[y:y+h, x:x+w] |= inst['crop']
-    return gt
+# [사용 안 함 - 2026-10-12 주석 처리] 예전 전처리 비교 실행기에서 쓰던 함수.
+# 현재 어떤 파일도 호출하지 않는다 (pothole_eval.py의 save_png/write_csv/comparison은 별개 함수).
+# 팀 결정으로 삭제하지 않고 남겨 둔다. 다시 쓰려면 주석을 풀면 된다.
+# def ground_truth_mask(item, target='pothole'):
+#     gt = np.zeros(item['shape'], bool)
+#     for inst in item['inst']:
+#         if inst['type'] == target:
+#             y, x = inst['y0'], inst['x0']
+#             h, w = inst['crop'].shape
+#             gt[y:y+h, x:x+w] |= inst['crop']
+#     return gt
 
 
 def pixel_counts(pred, gt):
@@ -48,35 +51,38 @@ def metrics(tp, fp, fn):
             'dice': 2*tp/(2*tp+fp+fn) if union else float('nan')}
 
 
-def _write_csv(path, rows):
-    with path.open('w', newline='', encoding='utf-8-sig') as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
-        writer.writeheader()
-        writer.writerows(rows)
-
-
-def _save_png(path, image):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    ok, data = cv.imencode('.png', image)
-    if not ok:
-        raise OSError(str(path))
-    data.tofile(str(path))  # Windows 한글 경로 지원
-
-
-def _comparison(path, gt, pred, title):
-    # 검정 배경 위 실제 픽셀. 흰색은 해당 영역. 아래 오류맵: TP초록 FP빨강 FN파랑.
-    p = pred > 0
-    left = cv.cvtColor(gt.astype(np.uint8)*255, cv.COLOR_GRAY2BGR)
-    right = cv.cvtColor(p.astype(np.uint8)*255, cv.COLOR_GRAY2BGR)
-    errors = np.zeros_like(left)
-    errors[p & gt] = (0, 200, 0)
-    errors[p & ~gt] = (0, 0, 255)
-    errors[~p & gt] = (255, 0, 0)
-    panels = []
-    for panel, label in [(left, 'GT pothole'), (right, 'Prediction'), (errors, 'TP green / FP red / FN blue')]:
-        scale = min(1.0, 640/max(panel.shape[:2]))
-        panel = cv.resize(panel, (max(1, round(panel.shape[1]*scale)), max(1, round(panel.shape[0]*scale))), interpolation=cv.INTER_NEAREST)
-        panel = cv.copyMakeBorder(panel, 35, 0, 0, 0, cv.BORDER_CONSTANT, value=(35,35,35))
-        cv.putText(panel, label, (5,24), cv.FONT_HERSHEY_SIMPLEX, 0.43, (255,255,255), 1, cv.LINE_AA)
-        panels.append(panel)
-    _save_png(path, np.hstack(panels))
+# [사용 안 함 - 2026-10-12 주석 처리] 예전 전처리 비교 실행기에서 쓰던 함수.
+# 현재 어떤 파일도 호출하지 않는다 (pothole_eval.py의 save_png/write_csv/comparison은 별개 함수).
+# 팀 결정으로 삭제하지 않고 남겨 둔다. 다시 쓰려면 주석을 풀면 된다.
+# def _write_csv(path, rows):
+#     with path.open('w', newline='', encoding='utf-8-sig') as f:
+#         writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+#         writer.writeheader()
+#         writer.writerows(rows)
+#
+#
+# def _save_png(path, image):
+#     path.parent.mkdir(parents=True, exist_ok=True)
+#     ok, data = cv.imencode('.png', image)
+#     if not ok:
+#         raise OSError(str(path))
+#     data.tofile(str(path))  # Windows 한글 경로 지원
+#
+#
+# def _comparison(path, gt, pred, title):
+#     # 검정 배경 위 실제 픽셀. 흰색은 해당 영역. 아래 오류맵: TP초록 FP빨강 FN파랑.
+#     p = pred > 0
+#     left = cv.cvtColor(gt.astype(np.uint8)*255, cv.COLOR_GRAY2BGR)
+#     right = cv.cvtColor(p.astype(np.uint8)*255, cv.COLOR_GRAY2BGR)
+#     errors = np.zeros_like(left)
+#     errors[p & gt] = (0, 200, 0)
+#     errors[p & ~gt] = (0, 0, 255)
+#     errors[~p & gt] = (255, 0, 0)
+#     panels = []
+#     for panel, label in [(left, 'GT pothole'), (right, 'Prediction'), (errors, 'TP green / FP red / FN blue')]:
+#         scale = min(1.0, 640/max(panel.shape[:2]))
+#         panel = cv.resize(panel, (max(1, round(panel.shape[1]*scale)), max(1, round(panel.shape[0]*scale))), interpolation=cv.INTER_NEAREST)
+#         panel = cv.copyMakeBorder(panel, 35, 0, 0, 0, cv.BORDER_CONSTANT, value=(35,35,35))
+#         cv.putText(panel, label, (5,24), cv.FONT_HERSHEY_SIMPLEX, 0.43, (255,255,255), 1, cv.LINE_AA)
+#         panels.append(panel)
+#     _save_png(path, np.hstack(panels))

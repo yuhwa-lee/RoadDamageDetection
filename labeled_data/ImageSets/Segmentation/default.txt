@@ -31,3 +31,8 @@ capture_crack_01
 capture_crack_02
 capture_pothole_01
 capture_pothole_02
+China_MotorBike_001794
+Japan_001262
+Japan_005054
+Japan_005515
+Japan_007992

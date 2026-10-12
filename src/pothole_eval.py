@@ -24,6 +24,8 @@ from src.resize_long_side import resize_long_side_with_info
 from src.pothole_edge_extractor import EdgePotholeConfig, detect_mask as edge_detect_mask
 from src.pothole_edge_extractor import detect_potholes as edge_detect_debug, AUDIT_STAGES
 from src.pixel_evaluation import restore_mask, pixel_counts, metrics
+from src.round_runner import apply_stages
+from src.candidates import IDENTITY, compose
 
 # 라벨 보완 중인 영상을 임시로 뺄 때 {'파일명(확장자 제외)': '사유'}로 적는다. 보완이 끝나면 제거.
 # capture_pothole_02는 넣지 않는다: 이름과 달리 포트홀 없이 균열만 있는 사진이고 라벨(균열만)도 맞다.
@@ -169,7 +171,9 @@ def main(argv=None):
     parser.add_argument('--resize', choices=['long','fixed'], default='long')
     parser.add_argument('--limit', type=int, default=0, help='평가 이미지 수 제한. 0이면 전체')
     parser.add_argument('--config', type=Path, help='선택한 검출기 설정값을 지정한 JSON 파일(선택)')
-    parser.add_argument('--preprocess', default='none')
+    parser.add_argument('--preprocess', default='none',
+                        help="회색조에 적용할 전처리 (candidates 이름을 +로 연결, 예: laplacian_a05+adapt_gauss_s2). "
+                             "기본 none = 검출기 단독 평가. 최종 선택은 laplacian_a05+adapt_gauss_s2 (pipeline.py)")
     parser.add_argument('--show', action='store_true', help='비교 창 표시. 아무 키: 다음, ESC/q: 창 표시 종료')
     parser.add_argument('--audit-edge', action='store_true',
                         help='edge 단계별 정답 포함률, 후보 탈락 사유 및 중간 마스크 저장')
@@ -182,6 +186,7 @@ def main(argv=None):
     if args.limit < 0:
         parser.error('--limit는 0 이상이어야 합니다.')
     color = read_pothole_color(gt_dir)
+    pre_arm = IDENTITY if args.preprocess in ('', 'none') else compose(args.preprocess.split('+'))
     config_values = json.loads(args.config.read_text(encoding='utf-8-sig')) if args.config else {}
     config = EdgePotholeConfig(**config_values)
     detector_fn = edge_detect_mask
@@ -212,7 +217,7 @@ def main(argv=None):
         'image_dir': str(image_dir.resolve()), 'gt_dir': str(gt_dir.resolve()),
         'resize': args.resize, 'pothole_rgb': color, 'detector_name': 'edge', 'detector': asdict(config),
         'opencv_version': cv.__version__,
-        'preprocessing': args.preprocess.split('|'),
+        'preprocessing': pre_arm['name'],
         'audit_edge': args.audit_edge,
         'evaluation': 'original image foreground pixel IoU; empty union = NaN',
         'images': [str(p) for p,_ in paired], 'unlabeled_images_skipped': missing,
@@ -234,8 +239,7 @@ def main(argv=None):
         gt = np.all(label == color, axis=-1)
         start = time.perf_counter()
         gray, meta = prepare_input(original, args.resize)
-        if args.preprocess != 'none':
-            parser.error('현재 Edge 전용 실행기는 --preprocess none만 지원합니다.')
+        gray = apply_stages(pre_arm['stages'], gray, meta)
         save_png(output/'preprocessed'/(path.stem+'.png'), gray)
         meta[config_key] = config
         if args.audit_edge:

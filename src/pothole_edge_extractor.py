@@ -11,7 +11,24 @@ proposal_mode='closed_edges'이면 기존 Canny 닫힌 영역 방식을 비교�
     detect(gray, meta=None)       -> (x, y, w, h) 박스 목록
     detect_mask(gray, meta=None)  -> uint8 0/255 마스크
 meta 설정 키: road_mask, pothole_edge_config
-기존 pothole_extractor.py와 실행기는 수정하지 않는다.
+
+기본값 조정 기록 (train 22장 = 포트홀 있음 8 / 없음 14, 640 처리 해상도, 전처리 없음):
+  주 점수 = 포트홀 있는 영상별 IoU 평균. 보조 = 정답 없는 영상 중 오검출 장수, 평균 오검출 면적 비율.
+  (전체 픽셀 합산 IoU는 FP/FN의 99%가 촬영본이라 참고로만 사용)
+                                     평균IoU  오검출 장수  오검출 면적
+  regional 기본(seed 8, growth on)    0.052    13/14     5.68%
+  regional growth off                  0.051    13/14     3.25%
+  seed 12 + growth off                 0.085    13/14     2.20%
+  seed 16 + growth off  <- 채택        0.106     8/14     1.63%
+  seed 20 + growth off                 0.053     7/14     0.82%
+  closed_edges(json)                   0.108     9/14     1.35%
+  - 오검출 정체: 미세 질감이 아니라 골재 틈이 모인 '약하게 어두운 덩어리'(12~48px).
+    근거: 가우시안 σ2~6 적응 평활화로도 오검출 면적이 줄지 않음(5.7% -> 5.1~6.5%).
+  - seed 16: 약하게 어두운 출발점을 버림. 20은 오검출이 더 줄지만 정답 출발점까지 잃어 평균 IoU 하락.
+  - growth off: 밝기 확장이 덩어리를 레이스 모양으로 키워 오검출 면적만 늘림(IoU 동일, 면적 약 절반).
+  - 한계: IoU 상승은 India_002374 한 장 영향이 큼(0.18 -> 0.65). 확실한 개선은 오검출 감소.
+    촬영본 포트홀 3장(IMG_1810/1811/1816)은 어떤 설정에서도 IoU 0~0.07:
+    주변보다 밝고 매끈한 포트홀이라 '어두운 영역' 가정으로는 원리상 검출 불가.
 """
 from dataclasses import dataclass
 
@@ -33,7 +50,7 @@ class EdgePotholeConfig:
     close_sizes: tuple = (3, )
     proposal_mode: str = 'regional'
     region_scales: tuple = (12.0, 24.0, 48.0)  # 주변 밝기 추정 Gaussian sigma
-    region_seed_contrast: float = 8.0
+    region_seed_contrast: float = 16.0  # 8 -> 16: 약하게 어두운 덩어리 오검출 감소 (docstring 기록)
     region_grow_contrast: float = 3.0
     boundary_step: float = 4.0
     boundary_min_contrast: float = 3.0
@@ -63,7 +80,7 @@ class EdgePotholeConfig:
     nms_containment: float = 0.85
     max_candidates: int = 50
     # Edge가 채택한 후보를 seed로, 연결된 유사 밝기 영역만 제한적으로 복원.
-    enable_brightness_growth: bool = True
+    enable_brightness_growth: bool = False  # 오검출 면적만 늘려 기본 비활성 (docstring 기록)
     growth_radius: float = 24.0        # 긴 변 640 기준 최대 이동 거리
     growth_tolerance: float = 20.0    # 시드 중앙 밝기와의 최대 차이
     growth_road_margin: float = 6.0   # 주변 도로보다 허용하는 최대 밝기

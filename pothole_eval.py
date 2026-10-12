@@ -1,7 +1,7 @@
 """포트홀 검출기 단일 설정 평가. 전처리 후보 반복 없이 원본 좌표 픽셀 IoU 계산.
 
-실행: python pothole_eval.py --image-dir dataset --gt-dir labeled_data
-필요: src/pothole_extractor.py, src/pixel_evaluation.py 및 기존 ROI/resize 모듈.
+실행: python pothole_eval.py --config pothole_edge_baseline.json  (기본 입력 train_data; test는 최종 1회만)
+필요: src/pothole_edge_extractor.py, src/pixel_evaluation.py 및 기존 ROI/resize 모듈.
 """
 import argparse
 import csv
@@ -24,6 +24,9 @@ from src.resize_long_side import resize_long_side_with_info
 from src.pothole_edge_extractor import EdgePotholeConfig, detect_mask as edge_detect_mask
 from src.pothole_edge_extractor import detect_potholes as edge_detect_debug, AUDIT_STAGES
 from src.pixel_evaluation import restore_mask, pixel_counts, metrics
+
+# 라벨 보완이 끝나면 이 항목을 제거해 평가에 다시 포함한다.
+TEMPORARY_EXCLUSIONS = {'capture_pothole_02': '포트홀 라벨 누락 보완 중'}
 
 
 def read_pothole_color(gt_dir):
@@ -158,24 +161,17 @@ def save_edge_audit(output, path, debug, meta, gt):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description='포트홀 검출기 1개 설정의 픽셀 IoU 평가')
-    parser.add_argument('--detector', choices=['classic', 'edge'], default='classic',
-                        help='classic: 기존 어두운 영역 기반, edge: 영역 후보와 외곽 검증 (config로 기존 Canny 선택 가능)')
-    parser.add_argument('--image-dir', default='dataset')
+    parser.add_argument('--image-dir', default='train_data', help='기본 train_data. test_data는 최종 평가에만 사용')
     parser.add_argument('--gt-dir', default='labeled_data')
     parser.add_argument('--output', default='out_pothole_eval')
     parser.add_argument('--resize', choices=['long','fixed'], default='long')
     parser.add_argument('--limit', type=int, default=0, help='평가 이미지 수 제한. 0이면 전체')
     parser.add_argument('--config', type=Path, help='선택한 검출기 설정값을 지정한 JSON 파일(선택)')
-    parser.add_argument('--seed', type=int, default=0, help='각 영상의 GrabCut 난수 시드(재현 가능한 비교)')
     parser.add_argument('--preprocess', default='none')
-    parser.add_argument('--refinement', choices=['grow','none'],
-                        help='grow: 후보 영역 확장, none: 이전 후보 마스크. 생략 시 config/default 사용')
     parser.add_argument('--show', action='store_true', help='비교 창 표시. 아무 키: 다음, ESC/q: 창 표시 종료')
     parser.add_argument('--audit-edge', action='store_true',
                         help='edge 단계별 정답 포함률, 후보 탈락 사유 및 중간 마스크 저장')
     args = parser.parse_args(argv)
-    if args.audit_edge and args.detector != 'edge':
-        parser.error('--audit-edge는 --detector edge와 함께 사용하세요.')
     # 잘못된 이름은 ROI 계산/결과 폴더 생성 전에 알린다.
     cv.setNumThreads(1)
     image_dir, gt_dir = Path(args.image_dir), Path(args.gt_dir)
@@ -190,8 +186,11 @@ def main(argv=None):
     config_key = 'pothole_edge_config'
     extensions = {'.jpg','.jpeg','.png','.bmp','.tif','.tiff'}
     paths = sorted(p for p in image_dir.rglob('*') if p.is_file() and p.suffix.lower() in extensions)
-    paired, missing = [], []
+    paired, missing, excluded = [], [], []
     for path in paths:
+        if path.stem in TEMPORARY_EXCLUSIONS:
+            excluded.append({'image': str(path), 'reason': TEMPORARY_EXCLUSIONS[path.stem]})
+            continue
         label_path = gt_dir/'SegmentationClass'/(path.stem+'.png')
         if label_path.is_file():
             paired.append((path,label_path))
@@ -205,18 +204,21 @@ def main(argv=None):
         parser.error('하위 폴더에 같은 이름의 이미지가 중복됩니다. 입력 폴더를 구분하세요.')
     if args.limit:
         paired = paired[:args.limit]
-    output = Path(args.output)/args.detector/datetime.now().strftime('%Y%m%d_%H%M%S_%f')
+    output = Path(args.output)/'edge'/datetime.now().strftime('%Y%m%d_%H%M%S_%f')
     output.mkdir(parents=True, exist_ok=False)
     (output/'run_config.json').write_text(json.dumps({
         'image_dir': str(image_dir.resolve()), 'gt_dir': str(gt_dir.resolve()),
-        'resize': args.resize, 'pothole_rgb': color, 'detector_name': args.detector, 'detector': asdict(config),
-        'seed_per_image': args.seed, 'opencv_version': cv.__version__,
+        'resize': args.resize, 'pothole_rgb': color, 'detector_name': 'edge', 'detector': asdict(config),
+        'opencv_version': cv.__version__,
         'preprocessing': args.preprocess.split('|'),
         'audit_edge': args.audit_edge,
         'evaluation': 'original image foreground pixel IoU; empty union = NaN',
         'images': [str(p) for p,_ in paired], 'unlabeled_images_skipped': missing,
+        'temporarily_excluded_images': excluded,
     }, ensure_ascii=False, indent=2), encoding='utf-8')
     print(f'평가 {len(paired)}장 / 정답 없는 원본 {len(missing)}장 제외 / 전처리 후보 반복 없음')
+    for item in excluded:
+        print(f'임시 평가 제외: {item["image"]} ({item["reason"]})')
     rows, show = [], args.show
     audit_rows = []
     for index, (path,label_path) in enumerate(paired,1):
@@ -229,7 +231,6 @@ def main(argv=None):
             raise ValueError(f'원본과 정답 크기가 다릅니다: {path.name}')
         gt = np.all(label == color, axis=-1)
         start = time.perf_counter()
-        cv.setRNGSeed(args.seed)
         gray, meta = prepare_input(original, args.resize)
         if args.preprocess != 'none':
             parser.error('현재 Edge 전용 실행기는 --preprocess none만 지원합니다.')
@@ -255,6 +256,7 @@ def main(argv=None):
         x1,y1,x2,y2 = meta['roi_coords_original']
         rows.append({'image':path.name, **counts, **scores,
                      'gt_pixels':int(gt.sum()), 'pred_pixels':int((pred>0).sum()),
+                     'image_pixels':int(gt.size),
                      'gt_outside_roi_pixels':int(gt.sum()-gt[y1:y2,x1:x2].sum()),
                      'seconds':seconds})
         save_png(output/'masks'/(path.stem+'.png'),pred)
@@ -284,6 +286,9 @@ def main(argv=None):
                'empty_union_images':sum(r['tp']+r['fp']+r['fn']==0 for r in rows),
                'negative_images':sum(r['gt_pixels']==0 for r in rows),
                'negative_images_with_fp':sum(r['gt_pixels']==0 and r['fp']>0 for r in rows),
+               # 정답 없는 영상의 오검출 면적 비율 평균(영상 크기 영향 제거). 질감 오검출 지표.
+               'negative_mean_fp_fraction':float(np.mean([r['fp']/r['image_pixels'] for r in rows if r['gt_pixels']==0]))
+                   if any(r['gt_pixels']==0 for r in rows) else float('nan'),
                'seconds':sum(r['seconds'] for r in rows)}
     write_csv(output/'per_image.csv',rows)
     write_csv(output/'summary.csv',[summary])
@@ -323,7 +328,10 @@ def main(argv=None):
             'regional *_response.png는 양수 밝기 차(0~255), *_seeds.png는 강한 시작점입니다.\n'
             'regional은 Canny가 닫히지 않아도 후보를 만들지만, 마스크/영상 끝에 닿는 후보는 제외합니다.\n',
             encoding='utf-8')
-    print(f'전체 합산 IoU={summary["global_iou"]:.4f} / 영상 평균 IoU={summary["mean_image_iou"]:.4f}')
+    print(f'[주 점수] 포트홀 영상 평균 IoU={summary["mean_positive_image_iou"]:.4f} / '
+          f'정답없는 영상 오검출 {summary["negative_images_with_fp"]}/{summary["negative_images"]}장, '
+          f'평균 오검출 면적 {100*summary["negative_mean_fp_fraction"]:.2f}% / '
+          f'(참고) 전체 합산 IoU={summary["global_iou"]:.4f}')
     if not any(r['gt_pixels'] for r in rows):
         print('주의: 포트홀 정답 픽셀이 없습니다. 라벨 색상/데이터 구성을 확인하세요.')
     print(f'저장 위치: {output.resolve()}')

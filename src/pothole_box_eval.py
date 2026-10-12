@@ -3,7 +3,8 @@
 실행: python src/pothole_box_eval.py [--config pothole_edge_baseline.json] [--merge 0,8]
 정답:
   - train_data/*.jpg  : labeled_data 픽셀 마스크 -> 연결 영역마다 박스 1개
-  - train_data/rdd_box: RDD2020 원본 박스(boxes.json). 픽셀 마스크 없음 (균열 실행기는 하위 폴더를 읽지 않음)
+  - train_data/rdd_box: labeled_data에 같은 이름의 픽셀 라벨이 있으면 그것을 쓰고(위와 동일하게 박스화),
+                        없으면 RDD2020 원본 박스(boxes.json). (균열 실행기는 하위 폴더를 읽지 않음)
 채점 (모두 긴 변 640 처리 좌표, 균열 채점과 같은 캔버스):
   - 정답 박스와 검출 박스를 IoU가 큰 쌍부터 1:1로 짝지음.
   - IoU >= 0.5 를 '찾음'으로 셈 (PASCAL VOC / RDD 대회 기준). 작은 포트홀에 엄격하므로 0.3도 함께 보고.
@@ -78,7 +79,8 @@ def load(image_dir, gt_dir):
     rdd = image_dir / 'rdd_box' / 'boxes.json'
     if rdd.is_file():
         for name, boxes in json.loads(rdd.read_text(encoding='utf-8'))['boxes'].items():
-            items.append((rdd.parent / name, 'box', boxes))
+            lp = gt_dir / 'SegmentationClass' / (Path(name).stem + '.png')
+            items.append((rdd.parent / name, 'mask', lp) if lp.is_file() else (rdd.parent / name, 'box', boxes))
     out = []
     for p, kind, gt in items:
         org = cv.imdecode(np.fromfile(str(p), np.uint8), cv.IMREAD_COLOR)
@@ -87,15 +89,17 @@ def load(image_dir, gt_dir):
             full = np.all(np.array(Image.open(gt).convert('RGB')) == color, -1)
             x1, y1, x2, y2 = meta['roi_coords_original']
             m = cv.resize(full[y1:y2, x1:x2].astype(np.uint8), (gray.shape[1], gray.shape[0]), interpolation=cv.INTER_NEAREST)
+            pix = m > 0   # 픽셀 채점용 (640 처리 좌표)
             m = cv.morphologyEx(m, cv.MORPH_CLOSE, np.ones((3, 3), np.uint8))
             n, _, st, _ = cv.connectedComponentsWithStats(m)
             boxes = [[x, y, x+w, y+h] for x, y, w, h, a in st[1:] if a >= GT_MIN_AREA]
             lost = 0
         else:
             proc = [to_proc(b, meta, gray) for b in gt]
-            boxes = [b for b in proc if b]; lost = len(proc) - len(boxes)
-        src = 'rdd_box' if kind == 'box' else ('captured' if p.name.startswith(('IMG', 'capture', 'cap_')) else 'provided')
-        out.append(dict(name=p.name, src=src, gray=gray, meta=meta, gt=boxes, gt_outside_roi=lost))
+            boxes = [b for b in proc if b]; lost = len(proc) - len(boxes); pix = None
+        src = 'rdd_box' if p.parent.name == 'rdd_box' else ('captured' if p.name.startswith(('IMG', 'capture', 'cap_')) else 'provided')
+        out.append(dict(name=p.name, src=src, kind=kind, gray=gray, meta=meta, gt=boxes, gt_outside_roi=lost, pix=pix,
+                        label=str(gt) if kind == 'mask' else None))
     return out
 
 

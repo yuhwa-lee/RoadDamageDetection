@@ -1,6 +1,6 @@
 """포트홀 검출기 단일 설정 평가. 전처리 후보 반복 없이 원본 좌표 픽셀 IoU 계산.
 
-실행: python pothole_eval.py --config pothole_edge_baseline.json  (기본 입력 train_data; test는 최종 1회만)
+실행: python src/pothole_eval.py --config pothole_edge_baseline.json  (기본 입력 train_data; test는 최종 1회만)
 필요: src/pothole_edge_extractor.py, src/pixel_evaluation.py 및 기존 ROI/resize 모듈.
 """
 import argparse
@@ -16,8 +16,8 @@ import cv2 as cv
 import numpy as np
 from PIL import Image
 
-ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT / "src"))
+ROOT = Path(__file__).resolve().parent.parent   # repo 최상위 (이 파일은 src/ 안)
+sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / "src"))
 
 from src.image_ROI_Resize import define_roi, resize_image_with_info
 from src.resize_long_side import resize_long_side_with_info
@@ -163,9 +163,9 @@ def save_edge_audit(output, path, debug, meta, gt):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description='포트홀 검출기 1개 설정의 픽셀 IoU 평가')
-    parser.add_argument('--image-dir', default='train_data', help='기본 train_data. test_data는 최종 평가에만 사용')
-    parser.add_argument('--gt-dir', default='labeled_data')
-    parser.add_argument('--output', default='out_pothole_eval')
+    parser.add_argument('--image-dir', default=str(ROOT / 'train_data'), help='기본 train_data. test_data는 최종 평가에만 사용')
+    parser.add_argument('--gt-dir', default=str(ROOT / 'labeled_data'))
+    parser.add_argument('--output', default=str(ROOT / 'out_pothole_eval'))
     parser.add_argument('--resize', choices=['long','fixed'], default='long')
     parser.add_argument('--limit', type=int, default=0, help='평가 이미지 수 제한. 0이면 전체')
     parser.add_argument('--config', type=Path, help='선택한 검출기 설정값을 지정한 JSON 파일(선택)')

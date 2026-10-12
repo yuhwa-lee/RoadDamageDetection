@@ -25,8 +25,10 @@ from src.pothole_edge_extractor import EdgePotholeConfig, detect_mask as edge_de
 from src.pothole_edge_extractor import detect_potholes as edge_detect_debug, AUDIT_STAGES
 from src.pixel_evaluation import restore_mask, pixel_counts, metrics
 
-# 라벨 보완이 끝나면 이 항목을 제거해 평가에 다시 포함한다.
-TEMPORARY_EXCLUSIONS = {'capture_pothole_02': '포트홀 라벨 누락 보완 중'}
+# 라벨 보완 중인 영상을 임시로 뺄 때 {'파일명(확장자 제외)': '사유'}로 적는다. 보완이 끝나면 제거.
+# capture_pothole_02는 넣지 않는다: 이름과 달리 포트홀 없이 균열만 있는 사진이고 라벨(균열만)도 맞다.
+#   여기서 나온 검출은 실제 근접 질감 오검출이므로 음성 영상으로 평가해야 한다 (2026-10-12 확인).
+TEMPORARY_EXCLUSIONS = {}
 
 
 def read_pothole_color(gt_dir):

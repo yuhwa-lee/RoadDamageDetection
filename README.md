@@ -6,6 +6,8 @@ PBL 모듈 1 · 4조 (이예은, 이유화, 황윤식)
 
 2차과제수행계획서 https://docs.google.com/document/d/1gPKncIodOa8m3Pw-KXM9q3F3sMBTCdc97xOjchROhuQ/edit?tab=t.0
 
+최종 결과보고서 https://docs.google.com/document/d/18NafcbSBh2mw-YOwKyLk-3RSyE1EMZj2S6sZaNsNIz4/edit?tab=t.0
+
 딥러닝 없이 영상처리 알고리즘만으로 저품질 도로 영상을 전처리하고 균열·포트홀 후보 영역을 추출한다.
 전처리 전·후 결과(에지·특징점 수, 후보 수·면적, 처리 시간, 정답 대비 정확도)를 정량 비교한다.
 
